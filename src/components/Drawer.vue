@@ -1,7 +1,7 @@
 <template>
   <div id="drawer" class="drawer">
-    <button v-on:click="greet"> Ello </button>
-    <h1> Drawer. {{counter}} </h1>
+    <button @click="greet"> Ello </button>
+    <h1> Drawer. </h1>
   </div>
 </template>
 
@@ -10,7 +10,6 @@ export default {
   name: 'drawer',
   data: () => {
     return {
-    counter: 0,
     el: '#drawer',
     }
   },
