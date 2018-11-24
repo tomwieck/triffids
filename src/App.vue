@@ -3,18 +3,21 @@
     <Header />
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Drawer />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
+import Drawer from './components/Drawer.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Header
+    Header,
+    Drawer
   }
 }
 </script>
