@@ -1,0 +1,23 @@
+{
+  "name": "triffid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomwieck/triffid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomwieck/triffid/issues"
+  },
+  "homepage": "https://github.com/tomwieck/triffid#readme",
+  "devDependencies": {
+    "@vue/cli": "^3.1.3"
+  }
+}
