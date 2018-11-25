@@ -16,9 +16,9 @@ def getBenches(lat, long, radius):
     data = json.loads(webpage)
 
     benches = data['features']
-
+    #print(benches)
     return benches
 
 
-#getBenches(51.234, -1.234, 20)
+getBenches(51.234, -1.234, 20)
 

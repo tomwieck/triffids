@@ -26,4 +26,22 @@ def getAllParkNames():
 
     return parkNames
 
-getAllParkNames()
+def getNearestParks(lat, long):
+    lat = 51.437975
+    long = -2.590024
+
+    parkNames = []
+
+    i = 0
+
+    for record in data:
+        parkData = record['fields']
+        if i == 0:
+            print(parkData['geo_point_2d'])
+        i += 1
+        point = parkData['geo_point_2d'][0]
+
+    return 0
+
+#getNearestParks(0, 0)
+
