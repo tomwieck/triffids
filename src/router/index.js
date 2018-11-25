@@ -10,7 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'Parks',
-      component: List
+      component: List,
     },
     {
       path: '/park/:id',
