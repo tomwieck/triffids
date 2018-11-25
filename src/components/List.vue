@@ -9,7 +9,7 @@
           <h3> {{ park.title }} </h3>
           <svg width="100%" height="auto" viewBox="0 0 20 10">
             <g v-for="shape in park.coords">
-              <polygon :points="calculateSvgShape(shape)" style="fill:lime;stroke:purple;stroke-width:1" transform="translate(-200 -54450)" />
+              <polygon :points="calculateSvgShape(shape)" style="fill:lime;" transform="translate(-400 -54450)" />
             </g>
 
             Sorry, your browser does not support inline SVG.
