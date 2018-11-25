@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <div id="mapid"></div>
-    </div>
+  <div>
+    <div id="mapid"></div>
+  </div>
 </template>
 
 <script>
@@ -15,8 +15,6 @@ let trees = axios.get(testUrl)
       })
     console.log(l);
   });
-// let tree1 = trees[0];
-// console.log('Tree 1: ' + trees);
 export default {
   data: () => {
     return {
@@ -46,14 +44,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-tmap {
-  width: 100%;
-  left: 0;
-  top: 0;
-}
+
 #mapid {
-  height: 400px;
-  width: 600px;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
 }
 </style>
 

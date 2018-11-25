@@ -1,9 +1,10 @@
 <template>
-  <div class="hello">
+  <div>
     <Header v-bind:message="name" />
-    <h1> {{ name }} </h1>
-    <Tmap />
-    <ParkDrawer />
+    <div class="content">
+      <Tmap />
+      <ParkDrawer />
+    </div>
   </div>
 </template>
 
@@ -31,6 +32,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 h3 {
   margin: 40px 0 0;
 }

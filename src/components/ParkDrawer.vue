@@ -71,6 +71,7 @@ export default {
   height: 50%;
   overflow-y: scroll;
   padding: 16px;
+  z-index: 100;
 
   &.expanded {
     height: 1em;
