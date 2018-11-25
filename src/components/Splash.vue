@@ -1,18 +1,24 @@
 <template>
   <main class="main">
-    <img src="smiley.gif" alt="Smiley face" width="42" height="42" style="display:block; margin: 0 auto; margin-top: 4em;">
+    <img :src="image" alt="Smiley face" width="400" height="400" style="display:block; margin: 0 auto; margin-top: 4em;">
   </main>
 </template>
 
 <script>
-import Header from './Header.vue'
+import image from "../assets/logo.png"
 
 export default {
   name: 'list',
+  data: function () {
+      return {
+          image: image
+      }
+  },
+
   mounted: () => {
     setTimeout(()=>{
       window.location.href = "/#/parks"
-    }, 3000)
+    }, 2000)
   }
 }
 </script>
@@ -24,8 +30,9 @@ ul {
 }
 
 .main {
-  background: green;
+  background: #098e38;
   margin: 0;
+  margin-top: -60px;
   text-decoration: none;
   padding: 0.1em;
   min-height: 100vh;

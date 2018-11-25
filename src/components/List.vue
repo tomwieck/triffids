@@ -73,7 +73,7 @@ ul {
 }
 
 .main {
-  background: green;
+  background: #009133;
   margin: 0;
   text-decoration: none;
   padding: 0.1em;
@@ -89,7 +89,7 @@ a {
 
 h3 {
   font-size: 1.4em;
-  color: green;
+  color: #009133;
   margin: 0;
 }
 
@@ -119,6 +119,6 @@ li {
 }
 
 .stats > span > b {
-  color: green;
+  color: #009133;
 }
 </style>
