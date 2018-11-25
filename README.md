@@ -35,6 +35,7 @@ npm run lint
 getPark(name)                 - curl http://localhost:4242/server/getPark/?name="Filwood Park"
 getAllParkNames()             - curl http://localhost:4242/server/getAllParkNames"
 getTrees(siteCode, lat, long) - curl http://localhost:4242/server/getTrees/?siteCode="FILWPA"&lat=0&long=0
+getBenches(lat, long, radius) - curl http://localhost:4242/server/getBenches/?lat=0&long=0&radius=0
 ```
 
 For getTrees(siteCode, lat, long) pass 0s for lat and long to search by park site code. Pass coordinates to search by point instead
