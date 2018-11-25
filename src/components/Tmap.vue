@@ -1,8 +1,7 @@
 <template>
-    <div>
-        <div id="mapid"></div>
-        <h1>Map</h1>
-    </div>
+  <div>
+    <div id="mapid"></div>
+  </div>
 </template>
 
 <script>
@@ -49,14 +48,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-tmap {
-  width: 100%;
-  left: 0;
-  top: 0;
-}
+
 #mapid {
-  height: 400px;
-  width: 600px;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
 }
 </style>
 

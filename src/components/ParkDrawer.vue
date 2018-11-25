@@ -29,7 +29,7 @@
       </p>
       <hr />
       <div class="drawer__report">
-        <a target="_blank" href="https://www.bristol.gov.uk/museums-parks-sports-culture/parks-and-open-spaces">
+        <a target="_blank" href="https://www.bristol.gov.uk/museums-parks-sports-culture/report-problem-in-park">
           Report an issue with this facility <Chevron />
         </a>
       </div>
@@ -71,13 +71,18 @@ export default {
   height: 50%;
   overflow-y: scroll;
   padding: 16px;
+  z-index: 100;
 
   &.expanded {
-    height: 40px;
+    height: 1em;
+    button > svg {
+      transform: rotate(-90deg);
+    }
   }
 
   &__button {
-    background-color: none;
+    background: white;
+    padding-bottom: 1em;
     border: none;
     cursor: pointer;
     margin-bottom: 16px;
