@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <Header v-bind:message="name" />
-    <h1> {{ name }} </h1>
+    <Header v-bind:message="'London Plane'" />
+    <div class="tree"> </div>
     <TreeDrawer />
   </div>
 </template>
@@ -40,5 +40,12 @@ li {
 }
 a {
   color: #42b983;
+}
+.tree {
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  background-image: url('https://www.mcfallandberry.com/wp-content/uploads/2016/04/london-plane-tree-1.jpg');
+  background-size: cover;
 }
 </style>
