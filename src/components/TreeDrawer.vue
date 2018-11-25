@@ -1,36 +1,34 @@
 <template>
   <div id="drawer" class="drawer">
-    <button class="drawer__button" @click="greet">
-      <Chevron class="rotate"/>
-    </button>
-    <div class="drawer__trees">
-      <div class="drawer__tree">
-        <img alt="Vue logo" src="../assets/tree1.svg">
-        <div>
-          <span class="drawer__tree-title">13</span> Unique species
-        </div>
+    <div class="drawer__summary">
+      <h1>London Plane</h1>
+      <div class="drawer__subtitle">
+        <span>Platanus x hispanica</span>
       </div>
-      <div class="drawer__tree">
-        <img alt="Vue logo" src="../assets/tree2.svg">
-        <div>
-          <span class="drawer__tree-title">143</span> Trees in total
-        </div>
-      </div>
+      <ul>
+        <li>Height 5.76m</li>
+        <li>Girth 87cm</li>
+        <li>Age ~240</li>
+      </ul>
     </div>
     <hr />
     <div class="drawer__about">
-      <h1> About Victoria Park </h1>
-      <ul>
-        <li>Free admission</li>
-        <li>Open at all times</li>
-      </ul>
+      <h2>Special information about this specimen</h2>
       <p>
-        The park was established in the 1880s following the expansion of Bedminster as a residential and industrial area within Bristol. The council bought 51.5 acres (20.8 ha) of land from Sir John Henry Greville Smyth for £20,678 (now £2,110,000), though the land had been used as an unofficial open space and meeting area for some time before this. By 1887, a children's play area had been installed which became immediately popular. The streets around the park were laid out in 1891. By 1898, four rangers were permanently employed in the park, and a bandstand had been installed. Several drinking fountains and a circular pond had also been established.
+        London Planes grow very rapidly, and this vast specimen was probably associated with Brislington House. It now fills the valley of the brook, and is hollow. It was in danger of being ruined by fires built inside its hollow trunk, a common fate of veteran trees, but was recently saved by being bricked up. The species came to Britain in 1690, and is still being widely planted.
       </p>
+      <hr />
+      <h2>General information about this species</h2>
+      <p>
+        Platanus × acerifolia, the London plane, London planetree, or hybrid plane, is a tree in the genus Platanus. It is often known by the synonym Platanus × hispanica. It is usually thought to be a hybrid of Platanus orientalis (oriental plane) and Platanus occidentalis (American sycamore). Some authorities think that it may be a cultivar of P. orientalis.
+      </p>
+      <span class="drawer__source">
+        Source: Wikipedia
+      </span>
       <hr />
       <div class="drawer__report">
         <a target="_blank" href="https://www.bristol.gov.uk/museums-parks-sports-culture/parks-and-open-spaces">
-          Report an issue with this facility <Chevron />
+          Report an issue with this tree <Chevron />
         </a>
       </div>
     </div>
@@ -41,7 +39,7 @@
 import Chevron from './Chevron.vue'
 
 export default {
-  name: 'drawer',
+  name: 'treeDrawer',
   data: () => {
     return {
       el: '#drawer',
@@ -49,12 +47,6 @@ export default {
   },
   components: {
     Chevron
-  },
-  methods: {
-    greet: function () {
-      const drawer = document.getElementById('drawer')
-      drawer.classList.contains('expanded') ? drawer.classList.remove('expanded') : drawer.classList.add('expanded')
-    }
   }
 }
 </script>
@@ -87,7 +79,17 @@ export default {
     }
   }
 
+  &__subtitle {
+    margin-bottom: 16px;
+  }
+
+  &__summary {
+    padding-bottom: 16px;
+    text-align: left;
+  }
+
   &__about {
+    padding-top: 8px;
     text-align: left;
   }
 
@@ -108,13 +110,21 @@ export default {
     text-align: left;
     width: 50%;
   }
+
+  &__source {
+    color: grey;
+  }
 }
 
-h1,
-.drawer__tree-title {
+h1, h2 {
   color: #058E3F;
   font-family: 'Helvetica';
   font-weight: 400;
+  margin: 4px 0;
+}
+
+h2 {
+  font-size: 18px;
 }
 
 hr {

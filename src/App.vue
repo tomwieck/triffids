@@ -2,19 +2,21 @@
   <div id="app">
     <Header />
     <router-view></router-view>
-    <Drawer />
+    <TreeDrawer />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import Drawer from './components/Drawer.vue'
+import ParkDrawer from './components/ParkDrawer.vue'
+import TreeDrawer from './components/TreeDrawer.vue'
 
 export default {
   name: 'app',
   components: {
     Header,
-    Drawer
+    ParkDrawer,
+    TreeDrawer
   }
 }
 </script>
