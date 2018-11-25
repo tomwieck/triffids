@@ -1,37 +1,36 @@
-import requests
+import json
 
-url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
+def getTrees(siteCode, lat, long):
 
-params = dict(
-  dataset='trees',
-)
+    with open('trees.json') as json_file:
+        data = json.load(json_file)
 
-response = requests.get(url=url, params=params)
+    trees = {}
 
+    if (lat == 0 and long == 0):
 
-if response.status_code != 200:
-    print("API Request failed")
-else:
-    data = response.json()
+        for record in data:
 
+            treeData = record['fields']
 
-trees = {}
+            if (siteCode == treeData['site_code']):
+                trees.update(treeData)
 
-for record in data['records']:
+        if (bool(trees) == False):
+            print("No trees found in that area")
+        else:
+            return trees
 
-    field = record['fields']
+    else:
+        for record in data:
 
-    if field['type'] == 'Tree - Parks and Green Space':
-        asset_id = field['asset_id']
-        site_name = field['site_name']
-        full_common_name = field['full_common_name']
-        latin_name = field['latin_name']
-        geo_shape = field['geo_shape']
-        dbh = field['dbh']
-        type = field['type']
+            treeData = record['fields']
+            treeLat = treeData['geo_point_2d'][0]
+            treeLong = treeData['geo_point_2d'][1]
 
-        tree = {asset_id: [full_common_name, latin_name, site_name, dbh, geo_shape, type]}
+            if (treeLat == lat and treeLong == long):
+                return treeData
 
-        trees.update(tree)
+        print("No trees found at that coordinate point")
+        return 0
 
-print(trees.values())

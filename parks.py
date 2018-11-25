@@ -1,30 +1,29 @@
-import requests
+import json
 
-url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
+with open('parks-and-greens-spaces.json') as json_file:
+    data = json.load(json_file)
 
-params = dict(
-  dataset='parks-and-greens-spaces',
-)
+def getPark(name):
 
-response = requests.get(url=url, params=params)
+    for record in data:
+        parkData = record['fields']
+        site_name = parkData['site_name']
 
-if response.status_code != 200:
-    print("API Request failed")
-else:
-    data = response.json()
+        if (site_name == name):
+            print(parkData)
+            return parkData
 
-parks = {}
+    print("Park not found")
+    return 0
 
-for record in data['records']:
+def getAllParkNames():
+    parkNames = []
 
-    field = record['fields']
-    objectid = field['objectid']
-    site_name = field['site_name']
-    geo_shape = field['geo_shape']
+    for record in data:
+        parkData = record['fields']
+        site_name = parkData['site_name']
+        parkNames.append(site_name)
 
-    park = {objectid: [site_name, geo_shape]}
+    return parkNames
 
-    parks.update(park)
-
-#print(parks.keys())
-
+getAllParkNames()
