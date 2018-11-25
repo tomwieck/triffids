@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <ul>
-      <li v-for="park in parks">
+      <li v-for="park in parks" v-bind:key="park.id">
         <router-link :to="{
           path: getParkLink(park.id),
           query: { title: park.title }

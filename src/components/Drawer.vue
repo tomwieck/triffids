@@ -4,14 +4,16 @@
       <Chevron class="rotate"/>
     </button>
     <div class="drawer__trees">
-      <div>
+      <div class="drawer__tree">
+        <img alt="Vue logo" src="../assets/tree1.svg">
         <div>
-          <span>13</span>
-          Unique species
+          <span class="drawer__tree-title">13</span> Unique species
         </div>
+      </div>
+      <div class="drawer__tree">
+        <img alt="Vue logo" src="../assets/tree2.svg">
         <div>
-          <span>143</span>
-          Trees in total
+          <span class="drawer__tree-title">143</span> Trees in total
         </div>
       </div>
     </div>
@@ -42,7 +44,7 @@ export default {
   name: 'drawer',
   data: () => {
     return {
-    el: '#drawer',
+      el: '#drawer',
     }
   },
   components: {
@@ -75,9 +77,14 @@ export default {
   }
 
   &__button {
+    background-color: none;
     border: none;
     cursor: pointer;
     width: 100%;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__about {
@@ -85,6 +92,7 @@ export default {
   }
 
   &__report {
+    padding: 8px 0;
     a {
       color: #058E3F;
       font-family: 'Helvetica';
@@ -92,9 +100,18 @@ export default {
     }
   }
 
+  &__trees {
+    display: flex;
+  }
+
+  &__tree {
+    text-align: left;
+    width: 50%;
+  }
 }
 
-h1 {
+h1,
+.drawer__tree-title {
   color: #058E3F;
   font-family: 'Helvetica';
   font-weight: 400;
