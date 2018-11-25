@@ -18,7 +18,7 @@ let trees = axios.get(ODBUrl)
       console.log(list);
       loadTrees(list);
   });
-
+let markers = []
 function loadTrees(trees) {
     mymap = L.map('mapid').setView([lat, lng], 16);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -40,8 +40,6 @@ export default {
     return {
       trees: trees
     }
-  },
-  mounted: function () {
   },
   name: 'Tmap',
 }
