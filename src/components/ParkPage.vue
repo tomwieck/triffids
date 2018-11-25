@@ -1,10 +1,13 @@
 <template>
   <div class="hello">
     <h1> {{ name }} </h1>
+    <Tmap />
   </div>
 </template>
 
 <script>
+import Tmap from './Tmap.vue';
+
 export default {
   name: 'ParkPage',
   props: {
@@ -12,6 +15,9 @@ export default {
       type: String,
       default: 'none'
     }
+  },
+  components: {
+    Tmap
   }
 }
 </script>

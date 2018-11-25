@@ -8,15 +8,12 @@
 
 <script>
 import Header from './components/Header.vue'
-import Tmap from './components/Tmap.vue'
 import Drawer from './components/Drawer.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
     Header,
-    Tmap,
     Drawer
   }
 }
