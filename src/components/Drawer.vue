@@ -27,7 +27,8 @@ export default {
 <style scoped lang="scss">
 .drawer {
   width: 100%;
-  background: yellow;
+  background: #eee;
+  border-radius: 20px 20px 0 0;
   left: 0;
   bottom: 0;
   position: fixed;
