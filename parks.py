@@ -22,7 +22,8 @@ def getAllParkNames():
     for record in data:
         parkData = record['fields']
         site_name = parkData['site_name']
-        parkNames.append(site_name)
+        id = parkData['objectid']
+        parkNames.append({'id': id, 'siteName': site_name})
 
     return parkNames
 
