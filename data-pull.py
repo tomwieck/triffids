@@ -10,6 +10,8 @@ resp = requests.get(url=url, params=params)
 data = resp.json() # Check the JSON Response Content documentation below
 print('returned')
 
+print(data)
+
 tree_types = {}
 
 for record in data['records']:
@@ -24,6 +26,6 @@ for record in data['records']:
       tree_types[tree_type] = amount + 1
 
 for key in tree_types:
-  print key, tree_types[key]
+  print (key, tree_types[key])
 
-print 'total:', len(tree_types)
+#print 'total:', len(tree_types)
