@@ -22,11 +22,9 @@ export default {
     }
   },
   components: {
-  },
-  components: {
     Tmap,
     Header,
-    ParkDrawer
+    ParkDrawer,
   }
 }
 </script>

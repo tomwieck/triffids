@@ -1,7 +1,6 @@
 <template>
     <div>
         <div id="mapid"></div>
-        <h1>Map</h1>
     </div>
 </template>
 
