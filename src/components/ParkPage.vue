@@ -1,10 +1,13 @@
 <template>
   <div class="hello">
+    <Header v-bind:message="name" />
     <h1> {{ name }} </h1>
   </div>
 </template>
 
 <script>
+import Header from './Header.vue'
+
 export default {
   name: 'ParkPage',
   props: {
@@ -12,6 +15,9 @@ export default {
       type: String,
       default: 'none'
     }
+  },
+  components: {
+    Header,
   }
 }
 </script>

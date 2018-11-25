@@ -1,12 +1,15 @@
 <template>
-  <header class="header">
-    <h1> Triffids. </h1>
+  <header class="header layer">
+    <h1> {{ message }} </h1>
   </header>
 </template>
 
 <script>
 export default {
   name: 'appHeader',
+  props: {
+    message: String
+  }
 }
 </script>
 
@@ -14,10 +17,12 @@ export default {
 <style scoped>
 .header {
   width: 100%;
-  background: green;
+  background: white;
   left: 0;
   top: 0;
   position: fixed;
   height: 60px;
+  z-index: 99;
+  font-size: .8em;
 }
 </style>
