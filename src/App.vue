@@ -6,7 +6,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 import Header from './components/Header.vue'
 import ParkDrawer from './components/ParkDrawer.vue'
 import TreeDrawer from './components/TreeDrawer.vue'
