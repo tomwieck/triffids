@@ -29,7 +29,7 @@ function loadTrees(trees) {
     }).addTo(mymap);
     trees.forEach(t => {
       let marker = L.marker([t['geo_point_2d'][0], t['geo_point_2d'][1]]).addTo(mymap);
-      marker.bindPopup('<a href="/tree/rs">' + t['common_name']+'</a>');
+      marker.bindPopup('<a href="#/tree/1234">' + t['common_name']+'</a>');
     });
 }
 
