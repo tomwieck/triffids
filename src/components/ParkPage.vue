@@ -2,10 +2,13 @@
   <div class="hello">
     <Header v-bind:message="name" />
     <h1> {{ name }} </h1>
+    <Tmap />
   </div>
 </template>
 
 <script>
+import Tmap from './Tmap.vue';
+
 import Header from './Header.vue'
 
 export default {
@@ -18,6 +21,9 @@ export default {
   },
   components: {
     Header,
+  },
+  components: {
+    Tmap
   }
 }
 </script>
