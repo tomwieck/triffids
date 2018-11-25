@@ -17,7 +17,7 @@ let trees = axios.get(testUrl)
       console.log(list);
       loadTrees(list);
   });
-
+let markers = []
 function loadTrees(trees) {
     mymap = L.map('mapid').setView([lat, lng], 16);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -29,6 +29,11 @@ function loadTrees(trees) {
     trees.forEach(t => {
       let marker = L.marker([t['geo_point_2d'][0], t['geo_point_2d'][1]]).addTo(mymap);
       marker.bindPopup(t['common_name']);
+      marker.on('click', (ev)=>{
+        window.location.href = "/#/tree/739274892"
+      });
+      markers.push[marker]
+
     });
 }
 
@@ -39,8 +44,6 @@ export default {
     return {
       trees: trees
     }
-  },
-  mounted: function () {
   },
   name: 'Tmap',
 }
