@@ -1,14 +1,17 @@
 <template>
   <div class="hello">
-    <h1> Triffids. </h1>
+    <h1> {{ name }} </h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'ParkPage',
   props: {
-    msg: String
+    name: {
+      type: String,
+      default: 'none'
+    }
   }
 }
 </script>
