@@ -3,6 +3,7 @@
     <Header v-bind:message="name" />
     <h1> {{ name }} </h1>
     <Tmap />
+    <ParkDrawer />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Tmap from './Tmap.vue';
 
 import Header from './Header.vue'
+import ParkDrawer from './ParkDrawer.vue'
 
 export default {
   name: 'ParkPage',
@@ -20,10 +22,11 @@ export default {
     }
   },
   components: {
-    Header,
   },
   components: {
-    Tmap
+    Tmap,
+    Header,
+    ParkDrawer,
   }
 }
 </script>

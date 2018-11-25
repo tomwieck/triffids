@@ -77,6 +77,7 @@ ul {
   margin: 0;
   text-decoration: none;
   padding: 0.1em;
+  min-height: 100vh;
 }
 
 a {
