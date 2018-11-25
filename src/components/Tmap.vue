@@ -8,8 +8,9 @@
 const lat = 51.44080;
 const lng = -2.58889;
 var mymap;
-const testUrl = `https://opendata.bristol.gov.uk/api/records/1.0/search/?dataset=trees&q=site_code%3DVICTPA&facet=feature_type_name&facet=common_name`;
-let trees = axios.get(testUrl)
+const ODBUrl = `https://opendata.bristol.gov.uk/api/records/1.0/search/?dataset=trees&q=site_code%3DVICTPA&facet=feature_type_name&facet=common_name`;
+const localUrl = `http://localhost:4242/server/getTrees/?siteCode="VICTPA"&lat=0&long=0`;
+let trees = axios.get(ODBUrl)
   .then((resp) => {
       const list = resp.data.records.map((item, idx) => {
         return item.fields;
@@ -28,7 +29,7 @@ function loadTrees(trees) {
     }).addTo(mymap);
     trees.forEach(t => {
       let marker = L.marker([t['geo_point_2d'][0], t['geo_point_2d'][1]]).addTo(mymap);
-      marker.bindPopup(t['common_name']);
+      marker.bindPopup('<a href="/tree/rs">' + t['common_name']+'</a>');
     });
 }
 
