@@ -2,19 +2,16 @@
   <div class="hello">
     <Header v-bind:message="name" />
     <h1> {{ name }} </h1>
-    <Tmap />
-    <ParkDrawer />
+    <TreeDrawer />
   </div>
 </template>
 
 <script>
-import Tmap from './Tmap.vue';
-
 import Header from './Header.vue'
-import ParkDrawer from './ParkDrawer.vue'
+import TreeDrawer from './TreeDrawer.vue'
 
 export default {
-  name: 'ParkPage',
+  name: 'TreePage',
   props: {
     name: {
       type: String,
@@ -22,11 +19,8 @@ export default {
     }
   },
   components: {
-  },
-  components: {
-    Tmap,
     Header,
-    ParkDrawer
+    TreeDrawer
   }
 }
 </script>

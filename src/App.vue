@@ -1,25 +1,15 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <TreeDrawer />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import ParkDrawer from './components/ParkDrawer.vue'
-import TreeDrawer from './components/TreeDrawer.vue'
-
 export default {
   name: 'app',
   props: {
     name: String
   },
-  components: {
-    Header,
-    ParkDrawer,
-    TreeDrawer
-  }
 }
 </script>
 

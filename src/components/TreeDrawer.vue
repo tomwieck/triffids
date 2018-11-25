@@ -27,7 +27,7 @@
       </span>
       <hr />
       <div class="drawer__report">
-        <a target="_blank" href="https://www.bristol.gov.uk/museums-parks-sports-culture/parks-and-open-spaces">
+        <a target="_blank" href="https://www.bristol.gov.uk/museums-parks-sports-culture/what-to-do-if-you-have-a-problem-with-a-tree">
           Report an issue with this tree <Chevron />
         </a>
       </div>
