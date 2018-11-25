@@ -3,27 +3,22 @@ from urllib.request import Request, urlopen
 import json
 import urllib
 
-params = dict(
-    latitude='51.234',
-    longitude='-1.234',
-    radius='10',
-    format='raw',
-)
 
-url = 'https://openbenches.org/data.json/&format=raw'
-url = 'https://openbenches.org/data.json/?latitude=51.234&longitude=-1.234&radius=20&format=raw'
+def getBenches(lat, long, radius):
+    lat = str(lat)
+    long = str(long)
+    radius = str(radius)
 
-req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-webpage = urlopen(req).read()
-data = json.loads(webpage)
+    url = 'https://openbenches.org/data.json/' + '?latitude=' + lat + '&longitude=' + long + '&radius=' + radius + '&format=raw'
 
-benches = data['features']
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    webpage = urlopen(req).read()
+    data = json.loads(webpage)
 
-print(benches)
+    benches = data['features']
 
-firstBench = benches[0]
+    return benches
 
-#Find out what requests will be done ---> add fetch by parameters
-#Use pico for python server
-#Integrate other tree dataset
-#Web scraping park info?
+
+#getBenches(51.234, -1.234, 20)
+
