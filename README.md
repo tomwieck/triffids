@@ -90,3 +90,6 @@ tree: {
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Test deployment on Firebase https://triffidsbcc.firebaseapp.com
