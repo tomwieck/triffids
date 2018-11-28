@@ -6,6 +6,9 @@ node_modules
 .env.local
 .env.*.local
 
+# local cache files
+__pycache__
+
 # Log files
 npm-debug.log*
 yarn-debug.log*
@@ -19,3 +22,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
