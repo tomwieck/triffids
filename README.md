@@ -92,4 +92,13 @@ tree: {
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### Test deployment on Firebase https://triffidsbcc.firebaseapp.com
+### To deploy to firebase
+`npm install -g firebase-tools` (if not already installed)
+`firebase login` (Should be a one time login)
+`firebase deploy`
+
+[More info](https://firebase.google.com/docs/hosting/deploying)
+
+
+### Test deployment on Firebase 
+https://triffidsbcc.firebaseapp.com
