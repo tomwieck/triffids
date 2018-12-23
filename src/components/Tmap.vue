@@ -1,11 +1,15 @@
 <template>
   <div>
-    <div id="mapid"></div>
+    <div id="mapid">
+      <CircleSpinner v-if="loading" size="large"></CircleSpinner>
+    </div>
   </div>
 </template>
 
 <script>
 import L from "leaflet";
+import { CircleSpinner } from "vue-spinners";
+
 import { treeIconService as treeIcons } from "../services/TreeIcon.service";
 import { treeService } from "../services/Tree.service.js";
 
@@ -23,6 +27,7 @@ const personIcon = L.Icon.extend({
 
 export default {
   name: "Tmap",
+  components: { CircleSpinner },
   data() {
     return {
       // url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}',
