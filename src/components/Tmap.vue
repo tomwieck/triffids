@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     resize: function(full) {
+      this.$log.info("Tmap:resize triggered");
       if (full) {
         this.mymap.panBy([0, 0]);
       } else {
@@ -55,6 +56,7 @@ export default {
       }
     },
     mapLoaded() {
+      this.$log.info("Tmap:mapLoaded triggered");
       if (this.mymap) {
         this.zoom = this.mymap.getZoom();
         this.bounds = this.mymap.getBounds();
@@ -64,18 +66,21 @@ export default {
     },
     mapClicked() {},
     zoomUpdated() {
+      this.$log.info("Tmap:zoomUpdated triggered");
       if (this.mymap) {
         this.zoom = this.mymap.getZoom();
         this.bounds = this.mymap.getBounds();
       }
     },
     moveUpdated() {
+      this.$log.info("Tmap:moveUpdated triggered");
       if (this.mymap) {
         this.center = this.mymap.getCenter();
         this.bounds = this.mymap.getBounds();
       }
     },
     async loadTrees() {
+      this.$log.info("Tmap:loadTrees triggered");
       const response = await treeService.trees();
       this.trees = response.map(val => {
         return {
@@ -99,6 +104,7 @@ export default {
           this.mymap
         );
       }, this);
+      this.$log.info(`Tmap:loadTrees ${this.treeCount} loaded`);
       this.loading = false;
     }
   },
