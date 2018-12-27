@@ -83,7 +83,7 @@ export default {
     },
     async loadTrees() {
       this.$log.info("Tmap:loadTrees triggered");
-      const response = await treeService.trees();
+      const response = await treeService.trees("VICTPA");
       this.trees = response.map(val => {
         return {
           name: val.common_name,
