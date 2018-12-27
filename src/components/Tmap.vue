@@ -64,7 +64,9 @@ export default {
       }
       this.loading = false;
     },
-    mapClicked() {},
+    mapClicked() {
+      this.$log.info("Tmap:mapClicked triggered");
+    },
     zoomUpdated() {
       this.$log.info("Tmap:zoomUpdated triggered");
       if (this.mymap) {
@@ -100,9 +102,16 @@ export default {
           icon: treeIcons.getIconFor(tree.name),
           title: tree.full_name
         };
-        L.marker([tree.geo_point.lat, tree.geo_point.lng], options).addTo(
-          this.mymap
-        );
+        L.marker([tree.geo_point.lat, tree.geo_point.lng], options)
+          .addTo(this.mymap)
+          .bindPopup(
+            "<b>" +
+              tree.full_name +
+              "</b><br>H: " +
+              tree.height +
+              "<br>W: " +
+              tree.girth
+          );
       }, this);
       this.$log.info(`Tmap:loadTrees ${this.treeCount} loaded`);
       this.loading = false;
