@@ -48,7 +48,6 @@ def getNearestParks(lat, long):
 
     for record in data:
         parkData = record['fields']
-        import pdb; pdb.set_trace()
         if i == 0:
             print(parkData['geo_point_2d'])
         i += 1
@@ -59,7 +58,4 @@ def getNearestParks(lat, long):
     # site_name -> siteName
     # objectid / site_code(?) -> id
     # geo_point_2d[0, 1] -> {lat: 0, long: 0}
-
-
-#getNearestParks(0, 0)
 
