@@ -28,6 +28,12 @@ const personIcon = L.Icon.extend({
 export default {
   name: "Tmap",
   components: { CircleSpinner },
+  props: {
+    drawerState: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       // url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}',
@@ -45,6 +51,13 @@ export default {
       treeCount: 0,
       loading: true
     };
+  },
+  watch: {
+    drawerState: function() {
+      this.drawerState
+        ? this.mymap.panBy([0, 300])
+        : this.mymap.panBy([0, -300]);
+    }
   },
   methods: {
     resize: function(full) {

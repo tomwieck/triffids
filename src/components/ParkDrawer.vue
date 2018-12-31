@@ -1,6 +1,6 @@
 <template>
   <div id="drawer" class="drawer">
-    <button class="drawer__button" @click="greet">
+    <button class="drawer__button" @click="drawerToggle">
       <Chevron class="rotate"/>
     </button>
     <div class="drawer__trees">
@@ -54,8 +54,9 @@ export default {
     Chevron
   },
   methods: {
-    greet: function() {
+    drawerToggle: function() {
       const drawer = document.getElementById("drawer");
+      this.$emit("toggle-drawer", drawer.classList.contains("expanded"));
       drawer.classList.contains("expanded")
         ? drawer.classList.remove("expanded")
         : drawer.classList.add("expanded");
