@@ -5,5 +5,5 @@ export default axios.create({
   // headers: {
   //   'Content-Type': 'application/vnd.api+json',
   //   Authorization: 'Bearer {token}'
-  // }    
+  // }
 })

@@ -17,9 +17,9 @@ export const treeService = {
 
 /**
  * get the count of trees for this park.
- * 
+ *
  * this will return 0 if the site_code is not found
- * 
+ *
  * @param {string} site_code the code for the site
  * @return number the count of trees found
  */
@@ -34,9 +34,9 @@ function count(site_code) {
 
 /**
  * return an array of records for the trees found.
- * 
+ *
  * empty if nothing found
- * 
+ *
  * @param {string} site_code the code for the site
  */
 function trees(site_code) {
