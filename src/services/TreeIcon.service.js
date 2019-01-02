@@ -11,7 +11,7 @@ var TreeIcon = L.Icon.extend({
     shadowSize: [24, 24],
     iconAnchor: [20, 12],
     shadowAnchor: [0, 0],
-    popupAnchor: [-3, -64],
+    popupAnchor: [-8, -14],
     className: 'treeicon'
   }
 })

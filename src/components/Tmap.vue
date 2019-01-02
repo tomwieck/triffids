@@ -160,15 +160,6 @@ export default {
 <style scoped>
 @import url("../../node_modules/leaflet/dist/leaflet.css");
 
-.personIcon {
-  color: red;
-}
-.leaflet-popup {
-  background-color: lime;
-}
-.leaflet-popup-content {
-  font-size: 1.6em;
-}
 #mapid {
   height: 100vh;
   width: 100%;

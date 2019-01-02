@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Hello from '@/components/Hello'
 import ParkPage from '../components/ParkPage.vue'
 import TreePage from '../components/TreePage.vue'
 import List from '../components/List.vue'
