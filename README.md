@@ -1,36 +1,43 @@
 # triffids
 
 ## Server setup
+
 ```
-python -m pico.server example
+python -m pico.server server
 ```
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 ### Run your tests
+
 ```
 npm run test
 ```
 
 ### Lints and fixes files
+
 ```
 npm run lint
 ```
 
 ## Available functions
+
 ```
 getPark(name)                 - curl http://localhost:4242/server/getPark/?name="Filwood Park"
 getAllParkNames()             - curl http://localhost:4242/server/getAllParkNames"
@@ -89,16 +96,17 @@ tree: {
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-
 ### To deploy to firebase
+
 `npm install -g firebase-tools` (if not already installed)
 `firebase login` (Should be a one time login)
 `firebase deploy`
 
 [More info](https://firebase.google.com/docs/hosting/deploying)
 
+### Test deployment on Firebase
 
-### Test deployment on Firebase 
 https://triffidsbcc.firebaseapp.com
