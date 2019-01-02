@@ -60,6 +60,16 @@ export default {
     }
   },
   methods: {
+    treeModal: function(data) {
+      // this.$log.info("showModal: ", data.full_name);
+      let imgsrc = require("../assets/tree-sil.jpg");
+      return `<div class="tree-modal">
+            <img src="${imgsrc}"/>
+            <div class="full-name">${data.full_name}</div>
+            <div class="latin-name">${data.latin}</div>
+            <a href="" class="button">Find out more</a>
+        </div>`;
+    },
     resize: function(full) {
       this.$log.info("Tmap:resize triggered");
       if (full) {
@@ -113,18 +123,17 @@ export default {
       this.trees.forEach(function(tree) {
         const options = {
           icon: treeIcons.getIconFor(tree.name),
-          title: tree.full_name
+          title: tree.full_name // used for tooltip
+        };
+        const popupOptions = {
+          minWidth: 400,
+          maxWidth: 800,
+          keepInView: true,
+          className: "tree-modal"
         };
         L.marker([tree.geo_point.lat, tree.geo_point.lng], options)
           .addTo(this.mymap)
-          .bindPopup(
-            "<b>" +
-              tree.full_name +
-              "</b><br>H: " +
-              tree.height +
-              "<br>W: " +
-              tree.girth
-          );
+          .bindPopup(this.treeModal(tree), popupOptions);
       }, this);
       this.$log.info(`Tmap:loadTrees ${this.treeCount} loaded`);
       this.loading = false;
@@ -157,14 +166,33 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 @import url("../../node_modules/leaflet/dist/leaflet.css");
 
-.personIcon {
-  color: red;
+.tree-modal {
+  text-align: center;
+  bottom: -60px !important; /* to line up on the tree icon */
+}
+.tree-modal img {
+  width: 100%;
+  height: 100%;
+}
+.latin-name {
+  font-style: italic;
+}
+.full-name {
+  font-size: 2em;
+  color: darkgreen;
+}
+.tree-modal a.button {
+  display: block;
+  padding: 13px 30px;
+  background-color: rgb(27, 201, 152);
+  color: white;
+  font-size: 1em;
 }
 .leaflet-popup {
-  background-color: lime;
+  /* background-color: lime; */
 }
 .leaflet-popup-content {
   font-size: 1.6em;
