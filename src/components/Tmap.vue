@@ -1,64 +1,198 @@
 <template>
   <div>
-    <div id="mapid"></div>
+    <div id="mapid">
+      <CircleSpinner v-if="loading" size="large"></CircleSpinner>
+    </div>
   </div>
 </template>
 
 <script>
-const lat = 51.44080;
-const lng = -2.58889;
-// const treeIcon = {
-//   iconUrl: '../assets/tree-dk.png'
-// } 
-var mymap;
-const ODBUrl = `https://opendata.bristol.gov.uk/api/records/1.0/search/?dataset=trees&q=site_code%3DVICTPA&rows=20&facet=feature_type_name&facet=common_name`;
-// const localUrl = `http://localhost:4242/server/getTrees/?siteCode="VICTPA"&lat=0&long=0`;
-function loadTrees() {
-  const res = axios.get(ODBUrl)
-    .then((resp) => {
-      const trees = resp.data.records.map((item) => {
-        return item.fields;
-      })
-      console.log(trees);
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-          maxZoom: 18,
-          id: 'mapbox.streets',
-          accessToken: 'pk.eyJ1IjoiamFsYWxza2kiLCJhIjoiY2pvd3d3bm40MXcxczNrbzlyazB2ZDVobyJ9.wV99nDE6dCfGjMUrEIjgFQ'
-      }).addTo(mymap);
-      trees.forEach(t => {
-        let marker = L.marker([t['geo_point_2d'][0], t['geo_point_2d'][1]]).addTo(mymap);
-        marker.bindPopup('<a href="#/tree/1234">' + t['common_name']+'</a>');
-      });
-    }, (err) => {
-      console.log('Tmap ajax call: Error loading data: ', err);
-    });
-}
+import L from "leaflet";
+import { CircleSpinner } from "vue-spinners";
+
+import { treeIconService as treeIcons } from "../services/TreeIcon.service";
+import { treeService } from "../services/Tree.service.js";
+
+const personIcon = L.Icon.extend({
+  options: {
+    iconUrl: require("../assets/person-marker.png"),
+    iconSize: [24, 24],
+    shadowSize: [24, 24],
+    iconAnchor: [20, 12],
+    shadowAnchor: [0, 0],
+    popupAnchor: [-3, -64],
+    className: "personicon"
+  }
+});
 
 export default {
-  name: 'Tmap',
-  mounted: function () {
-      const center = lat - 0.005; // this is a temporary hack to center the map above the sliding drawer, use map.panTo() to move it.
-      mymap = L.map('mapid').setView([center, lng], 15);
-      loadTrees();
+  name: "Tmap",
+  components: { CircleSpinner },
+  props: {
+    drawerState: {
+      type: Boolean,
+      default: true
+    }
+  },
+  data() {
+    return {
+      // url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}',
+      url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+      center: [51.44059, -2.58889],
+      attribution:
+        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      zoom: 16,
+      bounds: null,
+      id: "mapbox.streets",
+      token:
+        "pk.eyJ1IjoiamFsYWxza2kiLCJhIjoiY2pvd3d3bm40MXcxczNrbzlyazB2ZDVobyJ9.wV99nDE6dCfGjMUrEIjgFQ",
+      mymap: null,
+      trees: null,
+      treeCount: 0,
+      loading: true
+    };
+  },
+  watch: {
+    drawerState: function() {
+      this.drawerState
+        ? this.mymap.panBy([0, 300])
+        : this.mymap.panBy([0, -300]);
+    }
   },
   methods: {
+    treeModal: function(data) {
+      // this.$log.info("showModal: ", data.full_name);
+      let imgsrc = require("../assets/tree-sil.jpg");
+      return `<div class="tree-modal">
+            <img src="${imgsrc}"/>
+            <div class="full-name">${data.full_name}</div>
+            <div class="latin-name">${data.latin}</div>
+            <a href="" class="button">Find out more</a>
+        </div>`;
+    },
     resize: function(full) {
-      console.log('Resize triggered')
+      this.$log.info("Tmap:resize triggered");
       if (full) {
-        mymap.panTo(lat, lng)
+        this.mymap.panBy([0, 0]);
       } else {
-        mymap.panTo(lat - 0.005, lng)
+        this.mymap.panBy([0, 300]);
       }
+    },
+    mapLoaded() {
+      this.$log.info("Tmap:mapLoaded triggered");
+      if (this.mymap) {
+        this.zoom = this.mymap.getZoom();
+        this.bounds = this.mymap.getBounds();
+        this.center = this.mymap.getCenter();
+      }
+      this.loading = false;
+    },
+    mapClicked() {
+      this.$log.info("Tmap:mapClicked triggered");
+    },
+    zoomUpdated() {
+      this.$log.info("Tmap:zoomUpdated triggered");
+      if (this.mymap) {
+        this.zoom = this.mymap.getZoom();
+        this.bounds = this.mymap.getBounds();
+      }
+    },
+    moveUpdated() {
+      this.$log.info("Tmap:moveUpdated triggered");
+      if (this.mymap) {
+        this.center = this.mymap.getCenter();
+        this.bounds = this.mymap.getBounds();
+      }
+    },
+    async loadTrees() {
+      this.$log.info("Tmap:loadTrees triggered");
+      const response = await treeService.trees("VICTPA");
+      this.trees = response.map(val => {
+        return {
+          name: val.common_name,
+          full_name: val.full_common_name,
+          girth: val.dbh,
+          width: val.crown_area,
+          height: val.crown_height,
+          latin: val.latin_name,
+          latin_code: val.latin_code,
+          geo_point: { lat: val.geo_point_2d[0], lng: val.geo_point_2d[1] }
+        };
+      });
+      this.treeCount = response.length;
+      this.trees.forEach(function(tree) {
+        const options = {
+          icon: treeIcons.getIconFor(tree.name),
+          title: tree.full_name // used for tooltip
+        };
+        const popupOptions = {
+          minWidth: 400,
+          maxWidth: 800,
+          keepInView: true,
+          className: "tree-modal"
+        };
+        L.marker([tree.geo_point.lat, tree.geo_point.lng], options)
+          .addTo(this.mymap)
+          .bindPopup(this.treeModal(tree), popupOptions);
+      }, this);
+      this.$log.info(`Tmap:loadTrees ${this.treeCount} loaded`);
+      this.loading = false;
     }
+  },
+  mounted: function() {
+    this.mymap = L.map("mapid").setView(this.center, 16);
+    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+      attribution: this.attribution,
+      zoom: this.zoom,
+      id: this.id,
+      access_token: this.token
+    }).addTo(this.mymap);
+    this.mymap.panBy([0, 300]); // TODO: this is an estimate!
+
+    const personOptions = {
+      icon: new personIcon(),
+      title: "You are here",
+      alt: "You are here!"
+    };
+    L.marker(this.center, personOptions).addTo(this.mymap);
+
+    this.mymap.on("load", this.mapLoaded);
+    this.mymap.on("click", this.mapClicked);
+    this.mymap.on("zoomend", this.zoomUpdated);
+    this.mymap.on("moveend", this.moveUpdated);
+    this.loadTrees();
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+@import url("../../node_modules/leaflet/dist/leaflet.css");
+
+.tree-modal {
+  text-align: center;
+  bottom: -60px !important; /* to line up on the tree icon */
+}
+.tree-modal img {
+  width: 100%;
+  height: 100%;
+}
+.latin-name {
+  font-style: italic;
+}
+.full-name {
+  font-size: 2em;
+  color: darkgreen;
+}
+.tree-modal a.button {
+  display: block;
+  padding: 13px 30px;
+  background-color: rgb(27, 201, 152);
+  color: white;
+  font-size: 1em;
+}
 .leaflet-popup {
-  background-color: lime;
+  /* background-color: lime; */
 }
 .leaflet-popup-content {
   font-size: 1.6em;
