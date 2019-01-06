@@ -36,6 +36,26 @@ npm run test
 npm run lint
 ```
 
+### To deploy to firebase
+`npm install -g firebase-tools` (if not already installed)
+`firebase login` (Should be a one time login)
+`firebase deploy`
+
+[More info](https://firebase.google.com/docs/hosting/deploying)
+
+### Test deployment on Firebase
+https://triffidsbcc.firebaseapp.com
+
+
+## Server setup
+```
+cd server
+python -m pico.server example
+```
+
+Ensure pico is installed - `pip install pico`
+Virtualenv recommended - https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html
+
 ## Available functions
 
 ```

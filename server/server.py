@@ -20,12 +20,16 @@ def application(environ, start_response):
     return ''
 
 @pico.expose()
-def getPark(name):
-    return parks.getPark(name)
+def getPark(code):
+    return parks.getPark(code)
 
 @pico.expose()
 def getAllParkNames():
     return parks.getAllParkNames()
+
+@pico.expose()
+def getNearestParks(lat, long):
+    return parks.getNearestParks(lat, long)
 
 @pico.expose()
 def getTrees(siteCode, lat, long):
