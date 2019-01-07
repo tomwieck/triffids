@@ -3,6 +3,7 @@ import json
 with open('parks-and-greens-spaces.json') as json_file:
     data = json.load(json_file)
 
+
 def getPark(code):
     # Example 'code' CUMBBASO
     park = []
@@ -12,9 +13,10 @@ def getPark(code):
 
         if (site_code == code):
             park.append({
-                'id': parkData['site_code'],
-                'siteName': parkData['site_name'],
-                'geoPoint': parkData['geo_point_2d'],
+                'id': str(parkData['site_code']),
+                'siteName': str(parkData['site_name']),
+                'lat': parkData['geo_point_2d'][0],
+                'long': parkData['geo_point_2d'][1],
                 'geoShape': parkData['geo_shape']
             })
             print(park)
@@ -23,17 +25,20 @@ def getPark(code):
     print("Park not found")
     return 0
 
+
 def getAllParkNames():
     parkNames = []
 
     for record in data:
         parkData = record['fields']
         parkNames.append({
-            'id': parkData['site_code'],
-            'siteName': parkData['site_name']
+            'id': str(parkData['site_code']),
+            'siteName': str(parkData['site_name'])
         })
 
     return parkNames
+
+# TODO - Get location lat and long and locate nearest parks
 
 def getNearestParks(lat, long):
     lat = 51.437975
@@ -54,8 +59,6 @@ def getNearestParks(lat, long):
         point = parkData['geo_point_2d'][0]
 
     return 0
-    # return
-    # site_name -> siteName
-    # objectid / site_code(?) -> id
-    # geo_point_2d[0, 1] -> {lat: 0, long: 0}
 
+
+# getPark("CUMBBASO")

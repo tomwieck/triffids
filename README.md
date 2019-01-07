@@ -71,15 +71,11 @@ For getTrees(siteCode, lat, long) pass 0s for lat and long to search by park sit
 
 ```
 park:{
-  "site_name":"Filwood Park",
-  "objectid":"4107",
-  "site_code":"FILWPA",
-  "geo_point_2d":[
-      51.4216453530745,
-      -2.583616749058728
-  ],
-  "uprn":"000000303842",
-  "geo_shape":{
+  "id":"FILWPA",
+  "siteName":"Filwood Park",
+  "lat":"51.4216453530745",
+  "long":"-2.583616749058728",
+  "geoShape":{
     "type":"Polygon",
     "coordinates":[
       [(too many elements to preview)]
