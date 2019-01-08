@@ -54,6 +54,7 @@ python app.py
 ```
 
 Ensure Flask is installed - `pip install flask`
+Also install Flask_Cors   - `pip install -U flask-cors`
 Virtualenv recommended - https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html
 
 ## Available functions
