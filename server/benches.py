@@ -9,10 +9,13 @@
 #     long = str(long)
 #     radius = str(radius)
 
-#     url = 'https://openbenches.org/data.json/' + '?latitude=' + lat + '&longitude=' + long + '&radius=' + radius + '&format=raw'
+#     url = 'https://openbenches.org/data.json/' + '?latitude=' + lat + '&longitude=' +
+#           long + '&radius=' + radius + '&format=raw'
 
 #     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+
 #     webpage = urlopen(req).read()
+
 #     data = json.loads(webpage)
 
 #     benches = data['features']

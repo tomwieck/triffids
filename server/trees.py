@@ -1,8 +1,8 @@
 import json
-import xmltodict
-import pprint
-from xml.dom import minidom
-from decimal import Decimal
+# import xmltodict
+# import pprint
+# from xml.dom import minidom
+# from decimal import Decimal
 
 
 def getTrees(siteCode, lat, long):
@@ -10,13 +10,13 @@ def getTrees(siteCode, lat, long):
     with open('trees.json') as json_file:
         data = json.load(json_file)
 
-    with open('specialTrees.xml') as xml_file:
-        specialTreeData = xmltodict.parse(xml_file.read())
+    # with open('specialTrees.xml') as xml_file:
+    #     specialTreeData = xmltodict.parse(xml_file.read())
 
     #print(specialTreeData)
 
-    for record in specialTreeData:
-        pop = 0
+    # for record in specialTreeData:
+    #     pop = 0
 
     # Read specialTrees.json
     specialTrees = {}
@@ -31,6 +31,7 @@ def getTrees(siteCode, lat, long):
 
     trees = []
 
+    # Search for trees by park
     if (lat == 0 and long == 0):
 
         for record in data:
@@ -49,10 +50,12 @@ def getTrees(siteCode, lat, long):
 
         if (bool(trees) == False):
             print("No trees found in that area")
-            return 0
+            return trees
         else:
+            #print(trees)
             return trees
 
+    # Search for trees by coordinates
     else:
         for record in data:
 
@@ -64,7 +67,8 @@ def getTrees(siteCode, lat, long):
                 return treeData
 
         print("No trees found at that coordinate point")
-        return 0
+        return trees
 
 
-getTrees("VICTPA", 0, 0)
+
+#getTrees("VICTPA", 0, 0)
