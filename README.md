@@ -3,7 +3,7 @@
 ## Server setup
 
 ```
-python -m pico.server server
+python app.py
 ```
 
 ## Project setup
@@ -50,19 +50,19 @@ https://triffidsbcc.firebaseapp.com
 ## Server setup
 ```
 cd server
-python -m pico.server example
+python app.py
 ```
 
-Ensure pico is installed - `pip install pico`
+Ensure Flask is installed - `pip install flask`
 Virtualenv recommended - https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html
 
 ## Available functions
 
 ```
-getPark(name)                 - curl http://localhost:4242/server/getPark/?name="Filwood Park"
-getAllParkNames()             - curl http://localhost:4242/server/getAllParkNames"
-getTrees(siteCode, lat, long) - curl http://localhost:4242/server/getTrees/?siteCode="FILWPA"&lat=0&long=0
-getBenches(lat, long, radius) - curl http://localhost:4242/server/getBenches/?lat=0&long=0&radius=0
+getPark(parkCode)             - curl http://localhost:5000/server/park/"parkCode"
+getAllParkNames()             - curl http://localhost:5000/server/allParkNames
+getTrees(siteCode, lat, long) - curl http://localhost:5000/server/trees/"parkCode"/"lat"/"long"
+getBenches(lat, long, radius) - curl http://localhost:5000/server/benches/"lat"/"long"/"radius"
 ```
 
 For getTrees(siteCode, lat, long) pass 0s for lat and long to search by park site code. Pass coordinates to search by point instead

@@ -50,7 +50,7 @@ def getTrees(siteCode, lat, long):
 
         if (bool(trees) == False):
             print("No trees found in that area")
-            return 0
+            return trees
         else:
             #print(trees)
             return trees
@@ -67,7 +67,7 @@ def getTrees(siteCode, lat, long):
                 return treeData
 
         print("No trees found at that coordinate point")
-        return 0
+        return trees
 
 
 
