@@ -11,7 +11,8 @@ import L from "leaflet";
 import { CircleSpinner } from "vue-spinners";
 
 import { treeIconService as treeIcons } from "../services/TreeIcon.service";
-import { treeService } from "../services/Tree.service.js";
+import { treePhotoService as treePhotos } from "../services/TreePhoto.service";
+import { treeService } from "../services/Tree.service";
 
 const personIcon = L.Icon.extend({
   options: {
@@ -62,8 +63,8 @@ export default {
   },
   methods: {
     treeModal: function(data) {
-      // this.$log.info("showModal: ", data.full_name);
-      let imgsrc = require("../assets/tree-sil.jpg");
+      this.$log.info("showModal: ", data.full_name);
+      let imgsrc = treePhotos.getPhotoFor(data.name);
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
