@@ -54,9 +54,10 @@ export default {
   },
   watch: {
     drawerState: function() {
+      const moveBy = window.innerHeight / 3;
       this.drawerState
-        ? this.mymap.panBy([0, 300])
-        : this.mymap.panBy([0, -300]);
+        ? this.mymap.panBy([0, moveBy])
+        : this.mymap.panBy([0, -1 * moveBy]);
     }
   },
   methods: {
