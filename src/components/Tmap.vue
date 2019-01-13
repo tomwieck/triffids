@@ -63,6 +63,7 @@ export default {
   },
   methods: {
     treeModal: function(data) {
+      this.$log.info("showModal: ", data.full_name);
       let imgsrc = treePhotos.getPhotoFor(data.name);
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import {
   treeTypes
 } from '../utils/TreeTypes'
