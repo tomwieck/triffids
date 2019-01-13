@@ -10,7 +10,7 @@ export const treePhotoService = {
 const trees = treeTypes();
 
 function getPhotoFor(name) {
-  Vue.$log.info('getPhotoFor: ', trees[name]);
+  // Vue.$log.info('getPhotoFor: ', trees[name]);
   if (trees[name]) {
     return require(`../assets/trees/photos/${trees[name]['photo']}.jpg`);
   } else {

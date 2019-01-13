@@ -42,7 +42,7 @@ export default {
       center: [51.44059, -2.58889],
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: 16,
+      zoom: 17,
       bounds: null,
       id: "mapbox.streets",
       token:
@@ -63,7 +63,6 @@ export default {
   },
   methods: {
     treeModal: function(data) {
-      this.$log.info("showModal: ", data.full_name);
       let imgsrc = treePhotos.getPhotoFor(data.name);
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
@@ -142,7 +141,7 @@ export default {
     }
   },
   mounted: function() {
-    this.mymap = L.map("mapid").setView(this.center, 16);
+    this.mymap = L.map("mapid").setView(this.center, this.zoom);
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution: this.attribution,
       zoom: this.zoom,
