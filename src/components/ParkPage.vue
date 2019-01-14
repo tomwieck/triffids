@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header v-bind:message="name"/>
+    <Header v-bind:message="name" v-bind:hasBack="true"/>
     <div class="content">
       <Tmap :drawerState="drawerState"/>
       <ParkDrawer @toggle-drawer="clicked"/>

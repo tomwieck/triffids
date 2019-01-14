@@ -1,17 +1,23 @@
 <template>
   <main class="main">
-    <Header v-bind:message="'Choose a park'" />
+    <Header v-bind:message="'Choose a park'" v-bind:hasBack="false"/>
     <ul>
       <li v-for="park in parks" v-bind:key="park.id" class="layer">
-        <router-link :to="{
+        <router-link
+          :to="{
           path: getParkLink(park.id),
           query: { title: park.title }
-        }">
-          <h3> {{ park.title }} </h3>
+        }"
+        >
+          <h3>{{ park.title }}</h3>
           <span class="small">{{ park.location }}</span>
           <div class="stats">
-              <span><b>{{park.trees.unique}}</b> Unique species</span>
-              <span><b>{{park.trees.unique}}</b> Total trees</span>
+            <span>
+              <b>{{park.trees.unique}}</b> Unique species
+            </span>
+            <span>
+              <b>{{park.trees.unique}}</b> Total trees
+            </span>
           </div>
         </router-link>
       </li>
@@ -20,54 +26,53 @@
 </template>
 
 <script>
-import Header from './Header.vue'
+import Header from "./Header.vue";
 
 export default {
-  name: 'list',
+  name: "list",
   data: () => {
     return {
       parks: [
         {
-          title: 'Victoria park',
-          id: 'victoria_park',
-          location: 'Bedminster',
+          title: "Victoria park",
+          id: "victoria_park",
+          location: "Bedminster",
           trees: {
             amount: 123,
             unique: 3
           }
         },
         {
-          title: 'Clifton downs',
-          id: 'clifton_downs',
-          location: 'Clifton',
+          title: "Clifton downs",
+          id: "clifton_downs",
+          location: "Clifton",
           trees: {
             amount: 123,
             unique: 3
           }
         },
         {
-          title: 'Brandon park',
-          id: 'brandon_park',
-          location: 'Somewhere',
+          title: "Brandon park",
+          id: "brandon_park",
+          location: "Somewhere",
           trees: {
             amount: 123,
             unique: 3
           }
         }
       ]
-    }
+    };
   },
   methods: {
-    getParkLink: (parkId) => `park/${parkId}`
+    getParkLink: parkId => `park/${parkId}`
   },
   components: {
-    Header,
-  },
-}
+    Header
+  }
+};
 </script>
 
 <style scoped>
-
 ul {
   padding: 0 1em;
 }
@@ -104,7 +109,7 @@ li {
 
 .small {
   display: block;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .stats {
