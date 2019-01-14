@@ -1,0 +1,12 @@
+/* Put all leaflet style overrides here to escape 
+   the 'scoped' attribute in the components */
+.map-location-control::after {
+  content: "\2295";
+  /* 25c9, 25ce also possible */
+  font-size: 2em;
+}
+
+.personicon {
+  background: orange;
+  border-radius: 50%;
+}
