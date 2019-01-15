@@ -11,7 +11,8 @@ import L from "leaflet";
 import { CircleSpinner } from "vue-spinners";
 
 import { treeIconService as treeIcons } from "../services/TreeIcon.service";
-import { treeService } from "../services/Tree.service.js";
+import { treePhotoService as treePhotos } from "../services/TreePhoto.service";
+import { treeService } from "../services/Tree.service";
 
 const personIcon = L.Icon.extend({
   options: {
@@ -41,7 +42,7 @@ export default {
       center: [51.44059, -2.58889],
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: 16,
+      zoom: 17,
       bounds: null,
       id: "mapbox.streets",
       token:
@@ -54,15 +55,16 @@ export default {
   },
   watch: {
     drawerState: function() {
+      const moveBy = window.innerHeight / 3;
       this.drawerState
-        ? this.mymap.panBy([0, 300])
-        : this.mymap.panBy([0, -300]);
+        ? this.mymap.panBy([0, moveBy])
+        : this.mymap.panBy([0, -1 * moveBy]);
     }
   },
   methods: {
     treeModal: function(data) {
-      // this.$log.info("showModal: ", data.full_name);
-      let imgsrc = require("../assets/tree-sil.jpg");
+      this.$log.info("showModal: ", data.full_name);
+      let imgsrc = treePhotos.getPhotoFor(data.name);
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
@@ -140,7 +142,7 @@ export default {
     }
   },
   mounted: function() {
-    this.mymap = L.map("mapid").setView(this.center, 16);
+    this.mymap = L.map("mapid").setView(this.center, this.zoom);
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution: this.attribution,
       zoom: this.zoom,

@@ -1,4 +1,7 @@
 import L from 'leaflet'
+import {
+  treeTypes
+} from '../utils/TreeTypes'
 
 export const treeIconService = {
   getIconFor
@@ -16,26 +19,17 @@ var TreeIcon = L.Icon.extend({
   }
 })
 
-// name of icon file only here, then we can switch folder, filetype easily.
-const treeTypes = {
-  'Lime': 'lime',
-  'Hawthorn': 'hawthorn',
-  'Horse Chestnut': 'chestnut',
-  'Beech': 'beech',
-  'Ash': 'ash',
-  'Sycamore': 'sycamore',
-  'Oak': 'oak',
-  'Silver Birch': 'silverbirch',
-  'Elder': 'elder',
-  'Holly': 'holly',
-  'Maple': 'maple',
-}
+const trees = treeTypes();
 
 function getIconFor(name) {
-  if (treeTypes[name]) {
-    return new TreeIcon({ iconUrl: require(`../assets/trees/${treeTypes[name]}.svg`) });
+  if (trees[name]) {
+    return new TreeIcon({
+      iconUrl: require(`../assets/trees/icons/${trees[name]["icon"]}.svg`)
+    });
   } else {
-    return new TreeIcon({ iconUrl: require('../assets/trees/generic.svg') });
+    return new TreeIcon({
+      iconUrl: require('../assets/trees/icons/generic.svg')
+    });
   }
 }
 
