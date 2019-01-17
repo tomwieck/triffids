@@ -20,7 +20,7 @@ def index():
     return "Hello, World!"
 
 
-@app.route('/server/parks', methods=['GET'])
+@app.route('/api/v1/parks', methods=['GET'])
 def getAllParkNames():
     response = parks.getAllParkNames()
     if len(response) == 0:
