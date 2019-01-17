@@ -20,15 +20,7 @@ def index():
     return "Hello, World!"
 
 
-@app.route('/server/park/<string:code>', methods=['GET'])
-def getPark(code):
-    response = parks.getPark(code)
-    if len(response) == 0:
-        abort(404)
-    return jsonify(response)
-
-
-@app.route('/server/allParkNames', methods=['GET'])
+@app.route('/server/parks', methods=['GET'])
 def getAllParkNames():
     response = parks.getAllParkNames()
     if len(response) == 0:
@@ -36,17 +28,41 @@ def getAllParkNames():
     return jsonify(response)
 
 
-@app.route('/server/nearestParks/<string:lat>/<string:long>', methods=['GET'])
-def getNearestParks(lat, long):
-    response = parks.getNearestParks(lat, long)
+@app.route('/api/v1/parks/<string:parkCode>', methods=['GET'])
+def getPark(parkCode):
+    response = parks.getPark(parkCode)
     if len(response) == 0:
         abort(404)
     return jsonify(response)
 
 
-@app.route('/server/trees/<string:siteCode>/<string:lat>/<string:long>', methods=['GET'])
-def getTrees(siteCode, lat, long):
-    response = trees.getTrees(siteCode, lat, long)
+@app.route('/api/v1/parks?lat=<string:lat>&lng=<string:lng>', methods=['GET'])
+def getNearestParks(lat, lng):
+    response = parks.getNearestParks(lat, lng)
+    if len(response) == 0:
+        abort(404)
+    return jsonify(response)
+
+
+@app.route('/api/v1/trees/<string:parkCode>', methods=['GET'])
+def getTreesByPark(parkCode):
+    response = trees.getTreesByPark(parkCode)
+    if len(response) == 0:
+        abort(404)
+    return jsonify(response)
+
+
+@app.route('/api/v1/trees/<string:parkCode>?latincode=<string:latinCode>', methods=['GET'])
+def getTreesBySpecies(parkCode, latinCode):
+    response = trees.getTreesBySpecies(parkCode, latinCode)
+    if len(response) == 0:
+        abort(404)
+    return jsonify(response)
+
+
+@app.route('/api/v1/trees?lat=<string:lat>&lng=<string:lng>', methods=['GET'])
+def getTreesByLocation(lat, long):
+    response = trees.getTreesByLocation(lat, long)
     if len(response) == 0:
         abort(404)
     return jsonify(response)

@@ -1,4 +1,5 @@
 import json
+import geopy.distance
 
 with open('parks-and-greens-spaces.json') as json_file:
     data = json.load(json_file)
@@ -41,8 +42,8 @@ def getAllParkNames():
 # TODO - Get location lat and long and locate nearest parks
 
 def getNearestParks(lat, long):
-    lat = 51.437975
-    long = -2.590024
+    lat = 51.439413
+    long = -2.589423
 
     # 51.4545, 2.5879, center of Bristol, default values?
     # If no lat long, either use this or getAllParkNames()
