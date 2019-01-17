@@ -1,11 +1,12 @@
 import json
+import requests
+
+# Read trees.json
+with open('trees.json') as json_file:
+    data = json.load(json_file)
 
 
 def getTreesByPark(parkCode):
-    # Read trees.json
-    with open('trees.json') as json_file:
-        data = json.load(json_file)
-
     trees = []
 
     # Search for trees by park
@@ -24,10 +25,6 @@ def getTreesByPark(parkCode):
 
 
 def getTreesBySpecies(parkCode, latinCode):
-    # Read trees.json
-    with open('trees.json') as json_file:
-        data = json.load(json_file)
-
     trees = []
 
     # Search for trees by park
@@ -42,24 +39,19 @@ def getTreesBySpecies(parkCode, latinCode):
 
 
 # TODO - Search by radius, currently returning singular tree
-def getTreesByLocation(lat, long):
-    # Read trees.json
-    with open('trees.json') as json_file:
-        data = json.load(json_file)
+def getTreesByLocation(lat, lng, radius):
+    url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/?dataset=trees&geofilter.distance=' \
+          + str(lat) + "%2C+" + str(lng) + "%2C+" + str(radius)
 
-    trees = []
+    response = requests.get(url)
 
-    # Search for trees by coordinates
-    for record in data:
+    response = response.json()
 
-        treeData = record['fields']
-        treeLat = treeData['geo_point_2d'][0]
-        treeLong = treeData['geo_point_2d'][1]
+    print(response)
 
-        if treeLat == lat and treeLong == long:
-            return treeData
+    return response
 
-    print("No trees found at that coordinate point")
-    return trees
 
 # getTrees("VICTPA", 0, 0)
+
+getTreesByLocation(51.440738652303786, -2.586997949748452, 50)

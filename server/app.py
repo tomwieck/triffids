@@ -36,9 +36,9 @@ def getPark(parkCode):
     return jsonify(response)
 
 
-@app.route('/api/v1/parks?lat=<string:lat>&lng=<string:lng>', methods=['GET'])
-def getNearestParks(lat, lng):
-    response = parks.getNearestParks(lat, lng)
+@app.route('/api/v1/parks?lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+def getNearestParks(lat, lng, radius):
+    response = parks.getNearestParks(lat, lng, radius)
     if len(response) == 0:
         abort(404)
     return jsonify(response)
@@ -60,9 +60,9 @@ def getTreesBySpecies(parkCode, latinCode):
     return jsonify(response)
 
 
-@app.route('/api/v1/trees?lat=<string:lat>&lng=<string:lng>', methods=['GET'])
-def getTreesByLocation(lat, long):
-    response = trees.getTreesByLocation(lat, long)
+@app.route('/api/v1/trees?lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+def getTreesByLocation(lat, lng, radius):
+    response = trees.getTreesByLocation(lat, lng, radius)
     if len(response) == 0:
         abort(404)
     return jsonify(response)

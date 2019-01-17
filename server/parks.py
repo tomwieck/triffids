@@ -1,5 +1,5 @@
 import json
-import geopy.distance
+import requests
 
 with open('parks-and-greens-spaces.json') as json_file:
     data = json.load(json_file)
@@ -39,14 +39,22 @@ def getAllParkNames():
 
     return parkNames
 
+
 # TODO - Get location lat and long and locate nearest parks
 
-def getNearestParks(lat, long):
-    lat = 51.439413
-    long = -2.589423
+def getNearestParks(lat, lng, radius):
 
-    # 51.4545, 2.5879, center of Bristol, default values?
-    # If no lat long, either use this or getAllParkNames()
+    url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
+
+    params = dict(
+        lat=lat,
+        lng=lng,
+        radius=radius
+    )
+
+    resp = requests.get(url=url, params=params)
+    data = resp.json()
+
 
     parkNames = []
 
@@ -60,6 +68,5 @@ def getNearestParks(lat, long):
         point = parkData['geo_point_2d'][0]
 
     return 0
-
 
 # getPark("CUMBBASO")
