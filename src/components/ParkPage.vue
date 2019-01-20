@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header v-bind:message="name" v-bind:hasBack="true"/>
+    <Header v-bind:message="name" v-bind:hasBack="backLink"/>
     <div class="content">
       <Tmap :drawerState="drawerState"/>
       <ParkDrawer @toggle-drawer="clicked"/>
@@ -18,7 +18,8 @@ export default {
   name: "ParkPage",
   data: function() {
     return {
-      drawerState: false
+      drawerState: false,
+      backLink: "/parks"
     };
   },
   props: {

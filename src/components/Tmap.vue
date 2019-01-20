@@ -69,11 +69,14 @@ export default {
     },
     treeModal: function(data) {
       let imgsrc = treePhotos.getPhotoFor(data.name);
+      let backLink = "/parks/VICTPA";
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
             <div class="latin-name">${data.latin}</div>
-            <a href="" class="button">Find out more</a>
+            <a href="/#/tree/${data.name}?title=${
+        data.full_name
+      }&back=${backLink}" class="button">Find out more</a>
         </div>`;
     },
     resize: function(full) {
@@ -135,16 +138,16 @@ export default {
         };
       });
       this.treeCount = response.length;
+      const popupOptions = {
+        minWidth: 400,
+        maxWidth: 800,
+        keepInView: true,
+        className: "tree-modal"
+      };
       this.trees.forEach(function(tree) {
         const options = {
           icon: treeIcons.getIconFor(tree.name),
           title: tree.full_name // used for tooltip
-        };
-        const popupOptions = {
-          minWidth: 400,
-          maxWidth: 800,
-          keepInView: true,
-          className: "tree-modal"
         };
         L.marker([tree.geo_point.lat, tree.geo_point.lng], options)
           .addTo(this.mymap)

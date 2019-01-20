@@ -1,7 +1,7 @@
 <template>
   <header class="header layer">
     <router-link :to="{
-      path: '/parks'
+      path: hasBack
     }">
       <span class="back-btn" v-if="hasBack"></span>
     </router-link>
@@ -13,8 +13,14 @@
 export default {
   name: "appHeader",
   props: {
-    message: String,
-    hasBack: Boolean
+    message: {
+      type: String,
+      default: "None"
+    },
+    hasBack: {
+      type: String,
+      default: ""
+    }
   }
 };
 </script>
