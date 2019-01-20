@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div id="mapid">
-      <CircleSpinner v-if="loading" size="large"></CircleSpinner>
-    </div>
+  <div id="mapid">
+    <CircleSpinner v-if="loading" size="large"></CircleSpinner>
   </div>
 </template>
 
@@ -199,34 +197,6 @@ export default {
 @import url("../../node_modules/leaflet/dist/leaflet.css");
 @import url("../assets/leaflet.css");
 
-.tree-modal {
-  text-align: center;
-  bottom: -60px !important; /* to line up on the tree icon */
-}
-.tree-modal img {
-  width: 100%;
-  height: 100%;
-}
-.latin-name {
-  font-style: italic;
-}
-.full-name {
-  font-size: 2em;
-  color: darkgreen;
-}
-.tree-modal a.button {
-  display: block;
-  padding: 13px 30px;
-  background-color: rgb(27, 201, 152);
-  color: white;
-  font-size: 1em;
-}
-.leaflet-popup {
-  /* background-color: lime; */
-}
-.leaflet-popup-content {
-  font-size: 1.6em;
-}
 #mapid {
   height: 100vh;
   width: 100%;
