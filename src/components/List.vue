@@ -5,13 +5,13 @@
       <li v-for="park in parks" v-bind:key="park.id" class="layer">
         <router-link :to="{
           path: getParkLink(park.id),
-          query: { title: park.title }
+          query: { title: park.siteName }
         }">
-          <h3> {{ park.title }} </h3>
-          <span class="small">{{ park.location }}</span>
+          <h3> {{ park.siteName }} </h3>
+          <!-- <span class="small">{{ park.location }}</span> -->
           <div class="stats">
-              <span><b>{{park.trees.unique}}</b> Unique species</span>
-              <span><b>{{park.trees.unique}}</b> Total trees</span>
+              <span><b>1</b> Unique species</span>
+              <span><b>100</b> Total trees</span>
           </div>
         </router-link>
       </li>
@@ -21,44 +21,27 @@
 
 <script>
 import Header from './Header.vue'
+import { parkService } from "../services/Park.service";
 
 export default {
   name: 'list',
   data: () => {
     return {
-      parks: [
-        {
-          title: 'Victoria park',
-          id: 'victoria_park',
-          location: 'Bedminster',
-          trees: {
-            amount: 123,
-            unique: 3
-          }
-        },
-        {
-          title: 'Clifton downs',
-          id: 'clifton_downs',
-          location: 'Clifton',
-          trees: {
-            amount: 123,
-            unique: 3
-          }
-        },
-        {
-          title: 'Brandon park',
-          id: 'brandon_park',
-          location: 'Somewhere',
-          trees: {
-            amount: 123,
-            unique: 3
-          }
-        }
-      ]
+      parks: []
     }
   },
+  beforeMount () {
+    this.getParks()
+    .then(parks => {
+      this.parks = parks, 'hello'
+    }) 
+  },
   methods: {
-    getParkLink: (parkId) => `park/${parkId}`
+    getParkLink: (parkId) => `park/${parkId}`,
+    async getParks () {
+      let parks = await parkService.parks();
+      return parks;
+    }
   },
   components: {
     Header,
