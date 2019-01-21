@@ -18,7 +18,7 @@ export default {
   mounted: () => {
     setTimeout(()=>{
       window.location.href = "/#/parks"
-    }, 2)
+    }, 1000)
   }
 }
 </script>
