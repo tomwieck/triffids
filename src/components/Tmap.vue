@@ -11,6 +11,7 @@ import { CircleSpinner } from "vue-spinners";
 import { treeIconService as treeIcons } from "../services/TreeIcon.service";
 import { treePhotoService as treePhotos } from "../services/TreePhoto.service";
 import { treeService } from "../services/Tree.service";
+import { parkService } from "../services/Park.service";
 require("leaflet.locatecontrol");
 
 const personIcon = L.Icon.extend({
@@ -124,7 +125,7 @@ export default {
     async loadTrees() {
       // TODO: we need a leaflet.markerCluster here!
       this.$log.info("Tmap:loadTrees triggered");
-      const response = await treeService.trees("VICTPA");
+      const response = await treeService.trees(this.$route.params.parkId);
       this.trees = response.map(val => {
         return {
           name: val.common_name,
@@ -157,15 +158,21 @@ export default {
       this.loading = false;
     }
   },
-  mounted: function() {
+  mounted: async function() {
     this.mymap = L.map("mapid");
+    const park = await parkService.park(this.$route.params.parkId);
+    this.$log.info("PARK: ", park);
+    this.center = [
+      park.records[0].geometry.coordinates[1],
+      park.records[0].geometry.coordinates[0]
+    ];
     this.mymap.on("load", this.mapLoaded); // order is important
     this.mymap.setView(this.center, this.zoom);
     L.control.scale({ position: "topright" }).addTo(this.mymap);
     const loc = L.control
       .locate({ icon: "map-location-control" })
       .addTo(this.mymap);
-    // loc.stopFollowing();
+    loc.stop(); // not needed except for linting.
 
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution: this.attribution,
