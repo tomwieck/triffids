@@ -73,7 +73,7 @@ export default {
     },
     treeModal: function(data) {
       let imgsrc = treePhotos.getPhotoFor(data.name);
-      let backLink = "/parks/VICTPA";
+      let backLink = `/park/${this.$route.params.parkId}`;
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
