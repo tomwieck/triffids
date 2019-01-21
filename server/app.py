@@ -2,9 +2,12 @@
 from flask import Flask, jsonify, abort, make_response, request
 from flask_cors import CORS
 
-import benches
+import sys
+sys.path.append('triffidsapi')
+
 import parks
 import trees
+import benches
 
 app = Flask(__name__)
 CORS(app)

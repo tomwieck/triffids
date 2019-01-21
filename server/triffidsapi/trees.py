@@ -1,8 +1,11 @@
 import json
 import requests
+import os
 
 # Read trees.json
-with open('trees.json') as json_file:
+baseDirectory = os.path.join(os.path.dirname(__file__), '..')
+
+with open(baseDirectory + '/data/trees.json') as json_file:
     data = json.load(json_file)
 
 

@@ -1,8 +1,12 @@
 import json
 import requests
 import trees
+import os
 
-with open('parks-and-greens-spaces.json') as json_file:
+# Read parks json
+baseDirectory = os.path.join(os.path.dirname(__file__), '..')
+
+with open(baseDirectory + '/data/parks-and-greens-spaces.json') as json_file:
     data = json.load(json_file)
 
 
@@ -55,7 +59,6 @@ def getNearestParks(lat, lng, radius):
 
     # Create output with required data
     for record in records:
-
         parkCode = str(record['fields']['site_code'])
 
         # Get number of trees in park
