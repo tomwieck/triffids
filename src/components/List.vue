@@ -1,18 +1,23 @@
 <template>
   <main class="main">
-    <Header v-bind:message="'Choose a park'" v-bind:hasBack="false"/>
+    <Header v-bind:message="'Choose a park'"/>
     <ul>
       <li v-for="park in parks" v-bind:key="park.id" class="layer">
         <router-link
           :to="{
           path: getParkLink(park.id),
           query: { title: park.siteName }
-        }">
-          <h3> {{ park.siteName }} </h3>
+        }"
+        >
+          <h3>{{ park.siteName }}</h3>
           <!-- <span class="small">{{ park.location }}</span> -->
           <div class="stats">
-              <span><b>1</b> Unique species</span>
-              <span><b>100</b> Total trees</span>
+            <span>
+              <b>1</b> Unique species
+            </span>
+            <span>
+              <b>100</b> Total trees
+            </span>
           </div>
         </router-link>
       </li>
@@ -21,7 +26,7 @@
 </template>
 
 <script>
-import Header from './Header.vue'
+import Header from "./Header.vue";
 import { parkService } from "../services/Park.service";
 
 export default {
@@ -29,17 +34,16 @@ export default {
   data: () => {
     return {
       parks: []
-    }
+    };
   },
-  beforeMount () {
-    this.getParks()
-    .then(parks => {
-      this.parks = parks, 'hello'
-    }) 
+  beforeMount() {
+    this.getParks().then(parks => {
+      (this.parks = parks), "hello";
+    });
   },
   methods: {
-    getParkLink: (parkId) => `park/${parkId}`,
-    async getParks () {
+    getParkLink: parkId => `park/${parkId}`,
+    async getParks() {
       let parks = await parkService.parks();
       return parks;
     }
