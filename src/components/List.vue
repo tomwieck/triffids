@@ -5,7 +5,6 @@
       <li v-for="park in parks" v-bind:key="park.id" class="layer">
         <router-link :to="{
           path: getParkLink(park.id),
-          query: { title: park.siteName }
         }">
           <h3> {{ park.siteName }} </h3>
           <!-- <span class="small">{{ park.location }}</span> -->
@@ -34,7 +33,7 @@ export default {
     this.getParks()
     .then(parks => {
       this.parks = parks, 'hello'
-    }) 
+    })
   },
   methods: {
     getParkLink: (parkId) => `park/${parkId}`,

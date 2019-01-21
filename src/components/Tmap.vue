@@ -30,6 +30,9 @@ export default {
   name: "Tmap",
   components: { CircleSpinner },
   props: {
+    park: {
+      type: Object,
+    },
     drawerState: {
       type: Boolean,
       default: true
@@ -39,7 +42,7 @@ export default {
     return {
       // url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}',
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-      center: [51.44059, -2.58889],
+      center: [this.park.lat, this.park.long],
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 17,
@@ -108,7 +111,7 @@ export default {
     },
     async loadTrees() {
       this.$log.info("Tmap:loadTrees triggered");
-      const response = await treeService.trees("VICTPA");
+      const response = await treeService.trees(this.park.id);
       this.trees = response.map(val => {
         return {
           name: val.common_name,
