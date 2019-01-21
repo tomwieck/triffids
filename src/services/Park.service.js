@@ -26,6 +26,12 @@ function parks() {
     });
 }
 
-function park() {
-  return {};
+function park(parkId) {
+  const url = `${config.localUrl}/park/${parkId}`;
+  return http.get(url)
+    .then((resp) => {
+      return resp.data[0];
+    }, (err) => {
+      throw err;
+    });
 }
