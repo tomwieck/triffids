@@ -24,20 +24,11 @@ function parks() {
     });
 }
 
-/**
- * return details of this park
- * 
- * using opendata url for now as the local server is not working yet...
- * https://opendata.bristol.gov.uk/api/records/1.0/search/?dataset=parks-and-greens-spaces&q=site_code%3DSTPACHSO
- *
- * @param {string} pcode the site_code for the park
- */
-function park(pcode) {
-  // const url = `${config.localUrl}/getPark/${pcode}`;
-  const url = `https://opendata.bristol.gov.uk/api/records/1.0/search/?dataset=parks-and-greens-spaces&q=site_code=${pcode}`;
+function park(parkId) {
+  const url = `${config.localUrl}/park/${parkId}`;
   return http.get(url)
     .then((resp) => {
-      return resp.data;
+      return resp.data[0];
     }, (err) => {
       throw err;
     });

@@ -11,7 +11,6 @@ import { CircleSpinner } from "vue-spinners";
 import { treeIconService as treeIcons } from "../services/TreeIcon.service";
 import { treePhotoService as treePhotos } from "../services/TreePhoto.service";
 import { treeService } from "../services/Tree.service";
-import { parkService } from "../services/Park.service";
 require("leaflet.locatecontrol");
 
 const personIcon = L.Icon.extend({
@@ -30,6 +29,9 @@ export default {
   name: "Tmap",
   components: { CircleSpinner },
   props: {
+    park: {
+      type: Object,
+    },
     drawerState: {
       type: Boolean,
       default: true
@@ -39,8 +41,9 @@ export default {
     return {
       // url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}',
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-      center: [51.44059, -2.58889],
+
       oldCenter: [0, 0],
+      center: [this.park.lat, this.park.long],
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 17,
@@ -125,7 +128,7 @@ export default {
     async loadTrees() {
       // TODO: we need a leaflet.markerCluster here!
       this.$log.info("Tmap:loadTrees triggered");
-      const response = await treeService.trees(this.$route.params.parkId);
+      const response = await treeService.trees(this.park.id);
       this.trees = response.map(val => {
         return {
           name: val.common_name,
@@ -160,12 +163,6 @@ export default {
   },
   mounted: async function() {
     this.mymap = L.map("mapid");
-    const park = await parkService.park(this.$route.params.parkId);
-    this.$log.info("PARK: ", park);
-    this.center = [
-      park.records[0].geometry.coordinates[1],
-      park.records[0].geometry.coordinates[0]
-    ];
     this.mymap.on("load", this.mapLoaded); // order is important
     this.mymap.setView(this.center, this.zoom);
     L.control.scale({ position: "topright" }).addTo(this.mymap);

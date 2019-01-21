@@ -6,10 +6,8 @@
         <router-link
           :to="{
           path: getParkLink(park.id),
-          query: { title: park.siteName }
-        }"
-        >
-          <h3>{{ park.siteName }}</h3>
+        }">
+          <h3> {{ park.siteName }} </h3>
           <!-- <span class="small">{{ park.location }}</span> -->
           <div class="stats">
             <span>
