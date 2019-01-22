@@ -70,9 +70,9 @@ def getTreesByLocation(lat, lng, radius):
     return jsonify(response)
 
 
-@app.route('/server/benches/<string:lat>/<string:long>/<string:radius>', methods=['GET'])
-def getBenches(lat, long, radius):
-    response = benches.getBenches(lat, long, radius)
+@app.route('/api/v1/benches/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+def getBenches(lat, lng, radius):
+    response = benches.getBenches(lat, lng, radius)
     if len(response) == 0:
         abort(404)
     return jsonify(response)

@@ -45,3 +45,26 @@ def test_client_get_nearest_parks(client):
     data = json.loads(js.data)
     assert 'Victoria Park' == data[0]['siteName']
 
+
+def test_client_get_trees(client):
+    js = client.get('/api/v1/trees/VICTPA')
+    data = json.loads(js.data)
+    assert len(data) == 581
+
+
+def test_client_get_trees_by_species(client):
+    js = client.get('/api/v1/trees/VICTPA?latinCode=QURO')
+    data = json.loads(js.data)
+    assert len(data) == 44
+
+
+def test_client_get_trees_by_location(client):
+    js = client.get('/api/v1/trees/lat=51.44&lng=-2.587&radius=500')
+    data = json.loads(js.data)
+    assert len(data) == 10
+
+
+def test_client_get_benches(client):
+    js = client.get('/api/v1/benches/lat=51.44&lng=-2.587&radius=500')
+    data = json.loads(js.data)
+    assert data[0]['id'] == 7347

@@ -34,18 +34,29 @@ def getTreesBySpecies(parkCode, latinCode):
         if parkCode == treeData['site_code'] and latinCode == treeData['latin_code']:
             trees.append(treeData)
 
+    print(trees)
+    print(len(trees))
     return trees
 
 
 def getTreesByLocation(lat, lng, radius):
+    trees = []
+
     url = "https://opendata.bristol.gov.uk/api/records/1.0/search/"
     dataset = "?dataset=trees"
     geofilter = "&geofilter.distance=" + str(lat) + "%2C+" + str(lng) + "%2C+" + str(radius)
 
     response = requests.get(url + dataset + geofilter)
     response = response.json()
+    data = response['records']
 
-    return response
+    for record in data:
+        treeData = record['fields']
+        trees.append(treeData)
+
+    print(trees)
+    print(len(trees))
+    return trees
 
 
 def getUniqueSpecies(parkCode):
@@ -61,11 +72,14 @@ def getUniqueSpecies(parkCode):
 
     # Convert list to set to get all unique instances of species
     species = set(species)
+    print(species)
     return species
 
 
-# getTrees("VICTPA", 0, 0)
+# getTreesByPark("VICTPA")
 
-# getTreesByLocation(51.440738652303786, -2.586997949748452, 50)
+# getTreesBySpecies('VICTPA', 'QURO')
+
+# getTreesByLocation(51.44, -2.587, 500)
 
 # getUniqueSpecies('VICTPA')
