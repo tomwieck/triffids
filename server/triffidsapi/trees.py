@@ -20,11 +20,7 @@ def getTreesByPark(parkCode):
         if parkCode == treeData['site_code']:
             trees.append(treeData)
 
-    if not bool(trees):
-        # print("No trees found in that area")
-        return trees
-    else:
-        return trees
+    return trees
 
 
 def getTreesBySpecies(parkCode, latinCode):

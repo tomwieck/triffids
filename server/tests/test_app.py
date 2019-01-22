@@ -41,6 +41,7 @@ def test_client_get_park(client):
 
 
 def test_client_get_nearest_parks(client):
-    js = client.get('/api/v1/parks?lat=51.44&lng=-2.587&radius=500')
+    js = client.get('/api/v1/parks/lat=51.44&lng=-2.587&radius=500')
     data = json.loads(js.data)
     assert 'Victoria Park' == data[0]['siteName']
+

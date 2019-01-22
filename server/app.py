@@ -39,7 +39,7 @@ def getPark(parkCode):
     return jsonify(response)
 
 
-@app.route('/api/v1/parks?lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+@app.route('/api/v1/parks/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getNearestParks(lat, lng, radius):
     response = parks.getNearestParks(lat, lng, radius)
     if len(response) == 0:
@@ -48,22 +48,21 @@ def getNearestParks(lat, lng, radius):
 
 
 @app.route('/api/v1/trees/<string:parkCode>', methods=['GET'])
-def getTreesByPark(parkCode):
-    response = trees.getTreesByPark(parkCode)
+def getTrees(parkCode):
+    latinCode = request.args.get('latinCode')
+
+    # If no latin code provided, show all trees in park. Else, filter by species
+    if latinCode is None:
+        response = trees.getTreesByPark(parkCode)
+    else:
+        response = trees.getTreesBySpecies(parkCode, latinCode)
+
     if len(response) == 0:
         abort(404)
     return jsonify(response)
 
 
-@app.route('/api/v1/trees/<string:parkCode>?latincode=<string:latinCode>', methods=['GET'])
-def getTreesBySpecies(parkCode, latinCode):
-    response = trees.getTreesBySpecies(parkCode, latinCode)
-    if len(response) == 0:
-        abort(404)
-    return jsonify(response)
-
-
-@app.route('/api/v1/trees?lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+@app.route('/api/v1/trees/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getTreesByLocation(lat, lng, radius):
     response = trees.getTreesByLocation(lat, lng, radius)
     if len(response) == 0:
