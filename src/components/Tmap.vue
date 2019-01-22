@@ -30,7 +30,7 @@ export default {
   components: { CircleSpinner },
   props: {
     park: {
-      type: Object,
+      type: Object
     },
     drawerState: {
       type: Boolean,
@@ -39,8 +39,9 @@ export default {
   },
   data() {
     return {
-      // url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}',
-      url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+      url:
+        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+      // url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
 
       oldCenter: [0, 0],
       center: [this.park.lat, this.park.long],
@@ -171,11 +172,11 @@ export default {
       .addTo(this.mymap);
     loc.stop(); // not needed except for linting.
 
-    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+    L.tileLayer(this.url, {
       attribution: this.attribution,
-      zoom: this.zoom,
+      maxZoom: 18,
       id: this.id,
-      access_token: this.token
+      accessToken: this.token
     }).addTo(this.mymap);
     this.mymap.panBy([0, window.innerHeight / 3]); // TODO: this is an estimate!
     this.oldCenter = this.center;
