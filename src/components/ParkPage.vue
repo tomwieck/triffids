@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header v-bind:message="name" v-bind:hasBack="backLink"/>
+    <Header v-bind:message="park.siteName" v-bind:hasBack="backLink"/>
     <div class="content">
       <Tmap v-if="park" :park="park" :drawerState="drawerState"/>
       <ParkDrawer @toggle-drawer="clicked"/>
@@ -15,31 +15,23 @@ import Header from "./Header.vue";
 import ParkDrawer from "./ParkDrawer.vue";
 import { parkService } from "../services/Park.service";
 
-
 export default {
   name: "ParkPage",
   data: function() {
     return {
       drawerState: false,
       backLink: "/parks",
-      park: null,
+      park: null
     };
   },
-  props: {
-    name: {
-      type: String,
-      default: "none"
-    }
-  },
-  beforeMount () {
-    this.getPark()
-    .then(park => {
-      this.park = park
-    })
+  beforeMount() {
+    this.getPark().then(park => {
+      this.park = park;
+    });
   },
 
   methods: {
-    async getPark () {
+    async getPark() {
       const parkId = this.$route.params.parkId;
       let park = await parkService.park(parkId);
       return park;
