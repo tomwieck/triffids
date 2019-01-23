@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Header v-bind:message="park.siteName" v-bind:hasBack="backLink"/>
+    <Header v-bind:message="parkName" v-bind:hasBack="backLink"/>
     <div class="content">
       <Tmap v-if="park" :park="park" :drawerState="drawerState"/>
-      <ParkDrawer @toggle-drawer="clicked"/>
+      <ParkDrawer @toggle-drawer="clicked" :park="park"/>
     </div>
   </div>
 </template>
@@ -21,12 +21,14 @@ export default {
     return {
       drawerState: false,
       backLink: "/parks",
-      park: null
+      park: null,
+      parkName: ""
     };
   },
   beforeMount() {
     this.getPark().then(park => {
       this.park = park;
+      this.parkName = park.siteName;
     });
   },
 

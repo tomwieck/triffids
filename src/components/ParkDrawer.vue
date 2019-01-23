@@ -7,7 +7,7 @@
       <div class="drawer__tree">
         <img alt="Vue logo" src="../assets/tree1.svg">
         <div>
-          <span class="drawer__tree-title">13</span> Unique species
+          <span class="drawer__tree-title">{{uniqueCount}}</span> Unique species
         </div>
       </div>
       <div class="drawer__tree">
@@ -19,7 +19,7 @@
     </div>
     <hr>
     <div class="drawer__about">
-      <h1>About Victoria Park</h1>
+      <h1>About {{ parkName }}</h1>
       <ul>
         <li>Free admission</li>
         <li>Open at all times</li>
@@ -47,8 +47,15 @@ export default {
   data: () => {
     return {
       el: "#drawer",
-      treeCount: 144
+      treeCount: 0,
+      uniqueCount: 0,
+      parkName: "Loading..."
     };
+  },
+  props: {
+    park: {
+      type: Object
+    }
   },
   components: {
     Chevron
@@ -60,10 +67,26 @@ export default {
       drawer.classList.contains("expanded")
         ? drawer.classList.remove("expanded")
         : drawer.classList.add("expanded");
+    },
+    async getTreeCount() {
+      let count = await treeService.count(this.park.id);
+      return count;
+    },
+    async getTreeUnique() {
+      let count = await treeService.unique(this.park.id);
+      return count;
     }
   },
-  mounted: async function() {
-    this.treeCount = await treeService.count("VICTPA");
+  watch: {
+    park: function() {
+      this.parkName = this.park.siteName;
+      this.getTreeCount().then(count => {
+        this.treeCount = count;
+      });
+      this.getTreeUnique().then(count => {
+        this.uniqueCount = count;
+      });
+    }
   }
 };
 </script>

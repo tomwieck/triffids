@@ -6,6 +6,7 @@ import Vue from 'vue';
 
 export const treeService = {
   count,
+  unique,
   trees,
   tree,
 }
@@ -27,6 +28,24 @@ function count(site_code) {
   return http.get(`${config.ODBTreesUrl}&q=site_code%3D${site_code}&rows=0`)
     .then((resp) => {
       return resp.data.nhits;
+    }, (err) => {
+      throw err;
+    });
+}
+
+/**
+ * get the count of tree species for this park.
+ *
+ * this is based on the Latin Code of the trees.
+ * this will return 0 if the site_code is not found
+ *
+ * @param {string} site_code the code for the site
+ * @return number the count of tree species found
+ */
+function unique(site_code) {
+  return http.get(`${config.ODBTreesUrl}&q=site_code%3D${site_code}&rows=0&facet=latin_code`)
+    .then((resp) => {
+      return resp.data.facet_groups[0].facets.length;
     }, (err) => {
       throw err;
     });
