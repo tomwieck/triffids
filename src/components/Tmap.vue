@@ -49,7 +49,7 @@ export default {
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 17,
       bounds: null,
-      id: "mapbox.streets",
+      id: "mapbox.outdoors", // can be: streets, satellite, light, dark, outdoors
       token:
         "pk.eyJ1IjoiamFsYWxza2kiLCJhIjoiY2pvd3d3bm40MXcxczNrbzlyazB2ZDVobyJ9.wV99nDE6dCfGjMUrEIjgFQ",
       mymap: null,
