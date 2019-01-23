@@ -1,7 +1,7 @@
 <template>
   <div id="drawer" class="drawer">
     <div class="drawer__summary">
-      <h1>London Plane</h1>
+      <h1>{{ message }}</h1>
       <div class="drawer__subtitle">
         <span>Platanus x hispanica</span>
       </div>
@@ -11,24 +11,21 @@
         <li>Age ~240</li>
       </ul>
     </div>
-    <hr />
+    <hr>
     <div class="drawer__about">
       <h2>Special information about this specimen</h2>
-      <p>
-        London Planes grow very rapidly, and this vast specimen was probably associated with Brislington House. It now fills the valley of the brook, and is hollow. It was in danger of being ruined by fires built inside its hollow trunk, a common fate of veteran trees, but was recently saved by being bricked up. The species came to Britain in 1690, and is still being widely planted.
-      </p>
-      <hr />
+      <p>London Planes grow very rapidly, and this vast specimen was probably associated with Brislington House. It now fills the valley of the brook, and is hollow. It was in danger of being ruined by fires built inside its hollow trunk, a common fate of veteran trees, but was recently saved by being bricked up. The species came to Britain in 1690, and is still being widely planted.</p>
+      <hr>
       <h2>General information about this species</h2>
-      <p>
-        Platanus × acerifolia, the London plane, London planetree, or hybrid plane, is a tree in the genus Platanus. It is often known by the synonym Platanus × hispanica. It is usually thought to be a hybrid of Platanus orientalis (oriental plane) and Platanus occidentalis (American sycamore). Some authorities think that it may be a cultivar of P. orientalis.
-      </p>
-      <span class="drawer__source">
-        Source: Wikipedia
-      </span>
-      <hr />
+      <p>Platanus × acerifolia, the London plane, London planetree, or hybrid plane, is a tree in the genus Platanus. It is often known by the synonym Platanus × hispanica. It is usually thought to be a hybrid of Platanus orientalis (oriental plane) and Platanus occidentalis (American sycamore). Some authorities think that it may be a cultivar of P. orientalis.</p>
+      <span class="drawer__source">Source: Wikipedia</span>
+      <hr>
       <div class="drawer__report">
-        <a target="_blank" href="https://www.bristol.gov.uk/museums-parks-sports-culture/what-to-do-if-you-have-a-problem-with-a-tree">
-          Report an issue with this tree <Chevron />
+        <a
+          target="_blank"
+          href="https://www.bristol.gov.uk/museums-parks-sports-culture/what-to-do-if-you-have-a-problem-with-a-tree"
+        >Report an issue with this tree
+          <Chevron/>
         </a>
       </div>
     </div>
@@ -36,19 +33,25 @@
 </template>
 
 <script>
-import Chevron from './Chevron.vue'
+import Chevron from "./Chevron.vue";
 
 export default {
-  name: 'treeDrawer',
+  name: "treeDrawer",
+  props: {
+    message: {
+      type: String,
+      default: "None"
+    }
+  },
   data: () => {
     return {
-      el: '#drawer',
-    }
+      el: "#drawer"
+    };
   },
   components: {
     Chevron
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -59,7 +62,7 @@ export default {
   left: 0;
   bottom: 0;
   position: fixed;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   height: 50%;
   overflow-y: scroll;
   padding: 16px;
@@ -96,8 +99,8 @@ export default {
   &__report {
     padding: 8px 0;
     a {
-      color: #058E3F;
-      font-family: 'Helvetica';
+      color: #058e3f;
+      font-family: "Helvetica";
       text-decoration: none;
     }
   }
@@ -116,9 +119,10 @@ export default {
   }
 }
 
-h1, h2 {
-  color: #058E3F;
-  font-family: 'Helvetica';
+h1,
+h2 {
+  color: #058e3f;
+  font-family: "Helvetica";
   font-weight: 400;
   margin: 4px 0;
 }
@@ -129,7 +133,7 @@ h2 {
 
 hr {
   border: 1px solid;
-  color: #EBEBEC;
+  color: #ebebec;
 }
 
 ul {
@@ -146,8 +150,8 @@ li {
     padding-left: 18px;
 
     &:after {
-      background-color: #4F6272;
-      content: '';
+      background-color: #4f6272;
+      content: "";
       display: inline-block;
       border-radius: 20px;
       height: 6px;

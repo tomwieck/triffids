@@ -2,7 +2,7 @@
   <div class="hello">
     <Header v-bind:message="name" v-bind:hasBack="backLink"/>
     <div class="tree"></div>
-    <TreeDrawer/>
+    <TreeDrawer :message="name"/>
   </div>
 </template>
 
