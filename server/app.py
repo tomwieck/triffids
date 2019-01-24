@@ -1,10 +1,13 @@
 #!flask/bin/python
-from flask import Flask, jsonify, abort, make_response
+from flask import Flask, jsonify, abort, make_response, request
 from flask_cors import CORS
 
-import benches
+import sys
+sys.path.append('triffidsapi')
+
 import parks
 import trees
+import benches
 
 app = Flask(__name__)
 CORS(app)
@@ -20,15 +23,7 @@ def index():
     return "Hello, World!"
 
 
-@app.route('/server/park/<string:code>', methods=['GET'])
-def getPark(code):
-    response = parks.getPark(code)
-    if len(response) == 0:
-        abort(404)
-    return jsonify(response)
-
-
-@app.route('/server/allParkNames', methods=['GET'])
+@app.route('/api/v1/parks', methods=['GET'])
 def getAllParkNames():
     response = parks.getAllParkNames()
     if len(response) == 0:
@@ -36,25 +31,48 @@ def getAllParkNames():
     return jsonify(response)
 
 
-@app.route('/server/nearestParks/<string:lat>/<string:long>', methods=['GET'])
-def getNearestParks(lat, long):
-    response = parks.getNearestParks(lat, long)
+@app.route('/api/v1/parks/<string:parkCode>', methods=['GET'])
+def getPark(parkCode):
+    response = parks.getPark(parkCode)
     if len(response) == 0:
         abort(404)
     return jsonify(response)
 
 
-@app.route('/server/trees/<string:siteCode>/<string:lat>/<string:long>', methods=['GET'])
-def getTrees(siteCode, lat, long):
-    response = trees.getTrees(siteCode, lat, long)
+@app.route('/api/v1/parks/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+def getNearestParks(lat, lng, radius):
+    response = parks.getNearestParks(lat, lng, radius)
     if len(response) == 0:
         abort(404)
     return jsonify(response)
 
 
-@app.route('/server/benches/<string:lat>/<string:long>/<string:radius>', methods=['GET'])
-def getBenches(lat, long, radius):
-    response = benches.getBenches(lat, long, radius)
+@app.route('/api/v1/trees/<string:parkCode>', methods=['GET'])
+def getTrees(parkCode):
+    latinCode = request.args.get('latinCode')
+
+    # If no latin code provided, show all trees in park. Else, filter by species
+    if latinCode is None:
+        response = trees.getTreesByPark(parkCode)
+    else:
+        response = trees.getTreesBySpecies(parkCode, latinCode)
+
+    if len(response) == 0:
+        abort(404)
+    return jsonify(response)
+
+
+@app.route('/api/v1/trees/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+def getTreesByLocation(lat, lng, radius):
+    response = trees.getTreesByLocation(lat, lng, radius)
+    if len(response) == 0:
+        abort(404)
+    return jsonify(response)
+
+
+@app.route('/api/v1/benches/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+def getBenches(lat, lng, radius):
+    response = benches.getBenches(lat, lng, radius)
     if len(response) == 0:
         abort(404)
     return jsonify(response)
