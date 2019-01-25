@@ -8,10 +8,9 @@
           query: { title: park.siteName }
         }">
           <h3> {{ park.siteName }} </h3>
-          <!-- <span class="small">{{ park.location }}</span> -->
           <div class="stats">
-              <span><b>1</b> Unique species</span>
-              <span><b>100</b> Total trees</span>
+              <span><b>{{park.unique_trees}}</b> Unique species</span>
+              <span><b>{{park.total_trees}}</b> Total trees</span>
           </div>
         </router-link>
       </li>
@@ -27,15 +26,32 @@ export default {
   name: 'list',
   data: () => {
     return {
-      parks: []
+      parks: [],
+      loading: false
     }
   },
+
   beforeMount () {
     this.getParks()
     .then(parks => {
-      this.parks = parks, 'hello'
-    }) 
+      this.parks = parks
+    })
   },
+
+  mounted() {
+    window.onscroll = () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !this.loading) {
+        this.loading = true;
+        this.getParks()
+        .then(newParks => {
+            this.parks.push(...newParks);
+            this.loading = false;
+          }
+        )
+      }
+    };
+  },
+
   methods: {
     getParkLink: (parkId) => `park/${parkId}`,
     async getParks () {
