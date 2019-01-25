@@ -1,0 +1,88 @@
+import json
+import requests
+import trees
+import os
+
+# Read parks json
+baseDirectory = os.path.join(os.path.dirname(__file__), '..')
+
+with open(baseDirectory + '/data/parks-and-greens-spaces.json') as json_file:
+    data = json.load(json_file)
+
+
+def getPark(code):
+    # Example 'code' CUMBBASO
+    park = []
+    for record in data:
+        parkData = record['fields']
+        site_code = parkData['site_code']
+
+        if (site_code == code):
+            park.append({
+                'id': str(parkData['site_code']),
+                'siteName': str(parkData['site_name']),
+                'lat': parkData['geo_point_2d'][0],
+                'lng': parkData['geo_point_2d'][1],
+                'geoShape': parkData['geo_shape']
+            })
+            print(park)
+            return park
+
+    print('Park not found')
+    return 0
+
+
+def getAllParkNames():
+    parkNames = []
+
+    for record in data:
+        parkData = record['fields']
+        parkNames.append({
+            'id': str(parkData['site_code']),
+            'siteName': str(parkData['site_name'])
+        })
+
+    return parkNames
+
+
+def getNearestParks(lat, lng, radius):
+    url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
+    dataset = '?dataset=parks-and-greens-spaces'
+    sort = '&-sort=dist'
+    geofilter = '&geofilter.distance=' + str(lat) + '%2C+' + str(lng) + '%2C+' + str(radius)
+
+    response = requests.get(url + dataset + sort + geofilter)
+    response = response.json()
+
+    records = response['records']
+    parks = []
+
+    # Create output with required data
+    for record in records:
+        parkCode = str(record['fields']['site_code'])
+
+        # Get number of trees in park
+        totalTrees = len(trees.getTreesByPark(parkCode))
+
+        # Get number of unique species in park
+        uniqueSpecies = len(trees.getUniqueSpecies(parkCode))
+
+        parks.append({
+            'id': parkCode,
+            'siteName': str(record['fields']['site_name']),
+            'lat': record['fields']['geo_point_2d'][0],
+            'lng': record['fields']['geo_point_2d'][1],
+            'dist': record['fields']['dist'],
+            'totalTrees': totalTrees,
+            'uniqueSpecies': uniqueSpecies
+        })
+
+    print(parks)
+    return parks
+
+    # Data required
+    # site_name, site_code, lat, long, dist, noOfTrees, uniqueSpecies
+
+# getPark('CUMBBASO')
+
+# getNearestParks(51.439413, -2.589423, 150)
