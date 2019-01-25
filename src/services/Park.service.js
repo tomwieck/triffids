@@ -17,7 +17,7 @@ export const parkService = {
  * @param {string} site_code the code for the site
  */
 function parks() {
-  const url = `${config.localUrl}/allParkNames`;
+  const url = `${config.localUrl}/parks`;
   return http.get(url)
     .then((resp) => {
       return resp.data;
