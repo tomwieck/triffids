@@ -22,6 +22,14 @@ def getTreesByPark(parkCode):
 
     return trees
 
+def getTotalNumbTreesByPark(parkCode):
+    trees = 0
+    for record in data:
+        treeData = record['fields']
+        if parkCode == treeData['site_code']:
+            trees = trees + 1
+
+    return trees
 
 def getTreesBySpecies(parkCode, latinCode):
     trees = []
@@ -37,6 +45,22 @@ def getTreesBySpecies(parkCode, latinCode):
     print(trees)
     print(len(trees))
     return trees
+
+def getNumbUniqueSpeciesByPark(parkCode):
+
+    # Get all trees within park
+    trees = getTreesByPark(parkCode)
+
+    species = []
+
+    # Extract species of every tree in park
+    for tree in trees:
+        species.append(tree['latin_code'])
+
+    # Convert list to set to get all unique instances of species
+    species = set(species)
+
+    return len(species)
 
 
 def getTreesByLocation(lat, lng, radius):

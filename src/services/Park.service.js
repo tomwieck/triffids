@@ -8,6 +8,7 @@ export const parkService = {
   park,
 }
 
+let page  = 1;
 
 /**
  * return an array of parks found.
@@ -15,9 +16,10 @@ export const parkService = {
  * empty if nothing found
  */
 function parks() {
-  const url = `${config.localUrl}/allParkNames`;
+  const url = `${config.localUrl}/parks?page=${page}`;
   return http.get(url)
     .then((resp) => {
+      page++;
       return resp.data;
     }, (err) => {
       throw err;

@@ -32,14 +32,24 @@ def getPark(code):
     return 0
 
 
-def getAllParkNames():
+def getAllParkNames(page):
+    parksPerPage = 20
+    lowestBoundary = (parksPerPage * page) - parksPerPage #20
+    highestBoundary = parksPerPage * page - 1 #39
     parkNames = []
 
-    for record in data:
+    for index, record in enumerate(data):
+        if (index < lowestBoundary or index > highestBoundary):
+            continue
         parkData = record['fields']
+        total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
+        unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
+
         parkNames.append({
             'id': str(parkData['site_code']),
-            'siteName': str(parkData['site_name'])
+            'siteName': str(parkData['site_name']),
+            'unique_trees': str(unique_trees),
+            'total_trees': str(total_trees)
         })
 
     return parkNames
