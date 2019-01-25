@@ -34,12 +34,12 @@ def getPark(code):
 
 def getAllParkNames(page):
     parksPerPage = 20
-    lowestBoundry = (parksPerPage * page) - parksPerPage #20
-    highestBoundry = parksPerPage * page - 1 #39
+    lowestBoundary = (parksPerPage * page) - parksPerPage #20
+    highestBoundary = parksPerPage * page - 1 #39
     parkNames = []
 
     for index, record in enumerate(data):
-        if (index < lowestBoundry or index > highestBoundry):
+        if (index < lowestBoundary or index > highestBoundary):
             continue
         parkData = record['fields']
         total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
