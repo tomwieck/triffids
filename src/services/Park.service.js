@@ -8,7 +8,7 @@ export const parkService = {
   park,
 }
 
-let page  = 1;
+let page = 1;
 
 /**
  * return an array of parks found.
@@ -27,7 +27,7 @@ function parks() {
 }
 
 function park(parkId) {
-  const url = `${config.localUrl}/park/${parkId}`;
+  const url = `${config.localUrl}/parks/${parkId}`;
   return http.get(url)
     .then((resp) => {
       return resp.data[0];

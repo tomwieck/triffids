@@ -44,7 +44,7 @@ export default {
       // url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
 
       oldCenter: [0, 0],
-      center: [this.park.lat, this.park.long],
+      center: [this.park.lat, this.park.lng],
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 17,

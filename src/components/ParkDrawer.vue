@@ -7,7 +7,7 @@
       <div class="drawer__tree">
         <img alt="Vue logo" src="../assets/tree1.svg">
         <div>
-          <span class="drawer__tree-title">{{uniqueCount}}</span> Unique species
+          <span class="drawer__tree-title">{{this.park.unique}}</span> Unique species
         </div>
       </div>
       <div class="drawer__tree">
