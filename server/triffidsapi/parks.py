@@ -18,9 +18,14 @@ def getPark(code):
         site_code = parkData['site_code']
 
         if (site_code == code):
+            total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
+            unique_trees = trees.getNumbUniqueSpeciesByPark(
+                parkData['site_code'])
             park.append({
                 'id': str(parkData['site_code']),
                 'siteName': str(parkData['site_name']),
+                'unique_trees': str(unique_trees),
+                'total_trees': str(total_trees),
                 'lat': parkData['geo_point_2d'][0],
                 'lng': parkData['geo_point_2d'][1],
                 'geoShape': parkData['geo_shape']
@@ -34,8 +39,8 @@ def getPark(code):
 
 def getAllParkNames(page):
     parksPerPage = 20
-    lowestBoundary = (parksPerPage * page) - parksPerPage #20
-    highestBoundary = parksPerPage * page - 1 #39
+    lowestBoundary = (parksPerPage * page) - parksPerPage  # 20
+    highestBoundary = parksPerPage * page - 1  # 39
     parkNames = []
 
     for index, record in enumerate(data):
@@ -59,7 +64,8 @@ def getNearestParks(lat, lng, radius):
     url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
     dataset = '?dataset=parks-and-greens-spaces'
     sort = '&-sort=dist'
-    geofilter = '&geofilter.distance=' + str(lat) + '%2C+' + str(lng) + '%2C+' + str(radius)
+    geofilter = '&geofilter.distance=' + \
+        str(lat) + '%2C+' + str(lng) + '%2C+' + str(radius)
 
     response = requests.get(url + dataset + sort + geofilter)
     response = response.json()

@@ -7,7 +7,7 @@
       <div class="drawer__tree">
         <img alt="Vue logo" src="../assets/tree1.svg">
         <div>
-          <span class="drawer__tree-title">{{this.park.unique}}</span> Unique species
+          <span class="drawer__tree-title">{{uniqueCount}}</span> Unique species
         </div>
       </div>
       <div class="drawer__tree">
@@ -67,25 +67,13 @@ export default {
       drawer.classList.contains("expanded")
         ? drawer.classList.remove("expanded")
         : drawer.classList.add("expanded");
-    },
-    async getTreeCount() {
-      let count = await treeService.count(this.park.id);
-      return count;
-    },
-    async getTreeUnique() {
-      let count = await treeService.unique(this.park.id);
-      return count;
     }
   },
   watch: {
     park: function() {
       this.parkName = this.park.siteName;
-      this.getTreeCount().then(count => {
-        this.treeCount = count;
-      });
-      this.getTreeUnique().then(count => {
-        this.uniqueCount = count;
-      });
+      this.treeCount = this.park.total_trees;
+      this.uniqueCount = this.park.unique_trees;
     }
   }
 };
