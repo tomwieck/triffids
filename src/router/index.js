@@ -7,8 +7,7 @@ import Splash from '../components/Splash.vue'
 
 Vue.use(Router)
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'Splash',
       component: Splash,
@@ -22,13 +21,18 @@ export default new Router({
       path: '/park/:parkId',
       name: 'Park',
       component: ParkPage,
-      props: (route) => ({ name: route.query.title })
+      props: (route) => ({
+        name: route.query.title
+      })
     },
     {
       path: '/tree/:treeId',
       name: 'TreePage',
       component: TreePage,
-      props: (route) => ({ name: route.query.title })
+      props: (route) => ({
+        name: route.query.title,
+        backLink: route.query.back
+      })
     }
   ]
 })

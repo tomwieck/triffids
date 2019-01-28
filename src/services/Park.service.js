@@ -8,24 +8,30 @@ export const parkService = {
   park,
 }
 
+let page = 1;
 
 /**
  * return an array of parks found.
  *
  * empty if nothing found
- *
- * @param {string} site_code the code for the site
  */
 function parks() {
-  const url = `${config.localUrl}/parks`;
+  const url = `${config.localUrl}/parks?page=${page}`;
   return http.get(url)
     .then((resp) => {
+      page++;
       return resp.data;
     }, (err) => {
       throw err;
     });
 }
 
-function park() {
-  return {};
+function park(parkId) {
+  const url = `${config.localUrl}/parks/${parkId}`;
+  return http.get(url)
+    .then((resp) => {
+      return resp.data[0];
+    }, (err) => {
+      throw err;
+    });
 }

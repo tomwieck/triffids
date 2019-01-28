@@ -1,17 +1,16 @@
 <template>
   <main class="main">
-    <Header v-bind:message="'Choose a park'" />
+    <Header v-bind:message="'Choose a park'"/>
     <ul>
       <li v-for="park in parks" v-bind:key="park.id" class="layer">
-        <router-link :to="{
+        <router-link
+          :to="{
           path: getParkLink(park.id),
-          query: { title: park.siteName }
         }">
           <h3> {{ park.siteName }} </h3>
-          <!-- <span class="small">{{ park.location }}</span> -->
           <div class="stats">
-              <span><b>1</b> Unique species</span>
-              <span><b>100</b> Total trees</span>
+              <span><b>{{park.unique_trees}}</b> Unique species</span>
+              <span><b>{{park.total_trees}}</b> Total trees</span>
           </div>
         </router-link>
       </li>
@@ -20,37 +19,53 @@
 </template>
 
 <script>
-import Header from './Header.vue'
+import Header from "./Header.vue";
 import { parkService } from "../services/Park.service";
 
 export default {
-  name: 'list',
+  name: "list",
   data: () => {
     return {
-      parks: []
+      parks: [],
+      loading: false
     }
   },
+
   beforeMount () {
     this.getParks()
     .then(parks => {
-      this.parks = parks, 'hello'
-    }) 
+      this.parks = parks
+    })
   },
+
+  mounted() {
+    window.onscroll = () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !this.loading) {
+        this.loading = true;
+        this.getParks()
+        .then(newParks => {
+            this.parks.push(...newParks);
+            this.loading = false;
+          }
+        )
+      }
+    };
+  },
+
   methods: {
-    getParkLink: (parkId) => `park/${parkId}`,
-    async getParks () {
+    getParkLink: parkId => `park/${parkId}`,
+    async getParks() {
       let parks = await parkService.parks();
       return parks;
     }
   },
   components: {
-    Header,
-  },
-}
+    Header
+  }
+};
 </script>
 
 <style scoped>
-
 ul {
   padding: 0 1em;
 }
@@ -87,7 +102,7 @@ li {
 
 .small {
   display: block;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .stats {

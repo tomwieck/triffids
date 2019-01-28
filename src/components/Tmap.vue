@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div id="mapid">
-      <CircleSpinner v-if="loading" size="large"></CircleSpinner>
-    </div>
+  <div id="mapid">
+    <CircleSpinner v-if="loading" size="large"></CircleSpinner>
   </div>
 </template>
 
@@ -13,6 +11,7 @@ import { CircleSpinner } from "vue-spinners";
 import { treeIconService as treeIcons } from "../services/TreeIcon.service";
 import { treePhotoService as treePhotos } from "../services/TreePhoto.service";
 import { treeService } from "../services/Tree.service";
+require("leaflet.locatecontrol");
 
 const personIcon = L.Icon.extend({
   options: {
@@ -30,6 +29,9 @@ export default {
   name: "Tmap",
   components: { CircleSpinner },
   props: {
+    park: {
+      type: Object
+    },
     drawerState: {
       type: Boolean,
       default: true
@@ -37,42 +39,53 @@ export default {
   },
   data() {
     return {
-      // url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}',
-      url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-      center: [51.44059, -2.58889],
+      url:
+        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+      // url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+
+      oldCenter: [0, 0],
+      center: [this.park.lat, this.park.lng],
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 17,
       bounds: null,
-      id: "mapbox.streets",
+      id: "mapbox.outdoors", // can be: streets, satellite, light, dark, outdoors
       token:
         "pk.eyJ1IjoiamFsYWxza2kiLCJhIjoiY2pvd3d3bm40MXcxczNrbzlyazB2ZDVobyJ9.wV99nDE6dCfGjMUrEIjgFQ",
       mymap: null,
       trees: null,
       treeCount: 0,
-      loading: true
+      loading: true,
+      person: null
     };
   },
   watch: {
     drawerState: function() {
+      this.resetPosition();
+    }
+  },
+  methods: {
+    resetPosition: function() {
       const moveBy = window.innerHeight / 3;
       this.drawerState
         ? this.mymap.panBy([0, moveBy])
         : this.mymap.panBy([0, -1 * moveBy]);
-    }
-  },
-  methods: {
+      this.oldCenter = this.mymap.getCenter();
+    },
     treeModal: function(data) {
-      this.$log.info("showModal: ", data.full_name);
       let imgsrc = treePhotos.getPhotoFor(data.name);
+      let backLink = `/park/${this.$route.params.parkId}`;
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
             <div class="latin-name">${data.latin}</div>
-            <a href="" class="button">Find out more</a>
+            <a href="/#/tree/${data.latin_code}?title=${
+        data.full_name
+      }&back=${backLink}" class="button">Find out more</a>
         </div>`;
     },
     resize: function(full) {
+      // not currently used...
       this.$log.info("Tmap:resize triggered");
       if (full) {
         this.mymap.panBy([0, 0]);
@@ -81,13 +94,14 @@ export default {
       }
     },
     mapLoaded() {
-      this.$log.info("Tmap:mapLoaded triggered");
       if (this.mymap) {
+        this.$log.info("Tmap:mapLoaded triggered");
         this.zoom = this.mymap.getZoom();
         this.bounds = this.mymap.getBounds();
         this.center = this.mymap.getCenter();
+        this.oldCenter = this.center;
       }
-      this.loading = false;
+      // this.loading = false;
     },
     mapClicked() {
       this.$log.info("Tmap:mapClicked triggered");
@@ -106,9 +120,16 @@ export default {
         this.bounds = this.mymap.getBounds();
       }
     },
+    popupOpen() {
+      this.oldCenter = this.mymap.getCenter();
+    },
+    popupClose() {
+      this.mymap.setView(this.oldCenter);
+    },
     async loadTrees() {
+      // TODO: we need a leaflet.markerCluster here!
       this.$log.info("Tmap:loadTrees triggered");
-      const response = await treeService.trees("VICTPA");
+      const response = await treeService.trees(this.park.id);
       this.trees = response.map(val => {
         return {
           name: val.common_name,
@@ -122,16 +143,16 @@ export default {
         };
       });
       this.treeCount = response.length;
+      const popupOptions = {
+        minWidth: 400,
+        maxWidth: 800,
+        keepInView: true,
+        className: "tree-modal"
+      };
       this.trees.forEach(function(tree) {
         const options = {
           icon: treeIcons.getIconFor(tree.name),
           title: tree.full_name // used for tooltip
-        };
-        const popupOptions = {
-          minWidth: 400,
-          maxWidth: 800,
-          keepInView: true,
-          className: "tree-modal"
         };
         L.marker([tree.geo_point.lat, tree.geo_point.lng], options)
           .addTo(this.mymap)
@@ -141,64 +162,49 @@ export default {
       this.loading = false;
     }
   },
-  mounted: function() {
-    this.mymap = L.map("mapid").setView(this.center, this.zoom);
-    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+  mounted: async function() {
+    this.mymap = L.map("mapid");
+    this.mymap.on("load", this.mapLoaded); // order is important
+    this.mymap.setView(this.center, this.zoom);
+    L.control.scale({ position: "topright" }).addTo(this.mymap);
+    const loc = L.control
+      .locate({ icon: "map-location-control" })
+      .addTo(this.mymap);
+    loc.stop(); // not needed except for linting.
+
+    L.tileLayer(this.url, {
       attribution: this.attribution,
-      zoom: this.zoom,
+      maxZoom: 18,
       id: this.id,
-      access_token: this.token
+      accessToken: this.token
     }).addTo(this.mymap);
-    this.mymap.panBy([0, 300]); // TODO: this is an estimate!
+    this.mymap.panBy([0, window.innerHeight / 3]); // TODO: this is an estimate!
+    this.oldCenter = this.center;
 
     const personOptions = {
       icon: new personIcon(),
       title: "You are here",
       alt: "You are here!"
     };
-    L.marker(this.center, personOptions).addTo(this.mymap);
+    this.person = L.marker(this.center, personOptions).addTo(this.mymap);
 
-    this.mymap.on("load", this.mapLoaded);
     this.mymap.on("click", this.mapClicked);
     this.mymap.on("zoomend", this.zoomUpdated);
     this.mymap.on("moveend", this.moveUpdated);
+    this.mymap.on("popupopen", this.popupOpen);
+    this.mymap.on("popupclose", this.popupClose);
+
     this.loadTrees();
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<!-- Put leaflet map styles in the leaflet.css file to avoid the scoped -->
+<style scoped>
 @import url("../../node_modules/leaflet/dist/leaflet.css");
+@import url("../assets/leaflet.css");
 
-.tree-modal {
-  text-align: center;
-  bottom: -60px !important; /* to line up on the tree icon */
-}
-.tree-modal img {
-  width: 100%;
-  height: 100%;
-}
-.latin-name {
-  font-style: italic;
-}
-.full-name {
-  font-size: 2em;
-  color: darkgreen;
-}
-.tree-modal a.button {
-  display: block;
-  padding: 13px 30px;
-  background-color: rgb(27, 201, 152);
-  color: white;
-  font-size: 1em;
-}
-.leaflet-popup {
-  /* background-color: lime; */
-}
-.leaflet-popup-content {
-  font-size: 1.6em;
-}
 #mapid {
   height: 100vh;
   width: 100%;

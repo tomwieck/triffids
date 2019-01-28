@@ -1,28 +1,32 @@
 <template>
   <div class="hello">
-    <Header v-bind:message="'London Plane'" />
-    <div class="tree"> </div>
-    <TreeDrawer />
+    <Header v-bind:message="name" v-bind:hasBack="backLink"/>
+    <div class="tree"></div>
+    <TreeDrawer :message="name"/>
   </div>
 </template>
 
 <script>
-import Header from './Header.vue'
-import TreeDrawer from './TreeDrawer.vue'
+import Header from "./Header.vue";
+import TreeDrawer from "./TreeDrawer.vue";
 
 export default {
-  name: 'TreePage',
+  name: "TreePage",
   props: {
     name: {
       type: String,
-      default: 'none'
+      default: "none"
+    },
+    backLink: {
+      type: String,
+      default: ""
     }
   },
   components: {
     Header,
     TreeDrawer
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -45,7 +49,7 @@ a {
   width: 100%;
   height: auto;
   min-height: 400px;
-  background-image: url('https://www.mcfallandberry.com/wp-content/uploads/2016/04/london-plane-tree-1.jpg');
+  background-image: url("https://www.mcfallandberry.com/wp-content/uploads/2016/04/london-plane-tree-1.jpg");
   background-size: cover;
 }
 </style>

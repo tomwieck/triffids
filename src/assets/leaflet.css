@@ -1,0 +1,48 @@
+/* Put all leaflet style overrides here to escape 
+   the 'scoped' attribute in the components */
+.map-location-control::after {
+  content: "\2295";
+  /* 25c9, 25ce also possible */
+  font-size: 2em;
+}
+
+.personicon {
+  background: orange;
+  border-radius: 50%;
+}
+
+.tree-modal {
+  text-align: center;
+  bottom: -60px !important;
+  /* to line up on the tree icon */
+}
+
+.tree-modal img {
+  width: 100%;
+  height: 100%;
+}
+
+.tree-modal a.button {
+  display: block;
+  padding: 13px 30px;
+  background-color: rgb(27, 201, 152);
+  color: white;
+  font-size: 1em;
+}
+
+.leaflet-popup {
+  /* background-color: lime; */
+}
+
+.leaflet-popup-content {
+  font-size: 1.6em;
+}
+
+.latin-name {
+  font-style: italic;
+}
+
+.full-name {
+  font-size: 2em;
+  color: darkgreen;
+}
