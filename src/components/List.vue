@@ -27,7 +27,8 @@ export default {
   data: () => {
     return {
       parks: [],
-      loading: false
+      loading: false,
+      page: 1,
     }
   },
 
@@ -55,7 +56,8 @@ export default {
   methods: {
     getParkLink: parkId => `park/${parkId}`,
     async getParks() {
-      let parks = await parkService.parks();
+      let parks = await parkService.parks(this.page);
+      this.page++;
       return parks;
     }
   },
