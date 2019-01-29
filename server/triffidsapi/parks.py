@@ -37,13 +37,13 @@ def getPark(code):
     return 0
 
 
-def getAllParkNames(page):
+def getAllParkNames(page, lat=0, long=0):
     parksPerPage = 20
-    lowestBoundary = (parksPerPage * page) - parksPerPage  # 20
-    highestBoundary = parksPerPage * page - 1  # 39
+    lowestBoundary = (parksPerPage * page) - parksPerPage
+    highestBoundary = parksPerPage * page - 1
     parkNames = []
 
-    for index, record in enumerate(data):
+    for index, record in enumerate(sorted(data, key=lambda x: x['fields']['site_name'])):
         if (index < lowestBoundary or index > highestBoundary):
             continue
         parkData = record['fields']

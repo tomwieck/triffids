@@ -26,7 +26,10 @@ def index():
 @app.route('/api/v1/parks', methods=['GET'])
 def getAllParkNames():
     page = request.args.get('page')
-    response = parks.getAllParkNames(int(page))
+    lat = request.args.get('lat')
+    long = request.args.get('long')
+
+    response = parks.getAllParkNames(int(page), lat, long)
     if len(response) == 0:
         abort(404)
     return jsonify(response)
