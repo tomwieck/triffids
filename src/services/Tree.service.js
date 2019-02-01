@@ -2,7 +2,6 @@ import http from '../utils/http'
 import {
   config
 } from '../utils/config'
-import Vue from 'vue';
 
 export const treeService = {
   trees,

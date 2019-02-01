@@ -5,7 +5,7 @@
     }">
       <span class="back-btn" v-if="hasBack"></span>
     </router-link>
-    <h1>{{ message }}</h1>
+    <h1 v-if="title">{{ title }}</h1>
   </header>
 </template>
 
@@ -13,9 +13,9 @@
 export default {
   name: "appHeader",
   props: {
-    message: {
+    title: {
       type: String,
-      default: "None"
+      default: ""
     },
     hasBack: {
       type: String,

@@ -1,6 +1,6 @@
 <template>
   <div id="drawer" class="drawer">
-    <div class="drawer__summary">
+    <div v-if="response.fields" class="drawer__summary">
       <h1>{{ title }} ({{ response.fields.common_name }})</h1>
       <h2>{{ response.fields.latin_name }}</h2>
       <ul class="drawer__subtitle">
@@ -44,7 +44,7 @@ export default {
     },
     response: {
       type: Object,
-      default: {}
+      default: () => []
     }
   },
   data: () => {
