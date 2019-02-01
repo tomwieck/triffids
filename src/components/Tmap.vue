@@ -75,13 +75,16 @@ export default {
     treeModal: function(data) {
       let imgsrc = treePhotos.getPhotoFor(data.name);
       let backLink = `/park/${this.$route.params.parkId}`;
+      let routerOptions = {
+        path: 'TreePage',
+      }
+
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
             <div class="latin-name">${data.latin}</div>
-            <a href="/#/tree/${data.latin_code}?title=${
-        data.full_name
-      }&back=${backLink}" class="button">Find out more</a>
+            <a href="/#/tree/${data.full_name}/${data.id}"
+            class="button">Find out more</a>
         </div>`;
     },
     resize: function(full) {
@@ -132,6 +135,7 @@ export default {
       const response = await treeService.trees(this.park.id);
       this.trees = response.map(val => {
         return {
+          id: val.id,
           name: val.common_name,
           full_name: val.full_common_name,
           girth: val.dbh,
