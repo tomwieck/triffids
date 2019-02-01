@@ -9,15 +9,31 @@ with open(baseDirectory + '/data/trees.json') as json_file:
     data = json.load(json_file)
 
 
+def getTreeById(id):
+
+    url = "https://opendata.bristol.gov.uk/api/records/1.0/search/"
+    dataset = "?dataset=trees"
+    geofilter = "&q=recordid%3D" + str(id) + "&facet=feature_type_name&facet=common_name&refine.feature_type_name=Tree+-+Parks+and+Green+Space"
+
+    response = requests.get(url + dataset + geofilter)
+    response = response.json()
+    data = response['records']
+
+    if data:
+        return data[0]
+
+
 def getTreesByPark(parkCode):
     trees = []
 
     # Search for trees by park
     for record in data:
 
+        id = record['recordid']
         treeData = record['fields']
 
         if parkCode == treeData['site_code']:
+            treeData['id'] = id
             trees.append(treeData)
 
     return trees
