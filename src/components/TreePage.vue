@@ -1,14 +1,15 @@
 <template>
   <div class="hello">
     <Header v-bind:message="name" v-bind:hasBack="backLink"/>
-    <div class="tree"></div>
-    <TreeDrawer :message="name"/>
+    <div id="photo"></div>
+    <TreeDrawer :message="name" :code="tree_code"/>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
 import TreeDrawer from "./TreeDrawer.vue";
+import { treeInfoService as treeInfo } from "../services/TreeInfo.service.js";
 
 export default {
   name: "TreePage",
@@ -22,9 +23,20 @@ export default {
       default: ""
     }
   },
+  data() {
+    return {
+      tree_code: this.$route.params.treeId
+    };
+  },
   components: {
     Header,
     TreeDrawer
+  },
+  mounted: function() {
+    const imgLink = treeInfo.getImageLink(this.tree_code);
+    this.$log.info("TreePage:imgLink: ", imgLink);
+    const el = document.getElementById("photo");
+    el.style.backgroundImage = `url('${imgLink}')`;
   }
 };
 </script>
@@ -45,7 +57,7 @@ li {
 a {
   color: #42b983;
 }
-.tree {
+#photo {
   width: 100%;
   height: auto;
   min-height: 400px;

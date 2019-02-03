@@ -3,22 +3,26 @@
     <div class="drawer__summary">
       <h1>{{ message }}</h1>
       <div class="drawer__subtitle">
-        <span>Platanus x hispanica</span>
+        <span>{{treeObj.latin_name}}</span>
       </div>
       <ul>
-        <li>Height 5.76m</li>
-        <li>Girth 87cm</li>
-        <li>Age ~240</li>
+        <li>Height {{treeObj.height}}</li>
+        <li>Girth {{treeObj.girth}}</li>
+        <li>Age {{treeObj.age}}</li>
       </ul>
     </div>
     <hr>
     <div class="drawer__about">
-      <h2>Special information about this specimen</h2>
-      <p>London Planes grow very rapidly, and this vast specimen was probably associated with Brislington House. It now fills the valley of the brook, and is hollow. It was in danger of being ruined by fires built inside its hollow trunk, a common fate of veteran trees, but was recently saved by being bricked up. The species came to Britain in 1690, and is still being widely planted.</p>
-      <hr>
-      <h2>General information about this species</h2>
-      <p>Platanus × acerifolia, the London plane, London planetree, or hybrid plane, is a tree in the genus Platanus. It is often known by the synonym Platanus × hispanica. It is usually thought to be a hybrid of Platanus orientalis (oriental plane) and Platanus occidentalis (American sycamore). Some authorities think that it may be a cultivar of P. orientalis.</p>
-      <span class="drawer__source">Source: Wikipedia</span>
+      <div v-if="special" class="drawer__specialinfo">
+        <h2>Special information about this specimen</h2>
+        <p>Some info here...</p>
+        <hr>
+      </div>
+      <div class="drawer__generalinfo">
+        <h2>General information about this species</h2>
+        <p>{{treeObj.wiki_data}}</p>
+        <span class="drawer__source">Source: Wikipedia</span>
+      </div>
       <hr>
       <div class="drawer__report">
         <a
@@ -34,6 +38,7 @@
 
 <script>
 import Chevron from "./Chevron.vue";
+import { treeInfoService as treeInfo } from "../services/TreeInfo.service.js";
 
 export default {
   name: "treeDrawer",
@@ -41,15 +46,25 @@ export default {
     message: {
       type: String,
       default: "None"
+    },
+    code: {
+      type: String,
+      default: "MIX"
     }
   },
   data: () => {
     return {
-      el: "#drawer"
+      el: "#drawer",
+      treeObj: {},
+      special: 0
     };
   },
   components: {
     Chevron
+  },
+  mounted: async function() {
+    this.treeObj = await treeInfo.getTreeInfo(this.code);
+    this.$log.info("TreeDrawer:loading:", this.code);
   }
 };
 </script>
