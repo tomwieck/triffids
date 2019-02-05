@@ -5,8 +5,8 @@ import json
 
 import pytest
 
-from app import app
-
+from triffidsapi.app import create_app
+app = create_app()
 
 # def setup(self):
 #     self.app_context = app.app_context()
@@ -24,7 +24,7 @@ def client():
 
 
 def test_client_exists(client):
-    s = client.get('/')
+    s = client.get('/api/v1/')
     assert b'Hello, World!' in s.data
 
 
