@@ -3,19 +3,20 @@ import App from './App.vue'
 import router from './router'
 import VueLogger from 'vuejs-logger'
 
-Vue.config.productionTip = false
-
 const isProduction = process.env.NODE_ENV === 'production'
+Vue.config.API_URL = isProduction ? 'http://${process.env.API_URL}:5000/api/v1' : 'http://127.0.0.1:5000/api/v1'
+
+Vue.config.productionTip = false
 
 // -- setup VueLogger
 const options = {
-  isEnabled: true,
-  logLevel: isProduction ? 'error' : 'debug',
-  stringifyArguments: false,
-  showLogLevel: true,
-  showMethodName: true,
-  separator: '|',
-  showConsoleColors: true
+    isEnabled: true,
+    logLevel: isProduction ? 'error' : 'debug',
+    stringifyArguments: false,
+    showLogLevel: true,
+    showMethodName: true,
+    separator: '|',
+    showConsoleColors: true
 };
 Vue.use(VueLogger, options);
 // -- end setup
