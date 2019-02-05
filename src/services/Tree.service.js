@@ -25,6 +25,13 @@ function trees(site_code) {
         });
 }
 
-function tree() {
-    return {};
+function tree(treeId) {
+  const url = `${config.localUrl}/tree/${treeId}`;
+
+  return http.get(url)
+    .then((resp) => {
+      return resp.data
+    }, (err) => {
+      throw err;
+    });
 }
