@@ -1,30 +1,29 @@
 <template>
   <div class="hello">
     <Header v-bind:title="title"/>
-    <div class="tree"></div>
-    <TreeDrawer
-      :response="response"
-      :title="title"
-      />
+    <div class="tree" id="photo"></div>
+    <TreeDrawer :response="response" :tree="tree"/>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
 import TreeDrawer from "./TreeDrawer.vue";
+import { treeService } from "../services/Tree.service.js";
 import { treeInfoService as treeInfo } from "../services/TreeInfo.service.js";
 
 export default {
   name: "TreePage",
-  mounted() {
-    if(this.$route.params.treeId) {
-      this.getTree(this.$route.params.treeId)
+  async mounted() {
+    this.$log.info("TreePage:params: ", this.tree_code);
+    if (this.$route.params.treeId) {
+      this.getTree(this.$route.params.treeId);
     }
-  },
-  data() {
-    return {
-      tree_code: this.$route.params.treeId
-    };
+    this.tree = await treeInfo.getTreeInfo(this.tree_code);
+    const imgLink = this.tree.wiki_image;
+    this.title = this.tree.full_common_name;
+    const el = document.getElementById("photo");
+    el.style.backgroundImage = `url('${imgLink}')`;
   },
   components: {
     Header,
@@ -33,20 +32,16 @@ export default {
   data() {
     return {
       treeId: this.$route.params.treeId,
-      title: this.$route.params.title,
+      tree_code: this.$route.params.title,
+      title: "Loading...",
+      tree: {},
       response: {}
-    }
+    };
   },
   methods: {
     async getTree(id) {
       this.response = await treeService.tree(id);
     }
-  },
-  mounted: function() {
-    const imgLink = treeInfo.getImageLink(this.tree_code);
-    this.$log.info("TreePage:imgLink: ", imgLink);
-    const el = document.getElementById("photo");
-    el.style.backgroundImage = `url('${imgLink}')`;
   }
 };
 </script>

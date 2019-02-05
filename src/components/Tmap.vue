@@ -79,7 +79,7 @@ export default {
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
             <div class="latin-name">${data.latin}</div>
-            <a href="/#/tree/${data.full_name}/${data.id}"
+            <a href="/#/tree/${data.latin_code}/${data.id}"
             class="button">Find out more</a>
         </div>`;
     },

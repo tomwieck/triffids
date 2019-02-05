@@ -1,14 +1,14 @@
 <template>
   <div id="drawer" class="drawer">
     <div v-if="response.fields" class="drawer__summary">
-      <h1>{{ title }} ({{ response.fields.common_name }})</h1>
+      <h1>{{ tree.common_name }} ({{ response.fields.common_name }})</h1>
       <h2>{{ response.fields.latin_name }}</h2>
       <ul class="drawer__subtitle">
         <li>Crown Height: {{ response.fields.crown_height }}</li>
         <li>Crown Width: {{ response.fields.crown_width }}</li>
         <li>Location Risk Zone: {{ response.fields.location_risk_zone }}</li>
         <li>Diameter at 1.3 meters: {{ response.fields.dbh }}</li>
-        <li v-if="response.fields.crown_area"> - {{ response.fields.crown_area }}</li>
+        <li v-if="response.fields.crown_area">- {{ response.fields.crown_area }}</li>
       </ul>
     </div>
     <hr>
@@ -20,7 +20,7 @@
       </div>
       <div class="drawer__generalinfo">
         <h2>General information about this species</h2>
-        <p>{{treeObj.wiki_data}}</p>
+        <p>{{tree.wiki_data}}</p>
         <span class="drawer__source">Source: Wikipedia</span>
       </div>
       <hr>
@@ -50,12 +50,16 @@ export default {
     response: {
       type: Object,
       default: () => []
+    },
+    tree: {
+      type: Object,
+      default: () => []
     }
   },
   data: () => {
     return {
       el: "#drawer",
-      treeObj: {},
+      // treeObj: {},
       special: 0
     };
   },
@@ -63,15 +67,15 @@ export default {
     Chevron
   },
   mounted: async function() {
-    this.treeObj = await treeInfo.getTreeInfo(this.code);
-    this.$log.info("TreeDrawer:loading:", this.code);
+    // this.treeObj = await treeInfo.getTreeInfo(this.code);
+    // this.$log.info("TreeDrawer:loading:", this.code);
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import  '../styles/variables.scss';
+@import "../styles/variables.scss";
 
 .drawer {
   background: #fff;
