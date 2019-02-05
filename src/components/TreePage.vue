@@ -1,30 +1,41 @@
 <template>
   <div class="hello">
-    <Header v-bind:message="name" v-bind:hasBack="backLink"/>
+    <Header v-bind:title="title"/>
     <div class="tree"></div>
-    <TreeDrawer :message="name"/>
+    <TreeDrawer
+      :response="response"
+      :title="title"
+      />
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
 import TreeDrawer from "./TreeDrawer.vue";
+import { treeService } from "../services/Tree.service.js";
 
 export default {
   name: "TreePage",
-  props: {
-    name: {
-      type: String,
-      default: "none"
-    },
-    backLink: {
-      type: String,
-      default: ""
+  mounted() {
+    if(this.$route.params.treeId) {
+      this.getTree(this.$route.params.treeId)
     }
   },
   components: {
     Header,
     TreeDrawer
+  },
+  data() {
+    return {
+      treeId: this.$route.params.treeId,
+      title: this.$route.params.title,
+      response: {}
+    }
+  },
+  methods: {
+    async getTree(id) {
+      this.response = await treeService.tree(id);
+    }
   }
 };
 </script>

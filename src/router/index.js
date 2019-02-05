@@ -26,13 +26,9 @@ export default new Router({
       })
     },
     {
-      path: '/tree/:treeId',
+      path: '/tree/:title/:treeId/',
       name: 'TreePage',
       component: TreePage,
-      props: (route) => ({
-        name: route.query.title,
-        backLink: route.query.back
-      })
     }
   ]
 })
