@@ -3,6 +3,7 @@ node_modules
 /dist
 *.pyc
 server/venv/
+server/logs/
 
 # local env files
 .env.local

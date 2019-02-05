@@ -1,8 +1,11 @@
 <template>
   <div class="hello">
-    <Header v-bind:message="name" v-bind:hasBack="backLink"/>
-    <div id="photo"></div>
-    <TreeDrawer :message="name" :code="tree_code"/>
+    <Header v-bind:title="title"/>
+    <div class="tree"></div>
+    <TreeDrawer
+      :response="response"
+      :title="title"
+      />
   </div>
 </template>
 
@@ -13,14 +16,9 @@ import { treeInfoService as treeInfo } from "../services/TreeInfo.service.js";
 
 export default {
   name: "TreePage",
-  props: {
-    name: {
-      type: String,
-      default: "none"
-    },
-    backLink: {
-      type: String,
-      default: ""
+  mounted() {
+    if(this.$route.params.treeId) {
+      this.getTree(this.$route.params.treeId)
     }
   },
   data() {
@@ -31,6 +29,18 @@ export default {
   components: {
     Header,
     TreeDrawer
+  },
+  data() {
+    return {
+      treeId: this.$route.params.treeId,
+      title: this.$route.params.title,
+      response: {}
+    }
+  },
+  methods: {
+    async getTree(id) {
+      this.response = await treeService.tree(id);
+    }
   },
   mounted: function() {
     const imgLink = treeInfo.getImageLink(this.tree_code);

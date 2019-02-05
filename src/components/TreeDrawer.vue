@@ -1,14 +1,14 @@
 <template>
   <div id="drawer" class="drawer">
-    <div class="drawer__summary">
-      <h1>{{ message }}</h1>
-      <div class="drawer__subtitle">
-        <span>{{treeObj.latin_name}}</span>
-      </div>
-      <ul>
-        <li>Height {{treeObj.height}}</li>
-        <li>Girth {{treeObj.girth}}</li>
-        <li>Age {{treeObj.age}}</li>
+    <div v-if="response.fields" class="drawer__summary">
+      <h1>{{ title }} ({{ response.fields.common_name }})</h1>
+      <h2>{{ response.fields.latin_name }}</h2>
+      <ul class="drawer__subtitle">
+        <li>Crown Height: {{ response.fields.crown_height }}</li>
+        <li>Crown Width: {{ response.fields.crown_width }}</li>
+        <li>Location Risk Zone: {{ response.fields.location_risk_zone }}</li>
+        <li>Diameter at 1.3 meters: {{ response.fields.dbh }}</li>
+        <li v-if="response.fields.crown_area"> - {{ response.fields.crown_area }}</li>
       </ul>
     </div>
     <hr>
@@ -43,13 +43,13 @@ import { treeInfoService as treeInfo } from "../services/TreeInfo.service.js";
 export default {
   name: "treeDrawer",
   props: {
-    message: {
+    title: {
       type: String,
       default: "None"
     },
-    code: {
-      type: String,
-      default: "MIX"
+    response: {
+      type: Object,
+      default: () => []
     }
   },
   data: () => {
@@ -71,6 +71,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import  '../styles/variables.scss';
+
 .drawer {
   background: #fff;
   box-shadow: 0 2px 4px;
@@ -102,8 +104,8 @@ export default {
   }
 
   &__summary {
-    padding-bottom: 16px;
-    text-align: left;
+    padding: 18px 0;
+    text-align: center;
   }
 
   &__about {
@@ -136,9 +138,9 @@ export default {
 
 h1,
 h2 {
-  color: #058e3f;
+  color: $title-green;
   font-family: "Helvetica";
-  font-weight: 400;
+  font-weight: 600;
   margin: 4px 0;
 }
 
