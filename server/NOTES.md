@@ -14,6 +14,8 @@ $ deactivate
 
 - On Ubuntu 16.04
 - Install Python, Node, uWSGI, NginX
+- run the Python server with `sudo systemctl start triffidsapi`
+- check status/logs with `sudo systemctl status triffidsapi`
 
 
 ## Testing

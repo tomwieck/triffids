@@ -4,7 +4,7 @@ import router from './router'
 import VueLogger from 'vuejs-logger'
 
 const isProduction = process.env.NODE_ENV === 'production'
-Vue.config.API_URL = isProduction ? 'http://142.93.45.76:5000/api/v1' : 'http://127.0.0.1:5000/api/v1'
+Vue.config.API_URL = isProduction ? 'https://triffids.gnomedia.net/api/v1' : 'http://127.0.0.1:5000/api/v1'
 
 Vue.config.productionTip = false
 

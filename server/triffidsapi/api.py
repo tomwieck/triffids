@@ -6,9 +6,6 @@ api.py
 from flask import Blueprint, make_response, abort, jsonify, request
 
 from . import trees, parks, benches
-# import triffidsapi.trees as trees
-# import triffidsapi.parks as parks
-# import triffidsapi.benches as benches
 
 api = Blueprint('api', __name__)
 
@@ -28,7 +25,7 @@ def getAllParkNames():
     page = request.args.get('page') or 1
     response = parks.getAllParkNames(int(page))
     if len(response) == 0:
-        abort(402)
+        abort(404)
     return jsonify(response)
 
 
