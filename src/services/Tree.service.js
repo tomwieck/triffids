@@ -26,12 +26,12 @@ function trees(site_code) {
 }
 
 function tree(treeId) {
-  const url = `${config.localUrl}/tree/${treeId}`;
+    const url = `${Vue.config.API_URL}/tree/${treeId}`;
 
-  return http.get(url)
-    .then((resp) => {
-      return resp.data
-    }, (err) => {
-      throw err;
-    });
+    return http.get(url)
+        .then((resp) => {
+            return resp.data
+        }, (err) => {
+            throw err;
+        });
 }
