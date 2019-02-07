@@ -61,7 +61,7 @@ def test_client_get_trees_by_species(client):
 def test_client_get_trees_by_location(client):
     js = client.get('/api/v1/trees/lat=51.44&lng=-2.587&radius=500')
     data = json.loads(js.data)
-    assert len(data) == 10
+    assert len(data) == 836
 
 
 def test_client_get_benches(client):

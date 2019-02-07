@@ -71,7 +71,7 @@ def getNumbUniqueSpeciesByPark(parkCode):
 def getTreesByLocation(lat, lng, radius):
     trees = []
 
-    query = "&geofilter.distance=" + str(lat) + "%2C+" + str(lng) + "%2C+" + str(radius) + "&rows=20"
+    query = "&geofilter.distance=" + str(lat) + "%2C+" + str(lng) + "%2C+" + str(radius) + "&rows=1000"
 
     response = requests.get(url + query)
     response = response.json()
