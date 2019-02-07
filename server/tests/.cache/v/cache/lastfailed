@@ -1,0 +1,5 @@
+{
+  "test_app.py::test_client_get_nearest_parks": true,
+  "test_app.py::test_client_get_park": true,
+  "test_app.py::test_get_all_park_names": true
+}
