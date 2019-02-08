@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <Header v-bind:title="title"/>
+    <Header v-bind:title="title" v-bind:hasBack="backLink"/>
     <div class="tree" id="photo"></div>
     <TreeDrawer :response="response" :tree="tree"/>
   </div>
@@ -14,6 +14,12 @@ import { treeInfoService as treeInfo } from "../services/TreeInfo.service.js";
 
 export default {
   name: "TreePage",
+  props: {
+    backLink: {
+      type: String,
+      default: ""
+    }
+  },
   async mounted() {
     this.$log.info("TreePage:params: ", this.tree_code);
     if (this.$route.params.treeId) {

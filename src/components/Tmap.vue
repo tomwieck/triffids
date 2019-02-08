@@ -74,12 +74,13 @@ export default {
     },
     treeModal: function(data) {
       let imgsrc = treePhotos.getPhotoFor(data.name);
+      const backLink = `/park/${this.$route.params.parkId}`;
 
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
             <div class="latin-name">${data.latin}</div>
-            <a href="/#/tree/${data.latin_code}/${data.id}"
+            <a href="/#/tree/${data.latin_code}/${data.id}?back=${backLink}"
             class="button">Find out more</a>
         </div>`;
     },
@@ -145,8 +146,8 @@ export default {
       });
       this.treeCount = response.length;
       const popupOptions = {
-        minWidth: 400,
-        maxWidth: 800,
+        minWidth: 200,
+        maxWidth: 400,
         keepInView: true,
         className: "tree-modal"
       };
@@ -175,7 +176,7 @@ export default {
 
     L.tileLayer(this.url, {
       attribution: this.attribution,
-      maxZoom: 18,
+      maxZoom: 20,
       id: this.id,
       accessToken: this.token
     }).addTo(this.mymap);
