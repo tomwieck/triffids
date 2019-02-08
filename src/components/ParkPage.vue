@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header v-bind:message="parkName" v-bind:hasBack="backLink"/>
+    <Header v-bind:title="parkName" v-bind:hasBack="backLink"/>
     <div class="content">
       <Tmap v-if="park" :park="park" :drawerState="drawerState"/>
       <ParkDrawer @toggle-drawer="clicked" :park="park"/>

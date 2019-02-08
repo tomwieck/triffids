@@ -3,7 +3,7 @@
     <router-link :to="{
       path: hasBack
     }">
-      <span class="back-btn" v-if="hasBack"></span>
+      <span title="Back" class="back-btn" v-if="hasBack"></span>
     </router-link>
     <h1 v-if="title">{{ title }}</h1>
   </header>
@@ -39,13 +39,17 @@ export default {
   font-size: 0.8em;
 }
 .back-btn {
+  background-image: url("../assets/backwoods.svg");
+  width: 32px;
+  height: 32px;
   position: absolute;
-  top: 10%;
+  bottom: 10%;
   left: 1%;
   font-size: 3em;
   color: white;
 }
-.back-btn:after {
-  content: "\02c2";
-}
+/* <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> 
+from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
+is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+CC 3.0 BY</a></div> */
 </style>
