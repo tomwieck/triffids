@@ -68,12 +68,8 @@ export default {
     resetPosition: function() {
       let moveBy = window.innerHeight / 3;
       moveBy = this.drawerState ? moveBy : -moveBy;
-      this.$log.info("Tmap:resetPosition:drawerState: ", this.drawerState);
       this.$log.info("Tmap:resetPosition: ", moveBy);
       this.mymap.panBy([0, moveBy]);
-      // this.drawerState
-      //   ? this.mymap.panBy([0, moveBy])
-      //   : this.mymap.panBy([0, -1 * moveBy]);
       this.oldCenter = this.mymap.getCenter();
     },
     treeModal: function(data) {
