@@ -2,8 +2,8 @@
   <div>
     <Header v-bind:title="parkName" v-bind:hasBack="backLink"/>
     <div class="content">
-      <Tmap v-if="park" :park="park" :drawerState="drawerState"/>
-      <ParkDrawer @toggle-drawer="clicked" :park="park"/>
+      <Tmap v-if="park" :park="park" :drawerState="drawerState" @close-drawer="mapActive"/>
+      <ParkDrawer @toggle-drawer="toggleDrawer" :park="park" ref="parkDrawer"/>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   name: "ParkPage",
   data: function() {
     return {
-      drawerState: false,
+      drawerState: true,
       backLink: "/parks",
       park: null,
       parkName: ""
@@ -39,13 +39,18 @@ export default {
       return park;
     },
 
-    clicked: function(event) {
+    mapActive() {
+      this.$log.info("ParkPage:mapActive ");
+      this.$refs.parkDrawer.drawerClose();
+    },
+
+    toggleDrawer: function(event) {
       // event === true is drawer visible
       this.drawerState = event;
       if (event) {
-        this.$log.info("Drawer opened");
+        this.$log.info("ParkPage: Drawer opened");
       } else {
-        this.$log.info("Drawer closed");
+        this.$log.info("ParkPage: Drawer closed");
       }
     }
   },
