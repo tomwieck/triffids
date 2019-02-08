@@ -1,16 +1,19 @@
 <template>
   <main class="main">
-    <Header v-bind:message="'Choose a park'"/>
+    <Header v-bind:title="'Choose a park'"/>
     <ul>
       <li v-for="park in parks" v-bind:key="park.id" class="layer">
-        <router-link
-          :to="{
+        <router-link :to="{
           path: getParkLink(park.id),
         }">
-          <h3> {{ park.siteName }} </h3>
+          <h3>{{ park.siteName }}</h3>
           <div class="stats">
-              <span><b>{{park.unique_trees}}</b> Unique species</span>
-              <span><b>{{park.total_trees}}</b> Total trees</span>
+            <span>
+              <b>{{park.unique_trees}}</b> Unique species
+            </span>
+            <span>
+              <b>{{park.total_trees}}</b> Total trees
+            </span>
           </div>
         </router-link>
       </li>
@@ -28,27 +31,27 @@ export default {
     return {
       parks: [],
       loading: false,
-      page: 1,
-    }
+      page: 1
+    };
   },
 
-  beforeMount () {
-    this.getParks()
-    .then(parks => {
-      this.parks = parks
-    })
+  beforeMount() {
+    this.getParks().then(parks => {
+      this.parks = parks;
+    });
   },
 
   mounted() {
     window.onscroll = () => {
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !this.loading) {
+      if (
+        window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+        !this.loading
+      ) {
         this.loading = true;
-        this.getParks()
-        .then(newParks => {
-            this.parks.push(...newParks);
-            this.loading = false;
-          }
-        )
+        this.getParks().then(newParks => {
+          this.parks.push(...newParks);
+          this.loading = false;
+        });
       }
     };
   },

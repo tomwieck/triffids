@@ -66,10 +66,10 @@ export default {
   },
   methods: {
     resetPosition: function() {
-      const moveBy = window.innerHeight / 3;
-      this.drawerState
-        ? this.mymap.panBy([0, moveBy])
-        : this.mymap.panBy([0, -1 * moveBy]);
+      let moveBy = window.innerHeight / 3;
+      moveBy = this.drawerState ? moveBy : -moveBy;
+      this.$log.info("Tmap:resetPosition: ", moveBy);
+      this.mymap.panBy([0, moveBy]);
       this.oldCenter = this.mymap.getCenter();
     },
     treeModal: function(data) {
@@ -104,6 +104,7 @@ export default {
     },
     mapClicked() {
       this.$log.info("Tmap:mapClicked triggered");
+      this.$emit("close-drawer", false);
     },
     zoomUpdated() {
       this.$log.info("Tmap:zoomUpdated triggered");
@@ -195,6 +196,7 @@ export default {
     this.mymap.on("popupclose", this.popupClose);
 
     this.loadTrees();
+    this.resetPosition();
   }
 };
 </script>
