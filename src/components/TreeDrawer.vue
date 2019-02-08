@@ -3,13 +3,12 @@
     <div v-if="response.fields" class="drawer__summary">
       <h1>{{ tree.common_name }} ({{ response.fields.common_name }})</h1>
       <h2>{{ response.fields.latin_name }}</h2>
-      <ul class="drawer__subtitle">
-        <li>Crown Height: {{ response.fields.crown_height }}</li>
-        <li>Crown Width: {{ response.fields.crown_width }}</li>
-        <li>Location Risk Zone: {{ response.fields.location_risk_zone }}</li>
-        <li>Diameter at 1.3 meters: {{ response.fields.dbh }}</li>
-        <li v-if="response.fields.crown_area">- {{ response.fields.crown_area }}</li>
-      </ul>
+      <div class="treefacts">
+        <TreeFact class="fact tl" boxtype="height" v-bind:data="response.fields.crown_height"/>
+        <TreeFact class="fact tr" boxtype="width" v-bind:data="response.fields.crown_width"/>
+        <TreeFact class="fact bl" boxtype="area" v-bind:data="response.fields.crown_area"/>
+        <TreeFact class="fact br" boxtype="dbh" v-bind:data="response.fields.dbh"/>
+      </div>
     </div>
     <hr>
     <div class="drawer__about">
@@ -22,6 +21,12 @@
         <h2>General information about this species</h2>
         <p>{{tree.wiki_data}}</p>
         <span class="drawer__source">Source: Wikipedia</span>
+      </div>
+      <hr>
+      <div class="drawer__readmore">
+        <a v-bind:href="tree.wiki_page" target="_blank">read more on Wikipedia
+          <Chevron/>
+        </a>
       </div>
       <hr>
       <div class="drawer__report">
@@ -38,7 +43,7 @@
 
 <script>
 import Chevron from "./Chevron.vue";
-import { treeInfoService as treeInfo } from "../services/TreeInfo.service.js";
+import TreeFact from "./TreeFact";
 
 export default {
   name: "treeDrawer",
@@ -64,7 +69,8 @@ export default {
     };
   },
   components: {
-    Chevron
+    Chevron,
+    TreeFact
   },
   mounted: async function() {
     // this.treeObj = await treeInfo.getTreeInfo(this.code);
@@ -77,6 +83,35 @@ export default {
 <style scoped lang="scss">
 @import "../styles/variables.scss";
 
+.treefacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  width: 70%;
+  margin: 20px auto;
+  .fact {
+    height: 40px;
+    justify-self: stretch;
+    align-self: start;
+  }
+  .tl {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .tr {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .bl {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .br {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
 .drawer {
   background: #fff;
   box-shadow: 0 2px 4px;
@@ -138,6 +173,13 @@ export default {
   &__source {
     color: grey;
   }
+  &__readmore {
+    padding: 8px 0;
+    a {
+      color: $dark-primary-color;
+      text-decoration: none;
+    }
+  }
 }
 
 h1,
@@ -155,32 +197,5 @@ h2 {
 hr {
   border: 1px solid;
   color: #ebebec;
-}
-
-ul {
-  list-style-type: none;
-  display: inline;
-  padding-inline-start: 0;
-}
-
-li {
-  display: inline;
-  position: relative;
-
-  &:not(:first-child) {
-    padding-left: 18px;
-
-    &:after {
-      background-color: #4f6272;
-      content: "";
-      display: inline-block;
-      border-radius: 20px;
-      height: 6px;
-      width: 6px;
-      position: absolute;
-      left: 6px;
-      top: 8px;
-    }
-  }
 }
 </style>
