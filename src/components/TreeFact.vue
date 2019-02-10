@@ -2,10 +2,10 @@
   <div>
     <div class="factbox">
       <div class="icon">
-        <img alt="Vue logo" src="../assets/tree2.svg">
+        <img id="icon" :alt="'Tree ' + boxtype" :src="icon">
       </div>
-      <div class="data">{{showData}}</div>
-      <div class="label">{{showLabel}}</div>
+      <div class="value">{{value}}</div>
+      <div class="label">{{label}}</div>
     </div>
   </div>
 </template>
@@ -20,51 +20,48 @@ export default {
     },
     data: {
       type: String,
-      default: "Blood"
+      default: "No"
     }
   },
-  computed: {
-    showData: function() {
-      let text = "Unknown";
-      switch (this.boxtype) {
-        case "height":
-          text = this.data + "m";
-          break;
-        case "width":
-          text = this.data + "m";
-          break;
-        case "area":
-          text = this.data;
-          break;
-        case "dbh":
-          text = this.data;
-          break;
-        default:
-          text = "Unknown";
-          break;
-      }
-      return text;
-    },
-    showLabel: function() {
-      let text = "Unknown";
-      switch (this.boxtype) {
-        case "height":
-          text = "Crown height";
-          break;
-        case "width":
-          text = "Crown width";
-          break;
-        case "area":
-          text = "Crown area";
-          break;
-        case "dbh":
-          text = "Trunk diameter";
-          break;
-        default:
-          text = "Unknown";
-          break;
-      }
-      return text;
+  data: () => {
+    return {
+      // these are needed so that Webpack will include them
+      icon: require("../assets/tree2.svg"),
+      iconH: require("../assets/tree2.svg"),
+      iconW: require("../assets/tree1.svg"),
+      iconA: require("../assets/tree2.svg"),
+      iconD: require("../assets/tree2.svg"),
+      value: "Unknown",
+      label: "Label"
+    };
+  },
+  mounted: function() {
+    switch (this.boxtype) {
+      case "height":
+        this.label = "Crown height";
+        this.value = this.data + "m";
+        this.icon = this.iconH;
+        break;
+      case "width":
+        this.label = "Crown width";
+        this.value = this.data + "m";
+        this.icon = this.iconW;
+        break;
+      case "area":
+        this.label = "Crown area";
+        this.value = this.data;
+        this.icon = this.iconA;
+        break;
+      case "dbh":
+        this.label = "Trunk diameter";
+        this.value = this.data;
+        this.icon = this.iconD;
+        break;
+      default:
+        break;
+    }
+    if (this.data.startsWith("No")) {
+      this.value = "Unknown";
     }
   }
 };
@@ -87,7 +84,7 @@ export default {
       height: 40px;
     }
   }
-  .data {
+  .value {
     grid-column: 2;
     grid-row: 1;
     justify-self: start;

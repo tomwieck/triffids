@@ -72,7 +72,6 @@ a {
   width: 100%;
   height: auto;
   min-height: 400px;
-  background-image: url("https://www.mcfallandberry.com/wp-content/uploads/2016/04/london-plane-tree-1.jpg");
   background-size: cover;
 }
 </style>

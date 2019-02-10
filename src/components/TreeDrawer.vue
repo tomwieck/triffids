@@ -24,7 +24,7 @@
       </div>
       <hr>
       <div class="drawer__readmore">
-        <a v-bind:href="tree.wiki_page" target="_blank">read more on Wikipedia
+        <a v-bind:href="tree.wiki_page" target="_blank">Read more on Wikipedia
           <Chevron/>
         </a>
       </div>
