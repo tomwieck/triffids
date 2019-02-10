@@ -40,7 +40,6 @@
 
 <script>
 import Chevron from "./Chevron.vue";
-import { treeService } from "../services/Tree.service.js";
 
 export default {
   name: "parkDrawer",
@@ -69,6 +68,7 @@ export default {
         : drawer.classList.add("closed");
     },
     drawerClose: function() {
+      const drawer = document.getElementById("drawer");
       drawer.classList.add("closed");
     }
   },
