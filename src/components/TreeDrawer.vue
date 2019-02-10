@@ -71,10 +71,6 @@ export default {
   components: {
     Chevron,
     TreeFact
-  },
-  mounted: async function() {
-    // this.treeObj = await treeInfo.getTreeInfo(this.code);
-    // this.$log.info("TreeDrawer:loading:", this.code);
   }
 };
 </script>

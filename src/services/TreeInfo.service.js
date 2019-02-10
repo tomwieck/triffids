@@ -23,8 +23,8 @@ async function getTreeInfo(latin_code) {
     const term = tree.wiki_page.split('/').pop();
     try {
         Vue.$log.info('TreeInfo.service: calling out to wiki with ', term)
-        const content = await wiki().page(term).then(page => page.content())
-        tree.wiki_data = content[0]['content']
+        const content = await wiki().page(term).then(page => page.summary())
+        tree.wiki_data = content
     } catch (error) {
         Vue.$log.error('getTreeInfo:error ', error)
         tree.wiki_data = 'Error collecting data from Wikipedia'
