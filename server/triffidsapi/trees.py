@@ -15,7 +15,6 @@ def getTreeById(id):
     dataset = "?dataset=trees"
     geofilter = "&q=recordid%3D" + str(id) + "&facet=feature_type_name&facet=common_name&refine.feature_type_name=Tree+-+Parks+and+Green+Space"
 
-
     response = requests.get(url + dataset + geofilter)
     response = response.json()
     data = response['records']
