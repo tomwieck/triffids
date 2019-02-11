@@ -27,10 +27,10 @@ export default {
     return {
       // these are needed so that Webpack will include them
       icon: require("../assets/tree2.svg"),
-      iconH: require("../assets/tree2.svg"),
-      iconW: require("../assets/tree1.svg"),
-      iconA: require("../assets/tree2.svg"),
-      iconD: require("../assets/tree2.svg"),
+      iconH: require("../assets/meta_icons/crown_height.svg"),
+      iconW: require("../assets/meta_icons/crown_width.svg"),
+      iconA: require("../assets/meta_icons/crown_area.svg"),
+      iconD: require("../assets/meta_icons/diameter.svg"),
       value: "Unknown",
       label: "Label"
     };
