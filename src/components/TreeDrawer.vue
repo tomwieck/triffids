@@ -108,6 +108,7 @@ export default {
     grid-row: 2;
   }
 }
+
 .drawer {
   background: #fff;
   box-shadow: 0 2px 4px;
@@ -118,6 +119,7 @@ export default {
   height: 50%;
   overflow-y: scroll;
   padding: 16px;
+  width: 100%;
 
   &.expanded {
     height: 40px;
