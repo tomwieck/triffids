@@ -13,14 +13,12 @@ def getTreeById(id):
 
     url = "https://opendata.bristol.gov.uk/api/records/1.0/search/"
     dataset = "?dataset=trees"
-    geofilter = "&q=recordid%3D" + str(id) + "&facet=feature_type_name&facet=common_name"
+    geofilter = "&q=recordid%3D" + str(id) + "&facet=feature_type_name&facet=common_name&refine.feature_type_name=Tree+-+Parks+and+Green+Space"
 
 
     response = requests.get(url + dataset + geofilter)
     response = response.json()
     data = response['records']
-
-    print(data);
 
     if data:
         return data[0]
