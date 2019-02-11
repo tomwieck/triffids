@@ -66,22 +66,21 @@ export default {
   },
   methods: {
     resetPosition: function() {
-      const moveBy = window.innerHeight / 3;
-      this.drawerState
-        ? this.mymap.panBy([0, moveBy])
-        : this.mymap.panBy([0, -1 * moveBy]);
+      let moveBy = window.innerHeight / 3;
+      moveBy = this.drawerState ? moveBy : -moveBy;
+      this.$log.info("Tmap:resetPosition: ", moveBy);
+      this.mymap.panBy([0, moveBy]);
       this.oldCenter = this.mymap.getCenter();
     },
     treeModal: function(data) {
       let imgsrc = treePhotos.getPhotoFor(data.name);
-      let backLink = `/park/${this.$route.params.parkId}`;
+
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
             <div class="latin-name">${data.latin}</div>
-            <a href="/#/tree/${data.latin_code}?title=${
-        data.full_name
-      }&back=${backLink}" class="button">Find out more</a>
+            <a href="/#/tree/${data.full_name}/${data.id}"
+            class="button">Find out more</a>
         </div>`;
     },
     resize: function(full) {
@@ -105,6 +104,7 @@ export default {
     },
     mapClicked() {
       this.$log.info("Tmap:mapClicked triggered");
+      this.$emit("close-drawer", false);
     },
     zoomUpdated() {
       this.$log.info("Tmap:zoomUpdated triggered");
@@ -132,6 +132,7 @@ export default {
       const response = await treeService.trees(this.park.id);
       this.trees = response.map(val => {
         return {
+          id: val.id,
           name: val.common_name,
           full_name: val.full_common_name,
           girth: val.dbh,
@@ -195,6 +196,7 @@ export default {
     this.mymap.on("popupclose", this.popupClose);
 
     this.loadTrees();
+    this.resetPosition();
   }
 };
 </script>

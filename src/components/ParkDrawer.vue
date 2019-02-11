@@ -40,7 +40,6 @@
 
 <script>
 import Chevron from "./Chevron.vue";
-import { treeService } from "../services/Tree.service.js";
 
 export default {
   name: "parkDrawer",
@@ -63,10 +62,14 @@ export default {
   methods: {
     drawerToggle: function() {
       const drawer = document.getElementById("drawer");
-      this.$emit("toggle-drawer", drawer.classList.contains("expanded"));
-      drawer.classList.contains("expanded")
-        ? drawer.classList.remove("expanded")
-        : drawer.classList.add("expanded");
+      this.$emit("toggle-drawer", drawer.classList.contains("closed"));
+      drawer.classList.contains("closed")
+        ? drawer.classList.remove("closed")
+        : drawer.classList.add("closed");
+    },
+    drawerClose: function() {
+      const drawer = document.getElementById("drawer");
+      drawer.classList.add("closed");
     }
   },
   watch: {
@@ -93,7 +96,7 @@ export default {
   padding: 16px;
   z-index: 100;
 
-  &.expanded {
+  &.closed {
     height: 1em;
     button > svg {
       transform: rotate(-90deg);

@@ -1,7 +1,7 @@
 import json
 import requests
-import trees
 import os
+from . import trees
 
 # Read parks json
 baseDirectory = os.path.join(os.path.dirname(__file__), '..')

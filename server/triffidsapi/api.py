@@ -1,41 +1,37 @@
-#!flask/bin/python
-from flask import Flask, jsonify, abort, make_response, request
-from flask_cors import CORS
+"""
+api.py
+- api endpoints for the Triffids server
+"""
 
-import sys
-sys.path.append('triffidsapi')
+from flask import Blueprint, make_response, abort, jsonify, request
 
-import parks
-import trees
-import benches
+from . import trees, parks, benches
 
-app = Flask(__name__)
-CORS(app)
+api = Blueprint('api', __name__)
 
 
-@app.errorhandler(404)
+@api.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
-@app.route('/')
+@api.route('/')
 def index():
     return "Hello, World!"
 
 
-@app.route('/api/v1/parks', methods=['GET'])
+@api.route('/parks', methods=['GET'])
 def getAllParkNames():
-    page = request.args.get('page')
     lat = request.args.get('lat')
     long = request.args.get('long')
-
-    response = parks.getAllParkNames(int(page), lat, long)
+    page = request.args.get('page') or 1
+    response = parks.getAllParkNames(int(page))
     if len(response) == 0:
         abort(404)
     return jsonify(response)
 
 
-@app.route('/api/v1/parks/<string:parkCode>', methods=['GET'])
+@api.route('/parks/<string:parkCode>', methods=['GET'])
 def getPark(parkCode):
     response = parks.getPark(parkCode)
     if len(response) == 0:
@@ -43,7 +39,7 @@ def getPark(parkCode):
     return jsonify(response)
 
 
-@app.route('/api/v1/parks/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+@api.route('/parks/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getNearestParks(lat, lng, radius):
     response = parks.getNearestParks(lat, lng, radius)
     if len(response) == 0:
@@ -51,7 +47,16 @@ def getNearestParks(lat, lng, radius):
     return jsonify(response)
 
 
-@app.route('/api/v1/trees/<string:parkCode>', methods=['GET'])
+@api.route('/tree/<string:treeId>', methods=['GET'])
+def getTree(treeId):
+    response = trees.getTreeById(treeId)
+
+    if len(response) == 0:
+        abort(404)
+    return jsonify(response)
+
+
+@api.route('/trees/<string:parkCode>', methods=['GET'])
 def getTrees(parkCode):
     latinCode = request.args.get('latinCode')
 
@@ -66,7 +71,7 @@ def getTrees(parkCode):
     return jsonify(response)
 
 
-@app.route('/api/v1/trees/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+@api.route('/trees/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getTreesByLocation(lat, lng, radius):
     response = trees.getTreesByLocation(lat, lng, radius)
     if len(response) == 0:
@@ -74,13 +79,9 @@ def getTreesByLocation(lat, lng, radius):
     return jsonify(response)
 
 
-@app.route('/api/v1/benches/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+@api.route('/benches/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getBenches(lat, lng, radius):
     response = benches.getBenches(lat, lng, radius)
     if len(response) == 0:
         abort(404)
     return jsonify(response)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
