@@ -14,7 +14,7 @@ const treedata = require('../assets/trees/treenames.json')
  * 
  * see end of file to view the fields
  * 
- * @param {*} latin_code the latin code to lookup in the json
+ * @param {string} latin_code the latin code to lookup in the json
  */
 async function getTreeInfo(latin_code) {
     const tree = treedata.filter((t) => {
