@@ -1,19 +1,27 @@
 <template>
-  <main class="main">
+  <main class="list">
     <Header v-bind:title="'Choose a park'"/>
-    <ul>
-      <li v-for="park in parks" v-bind:key="park.id" class="layer">
-        <router-link :to="{
-          path: getParkLink(park.id),
-        }">
-          <h3>{{ park.siteName }}</h3>
-          <div class="stats">
-            <span>
-              <b>{{park.unique_trees}}</b> Unique species
-            </span>
-            <span>
-              <b>{{park.total_trees}}</b> Total trees
-            </span>
+    <ul class="list__container">
+      <li 
+        v-for="park in parks" 
+        v-bind:key="park.id">
+        <router-link 
+          :to="{
+            path: getParkLink(park.id),
+          }"
+          class="list-item">
+          <div class="list-item__inner">
+            <div class="list-item__details">
+              <h3 class="list-item__header">{{ park.siteName }}</h3>
+              <ul class="list-item__stats-container">
+                <li class="list-item__stats">
+                  {{park.unique_trees}} Unique species
+                </li>
+                <li class="list-item__stats">
+                  {{park.total_trees}} Total trees
+                </li>
+              </ul>
+            </div>
           </div>
         </router-link>
       </li>
@@ -70,58 +78,94 @@ export default {
 };
 </script>
 
-<style scoped>
-ul {
-  padding: 0 1em;
+<style scoped lang="scss">
+@import  '../styles/variables.scss';
+
+.list {
+  background-color: $gray-super-light;
+
+  &__container {
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    padding-top: 8px;
+  }
 }
 
-.main {
-  background: #009133;
-  margin: 0;
-  text-decoration: none;
-  padding: 0.1em;
-  min-height: 100vh;
-}
-
-a {
-  text-decoration: none;
-  text-align: left;
-  color: #4d6576;
-  cursor: pointer;
-}
-
-h3 {
-  font-size: 1.4em;
-  color: #009133;
-  margin: 0;
-}
-
-li {
-  list-style-type: none;
-  background: white;
-  border-radius: 10px;
-  margin: 1em auto;
-  padding: 1.5em;
-  max-width: 600px;
-}
-
-.small {
+.list-item {
+  border-radius: 3px;
   display: block;
-  font-size: 0.8em;
+  height: 180px;
+  list-style-type: none;
+  max-width: 600px;
+  padding: 16px;
+  margin: 8px;
+  position: relative;
+  text-decoration: none;
+
+  &__inner {
+    align-items: flex-end;
+    background-image: url("../assets/parks/park-empty.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+  }
+
+  &__header {
+    color: #fff;
+    margin: 8px 0; 
+  }
+
+  &__details {
+    color: #fff;
+    text-align: left;
+    z-index: 2;
+  }
+
+  &__stats-container {
+    list-style-type: none;
+    padding-inline-start: 0;
+    text-align: left;
+  }
+
+  &__stats {
+    display: inline;
+    position: relative;
+
+    &:not(:first-child) {
+      padding-left: 18px;
+
+      &:after {
+        background-color: #fff;
+        content: "";
+        display: inline-block;
+        border-radius: 20px;
+        height: 6px;
+        width: 6px;
+        position: absolute;
+        left: 6px;
+        top: 8px;
+      }
+    }
+  }
+
+  &:before {
+    background-color: $title-green;
+    border-radius: 3px;
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
 }
 
-.stats {
-  display: flex;
-}
 
-.stats > span {
-  flex: 50%;
-  margin-top: 1em;
-  border-top: 2px solid #eee;
-  padding-top: 1em;
-}
-
-.stats > span > b {
-  color: #009133;
-}
 </style>

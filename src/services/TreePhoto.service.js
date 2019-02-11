@@ -12,8 +12,8 @@ const trees = treeTypes();
 function getPhotoFor(name) {
   // Vue.$log.info('getPhotoFor: ', trees[name]);
   if (trees[name]) {
-    return require(`../assets/trees/photos/trees/${trees[name]['photo']}.jpg`);
+    return require(`../assets/trees/photos/${trees[name]['photo']}.jpg`);
   } else {
-    return require('../assets/trees/photos/trees/default.jpg');
+    return require('../assets/trees/photos/default.jpg');
   }
 }
