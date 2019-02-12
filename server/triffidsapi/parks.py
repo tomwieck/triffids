@@ -1,7 +1,12 @@
 import json
 import requests
 import os
-from . import trees
+
+if __name__ == '__main__':
+    import trees
+else:
+    from . import trees
+
 
 # Read parks json
 baseDirectory = os.path.join(os.path.dirname(__file__), '..')
@@ -78,10 +83,20 @@ def getNearestParks(lat, lng, radius):
         parkCode = str(record['fields']['site_code'])
 
         # Get number of trees in park
-        totalTrees = len(trees.getTreesByPark(parkCode))
+        totalTrees = trees.getTreesByPark(parkCode)
+
+        if totalTrees:
+            totalTrees = len(totalTrees)
+        else:
+            totalTrees = 0
 
         # Get number of unique species in park
-        uniqueSpecies = len(trees.getUniqueSpecies(parkCode))
+        uniqueSpecies = trees.getUniqueSpecies(parkCode)
+
+        if uniqueSpecies:
+            uniqueSpecies = len(uniqueSpecies)
+        else:
+            uniqueSpecies = 0
 
         parks.append({
             'id': parkCode,
@@ -93,7 +108,7 @@ def getNearestParks(lat, lng, radius):
             'uniqueSpecies': uniqueSpecies
         })
 
-    print(parks)
+    # print(parks)
     return parks
 
     # Data required
@@ -102,3 +117,5 @@ def getNearestParks(lat, lng, radius):
 # getPark('CUMBBASO')
 
 # getNearestParks(51.439413, -2.589423, 150)
+
+# (getAllParkNames(1))
