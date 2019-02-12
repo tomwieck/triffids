@@ -75,12 +75,18 @@ export default {
     treeModal: function(data) {
       let imgsrc = treePhotos.getPhotoFor(data.name);
       const backLink = `/park/${this.$route.params.parkId}`;
+      let link;
+      if (data.latin_code === "NA") {
+        link = "#";
+      } else {
+        link = `/#/tree/${data.latin_code}/${data.id}?back=${backLink}`;
+      }
 
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
             <div class="latin-name">${data.latin}</div>
-            <a href="/#/tree/${data.latin_code}/${data.id}?back=${backLink}"
+            <a href="${link}"
             class="button">Find out more</a>
         </div>`;
     },
@@ -152,6 +158,14 @@ export default {
         className: "tree-modal"
       };
       this.trees.forEach(function(tree) {
+        if (tree.latin_code === "NA") {
+          tree.name = "Unknown";
+          tree.full_name = "Unknown";
+          tree.latin_name = "Unknown";
+          tree.height = "No";
+          tree.width = "No";
+          tree.girth = "No";
+        }
         const options = {
           icon: treeIcons.getIconFor(tree.name),
           title: tree.full_name // used for tooltip

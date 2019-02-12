@@ -1,4 +1,20 @@
 [{
+        "latin_name": "Amelanchier arborea Robin H",
+        "common_name": "Amelanchier",
+        "full_common_name": "Amelanchier 'Robin Hill'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Amelanchier_lamarckii",
+        "latin_code": "AARH",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Busch_Jakobsberg.jpg"
+    },
+    {
+        "latin_name": "Abies Grandis",
+        "common_name": "Fir",
+        "full_common_name": "Grand Fir",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fir",
+        "latin_code": "ABZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/71/Abies_koreana_%28szyszki%29.JPG"
+    },
+    {
         "latin_name": "Abies - Species Unknown",
         "common_name": "Fir",
         "full_common_name": "Fir species",
@@ -1659,6 +1675,14 @@
         "common_name": "Oak",
         "full_common_name": "Chestnut-leaved oak",
         "wiki_page": "https://en.wikipedia.org/wiki/Quercus_cerris",
+        "latin_code": "QUC2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Quercus_cerris_folliage.jpg"
+    },
+    {
+        "latin_name": "Quercus c. 'Green Spire'",
+        "common_name": "Oak",
+        "full_common_name": "Chestnut-leaved oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_cerris",
         "latin_code": "QUC4",
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Quercus_cerris_folliage.jpg"
     },
@@ -2160,32 +2184,32 @@
     },
     {
         "latin_name": "ZZ Tree Planting Location",
-        "common_name": "",
-        "full_common_name": "",
+        "common_name": "Tree Planting Location",
+        "full_common_name": "Tree Planting Location",
         "wiki_page": "Not found",
         "latin_code": "ZNEW",
         "wiki_image": "Not found"
     },
     {
         "latin_name": "ZZ Empty tree pit",
-        "common_name": "",
-        "full_common_name": "",
+        "common_name": "Empty tree pit",
+        "full_common_name": "Empty tree pit",
         "wiki_page": "Not found",
         "latin_code": "ZPIT",
         "wiki_image": "Not found"
     },
     {
         "latin_name": "ZZ Tree stump",
-        "common_name": "Alder",
-        "full_common_name": "Grey alder",
+        "common_name": "Tree stump",
+        "full_common_name": "Tree stump",
         "wiki_page": "Not found",
         "latin_code": "ZSTP",
         "wiki_image": "Not found"
     },
     {
         "latin_name": "ZZ Dead Tree",
-        "common_name": "",
-        "full_common_name": "",
+        "common_name": "Dead tree",
+        "full_common_name": "Dead tree",
         "wiki_page": "Not found",
         "latin_code": "ZTM",
         "wiki_image": "Not found"
