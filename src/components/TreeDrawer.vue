@@ -1,7 +1,7 @@
 <template>
   <div id="drawer" class="drawer">
     <div v-if="response.fields" class="drawer__summary">
-      <h1>{{ tree.common_name }} ({{ response.fields.common_name }})</h1>
+      <h1>{{ response.fields.full_common_name }} ({{ response.fields.common_name }})</h1>
       <h2>{{ response.fields.latin_name }}</h2>
       <div class="treefacts">
         <TreeFact class="fact tl" boxtype="height" v-bind:data="response.fields.crown_height"/>

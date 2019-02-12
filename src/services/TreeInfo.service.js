@@ -20,6 +20,16 @@ async function getTreeInfo(latin_code) {
     const tree = treedata.filter((t) => {
         return t.latin_code == latin_code
     })[0];
+    if (!tree) {
+        return {
+            latin_code: latin_code,
+            latin_name: 'Not found',
+            common_name: "Not found",
+            full_common_name: 'Details not found',
+            wiki_data: 'No Wikipedia data available',
+            wiki_image: ''
+        };
+    }
     const term = tree.wiki_page.split('/').pop();
     try {
         Vue.$log.info('TreeInfo.service: calling out to wiki with ', term)

@@ -39,14 +39,15 @@ export default {
     return {
       treeId: this.$route.params.treeId,
       tree_code: this.$route.params.title,
-      title: "Loading...",
       tree: {},
+      title: "Loading...",
       response: {}
     };
   },
   methods: {
     async getTree(id) {
       this.response = await treeService.tree(id);
+      this.title = this.response.fields.full_common_name;
     }
   }
 };

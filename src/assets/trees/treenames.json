@@ -11,8 +11,24 @@
         "common_name": "Fir",
         "full_common_name": "Grand Fir",
         "wiki_page": "https://en.wikipedia.org/wiki/Fir",
-        "latin_code": "ABZZ",
+        "latin_code": "ABGR",
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/71/Abies_koreana_%28szyszki%29.JPG"
+    },
+    {
+        "latin_name": "Abies Nordmanniana",
+        "common_name": "Nordmann Fir",
+        "full_common_name": "Nordmann Fir",
+        "wiki_page": "https://en.wikipedia.org/wiki/Abies_nordmanniana",
+        "latin_code": "ABN2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Abies_nordmanniana_snow.jpg"
+    },
+    {
+        "latin_name": "Abies procera",
+        "common_name": "Noble Fir",
+        "full_common_name": "Noble Fir",
+        "wiki_page": "https://en.wikipedia.org/wiki/Abies_procera",
+        "latin_code": "ABPR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Abies_procera1.jpg"
     },
     {
         "latin_name": "Abies - Species Unknown",
@@ -23,11 +39,27 @@
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/71/Abies_koreana_%28szyszki%29.JPG"
     },
     {
+        "latin_name": "Acer palmatum",
+        "common_name": "Palmate Maple",
+        "full_common_name": "Palmate maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_palmatum",
+        "latin_code": "ACAT",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Acer_palmatum0.jpg"
+    },
+    {
         "latin_name": "Acer campestre",
         "common_name": "Field Maple",
         "full_common_name": "Field maple",
         "wiki_page": "https://en.wikipedia.org/wiki/Acer_campestre",
         "latin_code": "ACC2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg"
+    },
+    {
+        "latin_name": "Acer campestre Elsrijk",
+        "common_name": "Field Maple",
+        "full_common_name": "Field maple 'Elsrijk'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_campestre_%27Elsrijk%27",
+        "latin_code": "ACC3",
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg"
     },
     {
@@ -55,12 +87,36 @@
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg"
     },
     {
+        "latin_name": "Acer campestre 'Street Wise'",
+        "common_name": "Field Maple",
+        "full_common_name": "Field maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_campestre",
+        "latin_code": "ACC7",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg"
+    },
+    {
         "latin_name": "Acer davidii",
         "common_name": "Maple",
         "full_common_name": "David's maple",
         "wiki_page": "https://en.wikipedia.org/wiki/Acer_davidii",
         "latin_code": "ACDA",
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Acer_davidii_leaves.JPG"
+    },
+    {
+        "latin_name": "Acer japonicum",
+        "common_name": "Maple",
+        "full_common_name": "Amur maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_japonicum",
+        "latin_code": "ACJA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Acer_japonicum_aconitifolium_fall_color.JPG"
+    },
+    {
+        "latin_name": "Acer platanoides 'Deborah'",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Deborah'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACL1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
     },
     {
         "latin_name": "Acer griseum",
@@ -95,11 +151,27 @@
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
     },
     {
+        "latin_name": "Acer platanoides Cucullatum",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Cucullatum'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACP2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
         "latin_name": "Acer platanoides Drummondii",
         "common_name": "Maple",
         "full_common_name": "Norway maple 'Drummondii'",
         "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
         "latin_code": "ACP3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer platanoides Globosum",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Globosum'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACP5",
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
     },
     {
@@ -411,8 +483,24 @@
         "common_name": "Silver Birch",
         "full_common_name": "Silver birch",
         "wiki_page": "https://en.wikipedia.org/wiki/Betula_pendula",
-        "latin_code": "BEPE",
+        "latin_code": "BEPU",
         "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Betula_pendula_Finland.jpg"
+    },
+    {
+        "latin_name": "Betula pubescens",
+        "common_name": "Downy Birch",
+        "full_common_name": "Downy birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_pubescens",
+        "latin_code": "BEPE",
+        "wiki_image": "https://en.wikipedia.org/wiki/File:Mountain-birch-Trollheimen.jpg"
+    },
+    {
+        "latin_name": "Betula utilis",
+        "common_name": "Himalayan Birch",
+        "full_common_name": "Himalayan birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_utilis",
+        "latin_code": "BEUT",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Betula_utilis02_by_Line1.jpg/220px-Betula_utilis02_by_Line1.jpg"
     },
     {
         "latin_name": "Betula - Species Unknown",
