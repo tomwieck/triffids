@@ -36,9 +36,7 @@ export default {
   },
 
   beforeMount() {
-    this.getParks().then(parks => {
-      this.parks = parks;
-    });
+    this.getParks();
   },
 
   mounted() {
@@ -59,9 +57,23 @@ export default {
   methods: {
     getParkLink: parkId => `park/${parkId}`,
     async getParks() {
-      let parks = await parkService.parks(this.page);
-      this.page++;
-      return parks;
+      if (this.$config.locationAllowed) {
+        this.$log.info("List: fetching nearest parks");
+        this.$getLocation().then(async coords => {
+          let parks = await parkService.nearestParks(
+            this.page,
+            coords.lat,
+            coords.lng
+          );
+          this.page++;
+          this.parks = parks;
+        });
+      } else {
+        this.$log.info("List: fetching alphabetical parks");
+        let parks = await parkService.parks(this.page);
+        this.page++;
+        this.parks = parks;
+      }
     }
   },
   components: {
