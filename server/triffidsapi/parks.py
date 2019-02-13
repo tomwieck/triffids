@@ -24,12 +24,7 @@ def getPark(code):
 
         if (site_code == code):
             total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
-            unique_trees = trees.getUniqueSpecies(parkData['site_code'])
-
-            if unique_trees:
-                unique_trees = len(unique_trees)
-            else:
-                unique_trees = 0
+            unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
 
             park.append({
                 'id': str(parkData['site_code']),

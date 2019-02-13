@@ -47,7 +47,7 @@ def getTotalNumbTreesByPark(parkCode):
     if trees:
         return len(trees)
     else:
-        return []
+        return 0
 
 
 def getTreesBySpecies(parkCode, latinCode):
@@ -75,7 +75,7 @@ def getNumbUniqueSpeciesByPark(parkCode):
         for tree in trees:
             species.append(tree['fields']['latin_code'])
     else:
-        return []
+        return 0
 
     # Convert list to set to get all unique instances of species
     species = set(species)
