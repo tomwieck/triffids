@@ -83,20 +83,10 @@ def getNearestParks(lat, lng, radius):
         parkCode = str(record['fields']['site_code'])
 
         # Get number of trees in park
-        totalTrees = trees.getTreesByPark(parkCode)
-
-        if totalTrees:
-            totalTrees = len(totalTrees)
-        else:
-            totalTrees = 0
+        totalTrees = trees.getTotalNumbTreesByPark(parkCode)
 
         # Get number of unique species in park
-        uniqueSpecies = trees.getUniqueSpecies(parkCode)
-
-        if uniqueSpecies:
-            uniqueSpecies = len(uniqueSpecies)
-        else:
-            uniqueSpecies = 0
+        uniqueSpecies = trees.getNumbUniqueSpeciesByPark(parkCode)
 
         parks.append({
             'id': parkCode,

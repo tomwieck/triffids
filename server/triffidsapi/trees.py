@@ -25,8 +25,6 @@ def getTreeById(id):
         return []
 
 
-
-
 def getTreesByPark(parkCode):
     query = "&q=site_code%3D" + str(parkCode) + "&rows=1000" + "&facet=feature_type_name&facet=common_name"
 
