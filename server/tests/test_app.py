@@ -64,6 +64,12 @@ def test_client_get_trees_by_location(client):
     assert len(data) == 836
 
 
+def test_client_get_tree_by_id(client):
+    js = client.get('/api/v1/tree/an1')
+    data = json.loads(js.data)
+    assert data == {'error': 'Not found'}
+
+
 def test_client_get_benches(client):
     js = client.get('/api/v1/benches/lat=51.44&lng=-2.587&radius=500')
     data = json.loads(js.data)

@@ -24,8 +24,13 @@ def getPark(code):
 
         if (site_code == code):
             total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
-            unique_trees = trees.getNumbUniqueSpeciesByPark(
-                parkData['site_code'])
+            unique_trees = trees.getUniqueSpecies(parkData['site_code'])
+
+            if unique_trees:
+                unique_trees = len(unique_trees)
+            else:
+                unique_trees = 0
+
             park.append({
                 'id': str(parkData['site_code']),
                 'siteName': str(parkData['site_name']),
@@ -116,6 +121,6 @@ def getNearestParks(lat, lng, radius):
 
 # getPark('CUMBBASO')
 
-# getNearestParks(51.439413, -2.589423, 150)
+print(getNearestParks(51.439413, -2.589423, 150))
 
 # (getAllParkNames(1))
