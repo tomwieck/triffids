@@ -169,7 +169,10 @@ export default {
     this.mymap.setView(this.center, this.zoom);
     L.control.scale({ position: "topright" }).addTo(this.mymap);
     const loc = L.control
-      .locate({ icon: "map-location-control" })
+      .locate({
+        icon: "map-location-control",
+        iconLoading: "map-location-control-loading"
+      })
       .addTo(this.mymap);
     loc.stop(); // not needed except for linting.
 
@@ -205,6 +208,7 @@ export default {
 <!-- Put leaflet map styles in the leaflet.css file to avoid the scoped -->
 <style scoped>
 @import url("../../node_modules/leaflet/dist/leaflet.css");
+@import url("../../node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.css");
 @import url("../assets/leaflet.css");
 
 #mapid {
