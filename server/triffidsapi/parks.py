@@ -30,6 +30,10 @@ def getPark(code):
         return []
 
     total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
+
+    if total_trees == 0:
+        return []
+
     unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
 
     park = {
@@ -56,6 +60,10 @@ def getAllParkNames(page):
             continue
         parkData = record['fields']
         total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
+
+        if total_trees == 0:
+            continue
+
         unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
 
         parkNames.append({
@@ -91,6 +99,9 @@ def getNearestParks(lat, lng, radius):
         # Get number of trees in park
         totalTrees = trees.getTotalNumbTreesByPark(parkCode)
 
+        if totalTrees == 0:
+            continue
+            
         # Get number of unique species in park
         uniqueSpecies = trees.getNumbUniqueSpeciesByPark(parkCode)
 
