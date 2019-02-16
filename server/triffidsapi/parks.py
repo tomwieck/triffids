@@ -17,29 +17,32 @@ with open(baseDirectory + '/data/parks-and-greens-spaces.json') as json_file:
 
 def getPark(code):
     # Example 'code' CUMBBASO
-    park = []
-    for record in data:
-        parkData = record['fields']
-        site_code = parkData['site_code']
+    url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
+    dataset = '?dataset=parks-and-greens-spaces'
+    query = '&q=site_code%3A+' + str(code)
 
-        if (site_code == code):
-            total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
-            unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
+    response = requests.get(url + dataset + query)
+    response = response.json()
 
-            park.append({
-                'id': str(parkData['site_code']),
-                'siteName': str(parkData['site_name']),
-                'unique_trees': str(unique_trees),
-                'total_trees': str(total_trees),
-                'lat': parkData['geo_point_2d'][0],
-                'lng': parkData['geo_point_2d'][1],
-                'geoShape': parkData['geo_shape']
-            })
-            print(park)
-            return park
+    if response:
+        parkData = response['records'][0]['fields']
+    else:
+        return []
 
-    print('Park not found')
-    return 0
+    total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
+    unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
+
+    park = {
+        'id': str(parkData['site_code']),
+        'siteName': str(parkData['site_name']),
+        'unique_trees': str(unique_trees),
+        'total_trees': str(total_trees),
+        'lat': parkData['geo_point_2d'][0],
+        'lng': parkData['geo_point_2d'][1],
+        'geoShape': parkData['geo_shape']
+    }
+
+    return park
 
 
 def getAllParkNames(page):
@@ -62,7 +65,10 @@ def getAllParkNames(page):
             'total_trees': str(total_trees)
         })
 
-    return parkNames
+    if parkNames:
+        return parkNames
+    else:
+        return []
 
 
 def getNearestParks(lat, lng, radius):
@@ -98,14 +104,16 @@ def getNearestParks(lat, lng, radius):
             'uniqueSpecies': uniqueSpecies
         })
 
-    # print(parks)
-    return parks
+    if parks:
+        return parks
+    else:
+        return []
 
     # Data required
     # site_name, site_code, lat, long, dist, noOfTrees, uniqueSpecies
 
 # getPark('CUMBBASO')
 
-print(getNearestParks(51.439413, -2.589423, 150))
+# print(getNearestParks(51.439413, -2.589423, 150))
 
 # (getAllParkNames(1))

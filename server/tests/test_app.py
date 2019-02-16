@@ -37,7 +37,7 @@ def test_get_all_park_names(client):
 def test_client_get_park(client):
     js = client.get('/api/v1/parks/VICTPA')
     data = json.loads(js.data)
-    assert 'Victoria Park' == data[0]['siteName']
+    assert 'Victoria Park' == data['siteName']
 
 
 def test_client_get_nearest_parks(client):
