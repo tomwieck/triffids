@@ -123,8 +123,23 @@ def getNearestParks(lat, lng, radius):
     # Data required
     # site_name, site_code, lat, long, dist, noOfTrees, uniqueSpecies
 
+
+def getParkInfo(parkCode):
+
+    targetFilePath = baseDirectory + '/data/parkinfo/' + str(parkCode) + '.html'
+    defaultFilePath = baseDirectory + '/data/parkinfo/' + 'DEFAULT.html'
+
+    if os.path.isfile(targetFilePath):
+        data = open(targetFilePath, 'r')
+    else:
+        data = open(defaultFilePath, 'r')
+
+    return data
+
 # getPark('CUMBBASO')
 
 # print(getNearestParks(51.439413, -2.589423, 150))
 
 # (getAllParkNames(1))
+
+getParkInfo('VICTKPA')

@@ -45,6 +45,14 @@ def getNearestParks(lat, lng, radius):
     return jsonify(response)
 
 
+@api.route('/parks/info/<string:parkCode>', methods=['GET'])
+def getParkInfo(parkCode):
+    response = parks.getParkInfo(parkCode)
+    if not response:
+        abort(404)
+    return response
+
+
 @api.route('/tree/<string:treeId>', methods=['GET'])
 def getTree(treeId):
     response = trees.getTreeById(treeId)
