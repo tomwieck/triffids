@@ -50,8 +50,8 @@ export default {
         !this.loading
       ) {
         this.loading = true;
-        this.getParks().then(newParks => {
-
+        this.getParks().then(() => {
+          this.loading = false;
         });
       }
     };

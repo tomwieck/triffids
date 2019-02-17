@@ -34,7 +34,6 @@ export default {
   },
   methods: {
     checkLocation: function() {
-      console.log('getting location')
       navigator.geolocation.getCurrentPosition(
         position => {
           this.$log.info("Geolocation SUCCESS!", position);
