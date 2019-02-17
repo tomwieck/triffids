@@ -22,10 +22,15 @@ def index():
 
 @api.route('/parks', methods=['GET'])
 def getAllParkNames():
-    lat = request.args.get('lat')
-    long = request.args.get('long')
+    lat = request.args.get('lat') or 0
+    lng = request.args.get('lng') or 0
+    rad = request.args.get('rad') or 1000
     page = request.args.get('page') or 1
-    response = parks.getAllParkNames(int(page))
+    
+    if lat == 0 or lng == 0:
+        response = parks.getAllParkNames(int(page))
+    else:
+        response = parks.getNearestParks(lat, lng, rad)
     if not response:
         abort(404)
     return jsonify(response)
@@ -41,6 +46,8 @@ def getPark(parkCode):
 
 @api.route('/parks/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getNearestParks(lat, lng, radius):
+    lat = request.args.get('lat') or 0
+    lng = request.args.get('lng') or 0
     response = parks.getNearestParks(lat, lng, radius)
     if not response:
         abort(404)
