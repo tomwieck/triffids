@@ -37,7 +37,7 @@ def test_get_all_park_names(client):
 def test_client_get_park(client):
     js = client.get('/api/v1/parks/VICTPA')
     data = json.loads(js.data)
-    assert 'Victoria Park' == data[0]['siteName']
+    assert 'Victoria Park' == data['siteName']
 
 
 def test_client_get_nearest_parks(client):
@@ -61,7 +61,13 @@ def test_client_get_trees_by_species(client):
 def test_client_get_trees_by_location(client):
     js = client.get('/api/v1/trees/lat=51.44&lng=-2.587&radius=500')
     data = json.loads(js.data)
-    assert len(data) == 10
+    assert len(data) == 836
+
+
+def test_client_get_tree_by_id(client):
+    js = client.get('/api/v1/tree/an1')
+    data = json.loads(js.data)
+    assert data == {'error': 'Not found'}
 
 
 def test_client_get_benches(client):
