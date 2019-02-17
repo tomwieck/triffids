@@ -20,6 +20,7 @@ def index():
     return "Hello, World!"
 
 
+# Parks
 @api.route('/parks', methods=['GET'])
 def getAllParkNames():
     lat = request.args.get('lat')
@@ -39,6 +40,14 @@ def getPark(parkCode):
     return jsonify(response)
 
 
+@api.route('/parks/q=<string:query>', methods=['GET'])
+def searchParks(query):
+    response = parks.searchParks(query)
+    if len(response) == 0:
+        abort(404)
+    return jsonify(response)
+
+
 @api.route('/parks/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getNearestParks(lat, lng, radius):
     response = parks.getNearestParks(lat, lng, radius)
@@ -47,6 +56,7 @@ def getNearestParks(lat, lng, radius):
     return jsonify(response)
 
 
+# Trees
 @api.route('/tree/<string:treeId>', methods=['GET'])
 def getTree(treeId):
     response = trees.getTreeById(treeId)
@@ -79,6 +89,7 @@ def getTreesByLocation(lat, lng, radius):
     return jsonify(response)
 
 
+# Benches
 @api.route('/benches/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getBenches(lat, lng, radius):
     response = benches.getBenches(lat, lng, radius)

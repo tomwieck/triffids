@@ -60,6 +60,40 @@ def getAllParkNames(page, lat=0, long=0):
     return parkNames
 
 
+def searchParks(query):
+    url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
+    dataset = '?dataset=parks-and-greens-spaces'
+    query = '&q=' + query
+
+    response = requests.get(url + dataset + query)
+    response = response.json()
+
+    records = response['records']
+    parks = []
+
+    # Create output with required data
+    for record in records:
+        parkCode = str(record['fields']['site_code'])
+
+        # Get number of trees in park
+        totalTrees = len(trees.getTreesByPark(parkCode))
+
+        # Get number of unique species in park
+        uniqueSpecies = len(trees.getUniqueSpecies(parkCode))
+
+        parks.append({
+            'id': parkCode,
+            'siteName': str(record['fields']['site_name']),
+            'lat': record['fields']['geo_point_2d'][0],
+            'lng': record['fields']['geo_point_2d'][1],
+            'totalTrees': totalTrees,
+            'uniqueSpecies': uniqueSpecies
+        })
+
+    print(parks)
+    return parks
+
+
 def getNearestParks(lat, lng, radius):
     url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
     dataset = '?dataset=parks-and-greens-spaces'

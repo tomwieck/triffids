@@ -75,6 +75,8 @@ export default {
     treeModal: function(data) {
       let imgsrc = treePhotos.getPhotoFor(data.name);
 
+      // return vue component that gets rendered for more control.
+
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
@@ -85,7 +87,7 @@ export default {
     },
     resize: function(full) {
       // not currently used...
-      this.$log.info("Tmap:resize triggered");
+      // this.$log.info("Tmap:resize triggered");
       if (full) {
         this.mymap.panBy([0, 0]);
       } else {
@@ -94,7 +96,7 @@ export default {
     },
     mapLoaded() {
       if (this.mymap) {
-        this.$log.info("Tmap:mapLoaded triggered");
+        // this.$log.info("Tmap:mapLoaded triggered");
         this.zoom = this.mymap.getZoom();
         this.bounds = this.mymap.getBounds();
         this.center = this.mymap.getCenter();
@@ -103,18 +105,18 @@ export default {
       // this.loading = false;
     },
     mapClicked() {
-      this.$log.info("Tmap:mapClicked triggered");
+      // this.$log.info("Tmap:mapClicked triggered");
       this.$emit("close-drawer", false);
     },
     zoomUpdated() {
-      this.$log.info("Tmap:zoomUpdated triggered");
+      // this.$log.info("Tmap:zoomUpdated triggered");
       if (this.mymap) {
         this.zoom = this.mymap.getZoom();
         this.bounds = this.mymap.getBounds();
       }
     },
     moveUpdated() {
-      this.$log.info("Tmap:moveUpdated triggered");
+      // this.$log.info("Tmap:moveUpdated triggered");
       if (this.mymap) {
         this.center = this.mymap.getCenter();
         this.bounds = this.mymap.getBounds();
@@ -144,9 +146,12 @@ export default {
         };
       });
       this.treeCount = response.length;
+
+      // options for popup
+
       const popupOptions = {
-        minWidth: 400,
-        maxWidth: 800,
+        minWidth: 200,
+        maxWidth: 200,
         keepInView: true,
         className: "tree-modal"
       };
@@ -211,6 +216,10 @@ export default {
   height: 100vh;
   width: 100%;
   z-index: 1;
+}
+
+.tree-modal {
+  max-height: 200px;
 }
 </style>
 

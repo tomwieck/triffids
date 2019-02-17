@@ -1,6 +1,10 @@
 <template>
   <main class="main">
     <Header v-bind:title="'Choose a park'"/>
+    <input
+      type="search"
+      placeholder="Search for a park..."
+      v-model="search">
     <ul>
       <li v-for="park in parks" v-bind:key="park.id" class="layer">
         <router-link :to="{
@@ -31,7 +35,8 @@ export default {
     return {
       parks: [],
       loading: false,
-      page: 1
+      page: 1,
+      search: '',
     };
   },
 
@@ -39,6 +44,14 @@ export default {
     this.getParks().then(parks => {
       this.parks = parks;
     });
+  },
+
+  watch: {
+    search: function(q) {
+      this.getSearchedParks(q).then(parks => {
+        this.parks = parks;
+      })
+    }
   },
 
   mounted() {
@@ -53,7 +66,7 @@ export default {
           this.loading = false;
         });
       }
-    };
+    }
   },
 
   methods: {
@@ -61,6 +74,12 @@ export default {
     async getParks() {
       let parks = await parkService.parks(this.page);
       this.page++;
+      return parks;
+    },
+    async getSearchedParks(q) {
+      this.page = 0;
+      let parks = await parkService.searchParks(this.search);
+      console.log(parks)
       return parks;
     }
   },

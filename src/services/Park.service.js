@@ -3,6 +3,7 @@ import Vue from 'vue';
 
 export const parkService = {
     parks,
+    searchParks,
     park,
 }
 
@@ -13,6 +14,16 @@ export const parkService = {
  */
 function parks(page = 1) {
     const url = `${Vue.config.API_URL}/parks?page=${page}`;
+    return http.get(url)
+        .then((resp) => {
+            return resp.data;
+        }, (err) => {
+            throw err;
+        });
+}
+
+function searchParks(q = '') {
+    const url = `${Vue.config.API_URL}/parks/q=${q}`;
     return http.get(url)
         .then((resp) => {
             return resp.data;
