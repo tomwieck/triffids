@@ -7,7 +7,6 @@ if __name__ == '__main__':
 else:
     from . import trees
 
-
 # Read parks json
 baseDirectory = os.path.join(os.path.dirname(__file__), '..')
 
@@ -29,18 +28,16 @@ def getPark(code):
     else:
         return []
 
-    total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
+    totalTrees, uniqueTrees = trees.getTreeNumbers(parkData['site_code'])
 
-    if total_trees == 0:
+    if totalTrees == 0:
         return []
-
-    unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
 
     park = {
         'id': str(parkData['site_code']),
         'siteName': str(parkData['site_name']),
-        'unique_trees': str(unique_trees),
-        'total_trees': str(total_trees),
+        'unique_trees': str(uniqueTrees),
+        'total_trees': str(totalTrees),
         'lat': parkData['geo_point_2d'][0],
         'lng': parkData['geo_point_2d'][1],
         'geoShape': parkData['geo_shape']
@@ -59,18 +56,17 @@ def getAllParkNames(page, lat=0, long=0):
         if (index < lowestBoundary or index > highestBoundary):
             continue
         parkData = record['fields']
-        total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
 
-        if total_trees == 0:
+        totalTrees, uniqueTrees = trees.getTreeNumbers(parkData['site_code'])
+
+        if totalTrees == 0:
             continue
-
-        unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
 
         parkNames.append({
             'id': str(parkData['site_code']),
             'siteName': str(parkData['site_name']),
-            'unique_trees': str(unique_trees),
-            'total_trees': str(total_trees)
+            'unique_trees': str(uniqueTrees),
+            'total_trees': str(totalTrees)
         })
 
     if parkNames:
@@ -84,7 +80,8 @@ def getNearestParks(lat, lng, radius):
     dataset = '?dataset=parks-and-greens-spaces'
     sort = '&-sort=dist'
     geofilter = '&geofilter.distance=' + \
-        str(lat) + '%2C+' + str(lng) + '%2C+' + str(radius)
+                str(lat) + '%2C+' + str(lng) + '%2C+' + str(radius)
+
     response = requests.get(url + dataset + sort + geofilter)
     response = response.json()
 
@@ -93,18 +90,14 @@ def getNearestParks(lat, lng, radius):
 
     # Create output with required data
     for record in records:
+        # Get number of unique species in park
+        parkData = record['fields']
         parkCode = str(record['fields']['site_code'])
 
-        # Get number of trees in park
-        totalTrees = trees.getTotalNumbTreesByPark(parkCode)
+        totalTrees, uniqueTrees = trees.getTreeNumbers(parkCode)
 
         if totalTrees == 0:
             continue
-
-        # Get number of unique species in park
-        parkData = record['fields']
-        total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
-        unique_species = trees.getNumbUniqueSpeciesByPark(parkCode)
 
         parks.append({
             'id': str(parkData['site_code']),
@@ -112,8 +105,8 @@ def getNearestParks(lat, lng, radius):
             'lat': parkData['geo_point_2d'][0],
             'lng': parkData['geo_point_2d'][1],
             'dist': parkData['dist'],
-            'total_trees': total_trees,
-            'unique_trees': unique_species
+            'total_trees': totalTrees,
+            'unique_trees': uniqueTrees
         })
 
     if parks:
@@ -126,7 +119,6 @@ def getNearestParks(lat, lng, radius):
 
 
 def getParkInfo(parkCode):
-
     targetFilePath = baseDirectory + '/data/parkinfo/' + str(parkCode) + '.html'
     defaultFilePath = baseDirectory + '/data/parkinfo/' + 'DEFAULT.html'
 
@@ -137,10 +129,11 @@ def getParkInfo(parkCode):
 
     return data
 
-# getPark('CUMBBASO')
 
-# print(getNearestParks(51.439413, -2.589423, 150))
+# print(getPark('VICTPA'))
+
+# print(getNearestParks(51.44,-2.587,600))
 
 # (getAllParkNames(1))
 
-getParkInfo('VICTKPA')
+# getParkInfo('VICTKPA')

@@ -48,6 +48,20 @@ def getTotalNumbTreesByPark(parkCode):
         return 0
 
 
+def getTreeNumbers(parkCode):
+    trees = getTreesByPark(parkCode)
+
+    if trees:
+        totalTrees = len(trees)
+    else:
+        totalTrees = 0
+
+    uniqueSpecies = len(getUniqueSpecies(trees))
+
+    return totalTrees, uniqueSpecies
+
+
+
 def getTreesBySpecies(parkCode, latinCode):
     query = "&q=site_code%3D" + str(parkCode) + "%2C+latin_code%3D" + str(latinCode) + \
             "&rows=1000&facet=feature_type_name&facet=common_name"
@@ -100,9 +114,9 @@ def getTreesByLocation(lat, lng, radius):
         return []
 
 
-def getUniqueSpecies(parkCode):
+def getUniqueSpecies(trees):
     # Get all trees within park
-    trees = getTreesByPark(parkCode)
+    # trees = getTreesByPark(parkCode)
 
     species = []
 
