@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon - Crown area</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icon---Crown-area" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-20-Copy">
+            <g id="Group-17">
+                <rect id="Rectangle-Copy-11" fill="#0A1816" fill-rule="nonzero" opacity="0" x="0" y="0" width="48" height="48"></rect>
+                <g id="Group-16" transform="translate(8.000000, 8.000000)" stroke="#138D6A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                    <polyline id="Path" points="28.3870968 19.6129032 32 16 28.3870968 12.3870968"></polyline>
+                    <polyline id="Path" points="3.61290323 12.3870968 1.76081372e-13 16 3.61290323 19.6129032"></polyline>
+                    <path d="M2.64677169e-13,16 L13.4193548,16" id="Path"></path>
+                    <path d="M18.5806452,16 L32,16" id="Path"></path>
+                    <polyline id="Path" points="19.6129032 3.61290323 16 -5.12923037e-14 12.3870968 3.61290323"></polyline>
+                    <polyline id="Path" points="12.3870968 28.3870968 16 32 19.6129032 28.3870968"></polyline>
+                    <path d="M16,32 L16,18.5806452" id="Path"></path>
+                    <path d="M16,13.4193548 L16,3.73034936e-14" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

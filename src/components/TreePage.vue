@@ -1,11 +1,8 @@
 <template>
   <div class="hello">
-    <Header v-bind:title="title"/>
-    <div class="tree"></div>
-    <TreeDrawer
-      :response="response"
-      :title="title"
-      />
+    <Header v-bind:title="title" v-bind:hasBack="backLink"/>
+    <div class="tree" id="photo"></div>
+    <TreeDrawer :response="response" :tree="tree"/>
   </div>
 </template>
 
@@ -13,13 +10,26 @@
 import Header from "./Header.vue";
 import TreeDrawer from "./TreeDrawer.vue";
 import { treeService } from "../services/Tree.service.js";
+import { treeInfoService as treeInfo } from "../services/TreeInfo.service.js";
 
 export default {
   name: "TreePage",
-  mounted() {
-    if(this.$route.params.treeId) {
-      this.getTree(this.$route.params.treeId)
+  props: {
+    backLink: {
+      type: String,
+      default: ""
     }
+  },
+  async mounted() {
+    this.$log.info("TreePage:params: ", this.tree_code);
+    if (this.$route.params.treeId) {
+      this.getTree(this.$route.params.treeId);
+    }
+    this.tree = await treeInfo.getTreeInfo(this.tree_code);
+    const imgLink = this.tree.wiki_image;
+    this.title = this.tree.full_common_name;
+    const el = document.getElementById("photo");
+    el.style.backgroundImage = `url('${imgLink}')`;
   },
   components: {
     Header,
@@ -28,13 +38,16 @@ export default {
   data() {
     return {
       treeId: this.$route.params.treeId,
-      title: this.$route.params.title,
+      tree_code: this.$route.params.title,
+      tree: {},
+      title: "Loading...",
       response: {}
-    }
+    };
   },
   methods: {
     async getTree(id) {
       this.response = await treeService.tree(id);
+      this.title = this.response.fields.full_common_name;
     }
   }
 };
@@ -56,11 +69,10 @@ li {
 a {
   color: #42b983;
 }
-.tree {
+#photo {
   width: 100%;
   height: auto;
   min-height: 400px;
-  background-image: url("https://www.mcfallandberry.com/wp-content/uploads/2016/04/london-plane-tree-1.jpg");
   background-size: cover;
 }
 </style>

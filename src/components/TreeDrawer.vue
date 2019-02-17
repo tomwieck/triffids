@@ -1,24 +1,33 @@
 <template>
   <div id="drawer" class="drawer">
     <div v-if="response.fields" class="drawer__summary">
-      <h1>{{ title }} ({{ response.fields.common_name }})</h1>
+      <h1>{{ response.fields.full_common_name }} ({{ response.fields.common_name }})</h1>
       <h2>{{ response.fields.latin_name }}</h2>
-      <ul class="drawer__subtitle">
-        <li>Crown Height: {{ response.fields.crown_height }}</li>
-        <li>Crown Width: {{ response.fields.crown_width }}</li>
-        <li>Location Risk Zone: {{ response.fields.location_risk_zone }}</li>
-        <li>Diameter at 1.3 meters: {{ response.fields.dbh }}</li>
-        <li v-if="response.fields.crown_area"> - {{ response.fields.crown_area }}</li>
-      </ul>
+      <div class="treefacts">
+        <TreeFact class="fact tl" boxtype="height" v-bind:data="response.fields.crown_height"/>
+        <TreeFact class="fact tr" boxtype="width" v-bind:data="response.fields.crown_width"/>
+        <TreeFact class="fact bl" boxtype="area" v-bind:data="response.fields.crown_area"/>
+        <TreeFact class="fact br" boxtype="dbh" v-bind:data="response.fields.dbh"/>
+      </div>
     </div>
     <hr>
     <div class="drawer__about">
-      <h2>Special information about this specimen</h2>
-      <p>London Planes grow very rapidly, and this vast specimen was probably associated with Brislington House. It now fills the valley of the brook, and is hollow. It was in danger of being ruined by fires built inside its hollow trunk, a common fate of veteran trees, but was recently saved by being bricked up. The species came to Britain in 1690, and is still being widely planted.</p>
+      <div v-if="special" class="drawer__specialinfo">
+        <h2>Special information about this specimen</h2>
+        <p>Some info here...</p>
+        <hr>
+      </div>
+      <div class="drawer__generalinfo">
+        <h2>General information about this species</h2>
+        <p>{{tree.wiki_data}}</p>
+        <span class="drawer__source">Source: Wikipedia</span>
+      </div>
       <hr>
-      <h2>General information about this species</h2>
-      <p>Platanus × acerifolia, the London plane, London planetree, or hybrid plane, is a tree in the genus Platanus. It is often known by the synonym Platanus × hispanica. It is usually thought to be a hybrid of Platanus orientalis (oriental plane) and Platanus occidentalis (American sycamore). Some authorities think that it may be a cultivar of P. orientalis.</p>
-      <span class="drawer__source">Source: Wikipedia</span>
+      <div class="drawer__readmore">
+        <a v-bind:href="tree.wiki_page" target="_blank">Read more on Wikipedia
+          <Chevron/>
+        </a>
+      </div>
       <hr>
       <div class="drawer__report">
         <a
@@ -34,6 +43,7 @@
 
 <script>
 import Chevron from "./Chevron.vue";
+import TreeFact from "./TreeFact";
 
 export default {
   name: "treeDrawer",
@@ -45,22 +55,59 @@ export default {
     response: {
       type: Object,
       default: () => []
+    },
+    tree: {
+      type: Object,
+      default: () => []
     }
   },
   data: () => {
     return {
-      el: "#drawer"
+      el: "#drawer",
+      // treeObj: {},
+      special: 0
     };
   },
   components: {
-    Chevron
+    Chevron,
+    TreeFact
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import  '../styles/variables.scss';
+@import "../styles/variables.scss";
+
+.treefacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  width: 70%;
+  margin: 20px auto;
+  .fact {
+    height: 40px;
+    justify-self: stretch;
+    align-self: start;
+  }
+  .tl {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .tr {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .bl {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .br {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
 
 .drawer {
   background: #fff;
@@ -72,6 +119,7 @@ export default {
   height: 50%;
   overflow-y: scroll;
   padding: 16px;
+  width: 100%;
 
   &.expanded {
     height: 40px;
@@ -123,6 +171,13 @@ export default {
   &__source {
     color: grey;
   }
+  &__readmore {
+    padding: 8px 0;
+    a {
+      color: $dark-primary-color;
+      text-decoration: none;
+    }
+  }
 }
 
 h1,
@@ -140,32 +195,5 @@ h2 {
 hr {
   border: 1px solid;
   color: #ebebec;
-}
-
-ul {
-  list-style-type: none;
-  display: inline;
-  padding-inline-start: 0;
-}
-
-li {
-  display: inline;
-  position: relative;
-
-  &:not(:first-child) {
-    padding-left: 18px;
-
-    &:after {
-      background-color: #4f6272;
-      content: "";
-      display: inline-block;
-      border-radius: 20px;
-      height: 6px;
-      width: 6px;
-      position: absolute;
-      left: 6px;
-      top: 8px;
-    }
-  }
 }
 </style>
