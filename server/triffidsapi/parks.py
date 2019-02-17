@@ -50,7 +50,7 @@ def getPark(code):
 
 
 def getAllParkNames(page, lat=0, long=0):
-    parksPerPage = 20
+    parksPerPage = 8
     lowestBoundary = (parksPerPage * page) - parksPerPage
     highestBoundary = parksPerPage * page - 1
     parkNames = []
@@ -100,7 +100,7 @@ def getNearestParks(lat, lng, radius):
 
         if totalTrees == 0:
             continue
-            
+
         # Get number of unique species in park
         parkData = record['fields']
         total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
