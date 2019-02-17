@@ -17,7 +17,8 @@
     "vue-browser-geolocation": "^1.5.0",
     "vue-router": "^3.0.2",
     "vue-spinners": "^1.0.2",
-    "vuejs-logger": "^1.5.3"
+    "vuejs-logger": "^1.5.3",
+    "wikijs": "^5.0.0-alpha.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.2",
