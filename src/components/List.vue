@@ -17,6 +17,8 @@
           </div>
         </router-link>
       </li>
+      <span v-if="loading"> Loading </span>
+      <span v-if="maxDistReached"> No more parks found! </span>
     </ul>
   </main>
 </template>
@@ -30,8 +32,10 @@ export default {
   data: () => {
     return {
       parks: [],
-      loading: false,
-      page: 1
+      loading: true,
+      page: 1,
+      foundParksByLocation: false,
+      maxDistReached: false,
     };
   },
 
@@ -47,8 +51,7 @@ export default {
       ) {
         this.loading = true;
         this.getParks().then(newParks => {
-          this.parks.push(...newParks);
-          this.loading = false;
+
         });
       }
     };
@@ -56,23 +59,48 @@ export default {
 
   methods: {
     getParkLink: parkId => `park/${parkId}`,
+
     async getParks() {
       if (this.$config.locationAllowed) {
-        this.$log.info("List: fetching nearest parks");
-        this.$getLocation().then(async coords => {
-          let parks = await parkService.nearestParks(
-            this.page,
-            coords.lat,
-            coords.lng
-          );
-          this.page++;
-          this.parks = parks;
-        });
+        this.$getLocation()
+          .then(async coords => {
+            try {
+              let parks = await parkService.nearestParks(
+                this.page,
+                coords.lat,
+                coords.lng
+              );
+              if (parks.length > 0) {
+                this.page++;
+
+                if (this.parks.length === parks.length) {
+                  this.maxDistReached = true;
+                }
+
+                this.parks = parks
+                this.foundParksByLocation = true;
+                this.loading = false;
+              }
+            } catch (error) {
+              if (!this.foundParksByLocation) {
+                // Location failed - no nearby parks, get parks by alpha
+                this.$config.locationAllowed = false;
+                let parks = await parkService.parks(1);
+                this.page = 2;
+                this.parks = parks;
+                this.loading = false;
+              } else {
+                // Request failed to get more parks by location, denote this with an error
+                this.maxDistReached = true;
+                this.loading = false;
+              }
+            }
+          })
       } else {
-        this.$log.info("List: fetching alphabetical parks");
         let parks = await parkService.parks(this.page);
         this.page++;
-        this.parks = parks;
+        this.parks = [...this.parks, ...parks];
+        this.loading = false;
       }
     }
   },
