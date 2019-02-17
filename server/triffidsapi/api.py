@@ -26,11 +26,12 @@ def getAllParkNames():
     lng = request.args.get('lng') or 0
     rad = request.args.get('rad') or 1000
     page = request.args.get('page') or 1
+    
     if lat == 0 or lng == 0:
         response = parks.getAllParkNames(int(page))
     else:
         response = parks.getNearestParks(lat, lng, rad)
-    if len(response) == 0:
+    if not response:
         abort(404)
     return jsonify(response)
 
@@ -38,7 +39,7 @@ def getAllParkNames():
 @api.route('/parks/<string:parkCode>', methods=['GET'])
 def getPark(parkCode):
     response = parks.getPark(parkCode)
-    if len(response) == 0:
+    if not response:
         abort(404)
     return jsonify(response)
 
@@ -48,16 +49,23 @@ def getNearestParks(lat, lng, radius):
     lat = request.args.get('lat') or 0
     lng = request.args.get('lng') or 0
     response = parks.getNearestParks(lat, lng, radius)
-    if len(response) == 0:
+    if not response:
         abort(404)
     return jsonify(response)
+
+
+@api.route('/parks/info/<string:parkCode>', methods=['GET'])
+def getParkInfo(parkCode):
+    response = parks.getParkInfo(parkCode)
+    if not response:
+        abort(404)
+    return response
 
 
 @api.route('/tree/<string:treeId>', methods=['GET'])
 def getTree(treeId):
     response = trees.getTreeById(treeId)
-
-    if len(response) == 0:
+    if not response:
         abort(404)
     return jsonify(response)
 
@@ -72,7 +80,7 @@ def getTrees(parkCode):
     else:
         response = trees.getTreesBySpecies(parkCode, latinCode)
 
-    if len(response) == 0:
+    if not response:
         abort(404)
     return jsonify(response)
 
@@ -80,7 +88,7 @@ def getTrees(parkCode):
 @api.route('/trees/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getTreesByLocation(lat, lng, radius):
     response = trees.getTreesByLocation(lat, lng, radius)
-    if len(response) == 0:
+    if not response:
         abort(404)
     return jsonify(response)
 
@@ -88,6 +96,6 @@ def getTreesByLocation(lat, lng, radius):
 @api.route('/benches/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getBenches(lat, lng, radius):
     response = benches.getBenches(lat, lng, radius)
-    if len(response) == 0:
+    if not response:
         abort(404)
     return jsonify(response)
