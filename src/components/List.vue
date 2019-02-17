@@ -1,6 +1,10 @@
 <template>
   <main class="main">
     <Header v-bind:title="'Choose a park'"/>
+    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()" >
+      <h3 slot="header">Get location</h3>
+      <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
+    </Modal>
     <ul>
       <li v-for="park in parks" v-bind:key="park.id" class="layer">
         <router-link :to="{
@@ -17,7 +21,7 @@
           </div>
         </router-link>
       </li>
-      <span v-if="loading"> Loading </span>
+      <span v-if="loading" class="spinner"><div></div><div></div></span>
       <span v-if="maxDistReached"> No more parks found! </span>
     </ul>
   </main>
@@ -25,6 +29,7 @@
 
 <script>
 import Header from "./Header.vue";
+import Modal from "./Modal.vue";
 import { parkService } from "../services/Park.service";
 
 export default {
@@ -36,10 +41,12 @@ export default {
       page: 1,
       foundParksByLocation: false,
       maxDistReached: false,
+      showModal: false
     };
   },
 
   beforeMount() {
+    this.showModal = !this.$config.locationAllowed;
     this.getParks();
   },
 
@@ -90,7 +97,7 @@ export default {
                 this.parks = parks;
                 this.loading = false;
               } else {
-                // Request failed to get more parks by location, denote this with an error
+                // Request failed to get more parks by location, show an error
                 this.maxDistReached = true;
                 this.loading = false;
               }
@@ -102,10 +109,20 @@ export default {
         this.parks = [...this.parks, ...parks];
         this.loading = false;
       }
-    }
+    },
+
+    requestUsersLocation() {
+      this.showModal = false;
+      this.loading = true;
+      this.$config.locationAllowed = true;
+      this.parks = [];
+      this.getParks();
+    },
+
   },
   components: {
-    Header
+    Header,
+    Modal
   }
 };
 </script>

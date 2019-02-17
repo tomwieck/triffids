@@ -18,8 +18,10 @@
 
           <div class="modal-footer">
             <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
+              <button class="modal-default-button button" @click="$emit('close')">
+                Deny
+              </button>
+              <button class="modal-default-button button primary" @click="$emit('confirm')">
                 Allow
               </button>
             </slot>
@@ -76,10 +78,6 @@ export default {
 
 .modal-body {
   margin: 20px 0;
-}
-
-.modal-default-button {
-  float: right;
 }
 
 /*
