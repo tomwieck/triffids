@@ -73,6 +73,7 @@ export default {
       this.oldCenter = this.mymap.getCenter();
     },
     treeModal: function(data) {
+      // this.$log.info("Tmap:treeModal: data: ", data);
       let imgsrc = treePhotos.getPhotoFor(data.name);
       const backLink = `/park/${this.$route.params.parkId}`;
       let link;
@@ -139,15 +140,18 @@ export default {
       const response = await treeService.trees(this.park.id);
       this.trees = response.map(val => {
         return {
-          id: val.id,
-          name: val.common_name,
-          full_name: val.full_common_name,
-          girth: val.dbh,
-          width: val.crown_area,
-          height: val.crown_height,
-          latin: val.latin_name,
-          latin_code: val.latin_code,
-          geo_point: { lat: val.geo_point_2d[0], lng: val.geo_point_2d[1] }
+          id: val.recordid,
+          name: val.fields.common_name,
+          full_name: val.fields.full_common_name,
+          girth: val.fields.dbh,
+          width: val.fields.crown_area,
+          height: val.fields.crown_height,
+          latin: val.fields.latin_name,
+          latin_code: val.fields.latin_code,
+          geo_point: {
+            lat: val.fields.geo_point_2d[0],
+            lng: val.fields.geo_point_2d[1]
+          }
         };
       });
       this.treeCount = response.length;
