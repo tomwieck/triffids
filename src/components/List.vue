@@ -1,6 +1,6 @@
 <template>
   <main class="list">
-    <Header v-bind:title="'Choose a park'"/>
+    <Header v-bind:title="'Parks'"/>
     <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()" >
       <h3 slot="header">Get location</h3>
       <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
@@ -66,7 +66,7 @@ export default {
       ) {
         this.loading = true;
         this.getParks().then(() => {
-          this.loading = false;
+          // this.loading = false;
         });
       }
     };
