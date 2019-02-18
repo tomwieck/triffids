@@ -31,9 +31,12 @@ async function getTreeInfo(latin_code) {
         };
     }
     const term = tree.wiki_page.split('/').pop();
+    const wiki_options = {
+        apiUrl: "https://en.wikipedia.org/w/api.php"
+    }
     try {
         Vue.$log.info('TreeInfo.service: calling out to wiki with ', term)
-        const content = await wiki().page(term).then(page => page.summary())
+        const content = await wiki(wiki_options).page(term).then(page => page.summary())
         tree.wiki_data = content
     } catch (error) {
         Vue.$log.error('getTreeInfo:error ', error)
