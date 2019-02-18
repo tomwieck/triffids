@@ -26,7 +26,7 @@ function park(parkId) {
     const url = `${Vue.config.API_URL}/parks/${parkId}`;
     return http.get(url)
         .then((resp) => {
-            return resp.data[0];
+            return resp.data;
         }, (err) => {
             throw err;
         });
