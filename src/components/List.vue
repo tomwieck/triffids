@@ -10,7 +10,9 @@
             path: getParkLink(park.id),
           }"
           class="list-item">
-          <div class="list-item__inner">
+          <div 
+            class="list-item__inner"
+            :style="getParkPhoto(park.id)">
             <div class="list-item__details">
               <h3 class="list-item__header">{{ park.siteName }}</h3>
               <ul class="list-item__stats-container">
@@ -39,7 +41,32 @@ export default {
     return {
       parks: [],
       loading: false,
-      page: 1
+      page: 1,
+      parksWithPhotos: [
+        "ARNOVACE",
+        "ASHTCOES",
+        "BLAIHA",
+        "BRANHIPA",
+        "CANFPAANCP",
+        "CASTPA",
+        "COLLGR",
+        "COTHGA",
+        "DURDDO",
+        "EASTPK",
+        "GREVSMPA",
+        "HENGPA",
+        "HORFCO",
+        "KINGWELAM5",
+        "NETHREGR",
+        "OLDBCOES",
+        "QUEESQ",
+        "REDCPA",
+        "REDLGRPA",
+        "STANPA",
+        "STGEPA",
+        "STOKPAES",
+        "VICTPA"
+      ]
     };
   },
 
@@ -70,6 +97,15 @@ export default {
       let parks = await parkService.parks(this.page);
       this.page++;
       return parks;
+    },
+    getParkPhoto(parkId) {
+      if (this.parksWithPhotos.includes(parkId)) {
+        let img = require(`../assets/parks/${parkId}.jpg`)
+        // return (`../assets/parks/${parkId}.jpg`)
+        return `background-image: url(${img}; background-size: cover;`;
+      } else {
+        return;
+      }
     }
   },
   components: {
