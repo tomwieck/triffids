@@ -18,7 +18,9 @@
             class="list-item__inner"
             :style="getParkPhoto(park.id)">
             <div class="list-item__details">
-              <h3 class="list-item__header">{{ park.siteName }}</h3>
+              <h3 class="list-item__header">
+                {{ park.siteName }}
+              </h3>
               <ul class="list-item__stats-container">
                 <li class="list-item__stats">
                   {{park.unique_trees}} Unique species
@@ -31,8 +33,13 @@
           </div>
         </router-link>
       </li>
-      <span v-if="loading" class="spinner"><div></div><div></div></span>
-      <span v-if="maxDistReached"> No more parks found! </span>
+      <span v-if="loading" class="spinner">
+        <div></div>
+        <div></div>
+      </span>
+      <span v-if="maxDistReached">
+        No more parks found!
+      </span>
     </ul>
   </main>
 </template>
@@ -44,10 +51,14 @@ import { parkService } from "../services/Park.service";
 
 export default {
   name: "list",
+   components: {
+    Header,
+    Modal
+  },
   data: () => {
     return {
       parks: [],
-      loading: false,
+      loading: true,
       page: 1,
       foundParksByLocation: false,
       maxDistReached: false,
@@ -79,12 +90,10 @@ export default {
       ],
     };
   },
-
   beforeMount() {
     this.showModal = !this.$config.locationAllowed;
     this.getParks();
   },
-
   mounted() {
     window.onscroll = () => {
       if (
@@ -98,10 +107,8 @@ export default {
       }
     };
   },
-
   methods: {
     getParkLink: parkId => `park/${parkId}`,
-
     async getParks() {
       if (this.$config.locationAllowed) {
         this.$getLocation()
@@ -148,13 +155,11 @@ export default {
     getParkPhoto(parkId) {
       if (this.parksWithPhotos.includes(parkId)) {
         let img = require(`../assets/parks/${parkId}.jpg`)
-        // return (`../assets/parks/${parkId}.jpg`)
         return `background-image: url(${img}; background-size: cover;`;
       } else {
         return `background-size: 70%;`;
       }
     },
-
     requestUsersLocation() {
       this.showModal = false;
       this.loading = true;
@@ -163,10 +168,6 @@ export default {
       this.getParks();
     },
   },
-  components: {
-    Header,
-    Modal
-  }
 };
 </script>
 
@@ -181,6 +182,7 @@ export default {
     margin: 0 auto;
     max-width: 600px;
     padding-top: 8px;
+    text-align: center;
   }
 }
 
@@ -188,9 +190,7 @@ export default {
   border-radius: 3px;
   display: flex;
   height: 180px;
-  list-style-type: none;
   max-width: 600px;
-  padding: 1px;
   margin: 8px;
   position: relative;
   text-decoration: none;
@@ -200,6 +200,8 @@ export default {
     background-image: url("../assets/parks/park-empty.svg");
     background-size: contain;
     background-repeat: no-repeat;
+    border-radius: 3px;
+    color: #fff;
     margin: auto;
     display: flex;
     height: 100%;
@@ -208,12 +210,10 @@ export default {
   }
 
   &__header {
-    color: #fff;
     margin: 8px 0;
   }
 
   &__details {
-    color: #fff;
     padding: 16px;
     text-align: left;
     z-index: 2;
