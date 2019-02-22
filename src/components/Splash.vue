@@ -2,9 +2,8 @@
   <main class="main">
     <img
       :src="image"
-      alt="Smiley face"
-      width="400"
-      height="400"
+      alt="Triffids"
+      width="300"
       style="display:block; margin: 0 auto; margin-top: 4em;"
     >
   </main>
