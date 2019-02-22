@@ -151,7 +151,7 @@ export default {
         // return (`../assets/parks/${parkId}.jpg`)
         return `background-image: url(${img}; background-size: cover;`;
       } else {
-        return;
+        return `background-size: 70%;`;
       }
     },
 
@@ -186,11 +186,11 @@ export default {
 
 .list-item {
   border-radius: 3px;
-  display: block;
+  display: flex;
   height: 180px;
   list-style-type: none;
   max-width: 600px;
-  padding: 16px;
+  padding: 1px;
   margin: 8px;
   position: relative;
   text-decoration: none;
@@ -200,6 +200,7 @@ export default {
     background-image: url("../assets/parks/park-empty.svg");
     background-size: contain;
     background-repeat: no-repeat;
+    margin: auto;
     display: flex;
     height: 100%;
     width: 100%;
@@ -213,6 +214,7 @@ export default {
 
   &__details {
     color: #fff;
+    padding: 16px;
     text-align: left;
     z-index: 2;
   }
