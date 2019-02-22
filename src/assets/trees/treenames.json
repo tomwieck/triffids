@@ -1,0 +1,2305 @@
+[{
+        "latin_name": "Amelanchier arborea Robin H",
+        "common_name": "Amelanchier",
+        "full_common_name": "Amelanchier 'Robin Hill'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Amelanchier_lamarckii",
+        "latin_code": "AARH",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Busch_Jakobsberg.jpg"
+    },
+    {
+        "latin_name": "Abies Grandis",
+        "common_name": "Fir",
+        "full_common_name": "Grand Fir",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fir",
+        "latin_code": "ABGR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/71/Abies_koreana_%28szyszki%29.JPG"
+    },
+    {
+        "latin_name": "Abies Nordmanniana",
+        "common_name": "Nordmann Fir",
+        "full_common_name": "Nordmann Fir",
+        "wiki_page": "https://en.wikipedia.org/wiki/Abies_nordmanniana",
+        "latin_code": "ABN2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Abies_nordmanniana_snow.jpg"
+    },
+    {
+        "latin_name": "Abies procera",
+        "common_name": "Noble Fir",
+        "full_common_name": "Noble Fir",
+        "wiki_page": "https://en.wikipedia.org/wiki/Abies_procera",
+        "latin_code": "ABPR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Abies_procera1.jpg"
+    },
+    {
+        "latin_name": "Abies - Species Unknown",
+        "common_name": "Fir",
+        "full_common_name": "Fir species",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fir",
+        "latin_code": "ABZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/71/Abies_koreana_%28szyszki%29.JPG"
+    },
+    {
+        "latin_name": "Acer palmatum",
+        "common_name": "Palmate Maple",
+        "full_common_name": "Palmate maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_palmatum",
+        "latin_code": "ACAT",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Acer_palmatum0.jpg"
+    },
+    {
+        "latin_name": "Acer campestre",
+        "common_name": "Field Maple",
+        "full_common_name": "Field maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_campestre",
+        "latin_code": "ACC2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg"
+    },
+    {
+        "latin_name": "Acer campestre Elsrijk",
+        "common_name": "Field Maple",
+        "full_common_name": "Field maple 'Elsrijk'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_campestre_%27Elsrijk%27",
+        "latin_code": "ACC3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg"
+    },
+    {
+        "latin_name": "Acer capillipes",
+        "common_name": "Maple",
+        "full_common_name": "Kyushu maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_capillipes",
+        "latin_code": "ACC4",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Acer_capillipes1.jpg"
+    },
+    {
+        "latin_name": "Acer cappadocicum",
+        "common_name": "Maple",
+        "full_common_name": "Cappadocian maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_cappadocicum",
+        "latin_code": "ACC5",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Acer_cappadocicum.jpg"
+    },
+    {
+        "latin_name": "Acer campestre 'Will Cladwell'",
+        "common_name": "Field Maple",
+        "full_common_name": "Field maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_campestre",
+        "latin_code": "ACC6",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg"
+    },
+    {
+        "latin_name": "Acer campestre 'Street Wise'",
+        "common_name": "Field Maple",
+        "full_common_name": "Field maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_campestre",
+        "latin_code": "ACC7",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg"
+    },
+    {
+        "latin_name": "Acer davidii",
+        "common_name": "Maple",
+        "full_common_name": "David's maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_davidii",
+        "latin_code": "ACDA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Acer_davidii_leaves.JPG"
+    },
+    {
+        "latin_name": "Acer japonicum",
+        "common_name": "Maple",
+        "full_common_name": "Amur maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_japonicum",
+        "latin_code": "ACJA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Acer_japonicum_aconitifolium_fall_color.JPG"
+    },
+    {
+        "latin_name": "Acer platanoides 'Deborah'",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Deborah'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACL1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer griseum",
+        "common_name": "Maple",
+        "full_common_name": "Paperbark maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_griseum",
+        "latin_code": "ACGR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Acer_griseum_Morton_836-58-7.jpg"
+    },
+    {
+        "latin_name": "Acer negundo",
+        "common_name": "Box Elder",
+        "full_common_name": "Box elder",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_negundo",
+        "latin_code": "ACNE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Acnegundo.jpg"
+    },
+    {
+        "latin_name": "Acer opalus",
+        "common_name": "Maple",
+        "full_common_name": "Italian maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_opalus",
+        "latin_code": "ACOP",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Acer_opalus_leaves_01_by_Line1.JPG"
+    },
+    {
+        "latin_name": "Acer platanoides Crimson King",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Crimson King'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACP1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer platanoides Cucullatum",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Cucullatum'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACP2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer platanoides Drummondii",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Drummondii'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACP3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer platanoides Globosum",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Globosum'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACP5",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer platanoides Goldsworth Pu",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Goldsworth Purpl",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACP6",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer platanoides Schwedleri",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple 'Schwedleri'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACP7",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer pseudoplatanus Brillianti",
+        "common_name": "Sycamore",
+        "full_common_name": "Sycamore 'Brillianti'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_pseudoplatanus",
+        "latin_code": "ACP8",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Acer_pseudoplatanus_005.jpg"
+    },
+    {
+        "latin_name": "Acer pseudoplatanus Leopoldii",
+        "common_name": "Sycamore",
+        "full_common_name": "Sycamore 'Leopoldii'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_pseudoplatanus",
+        "latin_code": "ACP9",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Acer_pseudoplatanus_005.jpg"
+    },
+    {
+        "latin_name": "Acer platanoides",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "ACPL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer pseudoplatanus Purpureum",
+        "common_name": "Sycamore",
+        "full_common_name": "Purple leafed sycamore",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_pseudoplatanus",
+        "latin_code": "ACPP",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Acer_pseudoplatanus_005.jpg"
+    },
+    {
+        "latin_name": "Acer pseudoplatanus",
+        "common_name": "Sycamore",
+        "full_common_name": "Sycamore",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_pseudoplatanus",
+        "latin_code": "ACPS",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Acer_pseudoplatanus_005.jpg"
+    },
+    {
+        "latin_name": "Acer pseudoplatanus Variegatum",
+        "common_name": "Sycamore",
+        "full_common_name": "Variegated sycamore",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_pseudoplatanus",
+        "latin_code": "ACPV",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Acer_pseudoplatanus_005.jpg"
+    },
+    {
+        "latin_name": "Acer rubrum",
+        "common_name": "Maple",
+        "full_common_name": "Red maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_rubrum",
+        "latin_code": "ACR1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/2014-10-30_11_09_40_Red_Maple_during_autumn_on_Lower_Ferry_Road_in_Ewing%2C_New_Jersey.JPG"
+    },
+    {
+        "latin_name": "Acer rufinerve",
+        "common_name": "Maple",
+        "full_common_name": "Redvein maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_rufinerve",
+        "latin_code": "ACR2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/5/53/Acer_rufinerve_leaf_01_by_Line1.JPG"
+    },
+    {
+        "latin_name": "Acer rubrum  Armstrong",
+        "common_name": "Red maple",
+        "full_common_name": "Red maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_rubrum",
+        "latin_code": "ACR3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/2014-10-30_11_09_40_Red_Maple_during_autumn_on_Lower_Ferry_Road_in_Ewing%2C_New_Jersey.JPG"
+    },
+    {
+        "latin_name": "Acer saccharinum",
+        "common_name": "Maple",
+        "full_common_name": "Silver maple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_saccharinum",
+        "latin_code": "ACS1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Silber-Ahorn_%28Acer_saccharinum%29.jpg"
+    },
+    {
+        "latin_name": "Aesculus x carnea",
+        "common_name": "Horse Chestnut",
+        "full_common_name": "Red horse chestnut",
+        "wiki_page": "https://en.wikipedia.org/wiki/Aesculus_%C3%97_carnea",
+        "latin_code": "AECA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Aesculus_carnea_BotGartenMuenster_PurpurKastanie_6685.jpg"
+    },
+    {
+        "latin_name": "Aesculus hippocastanum",
+        "common_name": "Horse Chestnut",
+        "full_common_name": "Horse chestnut",
+        "wiki_page": "https://en.wikipedia.org/wiki/Aesculus_hippocastanum",
+        "latin_code": "AEHI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Illustration_Aesculus_hippocastanum0_clean.jpg"
+    },
+    {
+        "latin_name": "Aesculus indica",
+        "common_name": "Horse Chestnut",
+        "full_common_name": "Indian horse chestnut",
+        "wiki_page": "https://en.wikipedia.org/wiki/Aesculus_indica",
+        "latin_code": "AEIN",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/en/d/dc/Aesculus_indica_tree.jpg"
+    },
+    {
+        "latin_name": "Aesculus - Species Unknown",
+        "common_name": "Horse Chestnut",
+        "full_common_name": "Horse chestnut species",
+        "wiki_page": "https://en.wikipedia.org/wiki/Aesculus_hippocastanum",
+        "latin_code": "AEZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Illustration_Aesculus_hippocastanum0_clean.jpg"
+    },
+    {
+        "latin_name": "Ailanthus altissima",
+        "common_name": "Tree of Heaven",
+        "full_common_name": "Tree of heaven",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ailanthus_altissima",
+        "latin_code": "AIAL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/G%C3%B6tterbaum_%28Ailanthus_altissima%29.jpg"
+    },
+    {
+        "latin_name": "Alnus cordata",
+        "common_name": "Alder",
+        "full_common_name": "Italian alder",
+        "wiki_page": "https://en.wikipedia.org/wiki/Alnus_cordata",
+        "latin_code": "ALCO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/91/ItalAlder.jpg"
+    },
+    {
+        "latin_name": "Alnus glutinosa Laciniata",
+        "common_name": "Alder",
+        "full_common_name": "Cutleaf black alder",
+        "wiki_page": "https://en.wikipedia.org/wiki/Alnus_glutinosa",
+        "latin_code": "ALG2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/97/20120904Schwarzerle_Reilingen01.jpg"
+    },
+    {
+        "latin_name": "Alnus glutinosa",
+        "common_name": "Alder",
+        "full_common_name": "Black alder",
+        "wiki_page": "https://en.wikipedia.org/wiki/Alnus_glutinosa",
+        "latin_code": "ALGL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/97/20120904Schwarzerle_Reilingen01.jpg"
+    },
+    {
+        "latin_name": "Alnus incana Laciniata",
+        "common_name": "Alder",
+        "full_common_name": "Cutleaf grey alder",
+        "wiki_page": "https://en.wikipedia.org/wiki/Alnus_incana",
+        "latin_code": "ALI1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Alnus_incana_rugosa_leaves.jpg"
+    },
+    {
+        "latin_name": "Alnus incana",
+        "common_name": "Alder",
+        "full_common_name": "Alder species",
+        "wiki_page": "https://en.wikipedia.org/wiki/Alnus_incana",
+        "latin_code": "ALIN",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Alnus_incana_rugosa_leaves.jpg"
+    },
+    {
+        "latin_name": "Alnus - Species Unknown",
+        "common_name": "Alder",
+        "full_common_name": "Alder species",
+        "wiki_page": "https://en.wikipedia.org/wiki/Alnus_incana",
+        "latin_code": "ALZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Alnus_incana_rugosa_leaves.jpg"
+    },
+    {
+        "latin_name": "Amelanchier lamarckii Robin H",
+        "common_name": "Amelanchier",
+        "full_common_name": "Amelanchier 'Robin Hill'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Amelanchier_lamarckii",
+        "latin_code": "AMLR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Busch_Jakobsberg.jpg"
+    },
+    {
+        "latin_name": "Acer platanoides cv",
+        "common_name": "Maple",
+        "full_common_name": "Norway maple cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_platanoides",
+        "latin_code": "APLV",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Spitz-Ahorn%28mbo%29.jpg"
+    },
+    {
+        "latin_name": "Acer pseudoplatanus cv",
+        "common_name": "Sycamore",
+        "full_common_name": "Sycamore cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acer_pseudoplatanus",
+        "latin_code": "APSV",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Acer_pseudoplatanus_005.jpg"
+    },
+    {
+        "latin_name": "Araucaria araucana",
+        "common_name": "Monkey Puzzle",
+        "full_common_name": "Monkey puzzle",
+        "wiki_page": "https://en.wikipedia.org/wiki/Araucaria_araucana",
+        "latin_code": "AUAU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Araucaria_en_Parque_Nacional_Conguillio.jpg"
+    },
+    {
+        "latin_name": "Betula albosinensis",
+        "common_name": "Birch",
+        "full_common_name": "Chinese red birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_albosinensis",
+        "latin_code": "BEA2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Betula-albosinensis-habit.JPG"
+    },
+    {
+        "latin_name": "Betula albosinensis fascinatio",
+        "common_name": "Birch",
+        "full_common_name": "Chinese red birch 'Fascination",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_albosinensis",
+        "latin_code": "BEAL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Betula-albosinensis-habit.JPG"
+    },
+    {
+        "latin_name": "Betula ermanii",
+        "common_name": "Birch",
+        "full_common_name": "Erman's birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_ermanii",
+        "latin_code": "BEER",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/63/Betula_ermanii_%28200612%29.jpg"
+    },
+    {
+        "latin_name": "Betula utilis jacquemontii",
+        "common_name": "Birch",
+        "full_common_name": "Jacquemont's birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_utilis",
+        "latin_code": "BEJA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Silver_Birch_%28Bhojpatra%29_I_IMG_3405.jpg"
+    },
+    {
+        "latin_name": "Betula maximowicziana",
+        "common_name": "Birch",
+        "full_common_name": "Monarch birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_alnoides",
+        "latin_code": "BEMA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Corylus_avellana.jpg"
+    },
+    {
+        "latin_name": "Betula nigra",
+        "common_name": "Birch",
+        "full_common_name": "River birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_nigra",
+        "latin_code": "BENI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/38/RiverBirchBark01.JPG"
+    },
+    {
+        "latin_name": "Betula pendula Dalecarlica",
+        "common_name": "Birch",
+        "full_common_name": "Swedish birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_pendula",
+        "latin_code": "BEP1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Betula_pendula_Finland.jpg"
+    },
+    {
+        "latin_name": "Betula pendula Youngii",
+        "common_name": "Birch",
+        "full_common_name": "Weeping silver birch 'Youngii'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_pendula",
+        "latin_code": "BEP5",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Betula_pendula_Finland.jpg"
+    },
+    {
+        "latin_name": "Betula pendula Edinburgh",
+        "common_name": "Birch",
+        "full_common_name": "Betula pendula Edinburgh",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_pendula",
+        "latin_code": "BEP6",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Betula_pendula_Finland.jpg"
+    },
+    {
+        "latin_name": "Betula pendula 'Obelisk'",
+        "common_name": "Birch",
+        "full_common_name": "Birch \"Obelisk",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_pendula",
+        "latin_code": "BEP7",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Betula_pendula_Finland.jpg"
+    },
+    {
+        "latin_name": "Betula papyrifera",
+        "common_name": "Birch",
+        "full_common_name": "Paper birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_papyrifera",
+        "latin_code": "BEPA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/68/13._The_Fall_of_Acadia_%284039110079%29.jpg"
+    },
+    {
+        "latin_name": "Betula pendula",
+        "common_name": "Silver Birch",
+        "full_common_name": "Silver birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_pendula",
+        "latin_code": "BEPU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Betula_pendula_Finland.jpg"
+    },
+    {
+        "latin_name": "Betula pubescens",
+        "common_name": "Downy Birch",
+        "full_common_name": "Downy birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_pubescens",
+        "latin_code": "BEPE",
+        "wiki_image": "https://en.wikipedia.org/wiki/File:Mountain-birch-Trollheimen.jpg"
+    },
+    {
+        "latin_name": "Betula utilis",
+        "common_name": "Himalayan Birch",
+        "full_common_name": "Himalayan birch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_utilis",
+        "latin_code": "BEUT",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Betula_utilis02_by_Line1.jpg/220px-Betula_utilis02_by_Line1.jpg"
+    },
+    {
+        "latin_name": "Betula - Species Unknown",
+        "common_name": "Birch",
+        "full_common_name": "Birch species",
+        "wiki_page": "https://en.wikipedia.org/wiki/Betula_pendula",
+        "latin_code": "BEZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Betula_pendula_Finland.jpg"
+    },
+    {
+        "latin_name": "Buddleia davidii",
+        "common_name": "Buddleia",
+        "full_common_name": "Buddleia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Buddleja_davidii",
+        "latin_code": "BUDA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/90/BuddlejaDavidiiStrauch.jpg"
+    },
+    {
+        "latin_name": "Carpinus betulus Fastigiata",
+        "common_name": "Hornbeam",
+        "full_common_name": "Fastigiate hornbeam",
+        "wiki_page": "https://en.wikipedia.org/wiki/Carpinus_betulus",
+        "latin_code": "CAB2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Carpinus_betulus_-_Hunsr%C3%BCck_001.jpg"
+    },
+    {
+        "latin_name": "Carpinus betulus Frans Fontane",
+        "common_name": "Hornbeam",
+        "full_common_name": "Hornbeam 'Frans Fontaine'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Carpinus_betulus",
+        "latin_code": "CAB3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Carpinus_betulus_-_Hunsr%C3%BCck_001.jpg"
+    },
+    {
+        "latin_name": "Carpinus betulus",
+        "common_name": "Hornbeam",
+        "full_common_name": "Hornbeam",
+        "wiki_page": "https://en.wikipedia.org/wiki/Carpinus_betulus",
+        "latin_code": "CABE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Carpinus_betulus_-_Hunsr%C3%BCck_001.jpg"
+    },
+    {
+        "latin_name": "Catalpa bignonioides",
+        "common_name": "Catalpa",
+        "full_common_name": "Indian bean tree",
+        "wiki_page": "https://en.wikipedia.org/wiki/Catalpa_bignonioides",
+        "latin_code": "CABI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Catalpa_bignonioides_inflorescence.jpg"
+    },
+    {
+        "latin_name": "Carpinus - Species Unknown",
+        "common_name": "Hornbeam",
+        "full_common_name": "Unidentified hornbeam",
+        "wiki_page": "https://en.wikipedia.org/wiki/Carpinus_betulus",
+        "latin_code": "CAPI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Carpinus_betulus_-_Hunsr%C3%BCck_001.jpg"
+    },
+    {
+        "latin_name": "Castanea sativa",
+        "common_name": "Sweet Chestnut",
+        "full_common_name": "Sweet chestnut",
+        "wiki_page": "https://en.wikipedia.org/wiki/Castanea_sativa",
+        "latin_code": "CASA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Chestnuts.jpg"
+    },
+    {
+        "latin_name": "Cedrus atlantica Glauca",
+        "common_name": "Cedar",
+        "full_common_name": "Blue atlas cedar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cedrus_atlantica",
+        "latin_code": "CEA1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Cedrus_atlantica.jpg"
+    },
+    {
+        "latin_name": "Cedrus atlantica",
+        "common_name": "Cedar",
+        "full_common_name": "Atlas cedar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cedrus_atlantica",
+        "latin_code": "CEAT",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Cedrus_atlantica.jpg"
+    },
+    {
+        "latin_name": "Cedrus deodara",
+        "common_name": "Cedar",
+        "full_common_name": "Himalayan cedar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cedrus_deodara",
+        "latin_code": "CEDE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Cedrus_deodara_Manali_2.jpg"
+    },
+    {
+        "latin_name": "Cedrus libani",
+        "common_name": "Cedar",
+        "full_common_name": "Cedar of Lebanon",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cedrus_libani",
+        "latin_code": "CELI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Libanonzeder.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis lawsoniana Allum",
+        "common_name": "Cypress",
+        "full_common_name": "Lawson's cypress 'Allum'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_lawsoniana",
+        "latin_code": "CHAL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis lawsoniana Colum",
+        "common_name": "Cypress",
+        "full_common_name": "Lawson's cypress 'Columnaris'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_lawsoniana",
+        "latin_code": "CHCO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis lawsoniana cv",
+        "common_name": "Cypress",
+        "full_common_name": "Lawson's cypress cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_lawsoniana",
+        "latin_code": "CHCV",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis lawsoniana Erect",
+        "common_name": "Cypress",
+        "full_common_name": "Lawson's cypress 'Erectii'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_lawsoniana",
+        "latin_code": "CHER",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis lawsoniana",
+        "common_name": "Cypress",
+        "full_common_name": "Lawson's cypress",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_lawsoniana",
+        "latin_code": "CHLA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis lawsoniana Lutea",
+        "common_name": "Cypress",
+        "full_common_name": "Lawson's cypress cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_lawsoniana",
+        "latin_code": "CHLU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis nootkatensis",
+        "common_name": "Cypress",
+        "full_common_name": "Nootka cypress",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cupressus_nootkatensis",
+        "latin_code": "CHNO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis obtusa Cripsii",
+        "common_name": "Cypress",
+        "full_common_name": "Hinoki cypress 'Cripsii'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_obtusa",
+        "latin_code": "CHOC",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/40/Chamaecyparis_obtusa5.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis pisifera 'Filife",
+        "common_name": "Cypress",
+        "full_common_name": "Sawara cypress",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_pisifera",
+        "latin_code": "CHPF",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Chamaecyparis_pisifera.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis pisifera",
+        "common_name": "Cypress",
+        "full_common_name": "Sawara cypress cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_pisifera",
+        "latin_code": "CHPI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Chamaecyparis_pisifera.jpg"
+    },
+    {
+        "latin_name": "Chamaecyparis lawsoniana Young",
+        "common_name": "Cypress",
+        "full_common_name": "Lawson's cypress 'Youngii'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Chamaecyparis_lawsoniana",
+        "latin_code": "CHYO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+        "latin_name": "Corylus avellana",
+        "common_name": "Hazel",
+        "full_common_name": "Hazel",
+        "wiki_page": "https://en.wikipedia.org/wiki/Corylus_avellana",
+        "latin_code": "COAV",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Corylus_avellana.jpg"
+    },
+    {
+        "latin_name": "Corylus colurna",
+        "common_name": "Hazel",
+        "full_common_name": "Turkish hazel",
+        "wiki_page": "https://en.wikipedia.org/wiki/Corylus_colurna",
+        "latin_code": "COCO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/65/TurkHazel.jpg"
+    },
+    {
+        "latin_name": "Cornus kousa",
+        "common_name": "Dogwood",
+        "full_common_name": "Kousa dogwood",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cornus_kousa",
+        "latin_code": "COKO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Cornus_kousa_img_2066.jpg"
+    },
+    {
+        "latin_name": "Corylus maxima Purpurea",
+        "common_name": "Filbert",
+        "full_common_name": "Purple leafed filbert",
+        "wiki_page": "https://en.wikipedia.org/wiki/Corylus_maxima",
+        "latin_code": "COMP",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Hasel_fg01.jpg"
+    },
+    {
+        "latin_name": "Cotoneaster - Unknown Species",
+        "common_name": "Cotoneaster",
+        "full_common_name": "Cotoneaster species",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cotoneaster",
+        "latin_code": "COYY",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Cotoneaster_frigidus.jpg"
+    },
+    {
+        "latin_name": "Crataegus crus-gallii",
+        "common_name": "Hawthorn",
+        "full_common_name": "Cockspur thorn",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CRCR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/21/Crataegus%2C_various_species%2C_fruit.jpg"
+    },
+    {
+        "latin_name": "Cryptomeria japonica",
+        "common_name": "Cedar",
+        "full_common_name": "Japanese cedar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cryptomeria",
+        "latin_code": "CRJA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Cryptomeria_japonica_SZ124.png"
+    },
+    {
+        "latin_name": "Crataegus monogyna",
+        "common_name": "Hawthorn",
+        "full_common_name": "Common hawthorn",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CRMO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Common_hawthorn.jpg"
+    },
+    {
+        "latin_name": "Crataegus monogyna 'Stricta'",
+        "common_name": "Hawthorn",
+        "full_common_name": "Common Hawthorn 'Stricta'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CRMS",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Common_hawthorn.jpg"
+    },
+    {
+        "latin_name": "Crataegus laevigata",
+        "common_name": "Hawthorn",
+        "full_common_name": "Midland hawthorn",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CRO1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Crataegus-oxyacantha-flowers.JPG"
+    },
+    {
+        "latin_name": "Crataegus orientalis",
+        "common_name": "Hawthorn",
+        "full_common_name": "Eastern thorn",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus_orientalis",
+        "latin_code": "CROR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Crataegus_orientalis_fruit_a_PG.jpg"
+    },
+    {
+        "latin_name": "Crataegus laevigata cv",
+        "common_name": "Hawthorn",
+        "full_common_name": "Midland hawthorn cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CROV",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Common_hawthorn.jpg"
+    },
+    {
+        "latin_name": "Crataegus laevigata 'Paul's Sc",
+        "common_name": "Hawthorn",
+        "full_common_name": "Midland hawthorn cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CRPS",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Common_hawthorn.jpg"
+    },
+    {
+        "latin_name": "Crataegus x lavalleei",
+        "common_name": "Hawthorn",
+        "full_common_name": "Lavallre's hawthorn",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CRXL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Crataegus_lavallei_flowers.jpg"
+    },
+    {
+        "latin_name": "Crataegus x persimilis Prunifo",
+        "common_name": "Hawthorn",
+        "full_common_name": "Broad-leaved cockspur thorn",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CRXP",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Common_hawthorn.jpg"
+    },
+    {
+        "latin_name": "Crataegus - Species Unknown",
+        "common_name": "Hawthorn",
+        "full_common_name": "Unidentified hawthorn",
+        "wiki_page": "https://en.wikipedia.org/wiki/Crataegus",
+        "latin_code": "CRZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Common_hawthorn.jpg"
+    },
+    {
+        "latin_name": "Cupressus macrocarpa",
+        "common_name": "Cypress",
+        "full_common_name": "Monterey cypress",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cupressus_macrocarpa",
+        "latin_code": "CUMA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Lone_cypress_in_17-mile-drive.jpg"
+    },
+    {
+        "latin_name": "Cupressus - Species Unknown",
+        "common_name": "Cypress",
+        "full_common_name": "Cypress species",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cupressus_macrocarpa",
+        "latin_code": "CUZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Lone_cypress_in_17-mile-drive.jpg"
+    },
+    {
+        "latin_name": "Eleagnus pungens maculata",
+        "common_name": "Eleagnus",
+        "full_common_name": "Eleagnus",
+        "wiki_page": "https://en.wikipedia.org/wiki/Elaeagnus",
+        "latin_code": "ELPU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Elaeagnus_commutata_USDA.jpg"
+    },
+    {
+        "latin_name": "Eucalyptus gunii",
+        "common_name": "Eucalyptus",
+        "full_common_name": "Cider gum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Eucalyptus",
+        "latin_code": "EUGU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Eucalyptus_tereticornis_flowers%2C_capsules%2C_buds_and_foliage.jpe│18:41"
+    },
+    {
+        "latin_name": "Fagus sylvatica Dawyck",
+        "common_name": "Dawyck Beech",
+        "full_common_name": "Dawyck beech",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fagus_sylvatica",
+        "latin_code": "FASD",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Fagus-sylvatica-cansiglio-forest-italy.jpg"
+    },
+    {
+        "latin_name": "Fagus sylvatica",
+        "common_name": "Beech",
+        "full_common_name": "Common beech",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fagus_sylvatica",
+        "latin_code": "FASY",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Fagus-sylvatica-cansiglio-forest-italy.jpg"
+    },
+    {
+        "latin_name": "Feijoa sellowiana",
+        "common_name": "Feijoa",
+        "full_common_name": "Feijoa",
+        "wiki_page": "https://en.wikipedia.org/wiki/Acca_sellowiana",
+        "latin_code": "FESE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Acca_sellowiana_Fruit_MHNT_Fronton.jpg"
+    },
+    {
+        "latin_name": "Fraxinus americana",
+        "common_name": "Ash",
+        "full_common_name": "American ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_americana",
+        "latin_code": "FRAM",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Fraxinus_americana_002.jpg"
+    },
+    {
+        "latin_name": "Fraxinus angustifolia",
+        "common_name": "Ash",
+        "full_common_name": "Narrow-leaved ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_angustifolia",
+        "latin_code": "FRAN",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Fraxinus_angustifolia_foliage.jpg"
+    },
+    {
+        "latin_name": "Fraxinus excelsior Diversifoli",
+        "common_name": "Ash",
+        "full_common_name": "Single-leafed ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_excelsior",
+        "latin_code": "FRE1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Fraxinus_excelsior.jpg"
+    },
+    {
+        "latin_name": "Fraxinus excelsior Jaspidea",
+        "common_name": "Ash",
+        "full_common_name": "Common ash 'Jaspidea'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_excelsior",
+        "latin_code": "FRE2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Fraxinus_excelsior.jpg"
+    },
+    {
+        "latin_name": "Fraxinus excelsior Pendula",
+        "common_name": "Weeping Ash",
+        "full_common_name": "Weeping ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_excelsior",
+        "latin_code": "FRE3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Fraxinus_excelsior.jpg"
+    },
+    {
+        "latin_name": "Fraxinus excelsior Westhof's G",
+        "common_name": "Ash",
+        "full_common_name": "Common ash 'Westhof's Glory'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_excelsior",
+        "latin_code": "FRE4",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Fraxinus_excelsior.jpg"
+    },
+    {
+        "latin_name": "Fraxinus excelsior",
+        "common_name": "Ash",
+        "full_common_name": "Common ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_excelsior",
+        "latin_code": "FREX",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Fraxinus_excelsior.jpg"
+    },
+    {
+        "latin_name": "Fraxinus ornus",
+        "common_name": "Ash",
+        "full_common_name": "Manna ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_ornus",
+        "latin_code": "FROR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/1/11/Fraxinus_ornus_JPG2.jpg"
+    },
+    {
+        "latin_name": "Fraxinus oxycarpa",
+        "common_name": "Ash",
+        "full_common_name": "Caucasian ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_angustifolia",
+        "latin_code": "FROX",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Fraxinus_angustifolia_foliage.jpg"
+    },
+    {
+        "latin_name": "Fraxinus oxycarpa Raywood",
+        "common_name": "Ash",
+        "full_common_name": "Caucasian ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_angustifolia",
+        "latin_code": "FRRY",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Fraxinus_angustifolia_foliage.jpg"
+    },
+    {
+        "latin_name": "Fraxinus - Species Unknown",
+        "common_name": "Ash",
+        "full_common_name": "Unidentified ash",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fraxinus_angustifolia",
+        "latin_code": "FRZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Fraxinus_angustifolia_foliage.jpg"
+    },
+    {
+        "latin_name": "Ginkgo biloba",
+        "common_name": "Gingko",
+        "full_common_name": "Maidenhair tree",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ginkgo_biloba",
+        "latin_code": "GIBI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/GINKGOBAUM-2.jpg"
+    },
+    {
+        "latin_name": "Gleditsia triacanthos",
+        "common_name": "Honey Locust",
+        "full_common_name": "Honey locust",
+        "wiki_page": "https://en.wikipedia.org/wiki/Honey_locust",
+        "latin_code": "GLTR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/82/Gleditsia_triacanthos_Maryhill_Museum_01.jpg"
+    },
+    {
+        "latin_name": "Ilex x altaclerensis Golden Ki",
+        "common_name": "Witch Hazel",
+        "full_common_name": "Highclere holly",
+        "wiki_page": "https://en.wikipedia.org/wiki/Witch-hazel",
+        "latin_code": "IL11",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Hamamelis_virginiana_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-070.jpg"
+    },
+    {
+        "latin_name": "Ilex aquifolium Aureomarginata",
+        "common_name": "Witch Hazel",
+        "full_common_name": "Common holly cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ilex_aquifolium",
+        "latin_code": "ILA5",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Illustration_Ilex_aquifolium0.jpg"
+    },
+    {
+        "latin_name": "Ilex x altaclerensis",
+        "common_name": "Witch Hazel",
+        "full_common_name": "Highclere holly",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ilex_aquifolium",
+        "latin_code": "ILAL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Illustration_Ilex_aquifolium0.jpg"
+    },
+    {
+        "latin_name": "Ilex aquifolium",
+        "common_name": "Holly",
+        "full_common_name": "Common holly",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ilex_aquifolium",
+        "latin_code": "ILAQ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Illustration_Ilex_aquifolium0.jpg"
+    },
+    {
+        "latin_name": "Ilex - Unknown Species",
+        "common_name": "Holly",
+        "full_common_name": "Unidentified holly",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ilex_aquifolium",
+        "latin_code": "ILZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Illustration_Ilex_aquifolium0.jpg"
+    },
+    {
+        "latin_name": "Juglans regia",
+        "common_name": "Walnut",
+        "full_common_name": "Common walnut",
+        "wiki_page": "https://en.wikipedia.org/wiki/Juglans_regia",
+        "latin_code": "JURE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Noyer_centenaire_en_automne.JPG"
+    },
+    {
+        "latin_name": "Koelreuteria paniculata",
+        "common_name": "Pride of India",
+        "full_common_name": "Pride of India",
+        "wiki_page": "https://en.wikipedia.org/wiki/Koelreuteria_paniculata",
+        "latin_code": "KOPA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/KoelreuteriaPaniculata5.jpg"
+    },
+    {
+        "latin_name": "+ Laburnocytisus adamii",
+        "common_name": "Laburnum",
+        "full_common_name": "Adam's laburnum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Laburnum_anagyroides",
+        "latin_code": "LAAM",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Laburnum_anagyroides.jpg"
+    },
+    {
+        "latin_name": "Laburnum anagyroides",
+        "common_name": "Laburnum",
+        "full_common_name": "Laburnum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Laburnum_anagyroides",
+        "latin_code": "LAAN",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Laburnum_anagyroides.jpg"
+    },
+    {
+        "latin_name": "Larix decidua",
+        "common_name": "Larch",
+        "full_common_name": "European larch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Larix_decidua",
+        "latin_code": "LADE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/L%27A_de_Bran%2C_%281798_m%29_Val_d%27Anniviers._Europese_larix_%28Larix_decidua%29_01.JPG"
+    },
+    {
+        "latin_name": "Laurus nobilis",
+        "common_name": "Bay",
+        "full_common_name": "Bay tree",
+        "wiki_page": "https://en.wikipedia.org/wiki/Laurus_nobilis",
+        "latin_code": "LANO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bay_leaf_pair443.jpg"
+    },
+    {
+        "latin_name": "Laburnum x watereri 'Vossii'",
+        "common_name": "Laburnum",
+        "full_common_name": "Voss' laburnum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Laburnum_anagyroides",
+        "latin_code": "LAWV",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Laburnum_anagyroides.jpg"
+    },
+    {
+        "latin_name": "Liquidambar styraciflua Stel",
+        "common_name": "Sweetgum",
+        "full_common_name": "Oriental sweetgum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Liquidambar_styraciflua",
+        "latin_code": "LISS",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/2014-11-02_13_06_29_Sweet_Gum_during_autumn_along_Lower_Ferry_Road_in_Ewing%2C_New_Jersey.JPG"
+    },
+    {
+        "latin_name": "Liquidambar styraciflua",
+        "common_name": "Sweetgum",
+        "full_common_name": "Sweetgum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Liquidambar_styraciflua",
+        "latin_code": "LIST",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/2014-11-02_13_06_29_Sweet_Gum_during_autumn_along_Lower_Ferry_Road_in_Ewing%2C_New_Jersey.JPG"
+    },
+    {
+        "latin_name": "Liriodendron tulipifera Fastig",
+        "common_name": "Tulip Tree",
+        "full_common_name": "Tulip tree cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Liriodendron_tulipifera",
+        "latin_code": "LIT1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Liriodendron_tulipifera_%28arbre%29_-_Laeken.JPG"
+    },
+    {
+        "latin_name": "Liriodendron tulipifera",
+        "common_name": "Tulip Tree",
+        "full_common_name": "Tulip tree",
+        "wiki_page": "https://en.wikipedia.org/wiki/Liriodendron_tulipifera",
+        "latin_code": "LITU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Liriodendron_tulipifera_%28arbre%29_-_Laeken.JPG"
+    },
+    {
+        "latin_name": "Larix - Species Unknown",
+        "common_name": "Larch",
+        "full_common_name": "Unidentified larch",
+        "wiki_page": "https://en.wikipedia.org/wiki/Larch",
+        "latin_code": "LXZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8c/SubalpineLarch_7735tl.jpg"
+    },
+    {
+        "latin_name": "Malus baccata",
+        "common_name": "Apple",
+        "full_common_name": "Siberian crabapple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus_baccata",
+        "latin_code": "MABA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Malus-baccata.JPG"
+    },
+    {
+        "latin_name": "Malus Bramley's Seedling",
+        "common_name": "Apple",
+        "full_common_name": "Apple Bramley's Seedling",
+        "wiki_page": "https://en.wikipedia.org/wiki/Bramley_apple",
+        "latin_code": "MABS",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/35/004bramley.jpg"
+    },
+    {
+        "latin_name": "Malus domestica",
+        "common_name": "Apple",
+        "full_common_name": "Apple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Apple",
+        "latin_code": "MADO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Honeycrisp.jpg"
+    },
+    {
+        "latin_name": "Magnolia Galaxy",
+        "common_name": "Magnolia",
+        "full_common_name": "Magnolia cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Magnolia",
+        "latin_code": "MAGA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Sweetbay_Magnolia_Magnolia_virginiana_Flower_Closeup_2146px.jpg"
+    },
+    {
+        "latin_name": "Malus Golden Delicious",
+        "common_name": "Apple",
+        "full_common_name": "Apple Golden Delicious",
+        "wiki_page": "https://en.wikipedia.org/wiki/Golden_Delicious",
+        "latin_code": "MAGD",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/09/Mele_golden.jpg"
+    },
+    {
+        "latin_name": "Malus Golden Hornet",
+        "common_name": "Apple",
+        "full_common_name": "Crabapple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus",
+        "latin_code": "MAGO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Purple_prince_crabapple_tree.JPG"
+    },
+    {
+        "latin_name": "Magnolia grandiflora",
+        "common_name": "Magnolia",
+        "full_common_name": "Bull bay Magnolia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Magnolia",
+        "latin_code": "MAGR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Sweetbay_Magnolia_Magnolia_virginiana_Flower_Closeup_2146px.jpg"
+    },
+    {
+        "latin_name": "Malus hupehensis",
+        "common_name": "Apple",
+        "full_common_name": "Hubei crabapple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus_hupehensis",
+        "latin_code": "MAHU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Malus_hupehensis01.JPEG"
+    },
+    {
+        "latin_name": "Malus John Downie",
+        "common_name": "Apple",
+        "full_common_name": "Crabapple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus_sylvestris",
+        "latin_code": "MAJO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Malus_sylvestris_005.JPG"
+    },
+    {
+        "latin_name": "Magnolia Kobus",
+        "common_name": "Magnolia",
+        "full_common_name": "Kobushi magnolia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Magnolia",
+        "latin_code": "MAKO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Sweetbay_Magnolia_Magnolia_virginiana_Flower_Closeup_2146px.jpg"
+    },
+    {
+        "latin_name": "Magnolia x loebneri",
+        "common_name": "Magnolia",
+        "full_common_name": "Hybrid magnolia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Magnolia",
+        "latin_code": "MALO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Sweetbay_Magnolia_Magnolia_virginiana_Flower_Closeup_2146px.jpg"
+    },
+    {
+        "latin_name": "Magnolia sinensis",
+        "common_name": "Magnolia",
+        "full_common_name": "Chinese magnolia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Magnolia",
+        "latin_code": "MASI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Sweetbay_Magnolia_Magnolia_virginiana_Flower_Closeup_2146px.jpg"
+    },
+    {
+        "latin_name": "Malus sylvestris",
+        "common_name": "Apple",
+        "full_common_name": "Crabapple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus_sylvestris",
+        "latin_code": "MASY",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Malus_sylvestris_005.JPG"
+    },
+    {
+        "latin_name": "Malus trilobata",
+        "common_name": "Apple",
+        "full_common_name": "Maple-leaved crabapple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus_trilobata",
+        "latin_code": "MATR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Eriolobus_trilobatus.jpg"
+    },
+    {
+        "latin_name": "Malus tschonoskii",
+        "common_name": "Apple",
+        "full_common_name": "Pillar apple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus_tschonoskii",
+        "latin_code": "MATS",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Malus-tschonoskii.JPG"
+    },
+    {
+        "latin_name": "Malus x purpurea",
+        "common_name": "Apple",
+        "full_common_name": "Purple crabapple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus_trilobata",
+        "latin_code": "MAXP",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Eriolobus_trilobatus.jpg"
+    },
+    {
+        "latin_name": "Malus yunnanensis veitchii",
+        "common_name": "Apple",
+        "full_common_name": "Apple Non Fruiting",
+        "wiki_page": "https://en.wikipedia.org/wiki/Malus_yunnanensis",
+        "latin_code": "MAYU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Malus_yunnanensis.JPG"
+    },
+    {
+        "latin_name": "Magnolia - Species Unknown",
+        "common_name": "Magnolia",
+        "full_common_name": "Magnolia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Magnolia",
+        "latin_code": "MAZX",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Sweetbay_Magnolia_Magnolia_virginiana_Flower_Closeup_2146px.jpg"
+    },
+    {
+        "latin_name": "Malus - Species Unknown",
+        "common_name": "Apple",
+        "full_common_name": "Unidentified apple",
+        "wiki_page": "https://en.wikipedia.org/wiki/Apple",
+        "latin_code": "MAZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Honeycrisp.jpg"
+    },
+    {
+        "latin_name": "Metasequoia glyptostroboides",
+        "common_name": "Dawn Redwood",
+        "full_common_name": "Dawn redwood",
+        "wiki_page": "https://en.wikipedia.org/wiki/Metasequoia_glyptostroboides",
+        "latin_code": "MEGL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/en/c/c4/SJSU_Dawn_Redwood.JPG"
+    },
+    {
+        "latin_name": "Mixed Species",
+        "common_name": "Mixed trees",
+        "full_common_name": "Mixed trees",
+        "wiki_page": "https://en.wikipedia.org/wiki/Forest",
+        "latin_code": "MIX",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Symonds_Yat_Rock_View.JPG"
+    },
+    {
+        "latin_name": "Morus nigra",
+        "common_name": "Mulberry",
+        "full_common_name": "Black mulberry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Morus_nigra",
+        "latin_code": "MONI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Illustration_Morus_nigra0.jpg"
+    },
+    {
+        "latin_name": "Mixed Species Group",
+        "common_name": "Mixed trees",
+        "full_common_name": "Mixed trees",
+        "wiki_page": "https://en.wikipedia.org/wiki/Forest",
+        "latin_code": "MSG",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Symonds_Yat_Rock_View.JPG"
+    },
+    {
+        "latin_name": "Nothofagus antartica",
+        "common_name": "Southern Beech",
+        "full_common_name": "Antarctic beech",
+        "wiki_page": "https://en.wikipedia.org/wiki/Nothofagus_antarctica",
+        "latin_code": "NOAN",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Nothofagus_antarctica_2.jpg"
+    },
+    {
+        "latin_name": "Nothofagus obliqua",
+        "common_name": "Southern Beech",
+        "full_common_name": "Roble",
+        "wiki_page": "https://en.wikipedia.org/wiki/Nothofagus_obliqua",
+        "latin_code": "NOOB",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Roble_%28Nothofagus_obliqua%29.JPG"
+    },
+    {
+        "latin_name": "Fagus sylvatica Purpurea",
+        "common_name": "Copper Beech",
+        "full_common_name": "Copper beech",
+        "wiki_page": "https://en.wikipedia.org/wiki/Fagus_sylvatica",
+        "latin_code": "PAS2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Fagus-sylvatica-cansiglio-forest-italy.jpg"
+    },
+    {
+        "latin_name": "Picea abies",
+        "common_name": "Spruce",
+        "full_common_name": "Norway spruce",
+        "wiki_page": "https://en.wikipedia.org/wiki/Picea_abies",
+        "latin_code": "PIAB",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg"
+    },
+    {
+        "latin_name": "Pinus banksiana",
+        "common_name": "Pine",
+        "full_common_name": "Jack pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Jack_pine",
+        "latin_code": "PIBA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Pinus_banksiana.jpg"
+    },
+    {
+        "latin_name": "Pinus densiflora",
+        "common_name": "Pine",
+        "full_common_name": "Japanese red pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pinus_densiflora",
+        "latin_code": "PIDE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Pinus_syluestriformis_%28Takenouchi%29T.Wang_ex_Cheng.JPG"
+    },
+    {
+        "latin_name": "Pinus nigra laricio",
+        "common_name": "Pine",
+        "full_common_name": "Corsican pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pinus_nigra",
+        "latin_code": "PIN3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Forest_in_Bulgaria_near_Dundukovo_dam.jpg"
+    },
+    {
+        "latin_name": "Pinus nigra",
+        "common_name": "Pine",
+        "full_common_name": "Black pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pinus_nigra",
+        "latin_code": "PING",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Forest_in_Bulgaria_near_Dundukovo_dam.jpg"
+    },
+    {
+        "latin_name": "Pinus nigra nigra",
+        "common_name": "Pine",
+        "full_common_name": "Austrian pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pinus_nigra",
+        "latin_code": "PINI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Forest_in_Bulgaria_near_Dundukovo_dam.jpg"
+    },
+    {
+        "latin_name": "Pinus strobus",
+        "common_name": "Pine",
+        "full_common_name": "Eastern white pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pinus_strobus",
+        "latin_code": "PIST",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Pinus_strobus_trees.jpg"
+    },
+    {
+        "latin_name": "Pinus sylvestris",
+        "common_name": "Scots Pine",
+        "full_common_name": "Scots pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Scots_pine",
+        "latin_code": "PISY",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Pinus_sylvestris_Glenmuick.jpg"
+    },
+    {
+        "latin_name": "Pinus wallichiana",
+        "common_name": "Pine",
+        "full_common_name": "Himalayan white pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pinus_wallichiana",
+        "latin_code": "PIWA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Bhutan_pine_tree.JPG"
+    },
+    {
+        "latin_name": "Picea - Unknown Species",
+        "common_name": "Spruce",
+        "full_common_name": "Unidentified spruce",
+        "wiki_page": "https://en.wikipedia.org/wiki/Picea_abies",
+        "latin_code": "PIZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg"
+    },
+    {
+        "latin_name": "Platanus x acerifolia Pyramida",
+        "common_name": "Plane",
+        "full_common_name": "London plane cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Platanus_%C3%97_acerifolia",
+        "latin_code": "PLA1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/London_Plane_fruit.png"
+    },
+    {
+        "latin_name": "Platanus x acerifolia",
+        "common_name": "Plane",
+        "full_common_name": "London plane",
+        "wiki_page": "https://en.wikipedia.org/wiki/Platanus_%C3%97_acerifolia",
+        "latin_code": "PLAC",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/London_Plane_fruit.png"
+    },
+    {
+        "latin_name": "Platanus - Species Unknown",
+        "common_name": "Plane",
+        "full_common_name": "Unidentified plane",
+        "wiki_page": "https://en.wikipedia.org/wiki/Platanus_%C3%97_acerifolia",
+        "latin_code": "PLZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/London_Plane_fruit.png"
+    },
+    {
+        "latin_name": "Pinus - Unknown Species",
+        "common_name": "Pine",
+        "full_common_name": "Unidentified pine",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pine",
+        "latin_code": "PNZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Pinus_densiflora_Kumgangsan.jpg"
+    },
+    {
+        "latin_name": "Populus alba",
+        "common_name": "Poplar",
+        "full_common_name": "White poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_alba",
+        "latin_code": "POAL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Populus_alba5.jpg"
+    },
+    {
+        "latin_name": "Populus nigra - Unkown Species",
+        "common_name": "Poplar",
+        "full_common_name": "Unidentified black poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_nigra",
+        "latin_code": "PON1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Populus_nigra_kz1.jpg"
+    },
+    {
+        "latin_name": "Populus nigra Italica",
+        "common_name": "Poplar",
+        "full_common_name": "Lombardy poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_nigra",
+        "latin_code": "PON3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Populus_nigra_kz1.jpg"
+    },
+    {
+        "latin_name": "Populus nigra",
+        "common_name": "Poplar",
+        "full_common_name": "Black poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_nigra",
+        "latin_code": "PONI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Populus_nigra_kz1.jpg"
+    },
+    {
+        "latin_name": "Populus x canadensis Robusta",
+        "common_name": "Poplar",
+        "full_common_name": "Hybrid black poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_%C3%97_canadensis",
+        "latin_code": "PORO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Populier_Populus_canadensis.jpg"
+    },
+    {
+        "latin_name": "Populus x canadensis Serotina",
+        "common_name": "Poplar",
+        "full_common_name": "Hybrid black poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_%C3%97_canadensis",
+        "latin_code": "POSE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Populier_Populus_canadensis.jpg"
+    },
+    {
+        "latin_name": "Populus tremula Erecta",
+        "common_name": "Aspen",
+        "full_common_name": "Aspen cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_tremula",
+        "latin_code": "POT2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/PopulusTremula001.JPG"
+    },
+    {
+        "latin_name": "Populus tremula",
+        "common_name": "Aspen",
+        "full_common_name": "Aspen",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_tremula",
+        "latin_code": "POTR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/PopulusTremula001.JPG"
+    },
+    {
+        "latin_name": "Populus x canadensis",
+        "common_name": "Poplar",
+        "full_common_name": "Hybrid black poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_%C3%97_canadensis",
+        "latin_code": "POX2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Populier_Populus_canadensis.jpg"
+    },
+    {
+        "latin_name": "Populus x canescens",
+        "common_name": "Poplar",
+        "full_common_name": "Grey poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_nigra",
+        "latin_code": "POXC",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Populus_nigra_kz1.jpg"
+    },
+    {
+        "latin_name": "Populus - Species Unknown",
+        "common_name": "Poplar",
+        "full_common_name": "Unidentified poplar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Populus_nigra",
+        "latin_code": "PPZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Populus_nigra_kz1.jpg"
+    },
+    {
+        "latin_name": "Prunus avium Plena",
+        "common_name": "Cherry",
+        "full_common_name": "Double white cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_avium",
+        "latin_code": "PRA1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Prunus_avium_fruit.jpg"
+    },
+    {
+        "latin_name": "Prunus Amanogawa",
+        "common_name": "Cherry",
+        "full_common_name": "Japanese flowering cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_serrulata",
+        "latin_code": "PRAM",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/M%C3%BCnster%2C_Park_Sentmaring_--_2016_--_1767.jpg"
+    },
+    {
+        "latin_name": "Prunus avium",
+        "common_name": "Cherry",
+        "full_common_name": "Wild cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_avium",
+        "latin_code": "PRAV",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Prunus_avium_fruit.jpg"
+    },
+    {
+        "latin_name": "Prunus cerasifera Pissardii",
+        "common_name": "Plum",
+        "full_common_name": "Cherry plum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cherry_plum",
+        "latin_code": "PRC1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Prunus_cerasifera_JPG1a.jpg"
+    },
+    {
+        "latin_name": "Prunus cerasifera",
+        "common_name": "Plum",
+        "full_common_name": "Cherry plum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cherry_plum",
+        "latin_code": "PRCE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Prunus_cerasifera_JPG1a.jpg"
+    },
+    {
+        "latin_name": "Prunus domestica",
+        "common_name": "Plum",
+        "full_common_name": "Plum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_domestica",
+        "latin_code": "PRDO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Plum_on_tree.jpg"
+    },
+    {
+        "latin_name": "Prunus dulcis",
+        "common_name": "Almond",
+        "full_common_name": "Almond",
+        "wiki_page": "https://en.wikipedia.org/wiki/Almond",
+        "latin_code": "PRDU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Prunus_dulcis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-250.jpg"
+    },
+    {
+        "latin_name": "Prunus incisa Louisa Lea",
+        "common_name": "Cherry",
+        "full_common_name": "Fuji cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_incisa",
+        "latin_code": "PRIC",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Prunus_incisa.jpg"
+    },
+    {
+        "latin_name": "Prunus japonica cv",
+        "common_name": "Cherry",
+        "full_common_name": "Korean cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_japonica",
+        "latin_code": "PRJA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Prunus_japonica_SZ90.jpg"
+    },
+    {
+        "latin_name": "Prunus Kanzan",
+        "common_name": "Cherry",
+        "full_common_name": "Kanzan cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_serrulata",
+        "latin_code": "PRKA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/M%C3%BCnster%2C_Park_Sentmaring_--_2016_--_1767.jpg"
+    },
+    {
+        "latin_name": "Prunus padus",
+        "common_name": "Cherry",
+        "full_common_name": "Bird cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_padus",
+        "latin_code": "PRPA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Vogelkers_bloesem.jpg"
+    },
+    {
+        "latin_name": "Prunus pissardii",
+        "common_name": "Plum",
+        "full_common_name": "Cherry plum",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cherry_plum",
+        "latin_code": "PRPI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Prunus_cerasifera_JPG1a.jpg"
+    },
+    {
+        "latin_name": "Prunus Pandora",
+        "common_name": "Cherry",
+        "full_common_name": "Cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cherry",
+        "latin_code": "PRPN",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Black_Che.jpg"
+    },
+    {
+        "latin_name": "Prunus sargentii 'Rancho'",
+        "common_name": "Cherry",
+        "full_common_name": "Sargent's cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_sargentii",
+        "latin_code": "PRRA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Prunus_sargentii.JPG"
+    },
+    {
+        "latin_name": "Prunus serrula",
+        "common_name": "Cherry",
+        "full_common_name": "Tibetan cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_serrula",
+        "latin_code": "PRS3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Ch%C3%A2lons_-_petit_jard_%288%29.JPG"
+    },
+    {
+        "latin_name": "Prunus subhirtella",
+        "common_name": "Cherry",
+        "full_common_name": "Winter flowering cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_subhirtella",
+        "latin_code": "PRSB",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Prunus_Subhirtella_%27Pendula%27_05.JPG"
+    },
+    {
+        "latin_name": "Prunus serrulata",
+        "common_name": "Cherry",
+        "full_common_name": "Japanese cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_serrulata",
+        "latin_code": "PRSE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/M%C3%BCnster%2C_Park_Sentmaring_--_2016_--_1767.jpg"
+    },
+    {
+        "latin_name": "Prunus Spire",
+        "common_name": "Cherry",
+        "full_common_name": "Cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cherry",
+        "latin_code": "PRSI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Black_Che.jpg"
+    },
+    {
+        "latin_name": "Prunus Snow Goose",
+        "common_name": "Cherry",
+        "full_common_name": "Cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cherry",
+        "latin_code": "PRSN",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Black_Che.jpg"
+    },
+    {
+        "latin_name": "Prunus spinosa",
+        "common_name": "Blackthorn",
+        "full_common_name": "Blackthorn",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_spinosa",
+        "latin_code": "PRSP",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Closeup_of_blackthorn_aka_sloe_aka_prunus_spinosa_sweden_20050924.jpg"
+    },
+    {
+        "latin_name": "Prunus Sunset Boulevard",
+        "common_name": "Cherry",
+        "full_common_name": "Cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cherry",
+        "latin_code": "PRSS",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Black_Che.jpg"
+    },
+    {
+        "latin_name": "Prunus subhirtella Autumnalis",
+        "common_name": "Cherry",
+        "full_common_name": "Winter flowering cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_subhirtella",
+        "latin_code": "PRSU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Prunus_Subhirtella_%27Pendula%27_05.JPG"
+    },
+    {
+        "latin_name": "Prunus Tai-haku",
+        "common_name": "Cherry",
+        "full_common_name": "Japanese flowering cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_serrulata",
+        "latin_code": "PRTA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/M%C3%BCnster%2C_Park_Sentmaring_--_2016_--_1767.jpg"
+    },
+    {
+        "latin_name": "Prunus x yedoensis",
+        "common_name": "Cherry",
+        "full_common_name": "Japanese flowering cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Prunus_serrulata",
+        "latin_code": "PRXY",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/M%C3%BCnster%2C_Park_Sentmaring_--_2016_--_1767.jpg"
+    },
+    {
+        "latin_name": "Prunus - Species Unknown",
+        "common_name": "Cherry",
+        "full_common_name": "Unidentified cherry",
+        "wiki_page": "https://en.wikipedia.org/wiki/Cherry",
+        "latin_code": "PRZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Black_Che.jpg"
+    },
+    {
+        "latin_name": "Pterocarya fraxinifolia",
+        "common_name": "Wingnut",
+        "full_common_name": "Caucasian wingnut",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pterocarya_fraxinifolia",
+        "latin_code": "PTFR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Pterocarya_fraxinifolia_JPG3a.jpg"
+    },
+    {
+        "latin_name": "Platanus x acerifolia",
+        "common_name": "Plane",
+        "full_common_name": "Unidentified plane",
+        "wiki_page": "https://en.wikipedia.org/wiki/Platanus_%C3%97_acerifolia",
+        "latin_code": "PXA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/London_Plane_fruit.png"
+    },
+    {
+        "latin_name": "Pyrus calleryana Chanticleer",
+        "common_name": "Pear",
+        "full_common_name": "Chanticleer pear",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pyrus_calleryana",
+        "latin_code": "PYCH",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Pyrus_calleryana.JPG"
+    },
+    {
+        "latin_name": "Pyrus communis",
+        "common_name": "Pear",
+        "full_common_name": "Common pear",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pyrus_communis",
+        "latin_code": "PYCO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Pears.jpg"
+    },
+    {
+        "latin_name": "Pyrus - Species Unknown",
+        "common_name": "Pear",
+        "full_common_name": "Unidentified pear",
+        "wiki_page": "https://en.wikipedia.org/wiki/Pyrus_communis",
+        "latin_code": "PYZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Pears.jpg"
+    },
+    {
+        "latin_name": "Quercus c. 'Green Spire'",
+        "common_name": "Oak",
+        "full_common_name": "Chestnut-leaved oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_cerris",
+        "latin_code": "QUC2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Quercus_cerris_folliage.jpg"
+    },
+    {
+        "latin_name": "Quercus c. 'Green Spire'",
+        "common_name": "Oak",
+        "full_common_name": "Chestnut-leaved oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_cerris",
+        "latin_code": "QUC4",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Quercus_cerris_folliage.jpg"
+    },
+    {
+        "latin_name": "Quercus cerris",
+        "common_name": "Oak",
+        "full_common_name": "Turkey oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_cerris",
+        "latin_code": "QUCE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Quercus_cerris_folliage.jpg"
+    },
+    {
+        "latin_name": "Quercus frainetto",
+        "common_name": "Oak",
+        "full_common_name": "Hungarian oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_frainetto",
+        "latin_code": "QUFR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Hungarian_oak2.JPG"
+    },
+    {
+        "latin_name": "Quercus ilex",
+        "common_name": "Oak",
+        "full_common_name": "Holm oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_ilex",
+        "latin_code": "QUIL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Quercus_ilex_rotundifolia.jpg"
+    },
+    {
+        "latin_name": "Quercus palustris",
+        "common_name": "Oak",
+        "full_common_name": "Pin oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_palustris",
+        "latin_code": "QUPA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/1/15/Pin_oak_quercus_palustris.jpg"
+    },
+    {
+        "latin_name": "Quercus petraea",
+        "common_name": "Sessile Oak",
+        "full_common_name": "Sessile oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_petraea",
+        "latin_code": "QUPE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Quercus_petraea_06.jpg"
+    },
+    {
+        "latin_name": "Quercus robur Fastigiata",
+        "common_name": "Oak",
+        "full_common_name": "Fastigiate oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_robur",
+        "latin_code": "QUR1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Quercus_robur.jpg"
+    },
+    {
+        "latin_name": "Quercus robur",
+        "common_name": "Oak",
+        "full_common_name": "English oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_robur",
+        "latin_code": "QURO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Quercus_robur.jpg"
+    },
+    {
+        "latin_name": "Quercus rubra",
+        "common_name": "Oak",
+        "full_common_name": "Red oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_rubra",
+        "latin_code": "QURU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/db/Quercus_rubra_%40_Tortworth_Court.jpg"
+    },
+    {
+        "latin_name": "Quercus - Species Unknown",
+        "common_name": "Oak",
+        "full_common_name": "Unidentified oak",
+        "wiki_page": "https://en.wikipedia.org/wiki/Quercus_robur",
+        "latin_code": "QUZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Quercus_robur.jpg"
+    },
+    {
+        "latin_name": "Rhus typhina",
+        "common_name": "Sumach",
+        "full_common_name": "Stagshorn sumach",
+        "wiki_page": "https://en.wikipedia.org/wiki/Rhus_typhina",
+        "latin_code": "RHTY",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Rhty_002_lhp.jpg"
+    },
+    {
+        "latin_name": "Robinia pseudoacacia Frisia",
+        "common_name": "False Acacia",
+        "full_common_name": "False acacia cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Robinia_pseudoacacia",
+        "latin_code": "ROP1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/86/Robina9146.JPG"
+    },
+    {
+        "latin_name": "Robinia pseudoacacia",
+        "common_name": "False Acacia",
+        "full_common_name": "False acacia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Robinia_pseudoacacia",
+        "latin_code": "ROPS",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/86/Robina9146.JPG"
+    },
+    {
+        "latin_name": "Robinia - Species Unknown",
+        "common_name": "False Acacia",
+        "full_common_name": "Unidentified false acacia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Robinia_pseudoacacia",
+        "latin_code": "ROZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/86/Robina9146.JPG"
+    },
+    {
+        "latin_name": "Sorbus aucuparia 'Streetwise'",
+        "common_name": "Rowan",
+        "full_common_name": "Rowan",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_aucuparia",
+        "latin_code": "S0A5",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Rowan_tree_20081002b.jpg"
+    },
+    {
+        "latin_name": "Salix alba",
+        "common_name": "Willow",
+        "full_common_name": "White willow",
+        "wiki_page": "https://en.wikipedia.org/wiki/Salix_alba",
+        "latin_code": "SAAL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Salix_alba_leaves.jpg"
+    },
+    {
+        "latin_name": "Salix caprea Pendula",
+        "common_name": "Willow",
+        "full_common_name": "Weeping goat willow",
+        "wiki_page": "https://en.wikipedia.org/wiki/Salix_caprea",
+        "latin_code": "SAC2",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Salix_caprea8.jpg"
+    },
+    {
+        "latin_name": "Salix caprea",
+        "common_name": "Willow",
+        "full_common_name": "Goat willow",
+        "wiki_page": "https://en.wikipedia.org/wiki/Salix_caprea",
+        "latin_code": "SACA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Salix_caprea8.jpg"
+    },
+    {
+        "latin_name": "Salix x sepulcralis chrysocoma",
+        "common_name": "Willow",
+        "full_common_name": "Golden weeping willow",
+        "wiki_page": "https://en.wikipedia.org/wiki/Salix_Sepulcralis_Group",
+        "latin_code": "SACH",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Salix_Sepulcralis_Group_%27Sepulcralis%278.JPG"
+    },
+    {
+        "latin_name": "Salix cinerea",
+        "common_name": "Willow",
+        "full_common_name": "Grey willow",
+        "wiki_page": "https://en.wikipedia.org/wiki/Salix_cinerea",
+        "latin_code": "SACI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/5/53/Salix_cinerea_Habitus_in_spring_Germany.jpg"
+    },
+    {
+        "latin_name": "Salix fragilis",
+        "common_name": "Willow",
+        "full_common_name": "Crack willow",
+        "wiki_page": "https://en.wikipedia.org/wiki/Salix_fragilis",
+        "latin_code": "SAFR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Salix_fragilis_001.jpg"
+    },
+    {
+        "latin_name": "Salix matsudana Tortuosa",
+        "common_name": "Willow",
+        "full_common_name": "Dragon's claw willow",
+        "wiki_page": "https://en.wikipedia.org/wiki/Salix_matsudana",
+        "latin_code": "SAMT",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Peking-willow.jpg"
+    },
+    {
+        "latin_name": "Sambucus nigra",
+        "common_name": "Elder",
+        "full_common_name": "Elder",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sambucus_nigra",
+        "latin_code": "SANI",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Sambucus_nigra_004.jpg"
+    },
+    {
+        "latin_name": "Salix - Species Unknown",
+        "common_name": "Willow",
+        "full_common_name": "Unidentified willow",
+        "wiki_page": "https://en.wikipedia.org/wiki/Salix_alba",
+        "latin_code": "SAZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Salix_alba_leaves.jpg"
+    },
+    {
+        "latin_name": "Sequoiadendron giganteum",
+        "common_name": "Redwood",
+        "full_common_name": "Wellingtonia",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sequoiadendron_giganteum",
+        "latin_code": "SEG1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Grizzly_Giant_Mariposa_Grove.jpg"
+    },
+    {
+        "latin_name": "Sequoia sempervirens",
+        "common_name": "Redwood",
+        "full_common_name": "Coast redwood",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sequoia_sempervirens",
+        "latin_code": "SESE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/03/US_199_Redwood_Highway.jpg"
+    },
+    {
+        "latin_name": "Sorbus aucuparia Fastigiata",
+        "common_name": "Rowan",
+        "full_common_name": "Fastigiate rowan",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_aucuparia",
+        "latin_code": "SOA3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Rowan_tree_20081002b.jpg"
+    },
+    {
+        "latin_name": "Sorbus a 'Cardinal Royal'",
+        "common_name": "Rowan",
+        "full_common_name": "Rowan cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_aucuparia",
+        "latin_code": "SOA4",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Rowan_tree_20081002b.jpg"
+    },
+    {
+        "latin_name": "Sorbus aria",
+        "common_name": "Whitebeam",
+        "full_common_name": "Whitebeam",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_aria",
+        "latin_code": "SOAR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Sorbus_aria-3420.jpg"
+    },
+    {
+        "latin_name": "Sorbus aucuparia",
+        "common_name": "Rowan",
+        "full_common_name": "Rowan",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_aucuparia",
+        "latin_code": "SOAU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Rowan_tree_20081002b.jpg"
+    },
+    {
+        "latin_name": "Sorbus bristoliensis",
+        "common_name": "Bristol Whitebeam",
+        "full_common_name": "Bristol Whitebeam",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_bristoliensis",
+        "latin_code": "SOBR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Aardbei-bloemcloseup.jpg"
+    },
+    {
+        "latin_name": "Sorbus cashmiriana",
+        "common_name": "Rowan",
+        "full_common_name": "Kashmir rowan",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_cashmiriana",
+        "latin_code": "SOCA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/%27Sorbus_cashmiriana%27_Beale_Arboretum_-_West_Lodge_Park_-_Hadley_Wood_-_Enfield_London.jpg"
+    },
+    {
+        "latin_name": "Sorbus commixta",
+        "common_name": "Rowan",
+        "full_common_name": "Japanese rowan",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_commixta",
+        "latin_code": "SOCO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Sorbus_commixta.jpg"
+    },
+    {
+        "latin_name": "Sorbus hupehensis",
+        "common_name": "Rowan",
+        "full_common_name": "Hupeh rowan",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_hupehensis",
+        "latin_code": "SOHU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Sorbus_hupehensis_Morton_22-97-1.jpg"
+    },
+    {
+        "latin_name": "Sorbus intermedia",
+        "common_name": "Whitebeam",
+        "full_common_name": "Swedish whitebeam",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_%C3%97_intermedia",
+        "latin_code": "SOIN",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Zweedse_lijsterbes_27-08-2005_15.29.26.JPG"
+    },
+    {
+        "latin_name": "Sorbus thibetica John Mitchell",
+        "common_name": "Whitebeam",
+        "full_common_name": "Mitchell's whitebeam",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_thibetica",
+        "latin_code": "SOM3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Red_Pencil_Icon.png"
+    },
+    {
+        "latin_name": "Sorbus aucuparia 'Streetwise'",
+        "common_name": "",
+        "full_common_name": "",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_aucuparia",
+        "latin_code": "SORB",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Rowan_tree_20081002b.jpg"
+    },
+    {
+        "latin_name": "Sorbus torminalis",
+        "common_name": "Service Tree",
+        "full_common_name": "Wild Service tree",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_torminalis",
+        "latin_code": "SOTO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Sorbus_torminalis_Full_tree.jpg"
+    },
+    {
+        "latin_name": "Sorbus x thuringiaca Fastigiat",
+        "common_name": "Service Tree",
+        "full_common_name": "Fastigiate hybrid Service tree",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_torminalis",
+        "latin_code": "SOXT",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Sorbus_torminalis_Full_tree.jpg"
+    },
+    {
+        "latin_name": "Sorbus - Species Unknown",
+        "common_name": "Sorbus",
+        "full_common_name": "Unidentified Sorbus",
+        "wiki_page": "https://en.wikipedia.org/wiki/Sorbus_torminalis",
+        "latin_code": "SOZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Sorbus_torminalis_Full_tree.jpg"
+    },
+    {
+        "latin_name": "Taxus baccata Fastigiata",
+        "common_name": "Yew",
+        "full_common_name": "Irish yew",
+        "wiki_page": "https://en.wikipedia.org/wiki/Taxus_baccata",
+        "latin_code": "TAB3",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Taxus_baccata_MHNT.jpg"
+    },
+    {
+        "latin_name": "Taxus baccata Aureomarginata",
+        "common_name": "Yew",
+        "full_common_name": "Yew cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Taxus_baccata",
+        "latin_code": "TAB4",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Taxus_baccata_MHNT.jpg"
+    },
+    {
+        "latin_name": "Taxus baccata",
+        "common_name": "Yew",
+        "full_common_name": "Yew",
+        "wiki_page": "https://en.wikipedia.org/wiki/Taxus_baccata",
+        "latin_code": "TABA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Taxus_baccata_MHNT.jpg"
+    },
+    {
+        "latin_name": "Taxus b. F.Aureomarginata",
+        "common_name": "Yew",
+        "full_common_name": "Yew cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Taxus_baccata",
+        "latin_code": "TBA5",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Taxus_baccata_MHNT.jpg"
+    },
+    {
+        "latin_name": "Thuja plicata",
+        "common_name": "Cedar",
+        "full_common_name": "Western red cedar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Thuja_plicata",
+        "latin_code": "THPL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Thuja_plicata_Vancouver.jpg"
+    },
+    {
+        "latin_name": "Tilia cordata Greenspire",
+        "common_name": "Lime",
+        "full_common_name": "Small-leaved lime cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Tilia_cordata",
+        "latin_code": "TIC1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Tilia-cordata2.JPG"
+    },
+    {
+        "latin_name": "Tilia cordata",
+        "common_name": "Lime",
+        "full_common_name": "Small-leaved lime",
+        "wiki_page": "https://en.wikipedia.org/wiki/Tilia_cordata",
+        "latin_code": "TICO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Tilia-cordata2.JPG"
+    },
+    {
+        "latin_name": "Tilia x euchlora",
+        "common_name": "Lime",
+        "full_common_name": "Crimean lime",
+        "wiki_page": "https://en.wikipedia.org/wiki/Tilia",
+        "latin_code": "TIEU",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Tilia_tomentosa.jpg"
+    },
+    {
+        "latin_name": "Tilia oliveri",
+        "common_name": "Lime",
+        "full_common_name": "Chinese lime",
+        "wiki_page": "https://en.wikipedia.org/wiki/Tilia",
+        "latin_code": "TIOL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Tilia_tomentosa.jpg"
+    },
+    {
+        "latin_name": "Tilia platyphyllos",
+        "common_name": "Lime",
+        "full_common_name": "Large-leaved lime",
+        "wiki_page": "https://en.wikipedia.org/wiki/Tilia_platyphyllos",
+        "latin_code": "TIPL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Tilia_platyphyllos%2801%29.jpg"
+    },
+    {
+        "latin_name": "Tilia tomentosa",
+        "common_name": "Lime",
+        "full_common_name": "Silver lime",
+        "wiki_page": "https://en.wikipedia.org/wiki/Tilia_tomentosa",
+        "latin_code": "TITO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Tilia-tomentosa.JPG"
+    },
+    {
+        "latin_name": "Tilia x europea",
+        "common_name": "Lime",
+        "full_common_name": "European lime",
+        "wiki_page": "https://en.wikipedia.org/wiki/Tilia_%C3%97_europaea",
+        "latin_code": "TIXE",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Common_limes%2C_avenue.jpg"
+    },
+    {
+        "latin_name": "Tilia - Species Unknown",
+        "common_name": "Lime",
+        "full_common_name": "Unidentified lime",
+        "wiki_page": "https://en.wikipedia.org/wiki/Tilia",
+        "latin_code": "TIZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Tilia_tomentosa.jpg"
+    },
+    {
+        "latin_name": "Trachycarpus fortunei",
+        "common_name": "Chusan Palm",
+        "full_common_name": "Chusan palm",
+        "wiki_page": "https://en.wikipedia.org/wiki/Trachycarpus_fortunei",
+        "latin_code": "TRFO",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/c/c2/TrachycarpusFortunei.jpg"
+    },
+    {
+        "latin_name": "Unknown species - Broadleaf",
+        "common_name": "",
+        "full_common_name": "",
+        "wiki_page": "https://en.wikipedia.org/wiki/Broad-leaved_tree",
+        "latin_code": "UKN1",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Apples.jpg"
+    },
+    {
+        "latin_name": "Ulmus glabra",
+        "common_name": "Elm",
+        "full_common_name": "Wych elm",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ulmus_glabra",
+        "latin_code": "ULGL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/RN_Ulmus_glabra_%28alnarp_sweden%29.jpg"
+    },
+    {
+        "latin_name": "Ulmus 'New Horizon'",
+        "common_name": "Elm",
+        "full_common_name": "Elm ' New Horizon'",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ulmus_%27New_Horizon%27",
+        "latin_code": "ULNH",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/41/Ulmus_New_Horizon_USA_2011a_%C2%A9_Eisele.jpg"
+    },
+    {
+        "latin_name": "Ulmus parvifolia",
+        "common_name": "Elm",
+        "full_common_name": "Chinese elm",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ulmus_parvifolia",
+        "latin_code": "ULPA",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/4/44/RN_Ulmus_parvifolia_%28Hilversum%29.JPG"
+    },
+    {
+        "latin_name": "Ulmus procera",
+        "common_name": "Elm",
+        "full_common_name": "English elm",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ulmus_minor_%27Atinia%27",
+        "latin_code": "ULPR",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/04/Ulmus-minor-atinia-brighton-south-east-entrance-to-preston-park.jpg"
+    },
+    {
+        "latin_name": "Ulmus - Species Unknown",
+        "common_name": "Elm",
+        "full_common_name": "Unidentified elm",
+        "wiki_page": "https://en.wikipedia.org/wiki/Ulmus_minor_%27Atinia%27",
+        "latin_code": "ULZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/0/04/Ulmus-minor-atinia-brighton-south-east-entrance-to-preston-park.jpg"
+    },
+    {
+        "latin_name": "X Cupressocyparis l. Castlewel",
+        "common_name": "Cypress",
+        "full_common_name": "Leylandcypress cultivar",
+        "wiki_page": "https://en.wikipedia.org/wiki/Leyland_cypress",
+        "latin_code": "XCLW",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Leyland_Cypress.jpg"
+    },
+    {
+        "latin_name": "X Cupressocyparis leylandii",
+        "common_name": "Cypress",
+        "full_common_name": "Leyland cypress",
+        "wiki_page": "https://en.wikipedia.org/wiki/Leyland_cypress",
+        "latin_code": "XCUL",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Leyland_Cypress.jpg"
+    },
+    {
+        "latin_name": "Zelkova - Species Unknown",
+        "common_name": "Zelkova",
+        "full_common_name": "Unidentified Zelkova",
+        "wiki_page": "https://en.wikipedia.org/wiki/Zelkova",
+        "latin_code": "ZEZZ",
+        "wiki_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Zelkova_serrata6.jpg"
+    },
+    {
+        "latin_name": "ZZ Tree Planting Location",
+        "common_name": "Tree Planting Location",
+        "full_common_name": "Tree Planting Location",
+        "wiki_page": "Not found",
+        "latin_code": "ZNEW",
+        "wiki_image": "Not found"
+    },
+    {
+        "latin_name": "ZZ Empty tree pit",
+        "common_name": "Empty tree pit",
+        "full_common_name": "Empty tree pit",
+        "wiki_page": "Not found",
+        "latin_code": "ZPIT",
+        "wiki_image": "Not found"
+    },
+    {
+        "latin_name": "ZZ Tree stump",
+        "common_name": "Tree stump",
+        "full_common_name": "Tree stump",
+        "wiki_page": "Not found",
+        "latin_code": "ZSTP",
+        "wiki_image": "Not found"
+    },
+    {
+        "latin_name": "ZZ Dead Tree",
+        "common_name": "Dead tree",
+        "full_common_name": "Dead tree",
+        "wiki_page": "Not found",
+        "latin_code": "ZTM",
+        "wiki_image": "Not found"
+    }
+]

@@ -28,6 +28,7 @@ function trees(site_code) {
 function tree(treeId) {
     const url = `${Vue.config.API_URL}/tree/${treeId}`;
 
+    Vue.$log.info('Tree.service: loading trees: ', url)
     return http.get(url)
         .then((resp) => {
             return resp.data

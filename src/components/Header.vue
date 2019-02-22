@@ -3,13 +3,17 @@
     <router-link :to="{
       path: hasBack
     }">
-      <span title="Back" class="back-btn" v-if="hasBack"></span>
+      <span title="Back" class="back-btn" v-if="hasBack">
+         <Chevron class="rotate"/>
+      </span>
     </router-link>
     <h1 v-if="title">{{ title }}</h1>
   </header>
 </template>
 
 <script>
+import Chevron from "./Chevron.vue";
+
 export default {
   name: "appHeader",
   props: {
@@ -21,12 +25,15 @@ export default {
       type: String,
       default: ""
     }
-  }
+  },
+  components: {
+    Chevron
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .header {
   width: 100%;
   background: rgb(27, 201, 152);
@@ -36,20 +43,31 @@ export default {
   position: fixed;
   height: 60px;
   z-index: 99;
-  font-size: 0.8em;
+  font-size: 0.6em;
+  height: 3rem;
+
+  > h1 {
+    color: white;
+  }
 }
 .back-btn {
-  background-image: url("../assets/backwoods.svg");
   width: 32px;
   height: 32px;
   position: absolute;
-  bottom: 10%;
+  top: 10%;
   left: 1%;
   font-size: 3em;
   color: white;
+
+  svg {
+    transform: rotate(180deg);
+    width: auto;
+    height: 18px;
+
+    // Specific selection to target SVG element
+    #Park-view-with-info {
+      fill: white !important;
+    }
+  }
 }
-/* <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> 
-from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
-is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
-CC 3.0 BY</a></div> */
 </style>

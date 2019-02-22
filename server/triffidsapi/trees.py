@@ -8,85 +8,72 @@ baseDirectory = os.path.join(os.path.dirname(__file__), '..')
 with open(baseDirectory + '/data/trees.json') as json_file:
     data = json.load(json_file)
 
+url = "https://opendata.bristol.gov.uk/api/records/1.0/search/?dataset=trees"
+
 
 def getTreeById(id):
+    query = "&q=recordid%3D" + str(id) + \
+            "&facet=feature_type_name&facet=common_name&refine.feature_type_name=Tree+-+Parks+and+Green+Space"
 
-    url = "https://opendata.bristol.gov.uk/api/records/1.0/search/"
-    dataset = "?dataset=trees"
-    geofilter = "&q=recordid%3D" + str(id) + "&facet=feature_type_name&facet=common_name&refine.feature_type_name=Tree+-+Parks+and+Green+Space"
-
-    response = requests.get(url + dataset + geofilter)
+    response = requests.get(url + query)
     response = response.json()
     data = response['records']
 
     if data:
         return data[0]
+    else:
+        return []
 
 
 def getTreesByPark(parkCode):
-    trees = []
+    query = "&q=site_code%3D" + str(parkCode) + "&rows=1000" + "&facet=feature_type_name&facet=common_name"
 
-    # Search for trees by park
-    for record in data:
+    response = requests.get(url + query)
+    response = response.json()
+    data = response['records']
 
-        id = record['recordid']
-        treeData = record['fields']
+    if data:
+        return data
+    else:
+        return []
 
-        if parkCode == treeData['site_code']:
-            treeData['id'] = id
-            trees.append(treeData)
 
-    return trees
 
-def getTotalNumbTreesByPark(parkCode):
-    trees = 0
-    for record in data:
-        treeData = record['fields']
-        if parkCode == treeData['site_code']:
-            trees = trees + 1
 
-    return trees
-
-def getTreesBySpecies(parkCode, latinCode):
-    trees = []
-
-    # Search for trees by park
-    for record in data:
-
-        treeData = record['fields']
-
-        if parkCode == treeData['site_code'] and latinCode == treeData['latin_code']:
-            trees.append(treeData)
-
-    print(trees)
-    print(len(trees))
-    return trees
-
-def getNumbUniqueSpeciesByPark(parkCode):
-
-    # Get all trees within park
+def getTreeNumbers(parkCode):
     trees = getTreesByPark(parkCode)
 
-    species = []
+    if trees:
+        totalTrees = len(trees)
+    else:
+        totalTrees = 0
 
-    # Extract species of every tree in park
-    for tree in trees:
-        species.append(tree['latin_code'])
+    uniqueSpecies = len(getUniqueSpecies(trees))
 
-    # Convert list to set to get all unique instances of species
-    species = set(species)
+    return totalTrees, uniqueSpecies
 
-    return len(species)
+
+def getTreesBySpecies(parkCode, latinCode):
+    query = "&q=site_code%3D" + str(parkCode) + "%2C+latin_code%3D" + str(latinCode) + \
+            "&rows=1000&facet=feature_type_name&facet=common_name"
+
+    response = requests.get(url + query)
+    response = response.json()
+    data = response['records']
+
+    if data:
+        return data
+    else:
+        return []
+
 
 
 def getTreesByLocation(lat, lng, radius):
     trees = []
 
-    url = "https://opendata.bristol.gov.uk/api/records/1.0/search/"
-    dataset = "?dataset=trees"
-    geofilter = "&geofilter.distance=" + str(lat) + "%2C+" + str(lng) + "%2C+" + str(radius)
+    query = "&geofilter.distance=" + str(lat) + "%2C+" + str(lng) + "%2C+" + str(radius) + "&rows=1000"
 
-    response = requests.get(url + dataset + geofilter)
+    response = requests.get(url + query)
     response = response.json()
     data = response['records']
 
@@ -94,32 +81,35 @@ def getTreesByLocation(lat, lng, radius):
         treeData = record['fields']
         trees.append(treeData)
 
-    print(trees)
-    print(len(trees))
-    return trees
+    if trees:
+        return trees
+    else:
+        return []
 
 
-def getUniqueSpecies(parkCode):
-
+def getUniqueSpecies(trees):
     # Get all trees within park
-    trees = getTreesByPark(parkCode)
+    # trees = getTreesByPark(parkCode)
 
     species = []
 
     # Extract species of every tree in park
-    for tree in trees:
-        species.append(tree['latin_code'])
+    if trees:
+        for tree in trees:
+            species.append(tree['fields']['latin_code'])
+    else:
+        return []
 
     # Convert list to set to get all unique instances of species
     species = set(species)
-    print(species)
     return species
 
-
-# getTreesByPark("VICTPA")
+# print(getTreesByPark("VICTPA"))
 
 # getTreesBySpecies('VICTPA', 'QURO')
 
 # getTreesByLocation(51.44, -2.587, 500)
 
-# getUniqueSpecies('VICTPA')
+# print(getUniqueSpecies('VICTPA'))
+
+# print(getTotalNumbTreesByPark('VICTPA'))

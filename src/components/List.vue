@@ -1,16 +1,20 @@
 <template>
   <main class="list">
-    <Header v-bind:title="'Choose a park'"/>
+    <Header v-bind:title="'Parks'"/>
+    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()" >
+      <h3 slot="header">Get location</h3>
+      <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
+    </Modal>
     <ul class="list__container">
-      <li 
-        v-for="park in parks" 
+      <li
+        v-for="park in parks"
         v-bind:key="park.id">
-        <router-link 
+        <router-link
           :to="{
             path: getParkLink(park.id),
           }"
           class="list-item">
-          <div 
+          <div
             class="list-item__inner"
             :style="getParkPhoto(park.id)">
             <div class="list-item__details">
@@ -27,12 +31,15 @@
           </div>
         </router-link>
       </li>
+      <span v-if="loading" class="spinner"><div></div><div></div></span>
+      <span v-if="maxDistReached"> No more parks found! </span>
     </ul>
   </main>
 </template>
 
 <script>
 import Header from "./Header.vue";
+import Modal from "./Modal.vue";
 import { parkService } from "../services/Park.service";
 
 export default {
@@ -42,6 +49,9 @@ export default {
       parks: [],
       loading: false,
       page: 1,
+      foundParksByLocation: false,
+      maxDistReached: false,
+      showModal: false,
       parksWithPhotos: [
         "ARNOVACE",
         "ASHTCOES",
@@ -66,14 +76,13 @@ export default {
         "STGEPA",
         "STOKPAES",
         "VICTPA"
-      ]
+      ],
     };
   },
 
   beforeMount() {
-    this.getParks().then(parks => {
-      this.parks = parks;
-    });
+    this.showModal = !this.$config.locationAllowed;
+    this.getParks();
   },
 
   mounted() {
@@ -83,9 +92,8 @@ export default {
         !this.loading
       ) {
         this.loading = true;
-        this.getParks().then(newParks => {
-          this.parks.push(...newParks);
-          this.loading = false;
+        this.getParks().then(() => {
+          // this.loading = false;
         });
       }
     };
@@ -93,10 +101,49 @@ export default {
 
   methods: {
     getParkLink: parkId => `park/${parkId}`,
+
     async getParks() {
-      let parks = await parkService.parks(this.page);
-      this.page++;
-      return parks;
+      if (this.$config.locationAllowed) {
+        this.$getLocation()
+          .then(async coords => {
+            try {
+              let parks = await parkService.nearestParks(
+                this.page,
+                coords.lat,
+                coords.lng
+              );
+              if (parks.length > 0) {
+                this.page++;
+
+                if (this.parks.length === parks.length) {
+                  this.maxDistReached = true;
+                }
+
+                this.parks = parks
+                this.foundParksByLocation = true;
+                this.loading = false;
+              }
+            } catch (error) {
+              if (!this.foundParksByLocation) {
+                // Location failed - no nearby parks, get parks by alpha
+                this.$config.locationAllowed = false;
+                let parks = await parkService.parks(1);
+                this.page = 2;
+                this.parks = parks;
+                this.loading = false;
+              } else {
+                // Request failed to get more parks by location, show an error
+                this.maxDistReached = true;
+                this.loading = false;
+              }
+            }
+          })
+      } else {
+        let parks = await parkService.parks(this.page);
+        this.page++;
+        this.parks = [...this.parks, ...parks];
+        this.loading = false;
+      }
     },
     getParkPhoto(parkId) {
       if (this.parksWithPhotos.includes(parkId)) {
@@ -106,10 +153,19 @@ export default {
       } else {
         return;
       }
-    }
+    },
+
+    requestUsersLocation() {
+      this.showModal = false;
+      this.loading = true;
+      this.$config.locationAllowed = true;
+      this.parks = [];
+      this.getParks();
+    },
   },
   components: {
-    Header
+    Header,
+    Modal
   }
 };
 </script>
@@ -152,7 +208,7 @@ export default {
 
   &__header {
     color: #fff;
-    margin: 8px 0; 
+    margin: 8px 0;
   }
 
   &__details {

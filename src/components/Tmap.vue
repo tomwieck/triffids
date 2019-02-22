@@ -73,13 +73,21 @@ export default {
       this.oldCenter = this.mymap.getCenter();
     },
     treeModal: function(data) {
+      // this.$log.info("Tmap:treeModal: data: ", data);
       let imgsrc = treePhotos.getPhotoFor(data.name);
+      const backLink = `/park/${this.$route.params.parkId}`;
+      let link;
+      if (data.latin_code === "NA") {
+        link = "#";
+      } else {
+        link = `/#/tree/${data.latin_code}/${data.id}?back=${backLink}`;
+      }
 
       return `<div class="tree-modal">
             <img src="${imgsrc}"/>
             <div class="full-name">${data.full_name}</div>
             <div class="latin-name">${data.latin}</div>
-            <a href="/#/tree/${data.full_name}/${data.id}"
+            <a href="${link}"
             class="button">Find out more</a>
         </div>`;
     },
@@ -132,25 +140,36 @@ export default {
       const response = await treeService.trees(this.park.id);
       this.trees = response.map(val => {
         return {
-          id: val.id,
-          name: val.common_name,
-          full_name: val.full_common_name,
-          girth: val.dbh,
-          width: val.crown_area,
-          height: val.crown_height,
-          latin: val.latin_name,
-          latin_code: val.latin_code,
-          geo_point: { lat: val.geo_point_2d[0], lng: val.geo_point_2d[1] }
+          id: val.recordid,
+          name: val.fields.common_name,
+          full_name: val.fields.full_common_name,
+          girth: val.fields.dbh,
+          width: val.fields.crown_area,
+          height: val.fields.crown_height,
+          latin: val.fields.latin_name,
+          latin_code: val.fields.latin_code,
+          geo_point: {
+            lat: val.fields.geo_point_2d[0],
+            lng: val.fields.geo_point_2d[1]
+          }
         };
       });
       this.treeCount = response.length;
       const popupOptions = {
-        minWidth: 400,
-        maxWidth: 800,
+        minWidth: 200,
+        maxWidth: 400,
         keepInView: true,
         className: "tree-modal"
       };
       this.trees.forEach(function(tree) {
+        if (tree.latin_code === "NA") {
+          tree.name = "Unknown";
+          tree.full_name = "Unknown";
+          tree.latin_name = "Unknown";
+          tree.height = "No";
+          tree.width = "No";
+          tree.girth = "No";
+        }
         const options = {
           icon: treeIcons.getIconFor(tree.name),
           title: tree.full_name // used for tooltip
@@ -169,13 +188,16 @@ export default {
     this.mymap.setView(this.center, this.zoom);
     L.control.scale({ position: "topright" }).addTo(this.mymap);
     const loc = L.control
-      .locate({ icon: "map-location-control" })
+      .locate({
+        icon: "map-location-control",
+        iconLoading: "map-location-control-loading"
+      })
       .addTo(this.mymap);
     loc.stop(); // not needed except for linting.
 
     L.tileLayer(this.url, {
       attribution: this.attribution,
-      maxZoom: 18,
+      maxZoom: 20,
       id: this.id,
       accessToken: this.token
     }).addTo(this.mymap);
@@ -205,6 +227,7 @@ export default {
 <!-- Put leaflet map styles in the leaflet.css file to avoid the scoped -->
 <style scoped>
 @import url("../../node_modules/leaflet/dist/leaflet.css");
+@import url("../../node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.css");
 @import url("../assets/leaflet.css");
 
 #mapid {
