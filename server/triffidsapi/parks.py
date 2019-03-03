@@ -119,14 +119,15 @@ def getNearestParks(lat, lng, radius):
 
 
 def getParkInfo(parkCode):
-    targetFilePath = baseDirectory + '/data/parkinfo/' + str(parkCode) + '.html'
+    targetFilePath = baseDirectory + \
+        '/data/parkinfo/' + str(parkCode) + '.html'
     defaultFilePath = baseDirectory + '/data/parkinfo/' + 'DEFAULT.html'
-
     if os.path.isfile(targetFilePath):
-        data = open(targetFilePath, 'r')
+        fh = open(targetFilePath, 'r')
     else:
-        data = open(defaultFilePath, 'r')
+        fh = open(defaultFilePath, 'r')
 
+    data = fh.read()
     return data
 
 
