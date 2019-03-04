@@ -60,9 +60,6 @@ export default {
   components: {
     Chevron
   },
-  // mounted: async function() {
-  //   this.parkText = await parkService.parkInfo(this.park.id);
-  // },
   methods: {
     drawerToggle: function() {
       const drawer = document.getElementById("drawer");
@@ -91,7 +88,9 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+
 @import "../styles/variables.scss";
+
 .factbox {
   width: 50%;
   display: grid;
@@ -104,10 +103,12 @@ export default {
     grid-row: 1 / 3;
     justify-self: start;
     align-self: center;
+
     img {
       height: 40px;
     }
   }
+
   .value {
     font-size: 1.4em;
     font-weight: bold;
@@ -117,6 +118,7 @@ export default {
     align-self: start;
     color: $dark-primary-color;
   }
+
   .label {
     grid-column: 2;
     grid-row: 2;
@@ -180,7 +182,6 @@ export default {
     padding: 8px 0;
     a {
       color: $link-color;
-      font-family: "Helvetica";
       text-decoration: none;
     }
   }
@@ -198,7 +199,6 @@ export default {
 
 .drawer__tree-title {
   color: $title-green;
-  font-family: "Helvetica";
   font-weight: 400;
 }
 
