@@ -35,21 +35,22 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .header {
-  width: 100%;
   background: rgb(27, 201, 152);
   color: white;
-  left: 0;
-  top: 0;
-  position: fixed;
-  height: 60px;
-  z-index: 99;
   font-size: 0.6em;
   height: 3rem;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 99;
 
   > h1 {
     color: white;
   }
 }
+
 .back-btn {
   width: 32px;
   height: 32px;
