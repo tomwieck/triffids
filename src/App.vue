@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import  'styles/variables.scss';
-  @import  'styles/normalize.scss';
-  @import  'styles/utils.scss';
+  @import 'styles/variables.scss';
+  @import 'styles/normalize.scss';
+  @import 'styles/utils.scss';
 </style>
