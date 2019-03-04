@@ -128,7 +128,6 @@ export default {
       }
     },
     getParkPhoto(parkId) {
-      console.log(parkService)
       if (parkService.parksWithPhotos.includes(parkId)) {
         let img = require(`../assets/parks/${parkId}.jpg`)
         return `background-image: url(${img}; background-size: cover;`;
