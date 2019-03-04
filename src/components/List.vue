@@ -63,31 +63,6 @@ export default {
       foundParksByLocation: false,
       maxDistReached: false,
       showModal: false,
-      parksWithPhotos: [
-        "ARNOVACE",
-        "ASHTCOES",
-        "BLAIHA",
-        "BRANHIPA",
-        "CANFPAANCP",
-        "CASTPA",
-        "COLLGR",
-        "COTHGA",
-        "DURDDO",
-        "EASTPK",
-        "GREVSMPA",
-        "HENGPA",
-        "HORFCO",
-        "KINGWELAM5",
-        "NETHREGR",
-        "OLDBCOES",
-        "QUEESQ",
-        "REDCPA",
-        "REDLGRPA",
-        "STANPA",
-        "STGEPA",
-        "STOKPAES",
-        "VICTPA"
-      ],
     };
   },
   beforeMount() {
@@ -153,7 +128,8 @@ export default {
       }
     },
     getParkPhoto(parkId) {
-      if (this.parksWithPhotos.includes(parkId)) {
+      console.log(parkService)
+      if (parkService.parksWithPhotos.includes(parkId)) {
         let img = require(`../assets/parks/${parkId}.jpg`)
         return `background-image: url(${img}; background-size: cover;`;
       } else {
