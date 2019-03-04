@@ -90,38 +90,6 @@ export default {
 };
 </script>
 
-<!-- this is not scoped as it is applied to the pulled in HTML -->
-<style lang="scss">
-@import "../styles/variables.scss";
-.parkinfo {
-  font-family: "HankenGroteskMedium";
-  font-size: 1em;
-  line-height: 1.6em;
-  text-align: left;
-  padding: 0 22pt;
-  h1 {
-    /* this would duplicate the H1 above */
-    display: none;
-  }
-  h2 {
-    color: $title-green;
-    font-family: "HankenGroteskBold";
-    font-weight: normal;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.2em;
-  }
-  ul li {
-    padding: 0 22pt;
-  }
-  a {
-    color: $link-color;
-    text-decoration: none;
-  }
-}
-</style>
-
-<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
 @import "../styles/variables.scss";
 .factbox {
@@ -130,6 +98,7 @@ export default {
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 3px;
+
   .icon {
     grid-column: 1;
     grid-row: 1 / 3;
@@ -155,30 +124,33 @@ export default {
     align-self: start;
   }
 }
+
 .drawer {
   background: #fff;
-  box-shadow: 0 2px 4px;
-  left: 0;
   bottom: 0;
-  position: fixed;
-  transition: all 0.5s ease;
+  box-shadow: 0 2px 4px;
+  box-sizing: border-box;
   height: 50%;
+  left: 0;
+  position: fixed;
   overflow-y: scroll;
   padding: 16px;
+  transition: all 0.5s ease;
   width: 100%;
   z-index: 100;
 
   &__header {
     color: $title-green;
-    font-family: "HankenGroteskBold";
     font-weight: normal;
     font-style: normal;
     font-weight: 400;
     margin-top: 0;
+    text-align: center;
   }
 
   &.closed {
-    height: 1em;
+    height: 50px;
+
     button > svg {
       transform: rotate(-90deg);
     }

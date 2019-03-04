@@ -31,7 +31,7 @@ export const parkService = {
     parks,
     park,
     nearestParks,
-    parkInfo
+    parkInfo,
     parksWithPhotos,
 }
 
