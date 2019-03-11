@@ -1,4 +1,4 @@
-import json
+# import json
 import requests
 import os
 
@@ -10,17 +10,18 @@ else:
 # Read parks json
 baseDirectory = os.path.join(os.path.dirname(__file__), '..')
 
-with open(baseDirectory + '/data/parks-and-greens-spaces.json') as json_file:
-    data = json.load(json_file)
+# with open(baseDirectory + '/data/parks-and-greens-spaces.json') as json_file:
+#     data = json.load(json_file)
+
+base_url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
+dataset = '?dataset=parks-and-greens-spaces'
 
 
 def getPark(code):
     # Example 'code' CUMBBASO
-    url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
-    dataset = '?dataset=parks-and-greens-spaces'
     query = '&q=site_code%3A+' + str(code)
 
-    response = requests.get(url + dataset + query)
+    response = requests.get(base_url + dataset + query)
     response = response.json()
 
     if response:
@@ -47,12 +48,19 @@ def getPark(code):
 
 
 def getAllParkNames(page, lat=0, long=0):
+    totalNumParks = str(getTotalNumParks())
     parksPerPage = 8
     lowestBoundary = (parksPerPage * page) - parksPerPage
     highestBoundary = parksPerPage * page - 1
+    flds = '&fields=site_code,site_name&rows=' + totalNumParks
+
+    response = requests.get(base_url + dataset + flds)
+    response = response.json()
+
     parkNames = []
 
-    for index, record in enumerate(sorted(data, key=lambda x: x['fields']['site_name'])):
+    recs = response['records']
+    for index, record in enumerate(sorted(recs, key=lambda x: x['fields']['site_name'])):
         if (index < lowestBoundary or index > highestBoundary):
             continue
         parkData = record['fields']
@@ -76,13 +84,11 @@ def getAllParkNames(page, lat=0, long=0):
 
 
 def getNearestParks(lat, lng, radius):
-    url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
-    dataset = '?dataset=parks-and-greens-spaces'
     sort = '&-sort=dist'
     geofilter = '&geofilter.distance=' + \
                 str(lat) + '%2C+' + str(lng) + '%2C+' + str(radius)
 
-    response = requests.get(url + dataset + sort + geofilter)
+    response = requests.get(base_url + dataset + sort + geofilter)
     response = response.json()
 
     records = response['records']
@@ -130,6 +136,11 @@ def getParkInfo(parkCode):
     data = fh.read()
     return data
 
+
+def getTotalNumParks():
+    response = requests.get(base_url + dataset + '&rows=0')
+    response = response.json()
+    return response['nhits']
 
 # print(getPark('VICTPA'))
 
