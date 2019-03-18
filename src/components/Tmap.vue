@@ -190,7 +190,8 @@ export default {
     const loc = L.control
       .locate({
         icon: "map-location-control",
-        iconLoading: "map-location-control-loading"
+        iconLoading: "map-location-control-loading",
+        enableHighAccuracy: true
       })
       .addTo(this.mymap);
     //loc.stop(); // not needed except for linting.
