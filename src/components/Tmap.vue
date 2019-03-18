@@ -193,7 +193,8 @@ export default {
         iconLoading: "map-location-control-loading"
       })
       .addTo(this.mymap);
-    loc.stop(); // not needed except for linting.
+    //loc.stop(); // not needed except for linting.
+    loc.start(); // not needed except for linting.
 
     L.tileLayer(this.url, {
       attribution: this.attribution,
