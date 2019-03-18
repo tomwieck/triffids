@@ -1,7 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <main class="main">
-    <Header v-bind:title="'Choose a park'"/>
   <main class="list">
     <Header v-bind:title="'Parks'"/>
     <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()" >
@@ -11,7 +8,7 @@
     <input
       type="search"
       placeholder="Search for a park..."
-      v-model="search" />
+      v-model="search">
     <ul class="list__container">
       <li
         v-for="park in parks"
@@ -142,12 +139,11 @@ export default {
         this.loading = false;
       }
     },
-    async getSearchedParks(q) {
+    async getSearchedParks() {
       this.page = 0;
       let parks = await parkService.searchParks(this.search);
-      console.log(parks)
       return parks;
-    }
+    },
     getParkPhoto(parkId) {
       if (parkService.parksWithPhotos.includes(parkId)) {
         let img = require(`../assets/parks/${parkId}.jpg`)
