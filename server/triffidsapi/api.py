@@ -49,6 +49,7 @@ def getNearestParks(lat, lng, radius):
     lat = request.args.get('lat') or 0
     lng = request.args.get('lng') or 0
     response = parks.getNearestParks(lat, lng, radius)
+    print(response)
     if not response:
         abort(404)
     return jsonify(response)
