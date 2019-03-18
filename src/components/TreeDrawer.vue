@@ -111,15 +111,17 @@ export default {
 
 .drawer {
   background: #fff;
-  box-shadow: 0 2px 4px;
-  left: 0;
   bottom: 0;
-  position: fixed;
-  transition: all 0.5s ease;
+  box-shadow: 0 2px 4px;
+  box-sizing: border-box;
   height: 50%;
+  left: 0;
+  position: fixed;
   overflow-y: scroll;
   padding: 16px;
+  transition: all 0.5s ease;
   width: 100%;
+  z-index: 100;
 
   &.expanded {
     height: 40px;

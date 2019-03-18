@@ -1,63 +1,86 @@
-import json
+# import json
 import requests
 import os
-from . import trees
+
+if __name__ == '__main__':
+    import trees
+else:
+    from . import trees
 
 # Read parks json
 baseDirectory = os.path.join(os.path.dirname(__file__), '..')
 
-with open(baseDirectory + '/data/parks-and-greens-spaces.json') as json_file:
-    data = json.load(json_file)
+# with open(baseDirectory + '/data/parks-and-greens-spaces.json') as json_file:
+#     data = json.load(json_file)
+
+base_url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
+dataset = '?dataset=parks-and-greens-spaces'
 
 
 def getPark(code):
     # Example 'code' CUMBBASO
-    park = []
-    for record in data:
-        parkData = record['fields']
-        site_code = parkData['site_code']
+    query = '&q=site_code%3A+' + str(code)
 
-        if (site_code == code):
-            total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
-            unique_trees = trees.getNumbUniqueSpeciesByPark(
-                parkData['site_code'])
-            park.append({
-                'id': str(parkData['site_code']),
-                'siteName': str(parkData['site_name']),
-                'unique_trees': str(unique_trees),
-                'total_trees': str(total_trees),
-                'lat': parkData['geo_point_2d'][0],
-                'lng': parkData['geo_point_2d'][1],
-                'geoShape': parkData['geo_shape']
-            })
-            print(park)
-            return park
+    response = requests.get(base_url + dataset + query)
+    response = response.json()
 
-    print('Park not found')
-    return 0
+    if response:
+        parkData = response['records'][0]['fields']
+    else:
+        return []
+
+    totalTrees, uniqueTrees = trees.getTreeNumbers(parkData['site_code'])
+
+    if totalTrees == 0:
+        return []
+
+    park = {
+        'id': str(parkData['site_code']),
+        'siteName': str(parkData['site_name']),
+        'unique_trees': str(uniqueTrees),
+        'total_trees': str(totalTrees),
+        'lat': parkData['geo_point_2d'][0],
+        'lng': parkData['geo_point_2d'][1],
+        'geoShape': parkData['geo_shape']
+    }
+
+    return park
 
 
 def getAllParkNames(page, lat=0, long=0):
-    parksPerPage = 20
+    totalNumParks = str(getTotalNumParks())
+    parksPerPage = 8
     lowestBoundary = (parksPerPage * page) - parksPerPage
     highestBoundary = parksPerPage * page - 1
+    flds = '&fields=site_code,site_name&rows=' + totalNumParks
+
+    response = requests.get(base_url + dataset + flds)
+    response = response.json()
+
     parkNames = []
 
-    for index, record in enumerate(sorted(data, key=lambda x: x['fields']['site_name'])):
+    recs = response['records']
+    for index, record in enumerate(sorted(recs, key=lambda x: x['fields']['site_name'])):
         if (index < lowestBoundary or index > highestBoundary):
             continue
         parkData = record['fields']
-        total_trees = trees.getTotalNumbTreesByPark(parkData['site_code'])
-        unique_trees = trees.getNumbUniqueSpeciesByPark(parkData['site_code'])
+
+        totalTrees, uniqueTrees = trees.getTreeNumbers(parkData['site_code'])
+
+        if totalTrees == 0:
+            continue
 
         parkNames.append({
             'id': str(parkData['site_code']),
             'siteName': str(parkData['site_name']),
-            'unique_trees': str(unique_trees),
-            'total_trees': str(total_trees)
+            'unique_trees': str(uniqueTrees),
+            'total_trees': str(totalTrees)
         })
 
-    return parkNames
+    if parkNames:
+        return parkNames
+    else:
+        return []
 
 
 def searchParks(query):
@@ -95,13 +118,11 @@ def searchParks(query):
 
 
 def getNearestParks(lat, lng, radius):
-    url = 'https://opendata.bristol.gov.uk/api/records/1.0/search/'
-    dataset = '?dataset=parks-and-greens-spaces'
     sort = '&-sort=dist'
     geofilter = '&geofilter.distance=' + \
-        str(lat) + '%2C+' + str(lng) + '%2C+' + str(radius)
+                str(lat) + '%2C+' + str(lng) + '%2C+' + str(radius)
 
-    response = requests.get(url + dataset + sort + geofilter)
+    response = requests.get(base_url + dataset + sort + geofilter)
     response = response.json()
 
     records = response['records']
@@ -109,30 +130,56 @@ def getNearestParks(lat, lng, radius):
 
     # Create output with required data
     for record in records:
+        # Get number of unique species in park
+        parkData = record['fields']
         parkCode = str(record['fields']['site_code'])
 
-        # Get number of trees in park
-        totalTrees = len(trees.getTreesByPark(parkCode))
+        totalTrees, uniqueTrees = trees.getTreeNumbers(parkCode)
 
-        # Get number of unique species in park
-        uniqueSpecies = len(trees.getUniqueSpecies(parkCode))
+        if totalTrees == 0:
+            continue
 
         parks.append({
-            'id': parkCode,
-            'siteName': str(record['fields']['site_name']),
-            'lat': record['fields']['geo_point_2d'][0],
-            'lng': record['fields']['geo_point_2d'][1],
-            'dist': record['fields']['dist'],
-            'totalTrees': totalTrees,
-            'uniqueSpecies': uniqueSpecies
+            'id': str(parkData['site_code']),
+            'siteName': str(parkData['site_name']),
+            'lat': parkData['geo_point_2d'][0],
+            'lng': parkData['geo_point_2d'][1],
+            'dist': parkData['dist'],
+            'total_trees': totalTrees,
+            'unique_trees': uniqueTrees
         })
 
-    print(parks)
-    return parks
+    if parks:
+        return parks
+    else:
+        return []
 
     # Data required
     # site_name, site_code, lat, long, dist, noOfTrees, uniqueSpecies
 
-# getPark('CUMBBASO')
 
-# getNearestParks(51.439413, -2.589423, 150)
+def getParkInfo(parkCode):
+    targetFilePath = baseDirectory + \
+        '/data/parkinfo/' + str(parkCode) + '.html'
+    defaultFilePath = baseDirectory + '/data/parkinfo/' + 'DEFAULT.html'
+    if os.path.isfile(targetFilePath):
+        fh = open(targetFilePath, 'r')
+    else:
+        fh = open(defaultFilePath, 'r')
+
+    data = fh.read()
+    return data
+
+
+def getTotalNumParks():
+    response = requests.get(base_url + dataset + '&rows=0')
+    response = response.json()
+    return response['nhits']
+
+# print(getPark('VICTPA'))
+
+# print(getNearestParks(51.44,-2.587,600))
+
+# (getAllParkNames(1))
+
+# getParkInfo('VICTKPA')

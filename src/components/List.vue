@@ -1,51 +1,82 @@
 <template>
+<<<<<<< HEAD
   <main class="main">
     <Header v-bind:title="'Choose a park'"/>
+  <main class="list">
+    <Header v-bind:title="'Parks'"/>
+    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()" >
+      <h3 slot="header">Get location</h3>
+      <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
+    </Modal>
     <input
       type="search"
       placeholder="Search for a park..."
-      v-model="search">
-    <ul>
-      <li v-for="park in parks" v-bind:key="park.id" class="layer">
-        <router-link :to="{
-          path: getParkLink(park.id),
-        }">
-          <h3>{{ park.siteName }}</h3>
-          <div class="stats">
-            <span>
-              <b>{{park.unique_trees}}</b> Unique species
-            </span>
-            <span>
-              <b>{{park.total_trees}}</b> Total trees
-            </span>
+      v-model="search" />
+    <ul class="list__container">
+      <li
+        v-for="park in parks"
+        v-bind:key="park.id">
+        <router-link
+          :to="{
+            path: getParkLink(park.id),
+          }"
+          class="list-item">
+          <div
+            class="list-item__inner"
+            :style="getParkPhoto(park.id)">
+            <div class="list-item__details">
+              <h3 class="list-item__header">
+                {{ park.siteName }}
+              </h3>
+              <ul class="list-item__stats-container">
+                <li class="list-item__stats">
+                  {{park.unique_trees}} Unique species
+                </li>
+                <li class="list-item__stats">
+                  {{park.total_trees}} Total trees
+                </li>
+              </ul>
+            </div>
           </div>
         </router-link>
       </li>
+      <span v-if="loading" class="spinner">
+        <div></div>
+        <div></div>
+      </span>
+      <span v-if="maxDistReached">
+        No more parks found!
+      </span>
     </ul>
   </main>
 </template>
 
 <script>
 import Header from "./Header.vue";
+import Modal from "./Modal.vue";
 import { parkService } from "../services/Park.service";
 
 export default {
   name: "list",
+   components: {
+    Header,
+    Modal
+  },
   data: () => {
     return {
       parks: [],
-      loading: false,
-      page: 1,
       search: '',
+      loading: true,
+      page: 1,
+      foundParksByLocation: false,
+      maxDistReached: false,
+      showModal: false,
     };
   },
-
   beforeMount() {
-    this.getParks().then(parks => {
-      this.parks = parks;
-    });
+    this.showModal = !this.$config.locationAllowed;
+    this.getParks();
   },
-
   watch: {
     search: function(q) {
       this.getSearchedParks(q).then(parks => {
@@ -53,7 +84,6 @@ export default {
       })
     }
   },
-
   mounted() {
     window.onscroll = () => {
       if (
@@ -61,20 +91,56 @@ export default {
         !this.loading
       ) {
         this.loading = true;
-        this.getParks().then(newParks => {
-          this.parks.push(...newParks);
-          this.loading = false;
+        this.getParks().then(() => {
+          // this.loading = false;
         });
       }
     }
   },
-
   methods: {
     getParkLink: parkId => `park/${parkId}`,
     async getParks() {
-      let parks = await parkService.parks(this.page);
-      this.page++;
-      return parks;
+      if (this.$config.locationAllowed) {
+        this.$getLocation()
+          .then(async coords => {
+            try {
+              let parks = await parkService.nearestParks(
+                this.page,
+                coords.lat,
+                coords.lng
+              );
+              if (parks.length > 0) {
+                this.page++;
+
+                if (this.parks.length === parks.length) {
+                  this.maxDistReached = true;
+                }
+
+                this.parks = parks
+                this.foundParksByLocation = true;
+                this.loading = false;
+              }
+            } catch (error) {
+              if (!this.foundParksByLocation) {
+                // Location failed - no nearby parks, get parks by alpha
+                this.$config.locationAllowed = false;
+                let parks = await parkService.parks(1);
+                this.page = 2;
+                this.parks = parks;
+                this.loading = false;
+              } else {
+                // Request failed to get more parks by location, show an error
+                this.maxDistReached = true;
+                this.loading = false;
+              }
+            }
+          })
+      } else {
+        let parks = await parkService.parks(this.page);
+        this.page++;
+        this.parks = [...this.parks, ...parks];
+        this.loading = false;
+      }
     },
     async getSearchedParks(q) {
       this.page = 0;
@@ -82,65 +148,114 @@ export default {
       console.log(parks)
       return parks;
     }
+    getParkPhoto(parkId) {
+      if (parkService.parksWithPhotos.includes(parkId)) {
+        let img = require(`../assets/parks/${parkId}.jpg`)
+        return `background-image: url(${img}; background-size: cover;`;
+      } else {
+        return `background-size: 70%;`;
+      }
+    },
+    requestUsersLocation() {
+      this.showModal = false;
+      this.loading = true;
+      this.$config.locationAllowed = true;
+      this.parks = [];
+      this.getParks();
+    },
   },
-  components: {
-    Header
-  }
 };
 </script>
 
-<style scoped>
-ul {
-  padding: 0 1em;
+<style scoped lang="scss">
+@import  '../styles/variables.scss';
+
+.list {
+  background-color: $gray-super-light;
+
+  &__container {
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    padding-top: 8px;
+    text-align: center;
+  }
 }
 
-.main {
-  background: #009133;
-  margin: 0;
-  text-decoration: none;
-  padding: 0.1em;
-  min-height: 100vh;
-}
-
-a {
-  text-decoration: none;
-  text-align: left;
-  color: #4d6576;
-  cursor: pointer;
-}
-
-h3 {
-  font-size: 1.4em;
-  color: #009133;
-  margin: 0;
-}
-
-li {
-  list-style-type: none;
-  background: white;
-  border-radius: 10px;
-  margin: 1em auto;
-  padding: 1.5em;
-  max-width: 600px;
-}
-
-.small {
-  display: block;
-  font-size: 0.8em;
-}
-
-.stats {
+.list-item {
+  border-radius: 3px;
   display: flex;
+  height: 180px;
+  max-width: 600px;
+  margin: 8px;
+  position: relative;
+  text-decoration: none;
+
+  &__inner {
+    align-items: flex-end;
+    background-image: url("../assets/parks/park-empty.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    color: #fff;
+    margin: auto;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+  }
+
+  &__header {
+    margin: 8px 0;
+  }
+
+  &__details {
+    padding: 16px;
+    text-align: left;
+    z-index: 2;
+  }
+
+  &__stats-container {
+    list-style-type: none;
+    padding-inline-start: 0;
+    text-align: left;
+  }
+
+  &__stats {
+    display: inline;
+    position: relative;
+
+    &:not(:first-child) {
+      padding-left: 18px;
+
+      &:after {
+        background-color: #fff;
+        content: "";
+        display: inline-block;
+        border-radius: 20px;
+        height: 6px;
+        width: 6px;
+        position: absolute;
+        left: 6px;
+        top: 8px;
+      }
+    }
+  }
+
+  &:before {
+    background-color: $title-green;
+    border-radius: 3px;
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
 }
 
-.stats > span {
-  flex: 50%;
-  margin-top: 1em;
-  border-top: 2px solid #eee;
-  padding-top: 1em;
-}
 
-.stats > span > b {
-  color: #009133;
-}
 </style>

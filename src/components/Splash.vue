@@ -1,30 +1,55 @@
 <template>
   <main class="main">
-    <img :src="image" alt="Smiley face" width="400" height="400" style="display:block; margin: 0 auto; margin-top: 4em;">
+    <img
+      :src="image"
+      alt="Triffids"
+      width="300"
+      style="display:block; margin: 0 auto; margin-top: 4em;"
+    >
   </main>
 </template>
 
 <script>
-import image from "../assets/logo.png"
+import image from "../assets/logo.png";
 
 export default {
-  name: 'list',
-  data: function () {
-      return {
-          image: image
-      }
+  name: "splash",
+  data: function() {
+    return {
+      image: image
+    };
   },
 
-  mounted: () => {
-    setTimeout(()=>{
-      window.location.href = "/#/parks"
-    }, 1000)
+  mounted: function() {
+    if (this.$config.hasGeolocation) {
+      this.checkLocation();
+    } else {
+      setTimeout(function() {
+        this.$log.info("Splash: device without Geolocation API");
+        window.location.href = "/#/parks";
+      }, 1000);
+    }
+    this.checkLocation();
+  },
+  methods: {
+    checkLocation: function() {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          this.$log.info("Geolocation SUCCESS!", position);
+          this.$config.locationAllowed = true;
+          window.location.href = "/#/parks";
+        },
+        () => {
+          this.$log.info("Geolocation FAILED!");
+          window.location.href = "/#/parks";
+        }
+      );
+    }
   }
-}
+};
 </script>
 
 <style scoped>
-
 ul {
   padding: 0 1em;
 }
@@ -62,7 +87,7 @@ li {
 
 .small {
   display: block;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .stats {

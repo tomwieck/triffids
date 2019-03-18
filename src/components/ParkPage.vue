@@ -25,6 +25,7 @@ export default {
       parkName: ""
     };
   },
+
   beforeMount() {
     this.getPark().then(park => {
       this.park = park;
