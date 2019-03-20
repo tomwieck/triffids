@@ -4,7 +4,7 @@
       path: hasBack
     }">
       <span title="Back" class="back-btn" v-if="hasBack">
-        <Chevron class="rotate"/>
+         <Chevron class="rotate"/>
       </span>
     </router-link>
     <h1 v-if="title">{{ title }}</h1>
@@ -28,7 +28,7 @@ export default {
   },
   components: {
     Chevron
-  }
+  },
 };
 </script>
 
@@ -38,7 +38,7 @@ export default {
   background: rgb(27, 201, 152);
   color: white;
   font-size: 0.6em;
-  height: 6vh;
+  height: 3rem;
   left: 0;
   position: fixed;
   text-align: center;

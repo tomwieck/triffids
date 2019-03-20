@@ -186,7 +186,6 @@ export default {
     this.mymap = L.map("mapid");
     this.mymap.on("load", this.mapLoaded); // order is important
     this.mymap.setView(this.center, this.zoom);
-    //this.mymap.locate({setView: true, maxZoom: this.zoom}); // alternative to line above
     L.control.scale({ position: "topright" }).addTo(this.mymap);
     const loc = L.control
       .locate({
@@ -195,8 +194,8 @@ export default {
         enableHighAccuracy: true
       })
       .addTo(this.mymap);
-    loc.start();
-    // loc.stopFollowing();
+    //loc.stop(); // not needed except for linting.
+    loc.start(); // not needed except for linting.
 
     L.tileLayer(this.url, {
       attribution: this.attribution,
@@ -234,7 +233,7 @@ export default {
 @import url("../assets/leaflet.css");
 
 #mapid {
-  height: 94vh;
+  height: 100vh;
   width: 100%;
   z-index: 1;
 }
