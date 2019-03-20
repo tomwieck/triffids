@@ -26,7 +26,7 @@ def getTreeById(id):
 
 
 def getTreesByPark(parkCode):
-    fields = "site_code,geo_point_2d,latin_code,common_name,full_common_name,dbh,crown_area"
+    fields = "site_code,geo_point_2d,latin_code,latin_name,common_name,full_common_name,dbh,crown_area,crown_height"
     query = "&q=site_code%3D" + \
         str(parkCode) + "&rows=1000" + \
         "&fields=" + fields
