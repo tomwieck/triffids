@@ -25,10 +25,23 @@ def getTreeById(id):
         return []
 
 
+def countTreesByPark(parkCode):
+    query = "&q=site_code%3D" + str(parkCode) + "&rows=0"
+
+    response = requests.get(url + query)
+    response = response.json()
+    data = response['nhits']
+    if data:
+        return data
+    else:
+        return 0
+
+
 def getTreesByPark(parkCode):
+    numTrees = str(countTreesByPark(parkCode))
     fields = "site_code,geo_point_2d,latin_code,latin_name,common_name,full_common_name,dbh,crown_area,crown_height"
     query = "&q=site_code%3D" + \
-        str(parkCode) + "&rows=1000" + \
+        str(parkCode) + "&rows=" + numTrees + \
         "&fields=" + fields
 
     response = requests.get(url + query)
