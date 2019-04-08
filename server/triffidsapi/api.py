@@ -44,7 +44,7 @@ def getPark(parkCode):
     return jsonify(response)
 
 
-@api.route('/parks/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+@api.route('/parks/loc?lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getNearestParks(lat, lng, radius):
     lat = request.args.get('lat') or 0
     lng = request.args.get('lng') or 0
@@ -63,7 +63,7 @@ def getParkInfo(parkCode):
     return response
 
 
-@api.route('/tree/<string:treeId>', methods=['GET'])
+@api.route('/tree/id=<string:treeId>', methods=['GET'])
 def getTree(treeId):
     response = trees.getTreeById(treeId)
     if not response:
@@ -75,18 +75,24 @@ def getTree(treeId):
 def getTrees(parkCode):
     latinCode = request.args.get('latinCode')
 
-    # If no latin code provided, show all trees in park. Else, filter by species
-    if latinCode is None:
-        response = trees.getTreesByPark(parkCode)
-    else:
-        response = trees.getTreesBySpecies(parkCode, latinCode)
+    response = trees.getTreesByPark(parkCode)
 
     if not response:
         abort(404)
     return jsonify(response)
 
 
-@api.route('/trees/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+@api.route('/trees/<string:parkCode>?latincode=<string:latincode>', methods=['GET'])
+def getTrees(parkCode):
+    latinCode = request.args.get('latincode')
+    response = trees.getTreesBySpecies(parkCode, latinCode)
+
+    if not response:
+        abort(404)
+    return jsonify(response)
+
+
+@api.route('/trees/loc?lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getTreesByLocation(lat, lng, radius):
     response = trees.getTreesByLocation(lat, lng, radius)
     if not response:
@@ -94,7 +100,7 @@ def getTreesByLocation(lat, lng, radius):
     return jsonify(response)
 
 
-@api.route('/benches/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
+@api.route('/benches/loc?lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
 def getBenches(lat, lng, radius):
     response = benches.getBenches(lat, lng, radius)
     if not response:

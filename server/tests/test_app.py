@@ -40,11 +40,11 @@ def test_client_get_park(client):
     assert 'Victoria Park' == data['siteName']
 
 
-# def test_client_get_nearest_parks(client):
-#     js = client.get('/api/v1/parks/lat=51.44&lng=-2.587&radius=600')
-#     data = json.loads(js.data)
-#     print(data)
-#     assert 'Victoria Park' == data[0]['siteName']
+def test_client_get_nearest_parks(client):
+    js = client.get('/api/v1/parks/loc?lat=51.44&lng=-2.587&radius=600')
+    data = json.loads(js.data)
+    print(data)
+    assert 'Victoria Park' == data[0]['siteName']
 
 
 def test_client_get_trees(client):
@@ -60,7 +60,7 @@ def test_client_get_trees_by_species(client):
 
 
 def test_client_get_trees_by_location(client):
-    js = client.get('/api/v1/trees/lat=51.44&lng=-2.587&radius=500')
+    js = client.get('/api/v1/trees/loc?lat=51.44&lng=-2.587&radius=500')
     data = json.loads(js.data)
     assert len(data) == 836
 
@@ -72,6 +72,6 @@ def test_client_get_tree_by_id(client):
 
 
 def test_client_get_benches(client):
-    js = client.get('/api/v1/benches/lat=51.44&lng=-2.587&radius=500')
+    js = client.get('/api/v1/benches/loc?lat=51.44&lng=-2.587&radius=500')
     data = json.loads(js.data)
     assert data[0]['id'] == 7347
