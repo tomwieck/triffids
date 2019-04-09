@@ -1,38 +1,11 @@
 import http from '../utils/http'
 import Vue from 'vue';
 
-const parksWithPhotos = [
-    "ARNOVACE",
-    "ASHTCOES",
-    "BLAIHA",
-    "BRANHIPA",
-    "CANFPAANCP",
-    "CASTPA",
-    "COLLGR",
-    "COTHGA",
-    "DURDDO",
-    "EASTPK",
-    "GREVSMPA",
-    "HENGPA",
-    "HORFCO",
-    "KINGWELAM5",
-    "NETHREGR",
-    "OLDBCOES",
-    "QUEESQ",
-    "REDCPA",
-    "REDLGRPA",
-    "STANPA",
-    "STGEPA",
-    "STOKPAES",
-    "VICTPA"
-];
-
 export const parkService = {
     parks,
     park,
     nearestParks,
-    parkInfo,
-    parksWithPhotos,
+    parkInfo
 }
 
 /**

@@ -1,33 +1,21 @@
 <template>
   <main class="list">
     <Header v-bind:title="'Parks'"/>
-    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()" >
+    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()">
       <h3 slot="header">Get location</h3>
       <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
     </Modal>
     <ul class="list__container">
-      <li
-        v-for="park in parks"
-        v-bind:key="park.id">
-        <router-link
-          :to="{
+      <li v-for="park in parks" v-bind:key="park.id">
+        <router-link :to="{
             path: getParkLink(park.id),
-          }"
-          class="list-item">
-          <div
-            class="list-item__inner"
-            :style="getParkPhoto(park.id)">
+          }" class="list-item">
+          <div class="list-item__inner" :style="getParkPhoto(park.id)">
             <div class="list-item__details">
-              <h3 class="list-item__header">
-                {{ park.siteName }}
-              </h3>
+              <h3 class="list-item__header">{{ park.siteName }}</h3>
               <ul class="list-item__stats-container">
-                <li class="list-item__stats">
-                  {{park.unique_trees}} Unique species
-                </li>
-                <li class="list-item__stats">
-                  {{park.total_trees}} Total trees
-                </li>
+                <li class="list-item__stats">{{park.unique_trees}} Unique species</li>
+                <li class="list-item__stats">{{park.total_trees}} Total trees</li>
               </ul>
             </div>
           </div>
@@ -37,9 +25,7 @@
         <div></div>
         <div></div>
       </span>
-      <span v-if="maxDistReached">
-        No more parks found!
-      </span>
+      <span v-if="maxDistReached">No more parks found!</span>
     </ul>
   </main>
 </template>
@@ -51,7 +37,7 @@ import { parkService } from "../services/Park.service";
 
 export default {
   name: "list",
-   components: {
+  components: {
     Header,
     Modal
   },
@@ -62,7 +48,7 @@ export default {
       page: 1,
       foundParksByLocation: false,
       maxDistReached: false,
-      showModal: false,
+      showModal: false
     };
   },
   beforeMount() {
@@ -86,40 +72,39 @@ export default {
     getParkLink: parkId => `park/${parkId}`,
     async getParks() {
       if (this.$config.locationAllowed) {
-        this.$getLocation()
-          .then(async coords => {
-            try {
-              let parks = await parkService.nearestParks(
-                this.page,
-                coords.lat,
-                coords.lng
-              );
-              if (parks.length > 0) {
-                this.page++;
+        this.$getLocation().then(async coords => {
+          try {
+            let parks = await parkService.nearestParks(
+              this.page,
+              coords.lat,
+              coords.lng
+            );
+            if (parks.length > 0) {
+              this.page++;
 
-                if (this.parks.length === parks.length) {
-                  this.maxDistReached = true;
-                }
-
-                this.parks = parks
-                this.foundParksByLocation = true;
-                this.loading = false;
-              }
-            } catch (error) {
-              if (!this.foundParksByLocation) {
-                // Location failed - no nearby parks, get parks by alpha
-                this.$config.locationAllowed = false;
-                let parks = await parkService.parks(1);
-                this.page = 2;
-                this.parks = parks;
-                this.loading = false;
-              } else {
-                // Request failed to get more parks by location, show an error
+              if (this.parks.length === parks.length) {
                 this.maxDistReached = true;
-                this.loading = false;
               }
+
+              this.parks = parks;
+              this.foundParksByLocation = true;
+              this.loading = false;
             }
-          })
+          } catch (error) {
+            if (!this.foundParksByLocation) {
+              // Location failed - no nearby parks, get parks by alpha
+              this.$config.locationAllowed = false;
+              let parks = await parkService.parks(1);
+              this.page = 2;
+              this.parks = parks;
+              this.loading = false;
+            } else {
+              // Request failed to get more parks by location, show an error
+              this.maxDistReached = true;
+              this.loading = false;
+            }
+          }
+        });
       } else {
         let parks = await parkService.parks(this.page);
         this.page++;
@@ -128,12 +113,14 @@ export default {
       }
     },
     getParkPhoto(parkId) {
-      if (parkService.parksWithPhotos.includes(parkId)) {
-        let img = require(`../assets/parks/${parkId}.jpg`)
-        return `background-image: url(${img}; background-size: cover;`;
-      } else {
-        return `background-size: 70%;`;
+      let retval;
+      try {
+        let img = require(`../assets/parks/${parkId}.jpg`);
+        retval = `background-image: url(${img}; background-size: cover;`;
+      } catch (error) {
+        retval = `background-size: 70%;`;
       }
+      return retval;
     },
     requestUsersLocation() {
       this.showModal = false;
@@ -141,13 +128,13 @@ export default {
       this.$config.locationAllowed = true;
       this.parks = [];
       this.getParks();
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped lang="scss">
-@import  '../styles/variables.scss';
+@import "../styles/variables.scss";
 
 .list {
   background-color: $gray-super-light;
@@ -225,7 +212,7 @@ export default {
     background-color: $title-green;
     border-radius: 3px;
     bottom: 0;
-    content: '';
+    content: "";
     left: 0;
     opacity: 0.8;
     position: absolute;
@@ -235,6 +222,4 @@ export default {
     z-index: 1;
   }
 }
-
-
 </style>
