@@ -5,7 +5,18 @@ export const parkService = {
     parks,
     park,
     nearestParks,
-    parkInfo
+    parkInfo,
+    parkList
+}
+
+function parkList() {
+    const url = `${Vue.config.API_URL}/parks/list`;
+    return http.get(url)
+        .then((resp) => {
+            return resp.data;
+        }, (err) => {
+            throw err;
+        });
 }
 
 /**

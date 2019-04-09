@@ -26,11 +26,19 @@ def getAllParkNames():
     lng = request.args.get('lng') or 0
     rad = request.args.get('rad') or 1000
     page = request.args.get('page') or 1
-    
+
     if lat == 0 or lng == 0:
         response = parks.getAllParkNames(int(page))
     else:
         response = parks.getNearestParks(lat, lng, rad)
+    if not response:
+        abort(404)
+    return jsonify(response)
+
+
+@api.route('/parks/list', methods=['GET'])
+def getParkListing():
+    response = parks.getParkList()
     if not response:
         abort(404)
     return jsonify(response)
