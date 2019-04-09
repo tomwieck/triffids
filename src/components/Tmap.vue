@@ -183,6 +183,8 @@ export default {
     }
   },
   mounted: async function() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
     this.mymap = L.map("mapid");
     this.mymap.on("load", this.mapLoaded); // order is important
     this.mymap.setView(this.center, this.zoom);
@@ -234,6 +236,7 @@ export default {
 
 #mapid {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 90);
   width: 100%;
   z-index: 1;
 }
