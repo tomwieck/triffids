@@ -1,11 +1,18 @@
 <template>
   <main class="list">
     <Header v-bind:title="'Parks'"/>
-    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()">
-      <h3 slot="header">Get location</h3>
-      <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
-    </Modal>
-    <ul class="list__container">
+
+    <vue-autosuggest
+      :suggestions="filteredOptions"
+      :input-props="{id:'autosuggest__input', class: 'suggin', onInputChange: onInputChange, placeholder:'Search for a park by name'}"
+      @selected="onSelected"
+      @click="clickHandler"
+      @focus="focusMe"
+      :render-suggestion="renderSuggestion"
+      :get-suggestion-value="getSuggestionValue"
+    ></vue-autosuggest>
+
+    <!-- <ul class="list__container">
       <li v-for="park in parks" v-bind:key="park.id">
         <router-link :to="{
             path: getParkLink(park.id),
@@ -26,7 +33,11 @@
         <div></div>
       </span>
       <span v-if="maxDistReached">No more parks found!</span>
-    </ul>
+    </ul>-->
+    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()">
+      <h3 slot="header">Get location</h3>
+      <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
+    </Modal>
   </main>
 </template>
 
@@ -34,12 +45,14 @@
 import Header from "./Header.vue";
 import Modal from "./Modal.vue";
 import { parkService } from "../services/Park.service";
+import { VueAutosuggest } from "vue-autosuggest";
 
 export default {
   name: "list",
   components: {
     Header,
-    Modal
+    Modal,
+    VueAutosuggest
   },
   data: () => {
     return {
@@ -48,7 +61,10 @@ export default {
       page: 1,
       foundParksByLocation: false,
       maxDistReached: false,
-      showModal: false
+      showModal: false,
+      selected: "",
+      filteredOptions: [],
+      suggestions: null
     };
   },
   beforeMount() {
@@ -56,6 +72,7 @@ export default {
     this.getParks();
   },
   mounted() {
+    this.suggestions = this.getParkList();
     window.onscroll = () => {
       if (
         window.innerHeight + window.scrollY >= document.body.offsetHeight &&
@@ -69,6 +86,120 @@ export default {
     };
   },
   methods: {
+    async getParkList() {
+      const list = await parkService.parkList();
+      console.log(">>>>>>>>>>>> LIST", list); // [ {}, {}, ...]
+      return [{ data: list }];
+      // return [
+      //   {
+      //     data: [
+      //       { pcode: "ARNOVACE", pname: "Arnos Vale Cemetery" },
+      //       { pcode: "ASHTCOES", pname: "Ashton Court Estate" },
+      //       { pcode: "BLAICAES", pname: "Blaise Castle Estate" },
+      //       { pcode: "CASTPA", pname: "Castle Park" },
+      //       { pcode: "VICTPA", pname: "Victoria Park" }
+      //     ]
+      //   }
+      // ];
+    },
+    // eslint-disable-next-line
+    onInputChange(text, oldText) {
+      if (text === null || text.length < 2) {
+        /* Maybe the text is null but you wanna do
+         *  something else, but don't filter by null.
+         */
+        return;
+      }
+
+      // Full customizability over filtering
+      const filteredData = this.suggestions[0].data.filter(option => {
+        return option.pname.toLowerCase().indexOf(text.toLowerCase()) > -1;
+      });
+
+      // Store data in one property, and filtered in another
+      this.filteredOptions = [{ data: filteredData }];
+    },
+    // eslint-disable-next-line
+    clickHandler(item) {
+      // items are selected by default on click, but you can add some more behavior here!
+    },
+    onSelected(item) {
+      this.$log.debug(">>>>>>>>>>>>> onSelected: ", item);
+      this.selected = item;
+    },
+    renderSuggestion(suggestion) {
+      // return suggestion.item.name;
+      /* You will need babel-plugin-transform-vue-jsx for this kind of syntax for
+       * rendering. If you don't use babel or the jsx transform, then you can create
+       * the you can create the virtual node yourself using this.$createElement.
+       */
+      const park = suggestion.item;
+      return this.$createElement(
+        "a",
+        { attrs: { href: "#" }, class: "list-item" },
+        [
+          this.$createElement(
+            "div",
+            {
+              class: "list-item__inner"
+            },
+            [
+              this.$createElement(
+                "div",
+                {
+                  class: "list-item__details"
+                },
+                [
+                  this.$createElement(
+                    "h3",
+                    { class: "list-item__header" },
+                    park.pname
+                  ),
+                  this.$createElement(
+                    "ul",
+                    { class: "list-item__stats-container" },
+                    [
+                      this.$createElement(
+                        "li",
+                        { class: "list-item__stats" },
+                        "Total species"
+                      ),
+                      this.$createElement(
+                        "li",
+                        { class: "list-item__stats" },
+                        "Unique species"
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]
+          )
+        ]
+      );
+
+      // return (
+      //   <div
+      //     style={{
+      //       display: "flex",
+      //       alignItems: "center"
+      //     }}
+      //   >
+      //     <span style={{ color: "navyblue" }}>{park.pname}</span>
+      //   </div>
+      // );
+    },
+    /**
+     * This is what the <input/> value is set to when you are selecting a suggestion.
+     */
+    getSuggestionValue(suggestion) {
+      return suggestion.item.pname;
+    },
+    // eslint-disable-next-line
+    focusMe(e) {
+      // console.log(e);
+    },
+
     getParkLink: parkId => `park/${parkId}`,
     async getParks() {
       if (this.$config.locationAllowed) {
@@ -133,8 +264,25 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<!-- scoped won't work here -->
+<style lang="scss">
 @import "../styles/variables.scss";
+// searchbox
+#autosuggest {
+  background: $primary-color;
+  #autosuggest__input {
+    width: 90%;
+    margin: 2%;
+  }
+}
+.autosuggest__results-container {
+  background: white;
+  padding-top: 20px;
+}
+.result_item {
+  border: 1px inset $dark-primary-color;
+  padding: 5px;
+}
 
 .list {
   background-color: $gray-super-light;
