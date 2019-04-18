@@ -16,7 +16,4 @@ const actions = {
   // },
 }
 
-export default {
-  namespaced: true,
-  actions,
-}
+export default actions;

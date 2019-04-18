@@ -1,12 +1,12 @@
+import {
+	SET_ALL_PARKS
+} from './mutation-types';
+
 const mutations = {
-  // incrementItemQuantity (state, { id }) {
-  //   const cartItem = state.items.find(item => item.id === id)
-  //   cartItem.quantity++
-  // },
+ [SET_ALL_PARKS]: (state, payload) => {
+   state.allParkNames = payload;
+ }
 
 }
 
-export default {
-  namespaced: true,
-  mutations
-}
+export default mutations;

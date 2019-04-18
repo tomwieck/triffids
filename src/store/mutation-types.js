@@ -1,0 +1,1 @@
+export const SET_ALL_PARKS = 'SET_ALL_PARKS';

@@ -5,16 +5,20 @@ import actions from './actions'
 import mutations from './mutations'
 import getters from './getters'
 
+import boostrapDataPlugin from '../services/bootstrap-park-data'
+
+
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
-  modules: {
-    state,
-    actions,
-    mutations,
-    getters,
-  },
+  state: state,
+  actions,
+  mutations,
+  getters,
+  plugins: [
+  	boostrapDataPlugin,
+  ],
   strict: debug,
 })
