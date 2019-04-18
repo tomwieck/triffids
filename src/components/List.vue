@@ -13,10 +13,6 @@
           <div class="list-item__inner" :style="getParkPhoto(park.id)">
             <div class="list-item__details">
               <h3 class="list-item__header">{{ park.siteName }}</h3>
-              <ul class="list-item__stats-container">
-                <li class="list-item__stats">{{park.unique_trees}} Unique species</li>
-                <li class="list-item__stats">{{park.total_trees}} Total trees</li>
-              </ul>
             </div>
           </div>
         </router-link>
