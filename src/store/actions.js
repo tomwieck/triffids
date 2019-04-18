@@ -1,22 +1,3 @@
-
-// initial state
-// allParkNames: [{ parkCode, fullParkName }]
-// currentPark: parkCode
-const state = {
-  allParkNames: [],
-  currentPark: null
-}
-
-// getters
-const getters = {
-  // cartTotalPrice: (state, getters) => {
-  //   return getters.cartProducts.reduce((total, product) => {
-  //     return total + product.price * product.quantity
-  //   }, 0)
-  // }
-}
-
-// actions
 const actions = {
   // checkout ({ commit, state }, products) {
   //   const savedCartItems = [...state.items]
@@ -35,19 +16,7 @@ const actions = {
   // },
 }
 
-// mutations
-const mutations = {
-  // incrementItemQuantity (state, { id }) {
-  //   const cartItem = state.items.find(item => item.id === id)
-  //   cartItem.quantity++
-  // },
-
-}
-
 export default {
   namespaced: true,
-  state,
-  getters,
   actions,
-  mutations
 }
