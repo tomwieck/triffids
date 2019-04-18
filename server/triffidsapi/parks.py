@@ -49,7 +49,7 @@ def getPark(code):
 
 def getAllParkNames(page, lat=0, long=0):
     totalNumParks = str(getTotalNumParks())
-    parksPerPage = 8
+    parksPerPage = 80
     lowestBoundary = (parksPerPage * page) - parksPerPage
     highestBoundary = parksPerPage * page - 1
     flds = '&fields=site_code,site_name&rows=' + totalNumParks
@@ -65,16 +65,9 @@ def getAllParkNames(page, lat=0, long=0):
             continue
         parkData = record['fields']
 
-        totalTrees, uniqueTrees = trees.getTreeNumbers(parkData['site_code'])
-
-        if totalTrees == 0:
-            continue
-
         parkNames.append({
             'id': str(parkData['site_code']),
             'siteName': str(parkData['site_name']),
-            'unique_trees': str(uniqueTrees),
-            'total_trees': str(totalTrees)
         })
 
     if parkNames:
@@ -100,19 +93,12 @@ def getNearestParks(lat, lng, radius):
         parkData = record['fields']
         parkCode = str(record['fields']['site_code'])
 
-        totalTrees, uniqueTrees = trees.getTreeNumbers(parkCode)
-
-        if totalTrees == 0:
-            continue
-
         parks.append({
             'id': str(parkData['site_code']),
             'siteName': str(parkData['site_name']),
             'lat': parkData['geo_point_2d'][0],
             'lng': parkData['geo_point_2d'][1],
             'dist': parkData['dist'],
-            'total_trees': totalTrees,
-            'unique_trees': uniqueTrees
         })
 
     if parks:

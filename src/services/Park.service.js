@@ -48,7 +48,7 @@ function park(parkId) {
  * @param {string} lng longitude
  * @param {number} rad within this radius, default 300m
  */
-function nearestParks(page = 1, lat = 0, lng = 0, rad = 300) {
+function nearestParks(page = 1, lat = 0, lng = 0, rad = 3000) {
     const url = `${Vue.config.API_URL}/parks?lat=${lat}&lng=${lng}&rad=${rad * page}`;
     return http.get(url)
         .then((resp) => {
