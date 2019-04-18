@@ -5,6 +5,7 @@ const getters = {
   //   }, 0)
   // }
 }
+
 export default {
   namespaced: true,
   getters,
