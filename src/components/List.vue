@@ -3,8 +3,9 @@
     <Header v-bind:title="'Parks'"/>
 
     <vue-autosuggest
+      v-if="doSearch"
       :suggestions="filteredOptions"
-      :input-props="{id:'autosuggest__input', class: 'suggin', onInputChange: onInputChange, placeholder:'Search for a park by name'}"
+      :input-props="{id:'autosuggest__input', class: 'suggin', onInputChange: onSearchInputChange, placeholder:'Search for a park by name'}"
       @selected="onSelected"
       :get-suggestion-value="getSuggestionValue"
     >
@@ -23,7 +24,7 @@
       </template>
     </vue-autosuggest>
 
-    <!-- <ul class="list__container">
+    <ul class="list__container" v-if="!doSearch">
       <li v-for="park in parks" v-bind:key="park.id">
         <router-link :to="{
             path: getParkLink(park.id),
@@ -44,8 +45,13 @@
         <div></div>
       </span>
       <span v-if="maxDistReached">No more parks found!</span>
-    </ul>-->
-    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()">
+    </ul>
+
+    <Modal
+      v-if="showModal"
+      @close="showModal = false; doSearch = true"
+      @confirm="requestUsersLocation()"
+    >
       <h3 slot="header">Get location</h3>
       <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
     </Modal>
@@ -73,6 +79,7 @@ export default {
       foundParksByLocation: false,
       maxDistReached: false,
       showModal: false,
+      doSearch: false,
       filteredOptions: [],
       suggestions: null
     };
@@ -100,7 +107,7 @@ export default {
       this.suggestions = await parkService.parkList();
     },
     // eslint-disable-next-line
-    onInputChange(text, oldText) {
+    onSearchInputChange(text, oldText) {
       if (text === null || text.length < 2) {
         /* Maybe the text is null but you wanna do
          *  something else, but don't filter by null.
@@ -179,6 +186,7 @@ export default {
     requestUsersLocation() {
       this.showModal = false;
       this.loading = true;
+      this.doSearch = false;
       this.$config.locationAllowed = true;
       this.parks = [];
       this.getParks();
