@@ -40,16 +40,15 @@ export default {
   data() {
     return {
       url:
-        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+        "https://api.mapbox.com/styles/v1/joshjarr/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}",
       // url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-
       oldCenter: [0, 0],
       center: [this.park.lat, this.park.lng],
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 17,
       bounds: null,
-      id: "mapbox.outdoors", // can be: streets, satellite, light, dark, outdoors
+      id: "cjuty2lxl4uig1fphqiwph7oq", // can be: streets, satellite, light, dark, outdoors
       token:
         "pk.eyJ1IjoiamFsYWxza2kiLCJhIjoiY2pvd3d3bm40MXcxczNrbzlyazB2ZDVobyJ9.wV99nDE6dCfGjMUrEIjgFQ",
       mymap: null,
@@ -241,4 +240,3 @@ export default {
   z-index: 1;
 }
 </style>
-
