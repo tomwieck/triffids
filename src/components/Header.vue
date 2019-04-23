@@ -1,5 +1,5 @@
 <template>
-  <header class="header layer">
+  <header v-if="show" class="header layer">
     <router-link :to="{
       path: hasBack
     }">
@@ -8,6 +8,15 @@
       </span>
     </router-link>
     <h1 v-if="title">{{ title }}</h1>
+  </header>
+  <header v-else-if="!show" class="header header--hidden">
+    <router-link :to="{
+        path: hasBack
+      }">
+      <span title="Back" class="back-btn" v-if="hasBack">
+        <Chevron class="rotate"/>
+      </span>
+    </router-link>
   </header>
 </template>
 
@@ -20,6 +29,10 @@ export default {
     title: {
       type: String,
       default: ""
+    },
+    show: {
+      type: Boolean,
+      default: true
     },
     hasBack: {
       type: String,
@@ -45,6 +58,18 @@ export default {
   top: 0;
   width: 100%;
   z-index: 99;
+  transition: background .2s ease;
+
+  &--hidden {
+    background: transparent;
+    .back-btn {
+      background: white;
+      box-shadow: 0px 2px 5px 0px rgba(0,0,0,.25);
+      svg #Park-view-with-info {
+        fill: rgb(27, 201, 152) !important;
+      }
+    }
+  }
 
   > h1 {
     color: white;
@@ -52,22 +77,31 @@ export default {
 }
 
 .back-btn {
-  width: 32px;
-  height: 32px;
   position: absolute;
-  top: 10%;
-  left: 1%;
   font-size: 3em;
   color: white;
-
+  top: 0;
+  line-height: 1.5em;
+  height: 2.5rem;
+  width: 2.5rem;
+  left: .25rem;
+  top: .25rem;
+  background: transparent;
+  border-radius: 100%;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0);
+  transition: all .2s ease;
   svg {
     transform: rotate(180deg);
     width: auto;
     height: 18px;
+    position: relative;
+    left: -2px;
+    top: -2px;
 
     // Specific selection to target SVG element
     #Park-view-with-info {
       fill: white !important;
+      transition: fill .2s ease;
     }
   }
 }
