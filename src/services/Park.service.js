@@ -14,9 +14,7 @@ export const parkService = {
  * empty if nothing found
  */
 function parks(page = 1) {
-    console.log(Vue.config);
     const url = `http://127.0.0.1:5000/api/v1/parks?page=${page}`;
-    console.log(url);
     return http.get(url)
         .then((resp) => {
             return resp.data;

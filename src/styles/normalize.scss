@@ -4,8 +4,6 @@ body {
   @supports (font-variation-settings: normal) {
     font-family: 'Inter var', sans-serif;
   }
-  margin-top: 3rem;
-
 }
 
 h1, h2, h3, h4, h5 {
@@ -16,4 +14,11 @@ ul {
   list-style-type: none;
   display: inline;
   padding-inline-start: 0;
+}
+
+// A couple of overwrites to style leaflet as we want it
+.leaflet-control-scale.leaflet-control,
+.leaflet-control-attribution.leaflet-control,
+.leaflet-top.leaflet-left {
+  display: none !important;
 }

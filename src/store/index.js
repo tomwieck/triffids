@@ -18,7 +18,7 @@ export default new Vuex.Store({
   mutations,
   getters,
   plugins: [
-  	boostrapDataPlugin,
+    boostrapDataPlugin,
   ],
   strict: debug,
 })

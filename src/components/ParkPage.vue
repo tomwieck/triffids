@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header v-bind:title="parkName" v-bind:hasBack="backLink"/>
+    <Header v-bind:show="drawerState" v-bind:title="parkName" v-bind:hasBack="backLink"/>
     <div class="content">
       <Tmap v-if="park" :park="park" :drawerState="drawerState" @close-drawer="mapActive"/>
       <ParkDrawer @toggle-drawer="toggleDrawer" :park="park" ref="parkDrawer"/>
@@ -47,7 +47,7 @@ export default {
 
     toggleDrawer: function(event) {
       // event === true is drawer visible
-      this.drawerState = event;
+      this.drawerState = Boolean(event);
       if (event) {
         this.$log.info("ParkPage: Drawer opened");
       } else {

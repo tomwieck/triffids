@@ -19,9 +19,7 @@ export default new Router({
             name: 'Parks',
             component: List,
             beforeEnter: (to, from, next) => {
-              console.log('called');
                 apiRequestPromise.then(() => {
-                  console.log('complete')
                   next();
                 })
             }

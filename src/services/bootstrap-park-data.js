@@ -9,10 +9,8 @@ export const apiRequestPromise = new Promise((resolve) => {
 });
 
 export default async function bootstrapDataPlugin(store) {
-	console.log(parkService);
 	await parkService.parks()
 		.then((allParksData) => {
-			console.log(allParksData);
 			store.commit(SET_ALL_PARKS, allParksData);
 			resolveApiRequest && resolveApiRequest();
 		});
