@@ -31,7 +31,7 @@ def test_client_exists(client):
 def test_get_all_park_names(client):
     js = client.get('/api/v1/parks')
     data = json.loads(js.data)
-    assert 'ABONDAA' == data[0]['id']
+    assert 'ADELPL' == data[0]['id']
 
 
 def test_client_get_park(client):

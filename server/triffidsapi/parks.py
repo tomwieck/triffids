@@ -148,4 +148,6 @@ def getTotalNumParks():
 
 # (getAllParkNames(1))
 
+print(getAllParkNames(1))
+
 # getParkInfo('VICTKPA')
