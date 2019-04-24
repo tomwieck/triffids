@@ -44,10 +44,12 @@ def getPark(parkCode):
     return jsonify(response)
 
 
-@api.route('/parks/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
-def getNearestParks(lat, lng, radius):
+@api.route('/parks/loc', methods=['GET'])
+def getNearestParks():
     lat = request.args.get('lat') or 0
     lng = request.args.get('lng') or 0
+    radius = request.args.get('radius')
+
     response = parks.getNearestParks(lat, lng, radius)
     print(response)
     if not response:
@@ -63,8 +65,10 @@ def getParkInfo(parkCode):
     return response
 
 
-@api.route('/tree/<string:treeId>', methods=['GET'])
-def getTree(treeId):
+@api.route('/trees', methods=['GET'])
+def getTree():
+    treeId = request.args.get('id')
+
     response = trees.getTreeById(treeId)
     if not response:
         abort(404)
@@ -86,17 +90,26 @@ def getTrees(parkCode):
     return jsonify(response)
 
 
-@api.route('/trees/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
-def getTreesByLocation(lat, lng, radius):
+@api.route('/trees/loc', methods=['GET'])
+def getTreesByLocation():
+    lat = request.args.get('lat')
+    lng = request.args.get('lng')
+    radius = request.args.get('radius')
+
     response = trees.getTreesByLocation(lat, lng, radius)
     if not response:
         abort(404)
     return jsonify(response)
 
 
-@api.route('/benches/lat=<string:lat>&lng=<string:lng>&radius=<string:radius>', methods=['GET'])
-def getBenches(lat, lng, radius):
+@api.route('/benches/loc', methods=['GET'])
+def getBenches():
+    lat = request.args.get('lat')
+    lng = request.args.get('lng')
+    radius = request.args.get('radius')
+
     response = benches.getBenches(lat, lng, radius)
+
     if not response:
         abort(404)
     return jsonify(response)
