@@ -15,7 +15,6 @@ require("leaflet.locatecontrol");
 
 const personIcon = L.Icon.extend({
   options: {
-    iconUrl: require("../assets/person-marker.png"),
     iconSize: [24, 24],
     shadowSize: [24, 24],
     iconAnchor: [20, 12],
@@ -206,13 +205,6 @@ export default {
     }).addTo(this.mymap);
     this.mymap.panBy([0, window.innerHeight / 3]); // TODO: this is an estimate!
     this.oldCenter = this.center;
-
-    const personOptions = {
-      icon: new personIcon(),
-      title: "You are here",
-      alt: "You are here!"
-    };
-    this.person = L.marker(this.center, personOptions).addTo(this.mymap);
 
     this.mymap.on("click", this.mapClicked);
     this.mymap.on("zoomend", this.zoomUpdated);
