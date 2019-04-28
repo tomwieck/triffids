@@ -75,6 +75,7 @@ export default {
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 3px;
+
   .icon {
     grid-column: 1;
     grid-row: 1 / 3;
@@ -90,6 +91,7 @@ export default {
     justify-self: start;
     align-self: start;
     color: $dark-primary-color;
+    text-align: left;
   }
   .label {
     font-size: 0.8em;

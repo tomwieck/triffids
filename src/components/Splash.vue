@@ -1,10 +1,9 @@
 <template>
-  <main class="main">
+  <main class="splash-screen">
     <img
+      class="splash-screen__image"
       :src="image"
       alt="Triffids"
-      width="300"
-      style="display:block; margin: 0 auto; margin-top: 4em;"
     >
   </main>
 </template>
@@ -14,13 +13,13 @@ import image from "../assets/logo.png";
 
 export default {
   name: "splash",
-  data: function() {
+  data: () => {
     return {
       image: image
     };
   },
 
-  mounted: function() {
+  mounted() {
     if (this.$config.hasGeolocation) {
       this.checkLocation();
     } else {
@@ -32,16 +31,16 @@ export default {
     this.checkLocation();
   },
   methods: {
-    checkLocation: function() {
+    checkLocation() {
       navigator.geolocation.getCurrentPosition(
         position => {
           this.$log.info("Geolocation SUCCESS!", position);
           this.$config.locationAllowed = true;
-          window.location.href = "/#/parks";
+          this.$router.push('parks');
         },
         () => {
           this.$log.info("Geolocation FAILED!");
-          window.location.href = "/#/parks";
+          this.$router.push('parks');
         }
       );
     }
@@ -49,59 +48,20 @@ export default {
 };
 </script>
 
-<style scoped>
-ul {
-  padding: 0 1em;
-}
+<style lang="scss" scoped>
+@import "../styles/variables.scss";
 
-.main {
-  background: #098e38;
-  margin: 0;
-  margin-top: -60px;
-  text-decoration: none;
-  padding: 0.1em;
-  min-height: 100vh;
-}
-
-a {
-  text-decoration: none;
-  text-align: left;
-  color: #4d6576;
-  cursor: pointer;
-}
-
-h3 {
-  font-size: 1.4em;
-  color: green;
-  margin: 0;
-}
-
-li {
-  list-style-type: none;
-  background: white;
-  border-radius: 10px;
-  margin: 1em auto;
-  padding: 1.5em;
-  max-width: 600px;
-}
-
-.small {
-  display: block;
-  font-size: 0.8em;
-}
-
-.stats {
+.splash-screen {
+  background: #1BC998;
   display: flex;
-}
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: -$header-height;
 
-.stats > span {
-  flex: 50%;
-  margin-top: 1em;
-  border-top: 2px solid #eee;
-  padding-top: 1em;
-}
-
-.stats > span > b {
-  color: green;
+  &__image {
+    max-width: 230px;
+    width: 100%;
+  }
 }
 </style>
