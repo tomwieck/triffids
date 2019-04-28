@@ -109,7 +109,7 @@ export default {
 
   .value {
     font-size: 1.4em;
-    font-weight: bold;
+    font-weight: 200;
     grid-column: 2;
     grid-row: 1;
     justify-self: start;
@@ -118,6 +118,7 @@ export default {
   }
 
   .label {
+    font-weight: 200;
     grid-column: 2;
     grid-row: 2;
     justify-self: start;
@@ -229,26 +230,21 @@ li {
 .parkinfo {
   text-align: left;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
+  font-size: 14px;
 
-  /deep/
-  h1 {
-    color: $title-green;
-    font-style: normal;
-    font-weight: 400;
-  }
 
   /deep/
   h2 {
-    color: $title-green;
-    font-weight: 600;
+    color: $dark-primary-color;
+    font-weight: 400;
     font-size: 18px;
   }
 
   /deep/
   h3 {
-    color: $title-green;
-    font-weight: 600;
+    color: $dark-primary-color;
+    font-weight: 300;
     font-size: 16px;
   }
 
@@ -256,9 +252,15 @@ li {
   ul {
     list-style: circle;
   }
+
   /deep/
   li {
     margin-inline-start: 20px;
+  }
+
+  /deep/
+  a {
+    color: $dark-primary-color;
   }
 }
 </style>
