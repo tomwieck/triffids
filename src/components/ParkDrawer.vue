@@ -3,7 +3,6 @@
     <button class="drawer__button" @click="drawerToggle">
       <Chevron class="rotate"/>
     </button>
-    <h1 class="drawer__header">{{ parkName }}</h1>
     <div class="drawer__trees">
       <div class="factbox">
         <div class="icon">
@@ -22,7 +21,6 @@
     </div>
     <hr>
     <div class="drawer__about">
-      <h2>General info</h2>
       <div class="parkinfo" v-html="parkText"></div>
       <hr>
       <div class="drawer__report">
@@ -94,9 +92,8 @@ export default {
 .factbox {
   width: 50%;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 50px 3fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: 3px;
 
   .icon {
     grid-column: 1;
@@ -188,18 +185,12 @@ export default {
 
   &__trees {
     display: flex;
-    padding: 0 22pt;
   }
 
   &__tree {
     text-align: left;
     width: 50%;
   }
-}
-
-.drawer__tree-title {
-  color: $title-green;
-  font-weight: 400;
 }
 
 hr {
@@ -231,6 +222,44 @@ li {
       left: 6px;
       top: 8px;
     }
+  }
+}
+
+.parkinfo {
+  text-align: left;
+  font-weight: normal;
+  font-style: normal;
+  font-weight: 400;
+
+  /deep/
+  h1 {
+    color: $title-green;
+    font-weight: normal;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /deep/
+  h2 {
+    color: $title-green;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  /deep/
+  h3 {
+    color: $title-green;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  /deep/
+  ul {
+    list-style: circle;
+  }
+  /deep/
+  li {
+    margin-inline-start: 20px;
   }
 }
 </style>
