@@ -3,6 +3,7 @@
     <button class="drawer__button" @click="drawerToggle">
       <Chevron class="rotate"/>
     </button>
+    <h1 class="drawer__header">{{ parkName }}</h1>
     <div class="drawer__trees">
       <div class="factbox">
         <div class="icon">
