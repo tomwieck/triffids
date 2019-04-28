@@ -1,6 +1,10 @@
 <template>
   <div id="mapid">
     <CircleSpinner v-if="loading" size="large"></CircleSpinner>
+    <TreePopup
+      :is-popup-visible="isPopupVisible"
+      :tree-data="treeData"
+      :park-id="park.id"></TreePopup>
   </div>
 </template>
 
@@ -11,22 +15,17 @@ import { CircleSpinner } from "vue-spinners";
 import { treeIconService as treeIcons } from "../services/TreeIcon.service";
 import { treePhotoService as treePhotos } from "../services/TreePhoto.service";
 import { treeService } from "../services/Tree.service";
+
+import TreePopup from './TreePopup.vue'
 require("leaflet.locatecontrol");
 
-const personIcon = L.Icon.extend({
-  options: {
-    iconSize: [24, 24],
-    shadowSize: [24, 24],
-    iconAnchor: [20, 12],
-    shadowAnchor: [0, 0],
-    popupAnchor: [-3, -64],
-    className: "personicon"
-  }
-});
 
 export default {
   name: "Tmap",
-  components: { CircleSpinner },
+  components: {
+    CircleSpinner,
+    TreePopup,
+  },
   props: {
     park: {
       type: Object
@@ -54,7 +53,9 @@ export default {
       trees: null,
       treeCount: 0,
       loading: true,
-      person: null
+      person: null,
+      isPopupVisible: false,
+      treeData: {},
     };
   },
   watch: {
@@ -69,25 +70,6 @@ export default {
       this.$log.info("Tmap:resetPosition: ", moveBy);
       this.mymap.panBy([0, moveBy]);
       this.oldCenter = this.mymap.getCenter();
-    },
-    treeModal: function(data) {
-      // this.$log.info("Tmap:treeModal: data: ", data);
-      let imgsrc = treePhotos.getPhotoFor(data.name);
-      const backLink = `/park/${this.$route.params.parkId}`;
-      let link;
-      if (data.latin_code === "NA") {
-        link = "#";
-      } else {
-        link = `/#/tree/${data.latin_code}/${data.id}?back=${backLink}`;
-      }
-
-      return `<div class="tree-modal">
-            <img src="${imgsrc}"/>
-            <div class="full-name">${data.full_name}</div>
-            <div class="latin-name">${data.latin}</div>
-            <a href="${link}"
-            class="button">Find out more</a>
-        </div>`;
     },
     resize: function(full) {
       // not currently used...
@@ -110,7 +92,10 @@ export default {
     },
     mapClicked() {
       this.$log.info("Tmap:mapClicked triggered");
+
+      this.treeData = {};
       this.$emit("close-drawer", false);
+      this.isPopupVisible = false;
     },
     zoomUpdated() {
       this.$log.info("Tmap:zoomUpdated triggered");
@@ -174,7 +159,11 @@ export default {
         };
         L.marker([tree.geo_point.lat, tree.geo_point.lng], options)
           .addTo(this.mymap)
-          .bindPopup(this.treeModal(tree), popupOptions);
+          .on('click', (e) => {
+            this.isPopupVisible = true;
+            this.treeData = tree;
+            this.$emit("close-drawer", false);
+          })
       }, this);
       this.$log.info(`Tmap:loadTrees ${this.treeCount} loaded`);
       this.loading = false;

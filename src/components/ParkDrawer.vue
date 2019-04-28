@@ -228,14 +228,12 @@ li {
 
 .parkinfo {
   text-align: left;
-  font-weight: normal;
   font-style: normal;
   font-weight: 400;
 
   /deep/
   h1 {
     color: $title-green;
-    font-weight: normal;
     font-style: normal;
     font-weight: 400;
   }
