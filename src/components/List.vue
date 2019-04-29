@@ -53,6 +53,7 @@ export default {
   },
   beforeMount() {
     this.showModal = !this.$config.locationAllowed;
+    this.getParks()
     if (this.showModal) {
       this.getParks();
     }
