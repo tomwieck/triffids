@@ -76,8 +76,7 @@ export default {
     }
   },
   methods: {
-    getTreePhoto(treeName) {
-      let returnVal;
+    getTreePhoto() {
       let img = treePhotos.getPhotoFor(this.treeData.name);
       return `background-image: url(${img};`;
     },

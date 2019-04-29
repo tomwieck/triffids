@@ -13,7 +13,6 @@ import L from "leaflet";
 import { CircleSpinner } from "vue-spinners";
 
 import { treeIconService as treeIcons } from "../services/TreeIcon.service";
-import { treePhotoService as treePhotos } from "../services/TreePhoto.service";
 import { treeService } from "../services/Tree.service";
 
 import TreePopup from './TreePopup.vue'
@@ -138,12 +137,6 @@ export default {
         };
       });
       this.treeCount = response.length;
-      const popupOptions = {
-        minWidth: 200,
-        maxWidth: 400,
-        keepInView: true,
-        className: "tree-modal"
-      };
       this.trees.forEach(function(tree) {
         if (tree.latin_code === "NA") {
           tree.name = "Unknown";
@@ -159,7 +152,7 @@ export default {
         };
         L.marker([tree.geo_point.lat, tree.geo_point.lng], options)
           .addTo(this.mymap)
-          .on('click', (e) => {
+          .on('click', () => {
             this.isPopupVisible = true;
             this.treeData = tree;
             this.$emit("close-drawer", false);
