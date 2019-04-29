@@ -20,6 +20,7 @@ export default {
   },
 
   mounted() {
+    console.log('splash')
     if (this.$config.hasGeolocation) {
       this.checkLocation();
     } else {

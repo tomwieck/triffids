@@ -163,11 +163,11 @@ export default {
     }
   },
   mounted: async function() {
+    console.log(this.center)
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
     this.mymap = L.map("mapid");
     this.mymap.on("load", this.mapLoaded); // order is important
-    this.mymap.setView(this.center, this.zoom);
     L.control.scale({ position: "topright" }).addTo(this.mymap);
     const loc = L.control
       .locate({
@@ -176,8 +176,9 @@ export default {
         enableHighAccuracy: true
       })
       .addTo(this.mymap);
-    //loc.stop(); // not needed except for linting.
-    loc.start(); // not needed except for linting.
+    // loc.start(); // not needed except for linting.
+    // loc.stop(); // not needed except for linting.
+    this.mymap.setView(this.center, this.zoom);
 
     L.tileLayer(this.url, {
       attribution: this.attribution,
