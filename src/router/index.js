@@ -14,7 +14,7 @@ export default new Router({
         },
         {
             path: '/parks',
-            name: 'Parks',
+            name: 'parks',
             component: List,
         },
         {

@@ -22,7 +22,6 @@
     </div>
     <hr>
     <div class="drawer__about">
-      <h2>General info</h2>
       <div class="parkinfo" v-html="parkText"></div>
       <hr>
       <div class="drawer__report">
@@ -94,9 +93,8 @@ export default {
 .factbox {
   width: 50%;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 50px 3fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: 3px;
 
   .icon {
     grid-column: 1;
@@ -111,7 +109,7 @@ export default {
 
   .value {
     font-size: 1.4em;
-    font-weight: bold;
+    font-weight: 200;
     grid-column: 2;
     grid-row: 1;
     justify-self: start;
@@ -120,6 +118,7 @@ export default {
   }
 
   .label {
+    font-weight: 200;
     grid-column: 2;
     grid-row: 2;
     justify-self: start;
@@ -188,18 +187,12 @@ export default {
 
   &__trees {
     display: flex;
-    padding: 0 22pt;
   }
 
   &__tree {
     text-align: left;
     width: 50%;
   }
-}
-
-.drawer__tree-title {
-  color: $title-green;
-  font-weight: 400;
 }
 
 hr {
@@ -231,6 +224,43 @@ li {
       left: 6px;
       top: 8px;
     }
+  }
+}
+
+.parkinfo {
+  text-align: left;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+
+
+  /deep/
+  h2 {
+    color: $dark-primary-color;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  /deep/
+  h3 {
+    color: $dark-primary-color;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  /deep/
+  ul {
+    list-style: circle;
+  }
+
+  /deep/
+  li {
+    margin-inline-start: 20px;
+  }
+
+  /deep/
+  a {
+    color: $dark-primary-color;
   }
 }
 </style>

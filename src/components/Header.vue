@@ -34,11 +34,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import "../styles/variables.scss";
+
 .header {
   background: rgb(27, 201, 152);
   color: white;
   font-size: 0.6em;
-  height: 3rem;
+  height: $header-height;
   left: 0;
   position: fixed;
   text-align: center;
