@@ -86,7 +86,10 @@ export default {
   },
   beforeMount() {
     this.showModal = !this.$config.locationAllowed;
-    this.getParks();
+    this.getParks()
+    if (this.showModal) {
+      this.getParks();
+    }
   },
   mounted() {
     this.getParkList();

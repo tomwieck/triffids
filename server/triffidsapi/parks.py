@@ -163,11 +163,3 @@ def getTotalNumParks():
     response = requests.get(base_url + dataset + '&rows=0')
     response = response.json()
     return response['nhits']
-
-# print(getPark('VICTPA'))
-
-# print(getNearestParks(51.44,-2.587,600))
-
-# (getAllParkNames(1))
-
-# getParkInfo('VICTKPA')
