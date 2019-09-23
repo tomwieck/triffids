@@ -137,6 +137,28 @@ def getParkInfo(parkCode):
     return data
 
 
+def getParkList():
+    totalNumParks = str(getTotalNumParks())
+    flds = '&fields=site_code,site_name&rows=' + totalNumParks
+
+    response = requests.get(base_url + dataset + flds)
+    response = response.json()
+    parkNames = []
+    recs = response['records']
+    for index, record in enumerate(sorted(recs, key=lambda x: x['fields']['site_name'])):
+        parkData = record['fields']
+
+        parkNames.append({
+            'id': str(parkData['site_code']),
+            'siteName': str(parkData['site_name'])
+        })
+
+    if parkNames:
+        return parkNames
+    else:
+        return []
+
+
 def getTotalNumParks():
     response = requests.get(base_url + dataset + '&rows=0')
     response = response.json()

@@ -169,15 +169,15 @@ export default {
     this.mymap = L.map("mapid");
     this.mymap.on("load", this.mapLoaded); // order is important
     L.control.scale({ position: "topright" }).addTo(this.mymap);
-    const loc = L.control
-      .locate({
-        icon: "map-location-control",
-        iconLoading: "map-location-control-loading",
-        enableHighAccuracy: true
-      })
-      .addTo(this.mymap);
-    // loc.start(); // not needed except for linting.
-    // loc.stop(); // not needed except for linting.
+    if (this.$config.locationAllowed) {
+      L.control
+        .locate({
+          icon: "map-location-control",
+          iconLoading: "map-location-control-loading",
+          enableHighAccuracy: true
+        })
+        .addTo(this.mymap);
+    }
     this.mymap.setView(this.center, this.zoom);
 
     L.tileLayer(this.url, {

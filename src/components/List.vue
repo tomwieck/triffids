@@ -1,11 +1,30 @@
 <template>
   <main class="list">
     <Header v-bind:title="'Parks'"/>
-    <Modal v-if="showModal" @close="showModal = false" @confirm="requestUsersLocation()">
-      <h3 slot="header">Get location</h3>
-      <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
-    </Modal>
-    <ul class="list__container">
+
+    <vue-autosuggest
+      v-if="doSearch"
+      :suggestions="filteredOptions"
+      :input-props="{id:'autosuggest__input', class: 'suggin', onInputChange: onSearchInputChange, placeholder:'Search for a park by name'}"
+      @selected="onSelected"
+      :get-suggestion-value="getSuggestionValue"
+    >
+      <template slot-scope="{suggestion}">
+        <div class="list__container">
+          <!-- <router-link :to="{path: getParkLink(suggestion.item.id)}" class="list-item"> -->
+          <a :href="getParkLink(suggestion.item.id)" class="list-item">
+            <div class="list-item__inner" :style="getParkPhoto(suggestion.item.id)">
+              <div class="list-item__details">
+                <h3 class="list-item__header">{{ suggestion.item.siteName }}</h3>
+              </div>
+            </div>
+          </a>
+          <!-- </router-link> -->
+        </div>
+      </template>
+    </vue-autosuggest>
+
+    <ul class="list__container" v-if="!doSearch">
       <li v-for="park in parks" v-bind:key="park.id">
         <router-link :to="{
             path: getParkLink(park.id),
@@ -27,6 +46,15 @@
       </span>
       <span v-if="maxDistReached">No more parks found!</span>
     </ul>
+
+    <Modal
+      v-if="showModal"
+      @close="showModal = false; doSearch = true"
+      @confirm="requestUsersLocation()"
+    >
+      <h3 slot="header">Get location</h3>
+      <p slot="body">Please allow this app to use your location to show you the nearest parks.</p>
+    </Modal>
   </main>
 </template>
 
@@ -34,12 +62,14 @@
 import Header from "./Header.vue";
 import Modal from "./Modal.vue";
 import { parkService } from "../services/Park.service";
+import { VueAutosuggest } from "vue-autosuggest";
 
 export default {
   name: "list",
   components: {
     Header,
-    Modal
+    Modal,
+    VueAutosuggest
   },
   data: () => {
     return {
@@ -48,7 +78,10 @@ export default {
       page: 1,
       foundParksByLocation: false,
       maxDistReached: false,
-      showModal: false
+      showModal: false,
+      doSearch: false,
+      filteredOptions: [],
+      suggestions: null
     };
   },
   beforeMount() {
@@ -59,6 +92,7 @@ export default {
     }
   },
   mounted() {
+    this.getParkList();
     window.onscroll = () => {
       if (
         window.innerHeight + window.scrollY >= document.body.offsetHeight &&
@@ -72,6 +106,33 @@ export default {
     };
   },
   methods: {
+    async getParkList() {
+      this.suggestions = await parkService.parkList();
+    },
+    // eslint-disable-next-line
+    onSearchInputChange(text, oldText) {
+      if (text === null || text.length < 2) {
+        /* Maybe the text is null but you wanna do
+         *  something else, but don't filter by null.
+         */
+        return;
+      }
+      // Full customizability over filtering
+      const filteredData = this.suggestions.filter(option => {
+        return option.siteName.toLowerCase().indexOf(text.toLowerCase()) > -1;
+      });
+      // Store data in one property, and filtered in another
+      this.filteredOptions = [{ data: filteredData }];
+    },
+    onSelected(sel) {
+      this.$router.push(this.getParkLink(sel.item.id));
+    },
+    /**
+     * This is what the <input/> value is set to when you are selecting a suggestion.
+     */
+    getSuggestionValue(suggestion) {
+      return suggestion.item.siteName;
+    },
     getParkLink: parkId => `park/${parkId}`,
     async getParks() {
       if (this.$config.locationAllowed) {
@@ -128,6 +189,7 @@ export default {
     requestUsersLocation() {
       this.showModal = false;
       this.loading = true;
+      this.doSearch = false;
       this.$config.locationAllowed = true;
       this.parks = [];
       this.getParks();
@@ -136,8 +198,25 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<!-- scoped won't work here -->
+<style lang="scss">
 @import "../styles/variables.scss";
+// searchbox
+#autosuggest {
+  background: $primary-color;
+  #autosuggest__input {
+    width: 90%;
+    margin: 2%;
+  }
+}
+.autosuggest__results-container {
+  background: white;
+  padding-top: 20px;
+}
+.result_item {
+  border: 1px inset $dark-primary-color;
+  padding: 5px;
+}
 
 .list {
   background-color: $gray-super-light;
