@@ -12,7 +12,7 @@
         "nuke": "rm -rf node_modules; rm -r dist/*"
     },
     "dependencies": {
-        "axios": "^0.19.0",
+        "axios": "^0.21.1",
         "leaflet": "^1.5.1",
         "leaflet.locatecontrol": "^0.67.0",
         "node-sass": "^4.12.0",
